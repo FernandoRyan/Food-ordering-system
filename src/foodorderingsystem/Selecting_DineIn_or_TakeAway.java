@@ -5,6 +5,10 @@
  */
 package foodorderingsystem;
 
+//Import classes
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Neranji Sulakshika
@@ -117,7 +121,14 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
         m.setVisible(true);
         this.hide();*/
     }//GEN-LAST:event_btnTakeAwayMousePressed
-
+    
+    private void formWindowOpened(java.awt.event.WindowEvent evt) 
+    {           
+        // This display the Frame into middle of the screen
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(screenSize.width, screenSize.height);
+    }              
+    
     /**
      * @param args the command line arguments
      */

@@ -5,6 +5,7 @@
  */
 package foodorderingsystem;
 
+//Import classes
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -727,8 +728,9 @@ public class Fastfoods extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCheckoutMouseExited
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-   this.setSize(screenSize.width, screenSize.height);
+        // This display the Frame into middle of the screen
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(screenSize.width, screenSize.height);
     }//GEN-LAST:event_formWindowOpened
 
     private void btnMealMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealMousePressed

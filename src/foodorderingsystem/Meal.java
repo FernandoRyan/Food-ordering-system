@@ -552,7 +552,7 @@ public class Meal extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-   this.setSize(screenSize.width, screenSize.height);
+        this.setSize(screenSize.width, screenSize.height);
     }//GEN-LAST:event_formWindowOpened
 
     /**
