@@ -474,7 +474,7 @@ public class Meal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void friedrice(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_friedrice
-    Friedrice fp= new Friedrice();
+    POPUP_Message_FriedRice fp= new POPUP_Message_FriedRice();
        fp.setVisible(true);
     }//GEN-LAST:event_friedrice
 
@@ -483,12 +483,12 @@ public class Meal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void Ricecurrybtn(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ricecurrybtn
-       Ricecurry Rc= new Ricecurry();
+       POPUP_Message_Rice_and_Curry Rc= new POPUP_Message_Rice_and_Curry();
        Rc.setVisible(true);
     }//GEN-LAST:event_Ricecurrybtn
 
     private void Kottubtn(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Kottubtn
-      Kottupop Kp= new Kottupop();
+      POPUP_Message_Kottu Kp= new POPUP_Message_Kottu();
       Kp.setVisible(true);
     }//GEN-LAST:event_Kottubtn
 
@@ -533,13 +533,13 @@ public class Meal extends javax.swing.JFrame {
     }//GEN-LAST:event_MealbtnMouseEntered
 
     private void FFbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FFbtnMouseEntered
-       FASTFOOD ff= new FASTFOOD ();
+       Fastfoods ff= new Fastfoods ();
        ff.setVisible(true);
        this.hide();
     }//GEN-LAST:event_FFbtnMouseEntered
 
     private void APBTNMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_APBTNMouseEntered
-        appetizer ap= new appetizer();
+        Appetizers ap= new Appetizers();
         ap.setVisible(true);
         this.hide();
     }//GEN-LAST:event_APBTNMouseEntered
@@ -580,6 +580,9 @@ public class Meal extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Meal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
