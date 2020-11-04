@@ -430,6 +430,9 @@ public class Fastfoods extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnCheckoutMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnCheckoutMousePressed(evt);
+            }
         });
         btnCheckout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -758,6 +761,12 @@ public class Fastfoods extends javax.swing.JFrame {
         // Only in this page
         this.setVisible(true);
     }//GEN-LAST:event_btnFastfoodMousePressed
+
+    private void btnCheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMousePressed
+        Order_Details od = new Order_Details();
+        od.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_btnCheckoutMousePressed
 
     /**
      * @param args the command line arguments
