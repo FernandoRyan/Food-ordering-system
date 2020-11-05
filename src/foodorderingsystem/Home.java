@@ -82,8 +82,8 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Orderbtn(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Orderbtn
-      Meal ml = new Meal();
-      ml.setVisible(true);
+      Selecting_DineIn_or_TakeAway sdt = new Selecting_DineIn_or_TakeAway();
+      sdt.setVisible(true);
       this.hide();
     }//GEN-LAST:event_Orderbtn
 

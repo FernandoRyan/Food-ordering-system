@@ -50,6 +50,9 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
         btnDineIn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDineIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDineIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDineInMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnDineInMousePressed(evt);
             }
@@ -70,6 +73,9 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
         btnTakeAway.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnTakeAway.setPreferredSize(new java.awt.Dimension(149, 58));
         btnTakeAway.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnTakeAwayMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnTakeAwayMousePressed(evt);
             }
@@ -109,18 +115,26 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTakeAwayActionPerformed
 
     private void btnDineInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDineInMousePressed
-        //Shifting to the Menu page
-        /*Menu m = new Menu();
-        m.setVisible(true);
-        this.hide();*/
+
     }//GEN-LAST:event_btnDineInMousePressed
 
     private void btnTakeAwayMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTakeAwayMousePressed
-        //Shifting to the Menu page
-        /*Menu m = new Menu();
-        m.setVisible(true);
-        this.hide();*/
+
     }//GEN-LAST:event_btnTakeAwayMousePressed
+
+    private void btnDineInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDineInMouseClicked
+        //Shifting to the Meal page
+        Meal ml = new Meal();
+        ml.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_btnDineInMouseClicked
+
+    private void btnTakeAwayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTakeAwayMouseClicked
+        //Shifting to the Meal page
+        Meal ml = new Meal();
+        ml.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_btnTakeAwayMouseClicked
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) 
     {           
