@@ -109,17 +109,16 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTakeAwayActionPerformed
 
     private void btnDineInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDineInMousePressed
-        //Shifting to the Menu page
-        /*Menu m = new Menu();
-        m.setVisible(true);
-        this.hide();*/
+       
+       Meal ml= new Meal();
+       ml.show();
+       this.hide();
     }//GEN-LAST:event_btnDineInMousePressed
 
     private void btnTakeAwayMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTakeAwayMousePressed
-        //Shifting to the Menu page
-        /*Menu m = new Menu();
-        m.setVisible(true);
-        this.hide();*/
+       Meal ml= new Meal();
+       ml.show();
+       this.hide();
     }//GEN-LAST:event_btnTakeAwayMousePressed
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) 
