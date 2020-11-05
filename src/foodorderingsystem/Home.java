@@ -57,14 +57,12 @@ public class Home extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 204, 0));
         jButton1.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
         jButton1.setText("Order Now");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Orderbtn(evt);
             }
         });
-        Bgpanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 580, 280, 60));
+        Bgpanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 580, 280, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/wa.jpg"))); // NOI18N
         Bgpanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, -1, -1));
@@ -84,9 +82,9 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Orderbtn(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Orderbtn
-      Selecting_DineIn_or_TakeAway sdt = new Selecting_DineIn_or_TakeAway();
-      sdt.setVisible(true);
-      this.hide();
+     Selecting_DineIn_or_TakeAway TK= new Selecting_DineIn_or_TakeAway();
+     TK.show();
+     this.hide();
     }//GEN-LAST:event_Orderbtn
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

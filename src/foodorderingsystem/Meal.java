@@ -97,6 +97,9 @@ public class Meal extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 FFbtnMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                FFbtnMousePressed(evt);
+            }
         });
 
         Mealbtn.setBackground(new java.awt.Color(0, 204, 0));
@@ -116,6 +119,9 @@ public class Meal extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 MealbtnMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MealbtnMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 MealbtnMouseReleased(evt);
@@ -141,6 +147,9 @@ public class Meal extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 APBTNMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                APBTNMousePressed(evt);
+            }
         });
 
         BVGBtn.setBackground(new java.awt.Color(0, 204, 0));
@@ -161,6 +170,9 @@ public class Meal extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 BVGBtnMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                BVGBtnMousePressed(evt);
             }
         });
 
@@ -533,27 +545,44 @@ public class Meal extends javax.swing.JFrame {
     }//GEN-LAST:event_MealbtnMouseEntered
 
     private void FFbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FFbtnMouseEntered
-       Fastfoods ff= new Fastfoods ();
-       ff.setVisible(true);
-       this.hide();
+     
     }//GEN-LAST:event_FFbtnMouseEntered
 
     private void APBTNMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_APBTNMouseEntered
-        Appetizers ap= new Appetizers();
-        ap.setVisible(true);
-        this.hide();
+        
     }//GEN-LAST:event_APBTNMouseEntered
 
     private void BVGBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BVGBtnMouseEntered
-      Beverages bv= new Beverages();
-      bv.setVisible(true);
-      this.hide();
+     
     }//GEN-LAST:event_BVGBtnMouseEntered
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(screenSize.width, screenSize.height);
     }//GEN-LAST:event_formWindowOpened
+
+    private void MealbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MealbtnMousePressed
+       
+    }//GEN-LAST:event_MealbtnMousePressed
+
+    private void FFbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FFbtnMousePressed
+      Fastfoods ff= new Fastfoods();
+      ff.show();
+      this.hide();
+      
+    }//GEN-LAST:event_FFbtnMousePressed
+
+    private void APBTNMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_APBTNMousePressed
+       Appetizers ap= new Appetizers();
+       ap.show();
+       this.hide();
+    }//GEN-LAST:event_APBTNMousePressed
+
+    private void BVGBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BVGBtnMousePressed
+        Beverages bv= new Beverages();
+        bv.show();
+        this.hide();
+    }//GEN-LAST:event_BVGBtnMousePressed
 
     /**
      * @param args the command line arguments
