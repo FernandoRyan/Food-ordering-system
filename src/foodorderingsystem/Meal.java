@@ -562,7 +562,7 @@ public class Meal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void MealbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MealbtnMousePressed
-       
+       this.show();
     }//GEN-LAST:event_MealbtnMousePressed
 
     private void FFbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FFbtnMousePressed
