@@ -579,9 +579,9 @@ public class Meal extends javax.swing.JFrame {
     }//GEN-LAST:event_APBTNMousePressed
 
     private void BVGBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BVGBtnMousePressed
-        Beverages bv= new Beverages();
+        /*Beverages bv= new Beverages();
         bv.show();
-        this.hide();
+        this.hide();*/
     }//GEN-LAST:event_BVGBtnMousePressed
 
     /**
