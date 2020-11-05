@@ -57,12 +57,14 @@ public class Home extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 204, 0));
         jButton1.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
         jButton1.setText("Order Now");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Orderbtn(evt);
             }
         });
-        Bgpanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 580, 280, 50));
+        Bgpanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 580, 280, 60));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/wa.jpg"))); // NOI18N
         Bgpanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, -1, -1));
