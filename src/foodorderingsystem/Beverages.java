@@ -8,12 +8,12 @@
  *
  * @author samad
  */
-public class NewJFrame extends javax.swing.JFrame {
+public class Beverages extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() {
+    public Beverages() {
         initComponents();
     }
 
@@ -379,7 +379,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void lblNescafeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNescafeMousePressed
         
-        NescafeDialogBox ns = new NescafeDialogBox();
+        POPUP_Message_Nescafe ns = new POPUP_Message_Nescafe();
         ns.setVisible(true);
         
 
@@ -388,7 +388,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void lblMilkshakeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMilkshakeMousePressed
         
-        MilkshakesDialogBox ms = new MilkshakesDialogBox();
+        POPUP_Message_Milkshakes ms = new POPUP_Message_Milkshakes();
         ms.setVisible(true);
 
 // TODO add your handling code here:
@@ -396,14 +396,14 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void lblSoftDrinksMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSoftDrinksMousePressed
             
-        softdrinksDialogBox sd = new softdrinksDialogBox();
+        POPUP_Message_Softdrinks sd = new POPUP_Message_Softdrinks();
         sd.setVisible(true);
 // TODO add your handling code here:
     }//GEN-LAST:event_lblSoftDrinksMousePressed
 
     private void lblFruitJuiceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFruitJuiceMousePressed
         
-        FruitjuiceDialogBox fj = new FruitjuiceDialogBox();
+        POPUP_Message_FruitJuice fj = new POPUP_Message_FruitJuice();
         fj.setVisible(true);
 
 // TODO add your handling code here:
@@ -411,7 +411,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void lblMojitoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMojitoMousePressed
         
-        MojitoDialogBox m = new MojitoDialogBox();
+        POPUP_Message_Mojito m = new POPUP_Message_Mojito();
         m.setVisible(true);
 
 // TODO add your handling code here:
@@ -419,7 +419,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void lblWaterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblWaterMousePressed
         
-        WaterDialogBox w = new WaterDialogBox();
+        POPUP_Message_Water w = new POPUP_Message_Water();
         w.setVisible(true);
 
 // TODO add your handling code here:
@@ -442,20 +442,21 @@ public class NewJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Beverages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Beverages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Beverages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Beverages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewJFrame().setVisible(true);
+                new Beverages().setVisible(true);
             }
         });
     }

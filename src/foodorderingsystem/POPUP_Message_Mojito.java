@@ -8,12 +8,12 @@
  *
  * @author samad
  */
-public class MojitoDialogBox extends javax.swing.JFrame {
+public class POPUP_Message_Mojito extends javax.swing.JFrame {
 
     /**
      * Creates new form MojitoDialogBox
      */
-    public MojitoDialogBox() {
+    public POPUP_Message_Mojito() {
         initComponents();
     }
 
@@ -146,20 +146,21 @@ public class MojitoDialogBox extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MojitoDialogBox.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(POPUP_Message_Mojito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MojitoDialogBox.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(POPUP_Message_Mojito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MojitoDialogBox.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(POPUP_Message_Mojito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MojitoDialogBox.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(POPUP_Message_Mojito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MojitoDialogBox().setVisible(true);
+                new POPUP_Message_Mojito().setVisible(true);
             }
         });
     }
