@@ -16,6 +16,7 @@ import java.awt.Toolkit;
  */
 public class Meal extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form Meal
      */
@@ -25,6 +26,8 @@ public class Meal extends javax.swing.JFrame {
          
     }
 
+     //Creating feilds
+    public double Total; 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -462,11 +465,7 @@ public class Meal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-     /* private void makeFrameFullSize(Meal aFrame) {
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    aFrame.setSize(screenSize.width, screenSize.height);
-}*/
+   
   
     
     private void btnCheckoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseEntered
@@ -587,41 +586,31 @@ public class Meal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    
+    
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Meal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Meal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Meal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Meal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
+      
+      //Creation of objects and intilization
+      
+         Meals Rice_Curry= new Meals("Rice",110.00,150.00,001);
+         Meals FriedRice= new Meals("Fried Rice",210.00,150.00,002);
+         Meals Kottu= new Meals("Kottu",160.00,150.00,003);
+         
+         
+         
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Meal().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Meal().setVisible(true);
         });
     }
 
+    //Member Methods
+             public void Cal_total(){
+        Total = 0;
+  }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton APBTN;
     private javax.swing.JButton BVGBtn;
