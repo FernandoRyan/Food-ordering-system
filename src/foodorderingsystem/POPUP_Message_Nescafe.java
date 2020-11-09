@@ -127,7 +127,7 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 0, 490);
+        jPanel1.setBounds(0, 0, 530, 490);
 
         setSize(new java.awt.Dimension(548, 536));
         setLocationRelativeTo(null);

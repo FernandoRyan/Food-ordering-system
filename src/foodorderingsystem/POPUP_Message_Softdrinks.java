@@ -41,6 +41,8 @@ public class POPUP_Message_Softdrinks extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foodorderingsystem/newdrinks.jpg"))); // NOI18N
+
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("SOFT DRINKS (Any Flavour)");
 
@@ -117,7 +119,7 @@ public class POPUP_Message_Softdrinks extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 536, 500);
+        jPanel1.setBounds(0, 0, 530, 500);
 
         setSize(new java.awt.Dimension(548, 546));
         setLocationRelativeTo(null);
