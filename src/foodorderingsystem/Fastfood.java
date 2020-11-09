@@ -12,27 +12,21 @@ package foodorderingsystem;
 public class Fastfood extends Fastfoods
 {
     //Private feilds
+    private final int ProductId;
     private final String ProductName;
     private final double ProductPrice;
-    private final double Productquantity;
-    private final int ProductId;
-    
+    private final double Productquantity;   
     
     //Paramameterized Constructor   
-    Fastfood(String name, double price,double qty,int id) 
+    Fastfood( int id, String name, double price, double qty) 
     {
-        this.ProductId = id;
-        this.ProductName = name;
+        this.ProductId = id;  
+        this.ProductName = name;              
         this.ProductPrice = price;
         this.Productquantity = qty;    
     }
-
-    Fastfood() 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
-    @Override
+    @Override 
     public void Cal_total()
     {
         
