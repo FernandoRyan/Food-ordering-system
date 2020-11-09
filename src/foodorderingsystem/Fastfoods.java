@@ -827,13 +827,26 @@ public class Fastfoods extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        
+        //Creation of objects and intilization
+      
+        Fastfood Cheese_Burger = new Fastfood(4, "Burger", 200.00, 2);
+        Fastfood Submarine = new Fastfood(5, "Submarine", 200.00, 2);
+        Fastfood Hot_Dog = new Fastfood(6, "HotDog", 150.00, 2);
+        Fastfood Pizza = new Fastfood(7, "Pizza",150.00, 2);
+        Fastfood Sandwitch = new Fastfood(8, "Sandwitch", 100.00, 2);
+        Fastfood Donut = new Fastfood(9, "Donut", 60.00, 3);
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Fastfoods().setVisible(true);
-            }
+        //* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> {
+            new Fastfoods().setVisible(true);
         });
+    }
+
+    //Member Methods
+    public void Cal_total()
+    {
+        int Total = 0;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
