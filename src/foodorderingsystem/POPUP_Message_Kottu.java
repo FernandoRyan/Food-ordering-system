@@ -5,6 +5,8 @@
  */
 package foodorderingsystem;
 
+import java.awt.Color;
+
 /**
  *
  * @author RYAN
@@ -12,7 +14,7 @@ package foodorderingsystem;
 public class POPUP_Message_Kottu extends javax.swing.JFrame {
 
     /**
-     * Creates new form Kottupop
+     * Creates new form Kottu pop
      */
     public POPUP_Message_Kottu() {
         initComponents();
@@ -39,7 +41,7 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
         lblTOTAL = new javax.swing.JLabel();
         btnCANCEL = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btnAddToPlateBurger1 = new javax.swing.JButton();
+        kottuAddToPlate = new javax.swing.JButton();
         Sltdropdown = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,7 +81,7 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
         dpriceqty.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         dpriceqty.setBorder(null);
         dpriceqty.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(dpriceqty, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 90, 30));
+        jPanel1.add(dpriceqty, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 130, 30));
 
         lblTotalLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblTotalLKR.setForeground(new java.awt.Color(51, 51, 51));
@@ -115,24 +117,26 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
         jLabel1.setText("Select:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 70, 40));
 
-        btnAddToPlateBurger1.setBackground(new java.awt.Color(0, 153, 0));
-        btnAddToPlateBurger1.setFont(new java.awt.Font("Algerian", 1, 24));
-        btnAddToPlateBurger1.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddToPlateBurger1.setText("ADD TO PLATE");
-        btnAddToPlateBurger1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAddToPlateBurger1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAddToPlateBurger1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnAddToPlateBurger1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnAddToPlateBurger1MouseExited(evt);
+        kottuAddToPlate.setBackground(new java.awt.Color(0, 204, 0));
+        kottuAddToPlate.setFont(new java.awt.Font("Algerian", 1, 24));
+        kottuAddToPlate.setForeground(new java.awt.Color(255, 255, 255));
+        kottuAddToPlate.setText("ADD TO PLATE");
+        kottuAddToPlate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        kottuAddToPlate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        kottuAddToPlate.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                kottuAddToPlateMouseMoved(evt);
             }
         });
-        jPanel1.add(btnAddToPlateBurger1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 50));
+        kottuAddToPlate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                kottuAddToPlateMouseExited(evt);
+            }
+        });
+        jPanel1.add(kottuAddToPlate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 50));
 
-        Sltdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chicken","Egg" }));
-        jPanel1.add(Sltdropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 90, -1));
+        Sltdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chicken","Egg","Chicken & Cheese" }));
+        jPanel1.add(Sltdropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 130, -1));
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 490);
@@ -145,13 +149,13 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnCANCELMouseClicked
 
-    private void btnAddToPlateBurger1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurger1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddToPlateBurger1MouseEntered
+    private void kottuAddToPlateMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kottuAddToPlateMouseMoved
+         kottuAddToPlate.setBackground(new Color(0,102,0));
+    }//GEN-LAST:event_kottuAddToPlateMouseMoved
 
-    private void btnAddToPlateBurger1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurger1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddToPlateBurger1MouseExited
+    private void kottuAddToPlateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kottuAddToPlateMouseExited
+         kottuAddToPlate.setBackground(new Color(0,204,0));
+    }//GEN-LAST:event_kottuAddToPlateMouseExited
 
     /**
      * @param args the command line arguments
@@ -182,20 +186,18 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new POPUP_Message_Kottu().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new POPUP_Message_Kottu().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Sltdropdown;
-    private javax.swing.JButton btnAddToPlateBurger1;
     private javax.swing.JButton btnCANCEL;
     private javax.swing.JSpinner dpriceqty;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton kottuAddToPlate;
     private javax.swing.JLabel lblLKR;
     private javax.swing.JLabel lblQTY;
     private javax.swing.JLabel lblTOTAL;
