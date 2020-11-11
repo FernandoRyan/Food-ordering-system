@@ -88,6 +88,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="FAST FOOD "/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnFastFoodMouseEntered"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnFastFoodMousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnMeals">
           <Properties>
@@ -102,6 +106,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="MEALS"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMealsMouseEntered"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMealsMousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnAppertizers">
           <Properties>
@@ -116,6 +124,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="APPERTIZERS"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAppertizersMouseEntered"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAppertizersMousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnBeverages">
           <Properties>
@@ -130,6 +142,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="BEVERAGES"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBeveragesMouseEntered"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBeveragesMousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblLogo">
           <Properties>

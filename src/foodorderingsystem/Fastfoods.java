@@ -576,6 +576,9 @@ public class Fastfoods extends javax.swing.JFrame {
         btnCheckout.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCheckout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCheckout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCheckoutMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnCheckoutMouseEntered(evt);
             }
@@ -824,9 +827,7 @@ public class Fastfoods extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFastfoodMousePressed
 
     private void btnCheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMousePressed
-        Order_Details od = new Order_Details();
-        od.setVisible(true);
-        this.hide();
+        
     }//GEN-LAST:event_btnCheckoutMousePressed
 
     private void btnFastfoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFastfoodActionPerformed
@@ -836,6 +837,12 @@ public class Fastfoods extends javax.swing.JFrame {
     private void btnMealMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMealMouseClicked
+
+    private void btnCheckoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseClicked
+        Order_Details od = new Order_Details();
+        od.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_btnCheckoutMouseClicked
 
     /**
      * @param args the command line arguments

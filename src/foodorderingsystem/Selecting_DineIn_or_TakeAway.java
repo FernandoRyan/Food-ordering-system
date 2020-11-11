@@ -48,9 +48,8 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1367, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnDineIn.setBackground(new java.awt.Color(255, 204, 153));
         btnDineIn.setFont(new java.awt.Font("Algerian", 1, 50)); // NOI18N
-        btnDineIn.setForeground(new java.awt.Color(51, 0, 0));
+        btnDineIn.setForeground(new java.awt.Color(255, 255, 255));
         btnDineIn.setText("DINE IN");
         btnDineIn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDineIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -70,9 +69,8 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
         jPanel1.add(btnDineIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 490, 330));
         btnDineIn.getAccessibleContext().setAccessibleName("btnDineIn");
 
-        btnTakeAway.setBackground(new java.awt.Color(255, 204, 153));
         btnTakeAway.setFont(new java.awt.Font("Algerian", 1, 50)); // NOI18N
-        btnTakeAway.setForeground(new java.awt.Color(51, 0, 0));
+        btnTakeAway.setForeground(new java.awt.Color(255, 255, 255));
         btnTakeAway.setText("TAKE AWAY");
         btnTakeAway.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnTakeAway.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
