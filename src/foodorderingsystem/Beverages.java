@@ -1,3 +1,8 @@
+
+package foodorderingsystem;
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -68,21 +73,53 @@ public class Beverages extends javax.swing.JFrame {
         btnFastFood.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnFastFood.setForeground(new java.awt.Color(255, 255, 255));
         btnFastFood.setText("FAST FOOD ");
+        btnFastFood.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFastFoodMouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnFastFoodMousePressed(evt);
+            }
+        });
 
         btnMeals.setBackground(new java.awt.Color(0, 204, 0));
         btnMeals.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnMeals.setForeground(new java.awt.Color(255, 255, 255));
         btnMeals.setText("MEALS");
+        btnMeals.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMealsMouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnMealsMousePressed(evt);
+            }
+        });
 
         btnAppertizers.setBackground(new java.awt.Color(0, 204, 0));
         btnAppertizers.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnAppertizers.setForeground(new java.awt.Color(255, 255, 255));
         btnAppertizers.setText("APPERTIZERS");
+        btnAppertizers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAppertizersMouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAppertizersMousePressed(evt);
+            }
+        });
 
         btnBeverages.setBackground(new java.awt.Color(0, 204, 0));
         btnBeverages.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnBeverages.setForeground(new java.awt.Color(255, 255, 255));
         btnBeverages.setText("BEVERAGES");
+        btnBeverages.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBeveragesMouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnBeveragesMousePressed(evt);
+            }
+        });
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/new.jpg"))); // NOI18N
 
@@ -424,6 +461,46 @@ public class Beverages extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_lblWaterMousePressed
+
+    private void btnFastFoodMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastFoodMouseEntered
+        
+    }//GEN-LAST:event_btnFastFoodMouseEntered
+
+    private void btnMealsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealsMouseEntered
+       
+    }//GEN-LAST:event_btnMealsMouseEntered
+
+    private void btnAppertizersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppertizersMouseEntered
+        
+    }//GEN-LAST:event_btnAppertizersMouseEntered
+
+    private void btnBeveragesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBeveragesMouseEntered
+
+    private void btnFastFoodMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastFoodMousePressed
+        Appetizers ap = new Appetizers();
+        ap.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_btnFastFoodMousePressed
+
+    private void btnMealsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealsMousePressed
+        Meal ml = new Meal();
+        ml.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_btnMealsMousePressed
+
+    private void btnAppertizersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppertizersMousePressed
+        Appetizers ap = new Appetizers();
+        ap.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_btnAppertizersMousePressed
+
+    private void btnBeveragesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMousePressed
+        Beverages bv = new Beverages();
+        bv.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_btnBeveragesMousePressed
 
     /**
      * @param args the command line arguments
