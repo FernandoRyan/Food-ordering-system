@@ -38,6 +38,11 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(1367, 720));
@@ -50,6 +55,9 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
         btnDineIn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDineIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDineIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDineInMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnDineInMousePressed(evt);
             }
@@ -59,7 +67,7 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
                 btnDineInActionPerformed(evt);
             }
         });
-        jPanel1.add(btnDineIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 490, 110));
+        jPanel1.add(btnDineIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 490, 330));
         btnDineIn.getAccessibleContext().setAccessibleName("btnDineIn");
 
         btnTakeAway.setBackground(new java.awt.Color(255, 204, 153));
@@ -70,6 +78,9 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
         btnTakeAway.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnTakeAway.setPreferredSize(new java.awt.Dimension(149, 58));
         btnTakeAway.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnTakeAwayMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnTakeAwayMousePressed(evt);
             }
@@ -79,12 +90,12 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
                 btnTakeAwayActionPerformed(evt);
             }
         });
-        jPanel1.add(btnTakeAway, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 490, 110));
+        jPanel1.add(btnTakeAway, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 200, 490, 330));
         btnTakeAway.getAccessibleContext().setAccessibleName("btnTakeAway");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/filename (11) - Copy.png"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(1367, 720));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1370, 710));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1370, 730));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,13 +131,21 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
        ml.show();
        this.hide();
     }//GEN-LAST:event_btnTakeAwayMousePressed
-    
-    private void formWindowOpened(java.awt.event.WindowEvent evt) 
-    {           
-        // This display the Frame into middle of the screen
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(screenSize.width, screenSize.height);
-    }              
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnTakeAwayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTakeAwayMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTakeAwayMouseClicked
+
+    private void btnDineInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDineInMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDineInMouseClicked
+    
+         
     
     /**
      * @param args the command line arguments
@@ -159,10 +178,8 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Selecting_DineIn_or_TakeAway().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Selecting_DineIn_or_TakeAway().setVisible(true);
         });
     }
 

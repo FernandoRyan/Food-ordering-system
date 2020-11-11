@@ -5,6 +5,8 @@
  */
 package foodorderingsystem;
 
+import java.awt.Color;
+
 /**
  *
  * @author RYAN
@@ -39,7 +41,7 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame {
         lblTOTAL = new javax.swing.JLabel();
         btnCANCEL = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btnAddToPlateBurger1 = new javax.swing.JButton();
+        btnAddToPlateRicenCurry = new javax.swing.JButton();
         Sltdropdown = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,8 +53,8 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblrice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/rice and curry.jpg"))); // NOI18N
-        jPanel1.add(lblrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 250, 190));
+        lblrice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/rice and curry_1.jpg"))); // NOI18N
+        jPanel1.add(lblrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 240, 150));
 
         lblricen.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblricen.setForeground(new java.awt.Color(0, 0, 0));
@@ -78,7 +80,7 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame {
         dpriceqty.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         dpriceqty.setBorder(null);
         dpriceqty.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(dpriceqty, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 90, 30));
+        jPanel1.add(dpriceqty, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 130, 30));
 
         lblTotalLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblTotalLKR.setForeground(new java.awt.Color(51, 51, 51));
@@ -114,24 +116,26 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame {
         jLabel1.setText("Select:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 70, 40));
 
-        btnAddToPlateBurger1.setBackground(new java.awt.Color(0, 153, 0));
-        btnAddToPlateBurger1.setFont(new java.awt.Font("Algerian", 1, 24));
-        btnAddToPlateBurger1.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddToPlateBurger1.setText("ADD TO PLATE");
-        btnAddToPlateBurger1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAddToPlateBurger1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAddToPlateBurger1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnAddToPlateBurger1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnAddToPlateBurger1MouseExited(evt);
+        btnAddToPlateRicenCurry.setBackground(new java.awt.Color(0, 204, 0));
+        btnAddToPlateRicenCurry.setFont(new java.awt.Font("Algerian", 1, 24));
+        btnAddToPlateRicenCurry.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddToPlateRicenCurry.setText("ADD TO PLATE");
+        btnAddToPlateRicenCurry.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAddToPlateRicenCurry.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddToPlateRicenCurry.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btnAddToPlateRicenCurryMouseMoved(evt);
             }
         });
-        jPanel1.add(btnAddToPlateBurger1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 50));
+        btnAddToPlateRicenCurry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAddToPlateRicenCurryMouseExited(evt);
+            }
+        });
+        jPanel1.add(btnAddToPlateRicenCurry, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 50));
 
-        Sltdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chicken","Egg" }));
-        jPanel1.add(Sltdropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 90, -1));
+        Sltdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "White rice & Chicken","White rice & Egg" ,"Brown rice & Chicken","Brown rice & Egg" }));
+        jPanel1.add(Sltdropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 130, -1));
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 490);
@@ -144,13 +148,13 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnCANCELMouseClicked
 
-    private void btnAddToPlateBurger1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurger1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddToPlateBurger1MouseEntered
+    private void btnAddToPlateRicenCurryMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateRicenCurryMouseMoved
+        btnAddToPlateRicenCurry.setBackground(new Color(0,102,0));
+    }//GEN-LAST:event_btnAddToPlateRicenCurryMouseMoved
 
-    private void btnAddToPlateBurger1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurger1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddToPlateBurger1MouseExited
+    private void btnAddToPlateRicenCurryMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateRicenCurryMouseExited
+            btnAddToPlateRicenCurry.setBackground(new Color(0,204,0));
+    }//GEN-LAST:event_btnAddToPlateRicenCurryMouseExited
 
     /**
      * @param args the command line arguments
@@ -183,16 +187,14 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new POPUP_Message_Rice_and_Curry().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new POPUP_Message_Rice_and_Curry().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Sltdropdown;
-    private javax.swing.JButton btnAddToPlateBurger1;
+    private javax.swing.JButton btnAddToPlateRicenCurry;
     private javax.swing.JButton btnCANCEL;
     private javax.swing.JSpinner dpriceqty;
     private javax.swing.JLabel jLabel1;

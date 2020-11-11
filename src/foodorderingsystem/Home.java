@@ -5,6 +5,7 @@
  */
 package foodorderingsystem;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -33,7 +34,7 @@ public class Home extends javax.swing.JFrame {
 
         Bgpanel = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        Orderbtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,17 +55,25 @@ public class Home extends javax.swing.JFrame {
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
         Bgpanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 120, 130));
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 0));
-        jButton1.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
-        jButton1.setText("Order Now");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Orderbtn.setBackground(new java.awt.Color(0, 204, 0));
+        Orderbtn.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
+        Orderbtn.setText("Order Now");
+        Orderbtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 0), 20, true));
+        Orderbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Orderbtn.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                OrderbtnMouseMoved(evt);
+            }
+        });
+        Orderbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Orderbtn(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                OrderbtnMouseExited(evt);
+            }
         });
-        Bgpanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 580, 280, 60));
+        Bgpanel.add(Orderbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 680, 380, 80));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/wa.jpg"))); // NOI18N
         Bgpanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, -1, -1));
@@ -93,6 +102,16 @@ public class Home extends javax.swing.JFrame {
          Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
    this.setSize(screenSize.width, screenSize.height);
     }//GEN-LAST:event_formWindowOpened
+
+    private void OrderbtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderbtnMouseMoved
+          Orderbtn.setBackground(new Color(0,102,0));
+          Orderbtn.setForeground(Color.WHITE);
+    }//GEN-LAST:event_OrderbtnMouseMoved
+
+    private void OrderbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderbtnMouseExited
+       Orderbtn.setBackground(new Color(0,204,0));
+       Orderbtn.setForeground(Color.BLACK);
+    }//GEN-LAST:event_OrderbtnMouseExited
 
     /**
      * @param args the command line arguments
@@ -131,7 +150,7 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Bgpanel;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Orderbtn;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

@@ -227,7 +227,7 @@ public class Meal extends javax.swing.JFrame {
         Menupanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/rice and curry.jpg"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/rice and curry_1.jpg"))); // NOI18N
         jButton2.setPreferredSize(new java.awt.Dimension(281, 212));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -410,10 +410,12 @@ public class Meal extends javax.swing.JFrame {
         btnCheckout.setText("CHECKOUT");
         btnCheckout.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCheckout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCheckout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCheckoutMouseEntered(evt);
+        btnCheckout.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btnCheckoutMouseMoved(evt);
             }
+        });
+        btnCheckout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnCheckoutMouseExited(evt);
             }
@@ -468,14 +470,6 @@ public class Meal extends javax.swing.JFrame {
    
   
     
-    private void btnCheckoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseEntered
-        
-    }//GEN-LAST:event_btnCheckoutMouseEntered
-
-    private void btnCheckoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseExited
-      
-    }//GEN-LAST:event_btnCheckoutMouseExited
-
     private void btnCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckoutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCheckoutActionPerformed
@@ -583,6 +577,14 @@ public class Meal extends javax.swing.JFrame {
         this.hide();*/
     }//GEN-LAST:event_BVGBtnMousePressed
 
+    private void btnCheckoutMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseMoved
+      btnCheckout.setBackground(Color.RED);
+    }//GEN-LAST:event_btnCheckoutMouseMoved
+
+    private void btnCheckoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseExited
+       btnCheckout.setBackground(new Color(0,204,0));
+    }//GEN-LAST:event_btnCheckoutMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -592,11 +594,24 @@ public class Meal extends javax.swing.JFrame {
     public static void main(String args[]) {
       
       //Creation of objects and intilization
+     
+      //Rice and curry
       
-         Meals Rice_Curry= new Meals("Rice",110.00,150.00,001);
-         Meals FriedRice= new Meals("Fried Rice",210.00,150.00,002);
-         Meals Kottu= new Meals("Kottu",160.00,150.00,003);
+         Meals Whiterice_Chicken= new Meals("WhiteRice&Chicken",130.00,150.00,001);
+         Meals Whiterice_Egg= new Meals("WhiteRice&Egg",110.00,150.00,001);
+         Meals Brownrice_Egg= new Meals("BrownRice&Egg",110.00,150.00,001);
+         Meals Brownrice_Chicken= new Meals("BrownRice&Chicken",130.00,150.00,001);
+        
+      
+// Fried rice 
+         Meals FriedRice_Chicken= new Meals("Fried Rice",210.00,150.00,002);
+         Meals FriedRice_Egg= new Meals("Fried Rice",200.00,150.00,002);
          
+//Kottu Rotti
+         
+         Meals Kottu_Chicken = new Meals("Kottu with Chicken",160.00,150.00,003);
+         Meals Kottu_Egg = new Meals("Kottu with Egg",130.00,150.00,003);
+         Meals Kottu_Chicken_Cheese = new Meals("Kottu with Chicken and cheese",240.00,150.00,003);
          
          
         /* Create and display the form */
