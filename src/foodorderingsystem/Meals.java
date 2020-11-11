@@ -15,12 +15,12 @@ public class Meals extends Meal{
     private final String ProductName;
     private final double ProductPrice;
     private final double Productquantity;
-    private final int ProductId;
+    private final double ProductId;
     
     //Paramameterized Constructor
    
 
-    Meals(String name, double price,double qty,int id) {
+    Meals(String name, double price,double qty,double id) {
     this.ProductId=id;
     this.ProductName=name;
     this.ProductPrice=price;
