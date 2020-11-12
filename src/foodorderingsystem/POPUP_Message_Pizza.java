@@ -51,7 +51,7 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         lblPizza.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPizza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PIZA.jpg"))); // NOI18N
+        lblPizza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PIZZA.jpg"))); // NOI18N
         jPanel1.add(lblPizza);
         lblPizza.setBounds(70, 40, 250, 170);
         lblPizza.getAccessibleContext().setAccessibleName("lblPizza");
