@@ -172,7 +172,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="200.00"/>
+            <Property name="text" type="java.lang.String" value="00.00"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -268,6 +268,7 @@
           </Properties>
           <Events>
             <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="btnAddToPlateRicenCurryMouseMoved"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAddToPlateRicenCurryMouseEntered"/>
             <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAddToPlateRicenCurryMouseExited"/>
           </Events>
           <Constraints>
@@ -279,7 +280,7 @@
         <Component class="javax.swing.JComboBox" name="Sltdropdown">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;White rice &amp; Chicken&quot;,&quot;White rice &amp; Egg&quot; ,&quot;Brown rice &amp; Chicken&quot;,&quot;Brown rice &amp; Egg&quot; })" type="code"/>
+              <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;White Rice with Chicken&quot;,&quot;White rice with Egg&quot; ,&quot;Brown rice with Chicken&quot;,&quot;Brown rice with Egg&quot; })" type="code"/>
             </Property>
           </Properties>
           <AuxValues>

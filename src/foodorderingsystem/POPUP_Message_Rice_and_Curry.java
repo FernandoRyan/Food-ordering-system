@@ -6,12 +6,13 @@
 package foodorderingsystem;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 /**
  *
  * @author RYAN
  */
-public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame {
+public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame  {
 
     /**
      * Creates new form Rice curry
@@ -19,7 +20,8 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame {
     public POPUP_Message_Rice_and_Curry() {
         initComponents();
     }
-
+    
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -89,7 +91,7 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame {
 
         lblTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblTotalPrice.setForeground(new java.awt.Color(51, 51, 51));
-        lblTotalPrice.setText("200.00");
+        lblTotalPrice.setText("00.00");
         jPanel1.add(lblTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 50, 30));
 
         lblTOTAL.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
@@ -128,13 +130,16 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame {
             }
         });
         btnAddToPlateRicenCurry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAddToPlateRicenCurryMouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnAddToPlateRicenCurryMouseExited(evt);
             }
         });
         jPanel1.add(btnAddToPlateRicenCurry, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 50));
 
-        Sltdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "White rice & Chicken","White rice & Egg" ,"Brown rice & Chicken","Brown rice & Egg" }));
+        Sltdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "White Rice with Chicken","White rice with Egg" ,"Brown rice with Chicken","Brown rice with Egg" }));
         jPanel1.add(Sltdropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 130, -1));
 
         getContentPane().add(jPanel1);
@@ -156,36 +161,51 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame {
             btnAddToPlateRicenCurry.setBackground(new Color(0,204,0));
     }//GEN-LAST:event_btnAddToPlateRicenCurryMouseExited
 
+    private void btnAddToPlateRicenCurryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateRicenCurryMouseEntered
+      CalculateMealprice();
+    }//GEN-LAST:event_btnAddToPlateRicenCurryMouseEntered
+    //Declaration of member feilds 
+    
+    public String Total ="00";
+    
+    //Declaration of member methods 
+     public void  CalculateMealprice(){
+         if(dpriceqty!=null)
+       { 
+           int qty =(int) dpriceqty.getValue();
+          
+           Total= Double.toString( qty *MatchMenu());
+           
+           lblTotalPrice.setText(Total);
+       }
+         else if (dpriceqty==null)
+              lblTotalPrice.setText(Total);
+         //Add a message box to add to cart 
+    }
+     
+     public double MatchMenu(){
+        switch (Sltdropdown.getSelectedItem().toString()) {
+            case "White Rice with Chicken":
+                return 130.00;
+            case "White rice with Egg":
+                return 110.00;
+            case "Brown rice with Chicken":
+                return 130.00;
+            case "Brown rice with Egg":
+                return 110.00;
+            default:
+                break;
+        }
+        return 0;
+     }
+     
+     
+     
+     
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(POPUP_Message_Rice_and_Curry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(POPUP_Message_Rice_and_Curry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(POPUP_Message_Rice_and_Curry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(POPUP_Message_Rice_and_Curry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
+    public static void main(String args[]) {       
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new POPUP_Message_Rice_and_Curry().setVisible(true);
