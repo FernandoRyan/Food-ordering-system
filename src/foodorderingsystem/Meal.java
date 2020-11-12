@@ -598,19 +598,19 @@ public class Meal extends javax.swing.JFrame {
       //Rice and curry
       
          Meals Whiterice_Chicken= new Meals("WhiteRice&Chicken",130.00,150.00,001);
-         Meals Whiterice_Egg= new Meals("WhiteRice&Egg",110.00,150.00,001);
-         Meals Brownrice_Egg= new Meals("BrownRice&Egg",110.00,150.00,001);
-         Meals Brownrice_Chicken= new Meals("BrownRice&Chicken",130.00,150.00,001);
+         Meals Whiterice_Egg= new Meals("WhiteRice&Egg",110.00,150.00,002);
+         Meals Brownrice_Egg= new Meals("BrownRice&Egg",110.00,150.00,003);
+         Meals Brownrice_Chicken= new Meals("BrownRice&Chicken",130.00,150.00,004);
         
       
 // Fried rice 
-         Meals FriedRice_Chicken= new Meals("Fried Rice",210.00,150.00,002);
-         Meals FriedRice_Egg= new Meals("Fried Rice",200.00,150.00,002);
+         Meals FriedRice_Chicken= new Meals("Fried Rice with chicken",210.00,150.00,005);
+         Meals FriedRice_Egg= new Meals("Fried Rice with Egg",200.00,150.00,006);
          
 //Kottu Rotti
          
-         Meals Kottu_Chicken = new Meals("Kottu with Chicken",160.00,150.00,003);
-         Meals Kottu_Egg = new Meals("Kottu with Egg",130.00,150.00,003);
+         Meals Kottu_Chicken = new Meals("Kottu with Chicken",160.00,150.00,007);
+         Meals Kottu_Egg  Kottu_Egg = new Meals("Kottu with Egg",130.00,150.00,009);
          Meals Kottu_Chicken_Cheese = new Meals("Kottu with Chicken and cheese",240.00,150.00,003);
          
          
