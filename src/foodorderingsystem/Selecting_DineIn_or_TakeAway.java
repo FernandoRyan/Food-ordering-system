@@ -50,7 +50,7 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
 
         btnDineIn.setFont(new java.awt.Font("Algerian", 1, 50)); // NOI18N
         btnDineIn.setForeground(new java.awt.Color(255, 255, 255));
-        btnDineIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dinein.jpg"))); // NOI18N
+        btnDineIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/DineIn.jpg"))); // NOI18N
         btnDineIn.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         btnDineIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDineIn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -71,7 +71,7 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
 
         btnTakeAway.setFont(new java.awt.Font("Algerian", 1, 50)); // NOI18N
         btnTakeAway.setForeground(new java.awt.Color(255, 255, 255));
-        btnTakeAway.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/take.jpg"))); // NOI18N
+        btnTakeAway.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/TakeAway.jpg"))); // NOI18N
         btnTakeAway.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnTakeAway.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnTakeAway.setPreferredSize(new java.awt.Dimension(149, 58));

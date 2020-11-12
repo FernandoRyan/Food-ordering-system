@@ -20,8 +20,11 @@ public class Fastfoods extends javax.swing.JFrame {
      * Creates new form NewJFrame1
      */
     public Fastfoods() {
-        initComponents();
+        initComponents(); //setExtendedState(Meal.MAXIMIZED_BOTH);
     }
+    
+    //Creating feilds
+    public double Total;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -141,7 +144,7 @@ public class Fastfoods extends javax.swing.JFrame {
             }
         });
 
-        btnPizza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PIZA.jpg"))); // NOI18N
+        btnPizza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PIZZA.jpg"))); // NOI18N
         btnPizza.setText("jButton4");
         btnPizza.setBorder(null);
         btnPizza.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

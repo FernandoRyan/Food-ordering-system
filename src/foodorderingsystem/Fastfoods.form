@@ -399,7 +399,7 @@
             <Component class="javax.swing.JButton" name="btnPizza">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Images/PIZA.jpg"/>
+                  <Image iconType="3" name="/Images/PIZZA.jpg"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="jButton4"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
