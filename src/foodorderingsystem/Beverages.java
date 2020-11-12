@@ -413,7 +413,6 @@ public class Beverages extends javax.swing.JFrame {
         
         POPUP_Message_Nescafe ns = new POPUP_Message_Nescafe();
         ns.setVisible(true);
-        
 
 // TODO add your handling code here:
     }//GEN-LAST:event_lblNescafeMousePressed
