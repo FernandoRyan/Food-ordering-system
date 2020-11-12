@@ -44,13 +44,13 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(1367, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnDineIn.setFont(new java.awt.Font("Algerian", 1, 50)); // NOI18N
         btnDineIn.setForeground(new java.awt.Color(255, 255, 255));
-        btnDineIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/DineIn.jpg"))); // NOI18N
+        btnDineIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/DineIn.png"))); // NOI18N
         btnDineIn.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         btnDineIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDineIn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -71,8 +71,8 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
 
         btnTakeAway.setFont(new java.awt.Font("Algerian", 1, 50)); // NOI18N
         btnTakeAway.setForeground(new java.awt.Color(255, 255, 255));
-        btnTakeAway.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/TakeAway.jpg"))); // NOI18N
-        btnTakeAway.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnTakeAway.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/TakeAway.png"))); // NOI18N
+        btnTakeAway.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         btnTakeAway.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnTakeAway.setPreferredSize(new java.awt.Dimension(149, 58));
         btnTakeAway.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -119,7 +119,6 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTakeAwayActionPerformed
 
     private void btnDineInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDineInMousePressed
-       
        Meal ml= new Meal();
        ml.show();
        this.hide();
