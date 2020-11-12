@@ -479,8 +479,8 @@ public class Beverages extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBeveragesMouseEntered
 
     private void btnFastFoodMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastFoodMousePressed
-        Appetizers ap = new Appetizers();
-        ap.setVisible(true);
+        Fastfoods ft = new Fastfoods();
+        ft.setVisible(true);
         this.hide();
     }//GEN-LAST:event_btnFastFoodMousePressed
 
