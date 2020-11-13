@@ -1,6 +1,8 @@
 
 package foodorderingsystem;
 
+import java.awt.Color;
+
 
 
 /*
@@ -34,7 +36,7 @@ public class Beverages extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnFastFood = new javax.swing.JButton();
         btnMeals = new javax.swing.JButton();
-        btnAppertizers = new javax.swing.JButton();
+        btnAppetizers = new javax.swing.JButton();
         btnBeverages = new javax.swing.JButton();
         lblLogo = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -72,10 +74,13 @@ public class Beverages extends javax.swing.JFrame {
         btnFastFood.setBackground(new java.awt.Color(0, 204, 0));
         btnFastFood.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnFastFood.setForeground(new java.awt.Color(255, 255, 255));
-        btnFastFood.setText("FAST FOOD ");
+        btnFastFood.setText("FAST FOOD");
         btnFastFood.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnFastFoodMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFastFoodMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnFastFoodMousePressed(evt);
@@ -90,21 +95,27 @@ public class Beverages extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnMealsMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMealsMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnMealsMousePressed(evt);
             }
         });
 
-        btnAppertizers.setBackground(new java.awt.Color(0, 204, 0));
-        btnAppertizers.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        btnAppertizers.setForeground(new java.awt.Color(255, 255, 255));
-        btnAppertizers.setText("APPERTIZERS");
-        btnAppertizers.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAppetizers.setBackground(new java.awt.Color(0, 204, 0));
+        btnAppetizers.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnAppetizers.setForeground(new java.awt.Color(255, 255, 255));
+        btnAppetizers.setText("APPETIZERS");
+        btnAppetizers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnAppertizersMouseEntered(evt);
+                btnAppetizersMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAppetizersMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnAppertizersMousePressed(evt);
+                btnAppetizersMousePressed(evt);
             }
         });
 
@@ -115,6 +126,9 @@ public class Beverages extends javax.swing.JFrame {
         btnBeverages.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnBeveragesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBeveragesMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnBeveragesMousePressed(evt);
@@ -129,7 +143,7 @@ public class Beverages extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnFastFood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnMeals, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnAppertizers, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+            .addComponent(btnAppetizers, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
             .addComponent(btnBeverages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
@@ -146,7 +160,7 @@ public class Beverages extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnMeals, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAppertizers, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAppetizers, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(btnBeverages, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
@@ -458,18 +472,34 @@ public class Beverages extends javax.swing.JFrame {
 
     private void btnFastFoodMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastFoodMouseEntered
         
+          // Changing the Fastfood button background color, when cursor move to the Fastfood button
+        btnFastFood.setBackground(new Color(0,102,0));
+        btnBeverages.setBackground(Color.GREEN);       
+        
     }//GEN-LAST:event_btnFastFoodMouseEntered
 
     private void btnMealsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealsMouseEntered
        
+          // Changing the Meal button background color, when cursor move to the Meal button
+        btnMeals.setBackground(new Color(0,102,0));
+        btnBeverages.setBackground(Color.GREEN);  
     }//GEN-LAST:event_btnMealsMouseEntered
 
-    private void btnAppertizersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppertizersMouseEntered
-        
-    }//GEN-LAST:event_btnAppertizersMouseEntered
+    private void btnAppetizersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppetizersMouseEntered
+
+          // Changing the Appetizers button background color, when cursor move to the Appertizer button 
+          btnAppetizers.setBackground(new Color(0,102,0));
+          btnBeverages.setBackground(Color.GREEN);
+    }//GEN-LAST:event_btnAppetizersMouseEntered
 
     private void btnBeveragesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMouseEntered
-        // TODO add your handling code here:
+       
+         // Changing the Beverages button background color, when cursor move to the Beveragesbutton
+          btnBeverages.setForeground(Color.GREEN);
+          btnBeverages.setBackground(new Color(0,102,0));
+
+        
+// TODO add your handling code here:
     }//GEN-LAST:event_btnBeveragesMouseEntered
 
     private void btnFastFoodMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastFoodMousePressed
@@ -484,17 +514,56 @@ public class Beverages extends javax.swing.JFrame {
         this.hide();
     }//GEN-LAST:event_btnMealsMousePressed
 
-    private void btnAppertizersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppertizersMousePressed
+    private void btnAppetizersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppetizersMousePressed
         Appetizers ap = new Appetizers();
         ap.setVisible(true);
         this.hide();
-    }//GEN-LAST:event_btnAppertizersMousePressed
+    }//GEN-LAST:event_btnAppetizersMousePressed
 
     private void btnBeveragesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMousePressed
         Beverages bv = new Beverages();
         bv.setVisible(true);
         this.hide();
     }//GEN-LAST:event_btnBeveragesMousePressed
+
+    private void btnFastFoodMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastFoodMouseExited
+      
+        // Rechange the Fastfood button & Beverages button background colors, when cursor move out the Fastfood button
+        btnFastFood.setBackground(Color.GREEN);
+        btnBeverages.setBackground(new Color(0,102,0));
+        btnBeverages.setForeground(Color.WHITE);
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnFastFoodMouseExited
+
+    private void btnMealsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealsMouseExited
+      
+        // Rechange the Meal button & Beverages button background colors, when cursor move out the Meal button
+        btnMeals.setBackground(Color.GREEN);
+        btnBeverages.setBackground(new Color(0,102,0));
+        btnBeverages.setForeground(Color.WHITE);  
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnMealsMouseExited
+
+    private void btnAppetizersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppetizersMouseExited
+        
+       // Rechange the Appetizers button & Bevearges button background colors, when cursor move out of the Appetizers button
+        btnAppetizers.setBackground(Color.GREEN);
+        btnBeverages.setBackground(new Color(0,102,0));
+        btnBeverages.setForeground(Color.WHITE);  
+
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnAppetizersMouseExited
+
+    private void btnBeveragesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMouseExited
+        
+       // Rechange the Beverages button background color, when cursor move out the Beverages button
+        btnBeverages.setBackground(new Color(0,102,0));
+        btnBeverages.setForeground(Color.WHITE);
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnBeveragesMouseExited
 
     /**
      * @param args the command line arguments
@@ -533,7 +602,7 @@ public class Beverages extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAppertizers;
+    private javax.swing.JButton btnAppetizers;
     private javax.swing.JButton btnBeverages;
     private javax.swing.JButton btnCheckout;
     private javax.swing.JButton btnFastFood;
