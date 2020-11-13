@@ -43,7 +43,7 @@ public class Beverages extends javax.swing.JFrame {
         lblMilkshake = new javax.swing.JLabel();
         lblSoftDrinks = new javax.swing.JLabel();
         lblFruitJuice = new javax.swing.JLabel();
-        lblMojito = new javax.swing.JLabel();
+        lblIceCoffee = new javax.swing.JLabel();
         lblWater = new javax.swing.JLabel();
         lblNesName = new javax.swing.JLabel();
         lblNesPrice = new javax.swing.JLabel();
@@ -189,10 +189,10 @@ public class Beverages extends javax.swing.JFrame {
             }
         });
 
-        lblMojito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cof.jpg"))); // NOI18N
-        lblMojito.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblIceCoffee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cof.jpg"))); // NOI18N
+        lblIceCoffee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblMojitoMousePressed(evt);
+                lblIceCoffeeMousePressed(evt);
             }
         });
 
@@ -312,7 +312,7 @@ public class Beverages extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addComponent(lblFruitJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(105, 105, 105)
-                        .addComponent(lblMojito)))
+                        .addComponent(lblIceCoffee)))
                 .addContainerGap(383, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -341,7 +341,7 @@ public class Beverages extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblWater, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFruitJuice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMojito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblIceCoffee, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -440,13 +440,13 @@ public class Beverages extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_lblFruitJuiceMousePressed
 
-    private void lblMojitoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMojitoMousePressed
+    private void lblIceCoffeeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIceCoffeeMousePressed
         
-        POPUP_Message_Mojito m = new POPUP_Message_Mojito();
+        POPUP_Message_IceCoffee m = new POPUP_Message_IceCoffee();
         m.setVisible(true);
 
 // TODO add your handling code here:
-    }//GEN-LAST:event_lblMojitoMousePressed
+    }//GEN-LAST:event_lblIceCoffeeMousePressed
 
     private void lblWaterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblWaterMousePressed
         
@@ -547,12 +547,12 @@ public class Beverages extends javax.swing.JFrame {
     private javax.swing.JLabel lblDrinks;
     private javax.swing.JLabel lblDrinksPrice;
     private javax.swing.JLabel lblFruitJuice;
+    private javax.swing.JLabel lblIceCoffee;
     private javax.swing.JLabel lblJuice;
     private javax.swing.JLabel lblJuicePrice;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblMilkshake;
     private javax.swing.JLabel lblMilkshakes;
-    private javax.swing.JLabel lblMojito;
     private javax.swing.JLabel lblMojitoPrice;
     private javax.swing.JLabel lblMojitoo;
     private javax.swing.JLabel lblNesName;

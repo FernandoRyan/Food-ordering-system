@@ -260,7 +260,7 @@
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="lblFruitJuice" min="-2" pref="214" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
-                          <Component id="lblMojito" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblIceCoffee" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="383" max="32767" attributes="0"/>
@@ -298,7 +298,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblWater" alignment="1" min="-2" pref="172" max="-2" attributes="0"/>
                       <Component id="lblFruitJuice" alignment="1" min="-2" pref="154" max="-2" attributes="0"/>
-                      <Component id="lblMojito" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                      <Component id="lblIceCoffee" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -369,14 +369,14 @@
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblFruitJuiceMousePressed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblMojito">
+        <Component class="javax.swing.JLabel" name="lblIceCoffee">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Images/cof.jpg"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblMojitoMousePressed"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblIceCoffeeMousePressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblWater">
