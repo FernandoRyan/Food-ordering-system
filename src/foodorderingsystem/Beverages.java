@@ -1,6 +1,8 @@
 
 package foodorderingsystem;
 
+import java.awt.Color;
+
 
 
 /*
@@ -34,7 +36,7 @@ public class Beverages extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnFastFood = new javax.swing.JButton();
         btnMeals = new javax.swing.JButton();
-        btnAppertizers = new javax.swing.JButton();
+        btnAppetizers = new javax.swing.JButton();
         btnBeverages = new javax.swing.JButton();
         lblLogo = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -43,7 +45,7 @@ public class Beverages extends javax.swing.JFrame {
         lblMilkshake = new javax.swing.JLabel();
         lblSoftDrinks = new javax.swing.JLabel();
         lblFruitJuice = new javax.swing.JLabel();
-        lblMojito = new javax.swing.JLabel();
+        lblIceCoffee = new javax.swing.JLabel();
         lblWater = new javax.swing.JLabel();
         lblNesName = new javax.swing.JLabel();
         lblNesPrice = new javax.swing.JLabel();
@@ -72,10 +74,13 @@ public class Beverages extends javax.swing.JFrame {
         btnFastFood.setBackground(new java.awt.Color(0, 204, 0));
         btnFastFood.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnFastFood.setForeground(new java.awt.Color(255, 255, 255));
-        btnFastFood.setText("FAST FOOD ");
+        btnFastFood.setText("FAST FOOD");
         btnFastFood.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnFastFoodMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFastFoodMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnFastFoodMousePressed(evt);
@@ -90,21 +95,27 @@ public class Beverages extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnMealsMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMealsMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnMealsMousePressed(evt);
             }
         });
 
-        btnAppertizers.setBackground(new java.awt.Color(0, 204, 0));
-        btnAppertizers.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        btnAppertizers.setForeground(new java.awt.Color(255, 255, 255));
-        btnAppertizers.setText("APPERTIZERS");
-        btnAppertizers.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAppetizers.setBackground(new java.awt.Color(0, 204, 0));
+        btnAppetizers.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnAppetizers.setForeground(new java.awt.Color(255, 255, 255));
+        btnAppetizers.setText("APPETIZERS");
+        btnAppetizers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnAppertizersMouseEntered(evt);
+                btnAppetizersMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAppetizersMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnAppertizersMousePressed(evt);
+                btnAppetizersMousePressed(evt);
             }
         });
 
@@ -115,6 +126,9 @@ public class Beverages extends javax.swing.JFrame {
         btnBeverages.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnBeveragesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBeveragesMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnBeveragesMousePressed(evt);
@@ -129,7 +143,7 @@ public class Beverages extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnFastFood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnMeals, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnAppertizers, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+            .addComponent(btnAppetizers, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
             .addComponent(btnBeverages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
@@ -146,7 +160,7 @@ public class Beverages extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnMeals, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAppertizers, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAppetizers, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(btnBeverages, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
@@ -189,10 +203,10 @@ public class Beverages extends javax.swing.JFrame {
             }
         });
 
-        lblMojito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1.jpg"))); // NOI18N
-        lblMojito.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblIceCoffee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cof.jpg"))); // NOI18N
+        lblIceCoffee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblMojitoMousePressed(evt);
+                lblIceCoffeeMousePressed(evt);
             }
         });
 
@@ -215,35 +229,35 @@ public class Beverages extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel1.setText("LKR  350.00");
+        jLabel1.setText("LKR  300.00");
 
         lblDrinks.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblDrinks.setText("SOFT DRINKS (Any Flavour)");
 
         lblDrinksPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblDrinksPrice.setForeground(new java.awt.Color(153, 153, 153));
-        lblDrinksPrice.setText("LKR  80.00");
+        lblDrinksPrice.setText("LKR  50.00");
 
         lblJuice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblJuice.setText("FRESH FRUIT JUICE (Any Flavour)");
 
         lblJuicePrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblJuicePrice.setForeground(new java.awt.Color(153, 153, 153));
-        lblJuicePrice.setText("LKR  250.00");
+        lblJuicePrice.setText("LKR  200.00");
 
         lblMojitoo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblMojitoo.setText("VIRGIN MOJITO");
+        lblMojitoo.setText("ICE COFFEE");
 
         lblMojitoPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblMojitoPrice.setForeground(new java.awt.Color(153, 153, 153));
-        lblMojitoPrice.setText("LKR  200.00");
+        lblMojitoPrice.setText("LKR  100.00");
 
         lblBottledWater.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblBottledWater.setText("BOTTLED DRINKING WATER");
 
         lblWaterPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblWaterPrice.setForeground(new java.awt.Color(153, 153, 153));
-        lblWaterPrice.setText("LKR  100.00");
+        lblWaterPrice.setText("LKR  80.00");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -275,9 +289,7 @@ public class Beverages extends javax.swing.JFrame {
                                                     .addComponent(lblWaterPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGap(24, 24, 24))
                                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(lblMojito)
-                                                        .addComponent(lblMojitoo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(lblMojitoo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGap(86, 86, 86)
                                                     .addComponent(lblBottledWater))))
                                         .addGap(15, 15, 15))
@@ -312,8 +324,10 @@ public class Beverages extends javax.swing.JFrame {
                         .addComponent(lblJuicePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addComponent(lblFruitJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblFruitJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(105, 105, 105)
+                        .addComponent(lblIceCoffee)))
+                .addContainerGap(383, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,17 +351,12 @@ public class Beverages extends javax.swing.JFrame {
                     .addComponent(lblNesPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblDrinksPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblFruitJuice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblWater, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblMojito, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(lblWater, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFruitJuice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIceCoffee, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblMojitoo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -418,7 +427,6 @@ public class Beverages extends javax.swing.JFrame {
         
         POPUP_Message_Nescafe ns = new POPUP_Message_Nescafe();
         ns.setVisible(true);
-        
 
 // TODO add your handling code here:
     }//GEN-LAST:event_lblNescafeMousePressed
@@ -446,13 +454,13 @@ public class Beverages extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_lblFruitJuiceMousePressed
 
-    private void lblMojitoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMojitoMousePressed
+    private void lblIceCoffeeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIceCoffeeMousePressed
         
-        POPUP_Message_Mojito m = new POPUP_Message_Mojito();
+        POPUP_Message_IceCoffee m = new POPUP_Message_IceCoffee();
         m.setVisible(true);
 
 // TODO add your handling code here:
-    }//GEN-LAST:event_lblMojitoMousePressed
+    }//GEN-LAST:event_lblIceCoffeeMousePressed
 
     private void lblWaterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblWaterMousePressed
         
@@ -464,18 +472,34 @@ public class Beverages extends javax.swing.JFrame {
 
     private void btnFastFoodMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastFoodMouseEntered
         
+          // Changing the Fastfood button background color, when cursor move to the Fastfood button
+        btnFastFood.setBackground(new Color(0,102,0));
+        btnBeverages.setBackground(Color.GREEN);       
+        
     }//GEN-LAST:event_btnFastFoodMouseEntered
 
     private void btnMealsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealsMouseEntered
        
+          // Changing the Meal button background color, when cursor move to the Meal button
+        btnMeals.setBackground(new Color(0,102,0));
+        btnBeverages.setBackground(Color.GREEN);  
     }//GEN-LAST:event_btnMealsMouseEntered
 
-    private void btnAppertizersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppertizersMouseEntered
-        
-    }//GEN-LAST:event_btnAppertizersMouseEntered
+    private void btnAppetizersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppetizersMouseEntered
+
+          // Changing the Appetizers button background color, when cursor move to the Appertizer button 
+          btnAppetizers.setBackground(new Color(0,102,0));
+          btnBeverages.setBackground(Color.GREEN);
+    }//GEN-LAST:event_btnAppetizersMouseEntered
 
     private void btnBeveragesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMouseEntered
-        // TODO add your handling code here:
+       
+         // Changing the Beverages button background color, when cursor move to the Beveragesbutton
+          btnBeverages.setForeground(Color.GREEN);
+          btnBeverages.setBackground(new Color(0,102,0));
+
+        
+// TODO add your handling code here:
     }//GEN-LAST:event_btnBeveragesMouseEntered
 
     private void btnFastFoodMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastFoodMousePressed
@@ -490,17 +514,56 @@ public class Beverages extends javax.swing.JFrame {
         this.hide();
     }//GEN-LAST:event_btnMealsMousePressed
 
-    private void btnAppertizersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppertizersMousePressed
+    private void btnAppetizersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppetizersMousePressed
         Appetizers ap = new Appetizers();
         ap.setVisible(true);
         this.hide();
-    }//GEN-LAST:event_btnAppertizersMousePressed
+    }//GEN-LAST:event_btnAppetizersMousePressed
 
     private void btnBeveragesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMousePressed
         Beverages bv = new Beverages();
         bv.setVisible(true);
         this.hide();
     }//GEN-LAST:event_btnBeveragesMousePressed
+
+    private void btnFastFoodMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastFoodMouseExited
+      
+        // Rechange the Fastfood button & Beverages button background colors, when cursor move out the Fastfood button
+        btnFastFood.setBackground(Color.GREEN);
+        btnBeverages.setBackground(new Color(0,102,0));
+        btnBeverages.setForeground(Color.WHITE);
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnFastFoodMouseExited
+
+    private void btnMealsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealsMouseExited
+      
+        // Rechange the Meal button & Beverages button background colors, when cursor move out the Meal button
+        btnMeals.setBackground(Color.GREEN);
+        btnBeverages.setBackground(new Color(0,102,0));
+        btnBeverages.setForeground(Color.WHITE);  
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnMealsMouseExited
+
+    private void btnAppetizersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppetizersMouseExited
+        
+       // Rechange the Appetizers button & Bevearges button background colors, when cursor move out of the Appetizers button
+        btnAppetizers.setBackground(Color.GREEN);
+        btnBeverages.setBackground(new Color(0,102,0));
+        btnBeverages.setForeground(Color.WHITE);  
+
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnAppetizersMouseExited
+
+    private void btnBeveragesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMouseExited
+        
+       // Rechange the Beverages button background color, when cursor move out the Beverages button
+        btnBeverages.setBackground(new Color(0,102,0));
+        btnBeverages.setForeground(Color.WHITE);
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnBeveragesMouseExited
 
     /**
      * @param args the command line arguments
@@ -539,7 +602,7 @@ public class Beverages extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAppertizers;
+    private javax.swing.JButton btnAppetizers;
     private javax.swing.JButton btnBeverages;
     private javax.swing.JButton btnCheckout;
     private javax.swing.JButton btnFastFood;
@@ -553,12 +616,12 @@ public class Beverages extends javax.swing.JFrame {
     private javax.swing.JLabel lblDrinks;
     private javax.swing.JLabel lblDrinksPrice;
     private javax.swing.JLabel lblFruitJuice;
+    private javax.swing.JLabel lblIceCoffee;
     private javax.swing.JLabel lblJuice;
     private javax.swing.JLabel lblJuicePrice;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblMilkshake;
     private javax.swing.JLabel lblMilkshakes;
-    private javax.swing.JLabel lblMojito;
     private javax.swing.JLabel lblMojitoPrice;
     private javax.swing.JLabel lblMojitoo;
     private javax.swing.JLabel lblNesName;
