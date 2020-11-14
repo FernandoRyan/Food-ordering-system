@@ -1,5 +1,7 @@
 package foodorderingsystem;
 
+import java.awt.Color;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -36,12 +38,13 @@ public class POPUP_Message_Softdrinks extends javax.swing.JFrame {
         jSpinner1 = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAddToPlateDrinks = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/newdrinks_1.jpg"))); // NOI18N
 
@@ -60,14 +63,20 @@ public class POPUP_Message_Softdrinks extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("LKR  80.00");
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 0));
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("ADD TO CART");
-        jButton1.setBorderPainted(false);
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAddToPlateDrinks.setBackground(new java.awt.Color(0, 204, 0));
+        btnAddToPlateDrinks.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnAddToPlateDrinks.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddToPlateDrinks.setText("ADD TO PLATE");
+        btnAddToPlateDrinks.setBorderPainted(false);
+        btnAddToPlateDrinks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAddToPlateDrinksMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAddToPlateDrinksMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton1MousePressed(evt);
+                btnAddToPlateDrinksMousePressed(evt);
             }
         });
 
@@ -86,7 +95,7 @@ public class POPUP_Message_Softdrinks extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -96,7 +105,7 @@ public class POPUP_Message_Softdrinks extends javax.swing.JFrame {
                 .addGap(101, 101, 101))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddToPlateDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(121, 121, 121))
         );
         jPanel1Layout.setVerticalGroup(
@@ -116,7 +125,7 @@ public class POPUP_Message_Softdrinks extends javax.swing.JFrame {
                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddToPlateDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
 
@@ -127,12 +136,24 @@ public class POPUP_Message_Softdrinks extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+    private void btnAddToPlateDrinksMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDrinksMousePressed
         
         this.setVisible(false);
 
 // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MousePressed
+    }//GEN-LAST:event_btnAddToPlateDrinksMousePressed
+
+    private void btnAddToPlateDrinksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDrinksMouseEntered
+        
+        btnAddToPlateDrinks.setBackground(Color.RED);
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnAddToPlateDrinksMouseEntered
+
+    private void btnAddToPlateDrinksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDrinksMouseExited
+        
+        btnAddToPlateDrinks.setBackground(Color.GREEN);
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnAddToPlateDrinksMouseExited
 
     /**
      * @param args the command line arguments
@@ -171,7 +192,7 @@ public class POPUP_Message_Softdrinks extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAddToPlateDrinks;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

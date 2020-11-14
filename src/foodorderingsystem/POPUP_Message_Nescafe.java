@@ -1,5 +1,7 @@
 package foodorderingsystem;
 
+import java.awt.Color;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -36,12 +38,13 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame {
         jSpinner1 = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAddToPlateNescafe = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nesnew.jpg"))); // NOI18N
 
@@ -60,18 +63,24 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("LKR  40.00");
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 0));
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("ADD TO CART");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAddToPlateNescafe.setBackground(new java.awt.Color(0, 204, 0));
+        btnAddToPlateNescafe.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnAddToPlateNescafe.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddToPlateNescafe.setText("ADD TO PLATE");
+        btnAddToPlateNescafe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAddToPlateNescafeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAddToPlateNescafeMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton1MousePressed(evt);
+                btnAddToPlateNescafeMousePressed(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddToPlateNescafe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddToPlateNescafeActionPerformed(evt);
             }
         });
 
@@ -96,8 +105,8 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 20, Short.MAX_VALUE)))))
+                                .addComponent(btnAddToPlateNescafe, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 16, Short.MAX_VALUE)))))
                 .addGap(74, 74, 74))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +122,7 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -124,7 +133,7 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddToPlateNescafe, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
 
@@ -135,16 +144,28 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+    private void btnAddToPlateNescafeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateNescafeMousePressed
 
         this.setVisible(false);
 
 // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MousePressed
+    }//GEN-LAST:event_btnAddToPlateNescafeMousePressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddToPlateNescafeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToPlateNescafeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAddToPlateNescafeActionPerformed
+
+    private void btnAddToPlateNescafeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateNescafeMouseEntered
+       
+        btnAddToPlateNescafe.setBackground(Color.RED);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddToPlateNescafeMouseEntered
+
+    private void btnAddToPlateNescafeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateNescafeMouseExited
+        
+        btnAddToPlateNescafe.setBackground(Color.GREEN);
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnAddToPlateNescafeMouseExited
 
     /**
      * @param args the command line arguments
@@ -183,7 +204,7 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAddToPlateNescafe;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

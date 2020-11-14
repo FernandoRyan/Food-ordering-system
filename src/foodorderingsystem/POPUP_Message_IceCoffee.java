@@ -1,5 +1,7 @@
 package foodorderingsystem;
 
+import java.awt.Color;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -36,12 +38,13 @@ public class POPUP_Message_IceCoffee extends javax.swing.JFrame {
         jSpinner1 = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAddToPlateIceCoffee = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cof1.jpg"))); // NOI18N
 
@@ -60,13 +63,19 @@ public class POPUP_Message_IceCoffee extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("LKR  100.00");
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 0));
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("ADD TO CART");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAddToPlateIceCoffee.setBackground(new java.awt.Color(0, 204, 0));
+        btnAddToPlateIceCoffee.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnAddToPlateIceCoffee.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddToPlateIceCoffee.setText("ADD TO PLATE");
+        btnAddToPlateIceCoffee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAddToPlateIceCoffeeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAddToPlateIceCoffeeMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton1MousePressed(evt);
+                btnAddToPlateIceCoffeeMousePressed(evt);
             }
         });
 
@@ -82,7 +91,7 @@ public class POPUP_Message_IceCoffee extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnAddToPlateIceCoffee, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(177, 177, 177)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,7 +104,7 @@ public class POPUP_Message_IceCoffee extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,7 +126,7 @@ public class POPUP_Message_IceCoffee extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddToPlateIceCoffee, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
@@ -128,12 +137,24 @@ public class POPUP_Message_IceCoffee extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+    private void btnAddToPlateIceCoffeeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateIceCoffeeMousePressed
         
         this.setVisible(false);
 
 // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MousePressed
+    }//GEN-LAST:event_btnAddToPlateIceCoffeeMousePressed
+
+    private void btnAddToPlateIceCoffeeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateIceCoffeeMouseEntered
+        
+        btnAddToPlateIceCoffee.setBackground(Color.RED);
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnAddToPlateIceCoffeeMouseEntered
+
+    private void btnAddToPlateIceCoffeeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateIceCoffeeMouseExited
+       
+        btnAddToPlateIceCoffee.setBackground(Color.GREEN);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddToPlateIceCoffeeMouseExited
 
     /**
      * @param args the command line arguments
@@ -174,7 +195,7 @@ public class POPUP_Message_IceCoffee extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAddToPlateIceCoffee;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

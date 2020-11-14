@@ -1,5 +1,7 @@
 package foodorderingsystem;
 
+import java.awt.Color;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -36,11 +38,12 @@ public class POPUP_Message_FruitJuice extends javax.swing.JFrame {
         jSpinner1 = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAddToPlateFruitJuice = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/newfruit_1.jpg"))); // NOI18N
 
@@ -59,13 +62,19 @@ public class POPUP_Message_FruitJuice extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("LKR  250.00");
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 0));
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("ADD TO CART");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAddToPlateFruitJuice.setBackground(new java.awt.Color(0, 204, 0));
+        btnAddToPlateFruitJuice.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnAddToPlateFruitJuice.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddToPlateFruitJuice.setText("ADD TO PLATE");
+        btnAddToPlateFruitJuice.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAddToPlateFruitJuiceMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAddToPlateFruitJuiceMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton1MousePressed(evt);
+                btnAddToPlateFruitJuiceMousePressed(evt);
             }
         });
 
@@ -89,11 +98,11 @@ public class POPUP_Message_FruitJuice extends javax.swing.JFrame {
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnAddToPlateFruitJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(201, 201, 201)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -115,7 +124,7 @@ public class POPUP_Message_FruitJuice extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddToPlateFruitJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -134,12 +143,25 @@ public class POPUP_Message_FruitJuice extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+    private void btnAddToPlateFruitJuiceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateFruitJuiceMousePressed
        
         this.setVisible(false);
         
 // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MousePressed
+    }//GEN-LAST:event_btnAddToPlateFruitJuiceMousePressed
+
+    private void btnAddToPlateFruitJuiceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateFruitJuiceMouseEntered
+       
+        btnAddToPlateFruitJuice.setBackground(Color.RED);
+                // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddToPlateFruitJuiceMouseEntered
+
+    private void btnAddToPlateFruitJuiceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateFruitJuiceMouseExited
+        
+        btnAddToPlateFruitJuice.setBackground(Color.GREEN);
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnAddToPlateFruitJuiceMouseExited
 
     /**
      * @param args the command line arguments
@@ -178,7 +200,7 @@ public class POPUP_Message_FruitJuice extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAddToPlateFruitJuice;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
