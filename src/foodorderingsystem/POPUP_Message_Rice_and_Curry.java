@@ -82,6 +82,16 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame  {
         dpriceqty.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         dpriceqty.setBorder(null);
         dpriceqty.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        dpriceqty.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                dpriceqtyMouseMoved(evt);
+            }
+        });
+        dpriceqty.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dpriceqtyMouseEntered(evt);
+            }
+        });
         jPanel1.add(dpriceqty, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 130, 30));
 
         lblTotalLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
@@ -164,6 +174,14 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame  {
     private void btnAddToPlateRicenCurryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateRicenCurryMouseEntered
       CalculateMealprice();
     }//GEN-LAST:event_btnAddToPlateRicenCurryMouseEntered
+
+    private void dpriceqtyMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dpriceqtyMouseEntered
+       CalculateMealprice();
+    }//GEN-LAST:event_dpriceqtyMouseEntered
+
+    private void dpriceqtyMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dpriceqtyMouseMoved
+       CalculateMealprice();
+    }//GEN-LAST:event_dpriceqtyMouseMoved
     //Declaration of member feilds 
     
     public String Total ="00";
