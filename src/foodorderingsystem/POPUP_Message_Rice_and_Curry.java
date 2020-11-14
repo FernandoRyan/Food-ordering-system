@@ -5,8 +5,9 @@
  */
 package foodorderingsystem;
 
+//Importing Libararies 
 import java.awt.Color;
-import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -70,7 +71,7 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame  {
 
         lblriceprice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblriceprice.setForeground(new java.awt.Color(51, 51, 51));
-        lblriceprice.setText("200.00");
+        lblriceprice.setText("110.00");
         jPanel1.add(lblriceprice, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 50, 20));
 
         lblQTY.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -82,14 +83,9 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame  {
         dpriceqty.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         dpriceqty.setBorder(null);
         dpriceqty.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        dpriceqty.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                dpriceqtyMouseMoved(evt);
-            }
-        });
-        dpriceqty.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                dpriceqtyMouseEntered(evt);
+        dpriceqty.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                dpriceqtyStateChanged(evt);
             }
         });
         jPanel1.add(dpriceqty, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 130, 30));
@@ -150,6 +146,11 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame  {
         jPanel1.add(btnAddToPlateRicenCurry, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 50));
 
         Sltdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "White Rice with Chicken","White rice with Egg" ,"Brown rice with Chicken","Brown rice with Egg" }));
+        Sltdropdown.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                SltdropdownItemStateChanged(evt);
+            }
+        });
         jPanel1.add(Sltdropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 130, -1));
 
         getContentPane().add(jPanel1);
@@ -173,25 +174,35 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame  {
 
     private void btnAddToPlateRicenCurryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateRicenCurryMouseEntered
       CalculateMealprice();
+       if(qty==0){
+           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
+        }
+        else {
+        }
     }//GEN-LAST:event_btnAddToPlateRicenCurryMouseEntered
 
-    private void dpriceqtyMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dpriceqtyMouseEntered
-       CalculateMealprice();
-    }//GEN-LAST:event_dpriceqtyMouseEntered
+    private void dpriceqtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_dpriceqtyStateChanged
+        CalculateMealprice();
+    }//GEN-LAST:event_dpriceqtyStateChanged
 
-    private void dpriceqtyMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dpriceqtyMouseMoved
-       CalculateMealprice();
-    }//GEN-LAST:event_dpriceqtyMouseMoved
+    private void SltdropdownItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_SltdropdownItemStateChanged
+          CalculateMealprice();
+    }//GEN-LAST:event_SltdropdownItemStateChanged
     //Declaration of member feilds 
     
     public String Total ="00";
-    
+    public int qty;
     //Declaration of member methods 
      public void  CalculateMealprice(){
+         
          if(dpriceqty!=null)
        { 
-           int qty =(int) dpriceqty.getValue();
-          
+           qty =(int) dpriceqty.getValue();
+           if(qty>30){
+        JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");
+       return;
+           }
+           
            Total= Double.toString( qty *MatchMenu());
            
            lblTotalPrice.setText(Total);

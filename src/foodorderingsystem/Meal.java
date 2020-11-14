@@ -94,9 +94,6 @@ public class Meal extends javax.swing.JFrame {
             }
         });
         FFbtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                FFbtnMouseEntered(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 FFbtnMouseExited(evt);
             }
@@ -144,9 +141,6 @@ public class Meal extends javax.swing.JFrame {
             }
         });
         APBTN.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                APBTNMouseEntered(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 APBTNMouseExited(evt);
             }
@@ -168,9 +162,6 @@ public class Meal extends javax.swing.JFrame {
             }
         });
         BVGBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BVGBtnMouseEntered(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 BVGBtnMouseExited(evt);
             }
@@ -537,18 +528,6 @@ public class Meal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MealbtnMouseEntered
 
-    private void FFbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FFbtnMouseEntered
-     
-    }//GEN-LAST:event_FFbtnMouseEntered
-
-    private void APBTNMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_APBTNMouseEntered
-        
-    }//GEN-LAST:event_APBTNMouseEntered
-
-    private void BVGBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BVGBtnMouseEntered
-     
-    }//GEN-LAST:event_BVGBtnMouseEntered
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(screenSize.width, screenSize.height);
@@ -558,13 +537,6 @@ public class Meal extends javax.swing.JFrame {
        this.show();
     }//GEN-LAST:event_MealbtnMousePressed
 
-    private void FFbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FFbtnMousePressed
-      Fastfoods ff= new Fastfoods();
-      ff.show();
-      this.hide();
-      
-    }//GEN-LAST:event_FFbtnMousePressed
-
     private void APBTNMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_APBTNMousePressed
        Appetizers ap= new Appetizers();
        ap.show();
@@ -572,9 +544,9 @@ public class Meal extends javax.swing.JFrame {
     }//GEN-LAST:event_APBTNMousePressed
 
     private void BVGBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BVGBtnMousePressed
-        /*Beverages bv= new Beverages();
+        Beverages bv= new Beverages();
         bv.show();
-        this.hide();*/
+        this.hide();
     }//GEN-LAST:event_BVGBtnMousePressed
 
     private void btnCheckoutMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseMoved
@@ -584,6 +556,13 @@ public class Meal extends javax.swing.JFrame {
     private void btnCheckoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseExited
        btnCheckout.setBackground(new Color(0,204,0));
     }//GEN-LAST:event_btnCheckoutMouseExited
+
+    private void FFbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FFbtnMousePressed
+        Fastfoods ff= new Fastfoods();
+        ff.show();
+        this.hide();
+
+    }//GEN-LAST:event_FFbtnMousePressed
 
     /**
      * @param args the command line arguments

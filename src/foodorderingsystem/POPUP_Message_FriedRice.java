@@ -6,6 +6,7 @@
 package foodorderingsystem;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -82,6 +83,11 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
         dpriceqty.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         dpriceqty.setBorder(null);
         dpriceqty.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        dpriceqty.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                dpriceqtyStateChanged(evt);
+            }
+        });
         jPanel1.add(dpriceqty, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 90, 30));
 
         lblTotalLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
@@ -130,6 +136,9 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
             }
         });
         friedricebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                friedricebtnMouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 friedricebtnMouseExited(evt);
             }
@@ -137,10 +146,15 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
         jPanel1.add(friedricebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 50));
 
         Sltdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chicken","Egg" }));
+        Sltdropdown.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                SltdropdownItemStateChanged(evt);
+            }
+        });
         jPanel1.add(Sltdropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 90, -1));
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 400, 490);
+        jPanel1.setBounds(0, 0, 400, 500);
 
         setSize(new java.awt.Dimension(401, 499));
         setLocationRelativeTo(null);
@@ -158,6 +172,63 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
        friedricebtn.setBackground(new Color(0,204,0));
     }//GEN-LAST:event_friedricebtnMouseExited
 
+    private void SltdropdownItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_SltdropdownItemStateChanged
+       CalculateMealprice();
+    }//GEN-LAST:event_SltdropdownItemStateChanged
+
+    private void dpriceqtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_dpriceqtyStateChanged
+       CalculateMealprice();
+    }//GEN-LAST:event_dpriceqtyStateChanged
+
+    private void friedricebtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_friedricebtnMouseEntered
+        CalculateMealprice();
+         if(qty==0){
+           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
+        }
+        else {
+        }
+    }//GEN-LAST:event_friedricebtnMouseEntered
+
+    
+    
+     //Declaration of Member Feilds
+    
+    public String Total ="00";
+    public int qty;
+    
+     //Declaration of Member Methods 
+    
+     public void  CalculateMealprice(){
+         if(dpriceqty!=null)
+       { 
+            qty =(int) dpriceqty.getValue();
+          
+           if(qty>30){
+        JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");
+       return;
+           }
+           Total= Double.toString( qty *MatchMenu());
+           
+           lblTotalPrice.setText(Total);
+       }
+         else if (dpriceqty==null)
+              lblTotalPrice.setText(Total);
+         //Add a message box to add to cart 
+    }
+    
+    
+    public double MatchMenu(){
+        switch (Sltdropdown.getSelectedItem().toString()) {
+            case "Chicken":
+                return 230.00;
+            case "Egg":
+                return 200.00;
+            default:
+                break;
+        }
+        return 0;
+     }
+    
     /**
      * @param args the command line arguments
      */
