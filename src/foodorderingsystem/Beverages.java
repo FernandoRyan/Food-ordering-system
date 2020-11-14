@@ -2,6 +2,8 @@
 package foodorderingsystem;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 
 
@@ -66,6 +68,12 @@ public class Beverages extends javax.swing.JFrame {
         lblAmount = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -564,6 +572,11 @@ public class Beverages extends javax.swing.JFrame {
         btnBeverages.setForeground(Color.WHITE);
 // TODO add your handling code here:
     }//GEN-LAST:event_btnBeveragesMouseExited
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+           Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(screenSize.width, screenSize.height);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
