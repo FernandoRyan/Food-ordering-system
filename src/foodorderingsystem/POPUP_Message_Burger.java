@@ -156,6 +156,9 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnAddToPlateBurgerMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAddToPlateBurgerMousePressed(evt);
+            }
         });
         jPanel1.add(btnAddToPlateBurger);
         btnAddToPlateBurger.setBounds(90, 410, 210, 60);
@@ -190,16 +193,8 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
 
     private void btnAddToPlateBurgerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseEntered
         btnAddToPlateBurger.setBackground(Color.RED);
-    }//GEN-LAST:event_btnAddToPlateBurgerMouseEntered
-
-    private void btnAddToPlateBurgerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseExited
-        btnAddToPlateBurger.setBackground(Color.GREEN);
-    }//GEN-LAST:event_btnAddToPlateBurgerMouseExited
-
-    private void btnAddToPlateBurgerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseClicked
-        InsertOrderDetails();
         
-        if(qty==0)
+        if(qty == 0)
         {
            JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
         }
@@ -207,12 +202,36 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
         {
             CalculateBurgerPrice();    
         }
+    }//GEN-LAST:event_btnAddToPlateBurgerMouseEntered
+
+    private void btnAddToPlateBurgerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseExited
+        btnAddToPlateBurger.setBackground(Color.GREEN);
+    }//GEN-LAST:event_btnAddToPlateBurgerMouseExited
+
+    private void btnAddToPlateBurgerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseClicked
+                
     }//GEN-LAST:event_btnAddToPlateBurgerMouseClicked
 
     private void spBurgerQtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spBurgerQtyStateChanged
         CalculateBurgerPrice();
     }//GEN-LAST:event_spBurgerQtyStateChanged
 
+    private void btnAddToPlateBurgerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMousePressed
+        InsertOrderDetails();
+    }//GEN-LAST:event_btnAddToPlateBurgerMousePressed
+
+    public double lblBurgerPrice() 
+    {
+        if(qty <= 0)
+        {
+            return 0;
+        }
+        else{
+            return 200.00;
+        }
+        
+    }
+    
     //Declaration of Member Methods     
      public void  CalculateBurgerPrice()
      {
@@ -222,15 +241,16 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
             
             if(qty > 20)
             {
-                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");
-                return;        
+                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");                       
             }
+            else {
         
             Total = Double.toString( qty * lblBurgerPrice());
            
-            lblTotalPrice.setText(Total);                
+            lblTotalPrice.setText(Total);             
+            }            
         }
-         else if (spBurgerQty ==  null)
+        else if (spBurgerQty == null)
               lblTotalPrice.setText(Total);
          //Add a message box to add to cart 
     }
@@ -277,11 +297,6 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
                 Logger.getLogger(POPUP_Message_Burger.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }    
-    
-    private int lblBurgerPrice() 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
      
     /**

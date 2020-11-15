@@ -166,12 +166,22 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
                 Add_To_PlateMousePressed(evt);
             }
         });
+        Add_To_Plate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Add_To_PlateActionPerformed(evt);
+            }
+        });
         jPanel1.add(Add_To_Plate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 50));
 
         Sltdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fried Rice with Chicken","Fried Rice with Egg" }));
         Sltdropdown.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 SltdropdownItemStateChanged(evt);
+            }
+        });
+        Sltdropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SltdropdownActionPerformed(evt);
             }
         });
         jPanel1.add(Sltdropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 170, -1));
@@ -218,6 +228,14 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
          InsertOrderDetails();
         
     }//GEN-LAST:event_Add_To_PlateMousePressed
+
+    private void Add_To_PlateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Add_To_PlateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Add_To_PlateActionPerformed
+
+    private void SltdropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SltdropdownActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SltdropdownActionPerformed
 
     
     //Declaration of Member Methods 
