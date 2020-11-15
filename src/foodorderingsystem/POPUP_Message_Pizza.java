@@ -89,7 +89,7 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
         spQtyPizza.setBorder(null);
         spQtyPizza.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(spQtyPizza);
-        spQtyPizza.setBounds(110, 320, 50, 50);
+        spQtyPizza.setBounds(110, 330, 70, 30);
         spQtyPizza.getAccessibleContext().setAccessibleName("spQtyPizza");
 
         lblTotal.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N

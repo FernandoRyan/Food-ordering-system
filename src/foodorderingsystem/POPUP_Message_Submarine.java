@@ -88,7 +88,7 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
         spSubmarineQty.setBorder(null);
         spSubmarineQty.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(spSubmarineQty);
-        spSubmarineQty.setBounds(100, 330, 50, 50);
+        spSubmarineQty.setBounds(100, 340, 70, 30);
         spSubmarineQty.getAccessibleContext().setAccessibleName("spSubmarineQty");
 
         lblTOTAL.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N

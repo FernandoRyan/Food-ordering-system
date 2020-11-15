@@ -117,7 +117,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
             }
         });
         jPanel1.add(spBurgerQty);
-        spBurgerQty.setBounds(100, 320, 50, 50);
+        spBurgerQty.setBounds(100, 330, 70, 30);
         spBurgerQty.getAccessibleContext().setAccessibleName("spBurgerQty");
 
         lblTotalLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
