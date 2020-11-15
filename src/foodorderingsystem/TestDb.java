@@ -16,14 +16,12 @@ public class TestDb {
 
 public static void main(String [] args) throws ClassNotFoundException {
     
-    
-  
-    String connectionUrl = "jdbc:sqlserver://DESKTOP-PAILGPD\\SQLSERVER;databaseName=Test;";
+    String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+   
     String username= "sa";
     String Pass="anjalo9990";
  
     try{
-  
    Connection con = DriverManager.getConnection(connectionUrl, username, Pass);
     if(con!=null)
     System.out.println("Connection is successfull");

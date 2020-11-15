@@ -588,9 +588,9 @@ public class Meal extends javax.swing.JFrame {
          
 //Kottu Rotti
          
-         Meals Kottu_Chicken = new Meals("Kottu with Chicken",160.00,150.00,007);
-         Meals Kottu_Egg   = new Meals("Kottu with Egg",130.00,150.00,009.00);
-         Meals Kottu_Chicken_Cheese = new Meals("Kottu with Chicken and cheese",240.00,150.00,0010.00);
+         Meals Kottu_Chicken = new Meals("Kottu with Chicken",220.00,150.00,007);
+         Meals Kottu_Egg   = new Meals("Kottu with Egg",190.00,150.00,009.00);
+         Meals Kottu_Chicken_Cheese = new Meals("Kottu with Chicken and cheese",260.00,150.00,0010.00);
          
          
         /* Create and display the form */
