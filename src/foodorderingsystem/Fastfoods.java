@@ -887,12 +887,12 @@ public class Fastfoods extends javax.swing.JFrame {
         
         //Creation of objects and intilization
       
-        Fastfood Cheese_Burger = new Fastfood(4, "Burger", 200.00, 2);
-        Fastfood Submarine = new Fastfood(5, "Submarine", 200.00, 2);
-        Fastfood Hot_Dog = new Fastfood(6, "HotDog", 150.00, 2);
-        Fastfood Pizza = new Fastfood(7, "Pizza",150.00, 2);
-        Fastfood Sandwitch = new Fastfood(8, "Sandwitch", 100.00, 2);
-        Fastfood Donut = new Fastfood(9, "Donut", 60.00, 3);
+        Fastfood Cheese_Burger = new Fastfood(11, "Burger", 200.00, 1);
+        Fastfood Submarine = new Fastfood(12, "Submarine", 200.00, 1);
+        Fastfood Hot_Dog = new Fastfood(13, "HotDog", 150.00, 1);
+        Fastfood Pizza = new Fastfood(14, "Pizza",150.00, 1);
+        Fastfood Sandwitch = new Fastfood(15, "Sandwitch", 100.00, 1);
+        Fastfood Donut = new Fastfood(16, "Donut", 60.00, 1);
 
         //* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
