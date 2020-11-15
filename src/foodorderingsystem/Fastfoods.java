@@ -305,7 +305,8 @@ public class Fastfoods extends javax.swing.JFrame {
                         .addGap(78, 78, 78)
                         .addComponent(btnSandwitch, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(77, 77, 77)
-                        .addComponent(btnDonut, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnDonut, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(75, Short.MAX_VALUE))
                     .addGroup(pnlFoodsLayout.createSequentialGroup()
                         .addGroup(pnlFoodsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(pnlFoodsLayout.createSequentialGroup()
@@ -331,7 +332,7 @@ public class Fastfoods extends javax.swing.JFrame {
                                 .addComponent(lblLKR6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblDonutPrice)))
-                        .addGap(14, 14, 14))))
+                        .addGap(85, 85, 85))))
         );
         pnlFoodsLayout.setVerticalGroup(
             pnlFoodsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
