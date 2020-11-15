@@ -1,4 +1,4 @@
-/*
+  /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -122,6 +122,11 @@ public class Fastfoods extends javax.swing.JFrame {
                 btnBurgerMouseClicked(evt);
             }
         });
+        btnBurger.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBurgerActionPerformed(evt);
+            }
+        });
 
         btnSubmarine.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SUBMARINE.jpg"))); // NOI18N
         btnSubmarine.setText("jButton2");
@@ -180,28 +185,22 @@ public class Fastfoods extends javax.swing.JFrame {
         });
 
         lblBurger.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblBurger.setForeground(new java.awt.Color(0, 0, 0));
         lblBurger.setText("CHEESE BURGER");
         lblBurger.setToolTipText("");
 
         lblSubmarine.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblSubmarine.setForeground(new java.awt.Color(0, 0, 0));
         lblSubmarine.setText("SUBMARINE");
 
         lblHotDog.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblHotDog.setForeground(new java.awt.Color(0, 0, 0));
         lblHotDog.setText("HOT DOG");
 
         lblPizza.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblPizza.setForeground(new java.awt.Color(0, 0, 0));
         lblPizza.setText("PIZZA");
 
         lblSandwitch.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblSandwitch.setForeground(new java.awt.Color(0, 0, 0));
         lblSandwitch.setText("SANDWICH");
 
         lblDonut.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblDonut.setForeground(new java.awt.Color(0, 0, 0));
         lblDonut.setText("DONUT");
 
         lblLKR1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -633,8 +632,8 @@ public class Fastfoods extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(lblMyPlate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(136, 136, 136)
+                .addComponent(jLabel3)
+                .addGap(148, 148, 148)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTotalName)
                     .addComponent(lblTotalPrice)
@@ -850,6 +849,10 @@ public class Fastfoods extends javax.swing.JFrame {
         od.setVisible(true);
         this.hide();
     }//GEN-LAST:event_btnCheckoutMouseClicked
+
+    private void btnBurgerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBurgerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBurgerActionPerformed
 
     /**
      * @param args the command line arguments
