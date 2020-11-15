@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2020 at 11:59 AM
+-- Generation Time: Nov 15, 2020 at 03:04 PM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,9 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `foodorderingsystem`
 --
-DROP DATABASE IF EXISTS `foodorderingsystem`;
-CREATE DATABASE IF NOT EXISTS `foodorderingsystem` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `foodorderingsystem`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fastfood`
+--
+
+CREATE TABLE `fastfood` (
+  `ProductID` int(10) NOT NULL,
+  `ProductDescription` varchar(1000) NOT NULL,
+  `ProductPrice` double NOT NULL,
+  `ProductQuantity` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `fastfood`
+--
+
+INSERT INTO `fastfood` (`ProductID`, `ProductDescription`, `ProductPrice`, `ProductQuantity`) VALUES
+(10, 'Chicken Burger', 200, 1),
+(11, 'Submarine', 200, 1),
+(12, 'Hot Dog', 150, 1),
+(13, 'Pizza', 150, 1),
+(14, 'Sandwich', 100, 1),
+(15, 'Donut', 60, 1);
 
 -- --------------------------------------------------------
 
@@ -30,14 +52,11 @@ USE `foodorderingsystem`;
 -- Table structure for table `meals`
 --
 
-DROP TABLE IF EXISTS `meals`;
-CREATE TABLE IF NOT EXISTS `meals` (
+CREATE TABLE `meals` (
   `ProductID` int(11) NOT NULL,
   `ProductDescription` varchar(100) NOT NULL,
   `ProductPrice` decimal(10,0) NOT NULL,
-  `ProductQty` int(11) NOT NULL,
-  PRIMARY KEY (`ProductID`),
-  UNIQUE KEY `ProductID` (`ProductID`)
+  `ProductQty` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -61,14 +80,12 @@ INSERT INTO `meals` (`ProductID`, `ProductDescription`, `ProductPrice`, `Product
 -- Table structure for table `salesorder`
 --
 
-DROP TABLE IF EXISTS `salesorder`;
-CREATE TABLE IF NOT EXISTS `salesorder` (
+CREATE TABLE `salesorder` (
   `ProductDescription` varchar(100) NOT NULL,
   `qty` int(11) NOT NULL,
   `TotalValue` decimal(10,0) NOT NULL,
-  `OrderId` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`OrderId`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+  `OrderId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `salesorder`
@@ -77,6 +94,39 @@ CREATE TABLE IF NOT EXISTS `salesorder` (
 INSERT INTO `salesorder` (`ProductDescription`, `qty`, `TotalValue`, `OrderId`) VALUES
 ('Egg', 1, '200', 6),
 ('Chicken', 1, '230', 7);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `fastfood`
+--
+ALTER TABLE `fastfood`
+  ADD PRIMARY KEY (`ProductID`);
+
+--
+-- Indexes for table `meals`
+--
+ALTER TABLE `meals`
+  ADD PRIMARY KEY (`ProductID`),
+  ADD UNIQUE KEY `ProductID` (`ProductID`);
+
+--
+-- Indexes for table `salesorder`
+--
+ALTER TABLE `salesorder`
+  ADD PRIMARY KEY (`OrderId`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `salesorder`
+--
+ALTER TABLE `salesorder`
+  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
