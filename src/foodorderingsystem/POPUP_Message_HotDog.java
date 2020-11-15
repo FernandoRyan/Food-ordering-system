@@ -88,7 +88,7 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
         spQtyHotDog.setBorder(null);
         spQtyHotDog.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(spQtyHotDog);
-        spQtyHotDog.setBounds(110, 320, 50, 50);
+        spQtyHotDog.setBounds(110, 330, 70, 30);
         spQtyHotDog.getAccessibleContext().setAccessibleName("spQtyHotDog");
 
         lblTotal.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N

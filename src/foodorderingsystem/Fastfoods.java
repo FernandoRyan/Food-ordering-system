@@ -307,7 +307,8 @@ public class Fastfoods extends javax.swing.JFrame {
                         .addGap(78, 78, 78)
                         .addComponent(btnSandwitch, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(77, 77, 77)
-                        .addComponent(btnDonut, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnDonut, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(75, Short.MAX_VALUE))
                     .addGroup(pnlFoodsLayout.createSequentialGroup()
                         .addGroup(pnlFoodsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(pnlFoodsLayout.createSequentialGroup()
@@ -333,7 +334,7 @@ public class Fastfoods extends javax.swing.JFrame {
                                 .addComponent(lblLKR6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblDonutPrice)))
-                        .addGap(14, 14, 14))))
+                        .addGap(85, 85, 85))))
         );
         pnlFoodsLayout.setVerticalGroup(
             pnlFoodsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -888,12 +889,12 @@ public class Fastfoods extends javax.swing.JFrame {
         
         //Creation of objects and intilization
       
-        Fastfood Cheese_Burger = new Fastfood(4, "Burger", 200.00, 2);
-        Fastfood Submarine = new Fastfood(5, "Submarine", 200.00, 2);
-        Fastfood Hot_Dog = new Fastfood(6, "HotDog", 150.00, 2);
-        Fastfood Pizza = new Fastfood(7, "Pizza",150.00, 2);
-        Fastfood Sandwitch = new Fastfood(8, "Sandwitch", 100.00, 2);
-        Fastfood Donut = new Fastfood(9, "Donut", 60.00, 3);
+        Fastfood Cheese_Burger = new Fastfood(11, "Burger", 200.00, 1);
+        Fastfood Submarine = new Fastfood(12, "Submarine", 200.00, 1);
+        Fastfood Hot_Dog = new Fastfood(13, "HotDog", 150.00, 1);
+        Fastfood Pizza = new Fastfood(14, "Pizza",150.00, 1);
+        Fastfood Sandwitch = new Fastfood(15, "Sandwitch", 100.00, 1);
+        Fastfood Donut = new Fastfood(16, "Donut", 60.00, 1);
 
         //* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {

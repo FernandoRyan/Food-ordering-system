@@ -88,7 +88,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
         spQtyDonut.setBorder(null);
         spQtyDonut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(spQtyDonut);
-        spQtyDonut.setBounds(110, 320, 50, 50);
+        spQtyDonut.setBounds(110, 330, 70, 30);
         spQtyDonut.getAccessibleContext().setAccessibleName("spQtyDonut");
 
         lblTotal.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N

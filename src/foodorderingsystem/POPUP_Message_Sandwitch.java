@@ -88,7 +88,7 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
         spQtySandwitch.setBorder(null);
         spQtySandwitch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(spQtySandwitch);
-        spQtySandwitch.setBounds(110, 320, 50, 50);
+        spQtySandwitch.setBounds(110, 330, 70, 30);
         spQtySandwitch.getAccessibleContext().setAccessibleName("spQtySandwitch");
 
         lblTotal.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
