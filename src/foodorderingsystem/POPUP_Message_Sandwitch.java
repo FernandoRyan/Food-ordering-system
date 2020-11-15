@@ -6,6 +6,14 @@
 package foodorderingsystem;
 
 import java.awt.Color;
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +24,19 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
     /**
      * Creates new form SandwitchPOPUPMessage
      */
+    
+    //Declaration of Member Feilds    
+    String Total ="0";
+    int qty; 
+    String ProductDescription="Sandwitch";
+    Connection conn;
+    
+    //Connection setup
+    String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+    String username= "sa";
+    String Pass="anjalo9990";
+    
+    //Frame Creation
     public POPUP_Message_Sandwitch() {
         initComponents();
     }
@@ -111,7 +132,15 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
         btnAddToPlateSandwitch.setText("ADD TO PLATE");
         btnAddToPlateSandwitch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddToPlateSandwitch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddToPlateSandwitch.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                btnAddToPlateSandwitchStateChanged(evt);
+            }
+        });
         btnAddToPlateSandwitch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddToPlateSandwitchMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnAddToPlateSandwitchMouseEntered(evt);
             }
@@ -184,6 +213,94 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
         btnAddToPlateSandwitch.setBackground(Color.GREEN);
     }//GEN-LAST:event_btnAddToPlateSandwitchMouseExited
 
+    private void btnAddToPlateSandwitchStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchStateChanged
+        CalculateSandwitchPrice();
+    }//GEN-LAST:event_btnAddToPlateSandwitchStateChanged
+
+    private void btnAddToPlateSandwitchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchMouseClicked
+        InsertOrderDetails();
+        
+        if(qty == 0)
+        {
+           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
+        }
+        else 
+        {
+            CalculateSandwitchPrice();    
+        }
+    }//GEN-LAST:event_btnAddToPlateSandwitchMouseClicked
+    
+    //Declaration of member methods 
+    private void CalculateSandwitchPrice() 
+    {
+        if(spQtySandwitch != null)
+        {
+            qty = (int) spQtySandwitch.getValue();
+            
+            if(qty > 20)
+            {
+                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");
+                return;        
+            }
+        
+            Total = Double.toString( qty * lblSandwitchPrice());
+           
+            lblTotalPrice.setText(Total);                
+        }
+         else if (spQtySandwitch ==  null)
+              lblTotalPrice.setText(Total);
+         //Add a message box to add to cart 
+    }
+
+    private void InsertOrderDetails() 
+    {
+        String Insert;
+        
+        try
+        {
+            //Opening database for connection
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);         
+        
+            if(conn != null)
+            {
+                BigDecimal TotalValue = new BigDecimal(Total);
+                
+                Insert = "INSERT INTO SalesOrder(ProductDescription,qty,TotalValue) VALUES (?,?,?)";
+                
+                PreparedStatement pstmt = conn.prepareStatement(Insert);
+                
+                pstmt.setString(1, ProductDescription);
+                pstmt.setInt(2, qty);
+                pstmt.setBigDecimal(3, TotalValue);
+                pstmt.executeUpdate();
+                pstmt.close();
+                
+                JOptionPane.showMessageDialog(null, "Sucessfully Added to the Plate");
+            }            
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,"Something went wrong!\n");
+            e.printStackTrace();
+        }
+        finally
+        {
+            try 
+            {
+                conn.close();
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(POPUP_Message_Sandwitch.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }    
+    
+    private int lblSandwitchPrice() 
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -213,10 +330,8 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new POPUP_Message_Sandwitch().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new POPUP_Message_Sandwitch().setVisible(true);
         });
     }
 
@@ -234,4 +349,5 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
     private javax.swing.JLabel lblTotalPrice;
     private javax.swing.JSpinner spQtySandwitch;
     // End of variables declaration//GEN-END:variables
+
 }

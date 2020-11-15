@@ -25,8 +25,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
      * Creates new form BurgerPOPUPMessage
      */
     
-    //Declaration of Member Feilds
-    
+    //Declaration of Member Feilds    
     String Total ="0";
     int qty; 
     String ProductDescription="Chicken Burger";
@@ -316,10 +315,8 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new POPUP_Message_Burger().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new POPUP_Message_Burger().setVisible(true);
         });
     }
 
