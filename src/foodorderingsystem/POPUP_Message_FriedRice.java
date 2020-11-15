@@ -6,8 +6,14 @@
 package foodorderingsystem;
 
 import java.awt.Color;
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
-
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author RYAN
@@ -17,8 +23,22 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
     /**
      * Creates new form Fried rice
      */
+      //Declaration of Member Feilds
+    
+    String Total ="00";
+    int qty; 
+    static String ProductDescription="Chicken";
+    Connection conn;
+    
+    //Connection setup
+    String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+    String username= "sa";
+    String Pass="anjalo9990";
+    //Frame Creation
+    
     public POPUP_Message_FriedRice() {
         initComponents();
+       // ProductDescription = Sltdropdown.getSelectedItem().toString();
     }
 
     /**
@@ -42,7 +62,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
         lblTOTAL = new javax.swing.JLabel();
         btnCANCEL = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        friedricebtn = new javax.swing.JButton();
+        Add_To_Plate = new javax.swing.JButton();
         Sltdropdown = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -124,26 +144,29 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
         jLabel1.setText("Select:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 70, 40));
 
-        friedricebtn.setBackground(new java.awt.Color(0, 153, 0));
-        friedricebtn.setFont(new java.awt.Font("Algerian", 1, 24));
-        friedricebtn.setForeground(new java.awt.Color(255, 255, 255));
-        friedricebtn.setText("ADD TO PLATE");
-        friedricebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        friedricebtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        friedricebtn.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        Add_To_Plate.setBackground(new java.awt.Color(0, 153, 0));
+        Add_To_Plate.setFont(new java.awt.Font("Algerian", 1, 24));
+        Add_To_Plate.setForeground(new java.awt.Color(255, 255, 255));
+        Add_To_Plate.setText("ADD TO PLATE");
+        Add_To_Plate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Add_To_Plate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Add_To_Plate.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                friedricebtnMouseMoved(evt);
+                Add_To_PlateMouseMoved(evt);
             }
         });
-        friedricebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        Add_To_Plate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                friedricebtnMouseEntered(evt);
+                Add_To_PlateMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                friedricebtnMouseExited(evt);
+                Add_To_PlateMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Add_To_PlateMousePressed(evt);
             }
         });
-        jPanel1.add(friedricebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 50));
+        jPanel1.add(Add_To_Plate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 50));
 
         Sltdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chicken","Egg" }));
         Sltdropdown.addItemListener(new java.awt.event.ItemListener() {
@@ -164,39 +187,40 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnCANCELMouseClicked
 
-    private void friedricebtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_friedricebtnMouseMoved
-         friedricebtn.setBackground(new Color(0,102,0));
-    }//GEN-LAST:event_friedricebtnMouseMoved
+    private void Add_To_PlateMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Add_To_PlateMouseMoved
+         Add_To_Plate.setBackground(new Color(0,102,0));
+    }//GEN-LAST:event_Add_To_PlateMouseMoved
 
-    private void friedricebtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_friedricebtnMouseExited
-       friedricebtn.setBackground(new Color(0,204,0));
-    }//GEN-LAST:event_friedricebtnMouseExited
+    private void Add_To_PlateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Add_To_PlateMouseExited
+       Add_To_Plate.setBackground(new Color(0,204,0));
+    }//GEN-LAST:event_Add_To_PlateMouseExited
 
     private void SltdropdownItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_SltdropdownItemStateChanged
-       CalculateMealprice();
+    
+        CalculateMealprice();
     }//GEN-LAST:event_SltdropdownItemStateChanged
 
     private void dpriceqtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_dpriceqtyStateChanged
-       CalculateMealprice();
+
+        CalculateMealprice();
     }//GEN-LAST:event_dpriceqtyStateChanged
 
-    private void friedricebtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_friedricebtnMouseEntered
-        CalculateMealprice();
+    private void Add_To_PlateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Add_To_PlateMouseEntered
          if(qty==0){
            JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
         }
         else {
+              CalculateMealprice();    
         }
-    }//GEN-LAST:event_friedricebtnMouseEntered
+    }//GEN-LAST:event_Add_To_PlateMouseEntered
+
+    private void Add_To_PlateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Add_To_PlateMousePressed
+         Insertdata();
+        
+    }//GEN-LAST:event_Add_To_PlateMousePressed
 
     
-    
-     //Declaration of Member Feilds
-    
-    public String Total ="00";
-    public int qty;
-    
-     //Declaration of Member Methods 
+    //Declaration of Member Methods 
     
      public void  CalculateMealprice(){
          if(dpriceqty!=null)
@@ -218,7 +242,8 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
     
     
     public double MatchMenu(){
-        switch (Sltdropdown.getSelectedItem().toString()) {
+        ProductDescription = Sltdropdown.getSelectedItem().toString();
+        switch (ProductDescription) {
             case "Chicken":
                 return 230.00;
             case "Egg":
@@ -229,6 +254,41 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
         return 0;
      }
     
+   public void Insertdata(){
+     String Insert;
+       
+        try
+        {    
+         //Opening database for connection
+        conn = DriverManager.getConnection(connectionUrl, username, Pass);
+        
+        if(conn!=null){
+            
+          BigDecimal TotalValue=new BigDecimal(Total);
+         
+         Insert="INSERT INTO SalesOrder(ProductDescription,qty,TotalValue) VALUES (?,?,?)";
+         PreparedStatement pstmt = conn.prepareStatement(Insert);
+         pstmt.setString(1, ProductDescription);
+         pstmt.setInt(2, qty);
+         pstmt.setBigDecimal(3, TotalValue);
+         pstmt.executeUpdate();
+         pstmt.close();
+         JOptionPane.showMessageDialog(null,"Sucessfully Added to plate");
+        }
+        }
+        catch(SQLException e){
+               JOptionPane.showMessageDialog(null,"Something went wrong\n");
+             e.printStackTrace();
+  
+    }
+        finally{
+            try {
+                
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(POPUP_Message_FriedRice.class.getName()).log(Level.SEVERE, null, ex);
+            }} 
+   }
     /**
      * @param args the command line arguments
      */
@@ -257,6 +317,8 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
+          System.out.print(ProductDescription);
+     
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new POPUP_Message_FriedRice().setVisible(true);
@@ -264,10 +326,10 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Add_To_Plate;
     private javax.swing.JComboBox<String> Sltdropdown;
     private javax.swing.JButton btnCANCEL;
     private javax.swing.JSpinner dpriceqty;
-    private javax.swing.JButton friedricebtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblLKR;
