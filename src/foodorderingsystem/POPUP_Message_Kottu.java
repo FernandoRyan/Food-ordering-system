@@ -6,6 +6,13 @@
 package foodorderingsystem;
 
 import java.awt.Color;
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,6 +21,18 @@ import javax.swing.JOptionPane;
  */
 public class POPUP_Message_Kottu extends javax.swing.JFrame {
 
+     //Declaration of Member Feilds
+    
+    String Total ="00";
+    int qty; 
+    String ProductDescription="Chicken";
+    Connection conn;
+    
+    //Connection setup
+    String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+    String username= "sa";
+    String Pass="anjalo9990";
+   
     /**
      * Creates new form Kottu pop
      */
@@ -87,7 +106,7 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
                 dpriceqtyStateChanged(evt);
             }
         });
-        jPanel1.add(dpriceqty, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 130, 30));
+        jPanel1.add(dpriceqty, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 180, 30));
 
         lblTotalLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblTotalLKR.setForeground(new java.awt.Color(51, 51, 51));
@@ -96,7 +115,7 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
 
         lblTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblTotalPrice.setForeground(new java.awt.Color(51, 51, 51));
-        lblTotalPrice.setText("200.00");
+        lblTotalPrice.setText("00.00");
         jPanel1.add(lblTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 50, 30));
 
         lblTOTAL.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
@@ -141,16 +160,19 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 kottuAddToPlateMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                kottuAddToPlateMousePressed(evt);
+            }
         });
         jPanel1.add(kottuAddToPlate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 50));
 
-        Sltdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chicken","Egg","Chicken & Cheese" }));
+        Sltdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kottu With Chicken","Kottu with Egg","Kottu with Chicken & Cheese" }));
         Sltdropdown.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 SltdropdownItemStateChanged(evt);
             }
         });
-        jPanel1.add(Sltdropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 130, -1));
+        jPanel1.add(Sltdropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 180, -1));
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 490);
@@ -158,13 +180,16 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(401, 489));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+ 
 
+//Declaration of Member Methods 
+    
     private void btnCANCELMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCANCELMouseClicked
         this.setVisible(false);
     }//GEN-LAST:event_btnCANCELMouseClicked
 
     private void kottuAddToPlateMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kottuAddToPlateMouseMoved
-         kottuAddToPlate.setBackground(new Color(0,102,0));
+         kottuAddToPlate.setBackground(Color.RED);
     }//GEN-LAST:event_kottuAddToPlateMouseMoved
 
     private void kottuAddToPlateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kottuAddToPlateMouseExited
@@ -188,14 +213,10 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_kottuAddToPlateMouseEntered
-   
-    //Declaration of Member Feilds
-    
-    public String Total ="00";
-    public int qty; 
-    
-     //Declaration of Member Methods 
-    
+
+    private void kottuAddToPlateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kottuAddToPlateMousePressed
+       InsertOrderDetails();
+    }//GEN-LAST:event_kottuAddToPlateMousePressed
      public void  CalculateMealprice(){
          if(dpriceqty!=null)
        { 
@@ -215,21 +236,54 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
     
     
     public double MatchMenu(){
-        switch (Sltdropdown.getSelectedItem().toString()) {
-            case "Chicken":
-                return 160.00;
-            case "Egg":
-                return 130.00;
-            case "Brown rice with Chicken":
-                return 130.00;
-            case "Chicken & Cheese":
-                return 240.00;
+           ProductDescription = Sltdropdown.getSelectedItem().toString();
+        switch (ProductDescription) {
+            case "Kottu With Chicken":
+                return 220.00;
+            case "Kottu with Egg":
+                return 190.00;
+            case "Kottu with Chicken & Cheese":
+                return 260.00;
             default:
                 break;
         }
         return 0;
      }
-    
+    public void  InsertOrderDetails(){
+     String Insert;
+       
+        try
+        {    
+         //Opening database for connection
+        conn = DriverManager.getConnection(connectionUrl, username, Pass);
+        
+        if(conn!=null){
+            
+          BigDecimal TotalValue=new BigDecimal(Total);
+         
+         Insert="INSERT INTO SalesOrder(ProductDescription,qty,TotalValue) VALUES (?,?,?)";
+         PreparedStatement pstmt = conn.prepareStatement(Insert);
+         pstmt.setString(1, ProductDescription);
+         pstmt.setInt(2, qty);
+         pstmt.setBigDecimal(3, TotalValue);
+         pstmt.executeUpdate();
+         pstmt.close();
+         JOptionPane.showMessageDialog(null,"Sucessfully Added to plate");
+        }
+        }
+        catch(SQLException e){
+               JOptionPane.showMessageDialog(null,"Something went wrong\n");
+             e.printStackTrace();
+  
+    }
+        finally{
+            try {
+                
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(POPUP_Message_FriedRice.class.getName()).log(Level.SEVERE, null, ex);
+            }} 
+   }
     
     
     /**
