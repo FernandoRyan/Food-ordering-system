@@ -27,10 +27,7 @@ public class Meals extends Meal{
     this.Productquantity=qty;
     }
     
-    @Override
-    public void Cal_total()
-    {
-    }
+
     
     
     }

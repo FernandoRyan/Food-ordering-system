@@ -16,6 +16,10 @@ import java.awt.Toolkit;
  */
 public class Fastfoods extends javax.swing.JFrame {
 
+    //Creating feilds
+    public double Total;
+  
+    
     /**
      * Creates new form NewJFrame1
      */
@@ -23,8 +27,6 @@ public class Fastfoods extends javax.swing.JFrame {
         initComponents(); //setExtendedState(Meal.MAXIMIZED_BOTH);
     }
     
-    //Creating feilds
-    public double Total;
 
     /**
      * This method is called from within the constructor to initialize the form.
