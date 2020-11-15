@@ -27,7 +27,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
     
     String Total ="00";
     int qty; 
-    static String ProductDescription="Chicken";
+    String ProductDescription="Chicken";
     Connection conn;
     
     //Connection setup
@@ -108,7 +108,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
                 dpriceqtyStateChanged(evt);
             }
         });
-        jPanel1.add(dpriceqty, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 90, 30));
+        jPanel1.add(dpriceqty, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 170, 30));
 
         lblTotalLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblTotalLKR.setForeground(new java.awt.Color(51, 51, 51));
@@ -168,13 +168,13 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
         });
         jPanel1.add(Add_To_Plate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 50));
 
-        Sltdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chicken","Egg" }));
+        Sltdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fried Rice with Chicken","Fried Rice with Egg" }));
         Sltdropdown.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 SltdropdownItemStateChanged(evt);
             }
         });
-        jPanel1.add(Sltdropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 90, -1));
+        jPanel1.add(Sltdropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 170, -1));
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 500);
@@ -215,7 +215,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
     }//GEN-LAST:event_Add_To_PlateMouseEntered
 
     private void Add_To_PlateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Add_To_PlateMousePressed
-         Insertdata();
+         InsertOrderDetails();
         
     }//GEN-LAST:event_Add_To_PlateMousePressed
 
@@ -244,9 +244,9 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
     public double MatchMenu(){
         ProductDescription = Sltdropdown.getSelectedItem().toString();
         switch (ProductDescription) {
-            case "Chicken":
+            case "Fried Rice with Chicken":
                 return 230.00;
-            case "Egg":
+            case "Fried Rice with Egg":
                 return 200.00;
             default:
                 break;
@@ -254,7 +254,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
         return 0;
      }
     
-   public void Insertdata(){
+   public void InsertOrderDetails(){
      String Insert;
        
         try
@@ -316,9 +316,6 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
-          System.out.print(ProductDescription);
-     
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new POPUP_Message_FriedRice().setVisible(true);

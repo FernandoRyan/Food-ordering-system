@@ -153,7 +153,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="170" y="330" width="90" height="30"/>
+              <AbsoluteConstraints x="170" y="330" width="170" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -290,7 +290,7 @@
         <Component class="javax.swing.JComboBox" name="Sltdropdown">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Chicken&quot;,&quot;Egg&quot; })" type="code"/>
+              <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Fried Rice with Chicken&quot;,&quot;Fried Rice with Egg&quot; })" type="code"/>
             </Property>
           </Properties>
           <Events>
@@ -301,7 +301,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="170" y="290" width="90" height="-1"/>
+              <AbsoluteConstraints x="170" y="290" width="170" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
