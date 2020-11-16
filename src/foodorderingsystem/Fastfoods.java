@@ -17,14 +17,25 @@ import java.awt.Toolkit;
 public class Fastfoods extends javax.swing.JFrame {
 
     //Creating feilds
-    public double Total;
+    public double Total; 
+    public int id = 1000; 
+
+   
+    public void Calid(Meal newid){
+    
+    newid.id = id + 1;
+}       
+    
+   String value = String.valueOf(id);
   
     
     /**
      * Creates new form NewJFrame1
      */
     public Fastfoods() {
-        initComponents(); //setExtendedState(Meal.MAXIMIZED_BOTH);
+        initComponents(); 
+        lblUserId.setText(value);
+         //setExtendedState(Meal.MAXIMIZED_BOTH); 
     }
     
 
@@ -81,6 +92,8 @@ public class Fastfoods extends javax.swing.JFrame {
         lblTotalPrice = new javax.swing.JLabel();
         btnCheckout = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        lblUserIdName = new javax.swing.JLabel();
+        lblUserId = new javax.swing.JLabel();
 
         jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(153, 153, 153));
@@ -593,6 +606,14 @@ public class Fastfoods extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
 
+        lblUserIdName.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblUserIdName.setForeground(new java.awt.Color(51, 51, 51));
+        lblUserIdName.setText("User Id: ");
+
+        lblUserId.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblUserId.setForeground(new java.awt.Color(51, 51, 51));
+        lblUserId.setText("0.00");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -616,8 +637,15 @@ public class Fastfoods extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addContainerGap())))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(lblMyPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(lblMyPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(lblUserIdName)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblUserId, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -625,6 +653,10 @@ public class Fastfoods extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(lblMyPlate)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUserIdName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUserId, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(148, 148, 148)
@@ -642,6 +674,8 @@ public class Fastfoods extends javax.swing.JFrame {
         lblLKRTotal.getAccessibleContext().setAccessibleName("lblLKR");
         lblTotalPrice.getAccessibleContext().setAccessibleName("lblTotalPrice");
         btnCheckout.getAccessibleContext().setAccessibleName("btnCheckout");
+        lblUserIdName.getAccessibleContext().setAccessibleName("lblUserIdName");
+        lblUserId.getAccessibleContext().setAccessibleName("lblUserId");
 
         javax.swing.GroupLayout pnlFastfoodLayout = new javax.swing.GroupLayout(pnlFastfood);
         pnlFastfood.setLayout(pnlFastfoodLayout);
@@ -942,6 +976,8 @@ public class Fastfoods extends javax.swing.JFrame {
     private javax.swing.JLabel lblSubmarinePrice;
     private javax.swing.JLabel lblTotalName;
     private javax.swing.JLabel lblTotalPrice;
+    private javax.swing.JLabel lblUserId;
+    private javax.swing.JLabel lblUserIdName;
     private javax.swing.JPanel pnlFastfood;
     private javax.swing.JPanel pnlFoods;
     // End of variables declaration//GEN-END:variables

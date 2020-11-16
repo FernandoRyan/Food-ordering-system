@@ -108,7 +108,6 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
         lblQTY.getAccessibleContext().setAccessibleName("lblQTY");
 
         spBurgerQty.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        spBurgerQty.setBorder(null);
         spBurgerQty.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         spBurgerQty.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
