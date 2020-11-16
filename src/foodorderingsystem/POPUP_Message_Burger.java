@@ -196,7 +196,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
         
         if(qty == 0)
         {
-           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed..");
+           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
         }
         else 
         {
