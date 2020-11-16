@@ -14,20 +14,33 @@ import java.awt.Toolkit;
  *
  * @author RYAN
  */
-public class Meal extends javax.swing.JFrame {
 
+
+public class  Meal extends javax.swing.JFrame  {
+
+    //Creating feilds
+    public double Total; 
+    public int id=1000; 
+
+   
+    public void Calid(Meal newid){
+    
+    newid.id=id+1;
+}    
+    
+    
+   String value=String.valueOf(id);
     
     /**
      * Creates new form Meal
      */
     public Meal() {
         initComponents();
+        valuell.setText(value);
          //setExtendedState(Meal.MAXIMIZED_BOTH); 
-         
     }
-
-     //Creating feilds
-    public double Total; 
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,21 +56,22 @@ public class Meal extends javax.swing.JFrame {
         Mealbtn = new javax.swing.JButton();
         APBTN = new javax.swing.JButton();
         BVGBtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        Logobtn = new javax.swing.JButton();
         Menupanel = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        Ricecurrybtn = new javax.swing.JButton();
+        Kottubtn = new javax.swing.JButton();
+        Friedricebtn = new javax.swing.JButton();
         lblFASTFOOD = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        firedricelbl = new javax.swing.JLabel();
+        RIceandcurrylbl = new javax.swing.JLabel();
+        Kottulbl = new javax.swing.JLabel();
         btnLKR = new javax.swing.JLabel();
         btnBurgerPrice = new javax.swing.JLabel();
         btnLKR1 = new javax.swing.JLabel();
         btnBurgerPrice1 = new javax.swing.JLabel();
         btnLKR2 = new javax.swing.JLabel();
         btnBurgerPrice2 = new javax.swing.JLabel();
+        valuell = new javax.swing.JLabel();
         ttpanel = new javax.swing.JPanel();
         lblMyPlate1 = new javax.swing.JLabel();
         lblTOTAL = new javax.swing.JLabel();
@@ -170,13 +184,8 @@ public class Meal extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        Logobtn.setBackground(new java.awt.Color(255, 255, 255));
+        Logobtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
 
         javax.swing.GroupLayout SidepanelLayout = new javax.swing.GroupLayout(Sidepanel);
         Sidepanel.setLayout(SidepanelLayout);
@@ -193,14 +202,14 @@ public class Meal extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(SidepanelLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Logobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         SidepanelLayout.setVerticalGroup(
             SidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SidepanelLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Logobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71)
                 .addComponent(Mealbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
@@ -217,35 +226,30 @@ public class Meal extends javax.swing.JFrame {
         Menupanel.setBackground(new java.awt.Color(255, 255, 255));
         Menupanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/rice and curry_1.jpg"))); // NOI18N
-        jButton2.setPreferredSize(new java.awt.Dimension(281, 212));
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        Ricecurrybtn.setBackground(new java.awt.Color(255, 255, 255));
+        Ricecurrybtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/rice and curry_1.jpg"))); // NOI18N
+        Ricecurrybtn.setPreferredSize(new java.awt.Dimension(281, 212));
+        Ricecurrybtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Ricecurrybtn(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kottu.jpg"))); // NOI18N
-        jButton3.setPreferredSize(new java.awt.Dimension(281, 212));
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        Kottubtn.setBackground(new java.awt.Color(255, 255, 255));
+        Kottubtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kottu.jpg"))); // NOI18N
+        Kottubtn.setPreferredSize(new java.awt.Dimension(281, 212));
+        Kottubtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Kottubtn(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fried.jpg"))); // NOI18N
-        jButton4.setPreferredSize(new java.awt.Dimension(281, 212));
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        Friedricebtn.setBackground(new java.awt.Color(255, 255, 255));
+        Friedricebtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fried.jpg"))); // NOI18N
+        Friedricebtn.setPreferredSize(new java.awt.Dimension(281, 212));
+        Friedricebtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 friedrice(evt);
-            }
-        });
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
             }
         });
 
@@ -253,17 +257,17 @@ public class Meal extends javax.swing.JFrame {
         lblFASTFOOD.setForeground(new java.awt.Color(51, 204, 0));
         lblFASTFOOD.setText("Meals");
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Fried Rice");
+        firedricelbl.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        firedricelbl.setForeground(new java.awt.Color(0, 0, 0));
+        firedricelbl.setText("Fried Rice");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Rice and Curry");
+        RIceandcurrylbl.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        RIceandcurrylbl.setForeground(new java.awt.Color(0, 0, 0));
+        RIceandcurrylbl.setText("Rice and Curry");
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Kottu Roti");
+        Kottulbl.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        Kottulbl.setForeground(new java.awt.Color(0, 0, 0));
+        Kottulbl.setText("Kottu Roti");
 
         btnLKR.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnLKR.setForeground(new java.awt.Color(153, 153, 153));
@@ -287,20 +291,24 @@ public class Meal extends javax.swing.JFrame {
 
         btnBurgerPrice2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnBurgerPrice2.setForeground(new java.awt.Color(153, 153, 153));
-        btnBurgerPrice2.setText("160.00");
+        btnBurgerPrice2.setText("200.00");
+
+        valuell.setText("00.00");
 
         javax.swing.GroupLayout MenupanelLayout = new javax.swing.GroupLayout(Menupanel);
         Menupanel.setLayout(MenupanelLayout);
         MenupanelLayout.setHorizontalGroup(
             MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenupanelLayout.createSequentialGroup()
-                .addGap(351, 351, 351)
+                .addGap(114, 114, 114)
+                .addComponent(valuell)
+                .addGap(203, 203, 203)
                 .addComponent(lblFASTFOOD)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(MenupanelLayout.createSequentialGroup()
                 .addGap(167, 167, 167)
                 .addGroup(MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(firedricelbl)
                     .addGroup(MenupanelLayout.createSequentialGroup()
                         .addComponent(btnLKR)
                         .addGap(18, 18, 18)
@@ -311,19 +319,19 @@ public class Meal extends javax.swing.JFrame {
                         .addComponent(btnLKR1)
                         .addGap(18, 18, 18)
                         .addComponent(btnBurgerPrice1))
-                    .addComponent(jLabel2))
+                    .addComponent(RIceandcurrylbl))
                 .addGap(159, 159, 159))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Ricecurrybtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(87, 87, 87))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Kottubtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(272, 272, 272))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(Kottulbl)
                         .addGap(362, 362, 362))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
                         .addComponent(btnLKR2)
@@ -333,35 +341,40 @@ public class Meal extends javax.swing.JFrame {
             .addGroup(MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MenupanelLayout.createSequentialGroup()
                     .addGap(80, 80, 80)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Friedricebtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(467, Short.MAX_VALUE)))
         );
         MenupanelLayout.setVerticalGroup(
             MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenupanelLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(lblFASTFOOD)
+                .addGroup(MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MenupanelLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(lblFASTFOOD))
+                    .addGroup(MenupanelLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(valuell)))
                 .addGroup(MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenupanelLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Ricecurrybtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel1)
+                        .addComponent(firedricelbl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnLKR)
                             .addComponent(btnBurgerPrice)))
                     .addGroup(MenupanelLayout.createSequentialGroup()
                         .addGap(265, 265, 265)
-                        .addComponent(jLabel2)
+                        .addComponent(RIceandcurrylbl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnBurgerPrice1)
                             .addComponent(btnLKR1))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Kottubtn, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addComponent(Kottulbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBurgerPrice2)
@@ -370,7 +383,7 @@ public class Meal extends javax.swing.JFrame {
             .addGroup(MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MenupanelLayout.createSequentialGroup()
                     .addGap(142, 142, 142)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Friedricebtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(346, Short.MAX_VALUE)))
         );
 
@@ -409,11 +422,6 @@ public class Meal extends javax.swing.JFrame {
         btnCheckout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnCheckoutMouseExited(evt);
-            }
-        });
-        btnCheckout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCheckoutActionPerformed(evt);
             }
         });
 
@@ -459,24 +467,10 @@ public class Meal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
    
-  
-    
-    private void btnCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCheckoutActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void friedrice(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_friedrice
     POPUP_Message_FriedRice fp= new POPUP_Message_FriedRice();
        fp.setVisible(true);
     }//GEN-LAST:event_friedrice
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void Ricecurrybtn(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ricecurrybtn
        POPUP_Message_Rice_and_Curry Rc= new POPUP_Message_Rice_and_Curry();
@@ -563,7 +557,9 @@ public class Meal extends javax.swing.JFrame {
         this.hide();
 
     }//GEN-LAST:event_FFbtnMousePressed
-
+    
+   
+    
     /**
      * @param args the command line arguments
      */
@@ -572,6 +568,7 @@ public class Meal extends javax.swing.JFrame {
     
     public static void main(String args[]) {
       
+       
       //Creation of objects and intilization
      
       //Rice and curry
@@ -599,18 +596,21 @@ public class Meal extends javax.swing.JFrame {
         });
     }
 
-    //Member Methods
-             public void Cal_total(){
-        Total = 0;
-  }
+    
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton APBTN;
     private javax.swing.JButton BVGBtn;
     private javax.swing.JButton FFbtn;
+    private javax.swing.JButton Friedricebtn;
+    private javax.swing.JButton Kottubtn;
+    private javax.swing.JLabel Kottulbl;
+    private javax.swing.JButton Logobtn;
     private javax.swing.JButton Mealbtn;
     private javax.swing.JPanel Menupanel;
+    private javax.swing.JLabel RIceandcurrylbl;
+    private javax.swing.JButton Ricecurrybtn;
     private javax.swing.JPanel Sidepanel;
     private javax.swing.JLabel btnBurgerPrice;
     private javax.swing.JLabel btnBurgerPrice1;
@@ -619,13 +619,7 @@ public class Meal extends javax.swing.JFrame {
     private javax.swing.JLabel btnLKR;
     private javax.swing.JLabel btnLKR1;
     private javax.swing.JLabel btnLKR2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel firedricelbl;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFASTFOOD;
     private javax.swing.JLabel lblLKRTotal;
@@ -633,5 +627,6 @@ public class Meal extends javax.swing.JFrame {
     private javax.swing.JLabel lblTOTAL;
     private javax.swing.JLabel lblTotalPrice;
     private javax.swing.JPanel ttpanel;
+    private javax.swing.JLabel valuell;
     // End of variables declaration//GEN-END:variables
 }
