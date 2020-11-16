@@ -235,7 +235,7 @@ public class Beverages extends javax.swing.JFrame {
         lblNesPrice.setText("LKR  40.00");
 
         lblMilkshakes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblMilkshakes.setText("MILK SHAKES (Any Flavour)");
+        lblMilkshakes.setText("MILKSHAKES (Any Flavour)");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
@@ -648,6 +648,43 @@ public class Beverages extends javax.swing.JFrame {
         
         // Creation of Objects and Initialization
         
+     // NESCAFE / NESTEA /MILO
+        
+       Beverage Nescafe = new Beverage(22,"Nescafe",40.00,10);
+       Beverage Nestea = new Beverage(23,"Nestea",40.00,10);
+       Beverage Milo = new Beverage(24,"Milo",40.00,10);
+       
+      
+     // MILKSHAKES
+       
+       Beverage Chocolate_Shake = new Beverage(25,"Chocolate Milkshake",300.00,10);
+       Beverage Oreo_Shake = new Beverage(26,"Oreo Milkshake",300.00,10);
+       Beverage Coffee_Shake = new Beverage(27,"Coffee Milkshake",300.00,10);
+       Beverage Strawberry_Shake = new Beverage(28,"Strawberry Milkshake",300.00,10);
+       Beverage Caramel_Shake = new Beverage(29,"Caramel Milkshake",300.00,10);
+       
+       
+     // SOFTDRINKS
+       
+       Beverage Sprite = new Beverage(30,"Sprite",50.00,10);
+       Beverage CocaCola = new Beverage(31,"Coca-Cola",50.00,10);
+       Beverage Fanta = new Beverage(32,"Fanta",50.00,10);
+       
+       
+      // FRUIT JUICE
+       
+       Beverage Avacado = new Beverage(33,"Avacado Juice",200.00,10);
+       Beverage WaterMelon = new Beverage(34,"Water-Melon Juice",200.00,10);
+       Beverage Orange = new Beverage(35,"Orange Juice",200.00,10);
+       Beverage MixFruit = new Beverage(36,"Mx Fruit Juice",200.00,10);
+       
+       
+     
+           
+           
+     
+     
+        
        
 
         /* Create and display the form */
@@ -657,6 +694,8 @@ public class Beverages extends javax.swing.JFrame {
             }
         });
     }
+    
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAppetizers;

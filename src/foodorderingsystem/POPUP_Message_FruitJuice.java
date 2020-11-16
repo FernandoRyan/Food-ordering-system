@@ -86,7 +86,7 @@ public class POPUP_Message_FruitJuice extends javax.swing.JFrame {
 
         d.setBackground(new java.awt.Color(255, 153, 153));
         d.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        d.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FLAVOUR", "AVACADO", "WATER MELON", "STRAWBERRY", "ORANGE", "MIX FRUIT" }));
+        d.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FLAVOUR", "AVACADO", "WATER MELON", "ORANGE", "MIX FRUIT" }));
         d.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dActionPerformed(evt);
