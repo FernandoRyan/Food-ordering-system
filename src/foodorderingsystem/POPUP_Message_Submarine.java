@@ -245,7 +245,8 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");                     
             }
-            else{
+            else
+            {
                 Total = Double.toString( qty * lblSubmarinePrice());
            
                 lblSubmarineTotalPrice.setText(Total);       

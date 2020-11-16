@@ -236,11 +236,11 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");                       
             }
-            else {
-        
-            Total = Double.toString( qty * lblBurgerPrice());
+            else 
+            {        
+                Total = Double.toString( qty * lblBurgerPrice());
            
-            lblTotalPrice.setText(Total);             
+                lblTotalPrice.setText(Total);             
             }            
         }
         else if (spBurgerQty == null)
