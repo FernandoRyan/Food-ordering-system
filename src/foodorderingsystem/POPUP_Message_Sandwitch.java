@@ -106,6 +106,7 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
         lblQTY.getAccessibleContext().setAccessibleName("lblQTY");
 
         spQtySandwitch.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        spQtySandwitch.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
         spQtySandwitch.setBorder(null);
         spQtySandwitch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(spQtySandwitch);
@@ -147,6 +148,9 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnAddToPlateSandwitchMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAddToPlateSandwitchMousePressed(evt);
+            }
         });
         jPanel1.add(btnAddToPlateSandwitch);
         btnAddToPlateSandwitch.setBounds(100, 410, 210, 60);
@@ -154,7 +158,7 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
 
         lblTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblTotalPrice.setForeground(new java.awt.Color(51, 51, 51));
-        lblTotalPrice.setText("100.00");
+        lblTotalPrice.setText("0.00");
         jPanel1.add(lblTotalPrice);
         lblTotalPrice.setBounds(320, 330, 50, 30);
         lblTotalPrice.getAccessibleContext().setAccessibleName("lblTotalPrice");
@@ -207,6 +211,15 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
 
     private void btnAddToPlateSandwitchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchMouseEntered
         btnAddToPlateSandwitch.setBackground(Color.RED);
+        
+        if(qty == 0)
+        {
+           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
+        }
+        else 
+        {
+            CalculateSandwitchPrice();    
+        }
     }//GEN-LAST:event_btnAddToPlateSandwitchMouseEntered
 
     private void btnAddToPlateSandwitchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchMouseExited
@@ -218,17 +231,17 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateSandwitchStateChanged
 
     private void btnAddToPlateSandwitchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchMouseClicked
-        InsertOrderDetails();
-        
-        if(qty == 0)
-        {
-           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
-        }
-        else 
-        {
-            CalculateSandwitchPrice();    
-        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnAddToPlateSandwitchMouseClicked
+
+    private void btnAddToPlateSandwitchMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchMousePressed
+        InsertOrderDetails();
+    }//GEN-LAST:event_btnAddToPlateSandwitchMousePressed
+        
+    public double lblSandwitchPrice() 
+    {
+        return 100.00;      
+    }
     
     //Declaration of member methods 
     private void CalculateSandwitchPrice() 
@@ -239,13 +252,13 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
             
             if(qty > 20)
             {
-                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");
-                return;        
+                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");                   
             }
-        
-            Total = Double.toString( qty * lblSandwitchPrice());
+            else{
+                Total = Double.toString( qty * lblSandwitchPrice());
            
-            lblTotalPrice.setText(Total);                
+                lblTotalPrice.setText(Total);  
+            }              
         }
          else if (spQtySandwitch ==  null)
               lblTotalPrice.setText(Total);
@@ -294,12 +307,7 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
                 Logger.getLogger(POPUP_Message_Sandwitch.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }    
-    
-    private int lblSandwitchPrice() 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.        
-    }
+    }        
     
     /**
      * @param args the command line arguments

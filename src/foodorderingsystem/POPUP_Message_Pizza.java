@@ -107,6 +107,7 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
         lblQTY.getAccessibleContext().setAccessibleName("lblQTY");
 
         spQtyPizza.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        spQtyPizza.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
         spQtyPizza.setBorder(null);
         spQtyPizza.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(spQtyPizza);
@@ -148,6 +149,9 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnAddToPlatePizzaMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAddToPlatePizzaMousePressed(evt);
+            }
         });
         jPanel1.add(btnAddToPlatePizza);
         btnAddToPlatePizza.setBounds(100, 410, 210, 60);
@@ -155,7 +159,7 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
 
         lblPizzaTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblPizzaTotalPrice.setForeground(new java.awt.Color(51, 51, 51));
-        lblPizzaTotalPrice.setText("150.00");
+        lblPizzaTotalPrice.setText("0.00");
         jPanel1.add(lblPizzaTotalPrice);
         lblPizzaTotalPrice.setBounds(320, 330, 50, 30);
         lblPizzaTotalPrice.getAccessibleContext().setAccessibleName("lblPizzaTotalPrice");
@@ -208,6 +212,15 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
 
     private void btnAddToPlatePizzaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMouseEntered
         btnAddToPlatePizza.setBackground(Color.RED);
+        
+        if(qty == 0)
+        {
+           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
+        }
+        else 
+        {
+            CalculatePizzaPrice();    
+        }
     }//GEN-LAST:event_btnAddToPlatePizzaMouseEntered
 
     private void btnAddToPlatePizzaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMouseExited
@@ -219,17 +232,17 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlatePizzaStateChanged
 
     private void btnAddToPlatePizzaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMouseClicked
-        InsertOrderDetails();
-        
-        if(qty == 0)
-        {
-           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
-        }
-        else 
-        {
-            CalculatePizzaPrice();    
-        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnAddToPlatePizzaMouseClicked
+
+    private void btnAddToPlatePizzaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMousePressed
+        InsertOrderDetails();
+    }//GEN-LAST:event_btnAddToPlatePizzaMousePressed
+    
+    public double lblPizzaPrice() 
+    {
+        return 150.00;
+    }
     
     //Declaration of member methods 
     private void CalculatePizzaPrice() 
@@ -297,10 +310,6 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
         }
     }
     
-    private int lblPizzaPrice() 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     /**
      * @param args the command line arguments

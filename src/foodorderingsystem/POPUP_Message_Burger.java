@@ -108,6 +108,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
         lblQTY.getAccessibleContext().setAccessibleName("lblQTY");
 
         spBurgerQty.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        spBurgerQty.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
         spBurgerQty.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         spBurgerQty.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -127,7 +128,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
 
         lblTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblTotalPrice.setForeground(new java.awt.Color(51, 51, 51));
-        lblTotalPrice.setText("200.00");
+        lblTotalPrice.setText("0.00");
         jPanel1.add(lblTotalPrice);
         lblTotalPrice.setBounds(310, 330, 50, 30);
         lblTotalPrice.getAccessibleContext().setAccessibleName("lblTotalPrice");
@@ -208,7 +209,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateBurgerMouseExited
 
     private void btnAddToPlateBurgerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseClicked
-                
+         // TODO add your handling code here:       
     }//GEN-LAST:event_btnAddToPlateBurgerMouseClicked
 
     private void spBurgerQtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spBurgerQtyStateChanged
@@ -221,14 +222,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
 
     public double lblBurgerPrice() 
     {
-        if(qty <= 0)
-        {
-            return 0;
-        }
-        else{
-            return 200.00;
-        }
-        
+        return 200.00;                
     }
     
     //Declaration of Member Methods     

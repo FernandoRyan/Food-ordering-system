@@ -106,6 +106,7 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
         lblQty.getAccessibleContext().setAccessibleName("lblQty");
 
         spSubmarineQty.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        spSubmarineQty.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
         spSubmarineQty.setBorder(null);
         spSubmarineQty.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(spSubmarineQty);
@@ -147,6 +148,9 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnAddToPlateSubmarineMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAddToPlateSubmarineMousePressed(evt);
+            }
         });
         jPanel1.add(btnAddToPlateSubmarine);
         btnAddToPlateSubmarine.setBounds(90, 420, 210, 60);
@@ -154,7 +158,7 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
 
         lblSubmarineTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblSubmarineTotalPrice.setForeground(new java.awt.Color(51, 51, 51));
-        lblSubmarineTotalPrice.setText("200.00");
+        lblSubmarineTotalPrice.setText("0.00");
         jPanel1.add(lblSubmarineTotalPrice);
         lblSubmarineTotalPrice.setBounds(310, 340, 50, 30);
         lblSubmarineTotalPrice.getAccessibleContext().setAccessibleName("lblSubmarineTotalPrice");
@@ -198,6 +202,15 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
 
     private void btnAddToPlateSubmarineMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSubmarineMouseEntered
         btnAddToPlateSubmarine.setBackground(Color.RED);
+        
+        if(qty == 0)
+        {
+           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
+        }
+        else 
+        {
+            CalculateSubmarinePrice();    
+        }
     }//GEN-LAST:event_btnAddToPlateSubmarineMouseEntered
 
     private void btnAddToPlateSubmarineMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSubmarineMouseExited
@@ -209,17 +222,17 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateSubmarineStateChanged
 
     private void btnAddToPlateSubmarineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSubmarineMouseClicked
-        InsertOrderDetails();
-        
-        if(qty == 0)
-        {
-           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
-        }
-        else 
-        {
-            CalculateSubmarinePrice();    
-        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnAddToPlateSubmarineMouseClicked
+
+    private void btnAddToPlateSubmarineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSubmarineMousePressed
+        InsertOrderDetails();
+    }//GEN-LAST:event_btnAddToPlateSubmarineMousePressed
+
+    public double lblSubmarinePrice() 
+    {
+        return 200.00;
+    }
 
     //Declaration of member methods 
     private void CalculateSubmarinePrice() 
@@ -230,13 +243,13 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
             
             if(qty > 20)
             {
-                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");
-                return;        
+                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");                     
             }
-        
-            Total = Double.toString( qty * lblSubmarinePrice());
+            else{
+                Total = Double.toString( qty * lblSubmarinePrice());
            
-            lblSubmarineTotalPrice.setText(Total);                
+                lblSubmarineTotalPrice.setText(Total);       
+            }     
         }
          else if (spSubmarineQty ==  null)
               lblSubmarineTotalPrice.setText(Total);
@@ -337,9 +350,5 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
     private javax.swing.JLabel lblTotalLKR;
     private javax.swing.JSpinner spSubmarineQty;
     // End of variables declaration//GEN-END:variables
-
-    private int lblSubmarinePrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

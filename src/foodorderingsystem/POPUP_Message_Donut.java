@@ -106,6 +106,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
         lblQTY.getAccessibleContext().setAccessibleName("lblQTY");
 
         spQtyDonut.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        spQtyDonut.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
         spQtyDonut.setBorder(null);
         spQtyDonut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(spQtyDonut);
@@ -147,6 +148,9 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnAddToPlateDonutMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAddToPlateDonutMousePressed(evt);
+            }
         });
         jPanel1.add(btnAddToPlateDonut);
         btnAddToPlateDonut.setBounds(100, 410, 210, 60);
@@ -154,7 +158,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
 
         lblDonutTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblDonutTotalPrice.setForeground(new java.awt.Color(51, 51, 51));
-        lblDonutTotalPrice.setText("60.00");
+        lblDonutTotalPrice.setText("0.00");
         jPanel1.add(lblDonutTotalPrice);
         lblDonutTotalPrice.setBounds(320, 330, 50, 30);
         lblDonutTotalPrice.getAccessibleContext().setAccessibleName("lblDonutTotalPrice");
@@ -207,6 +211,15 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
 
     private void btnAddToPlateDonutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMouseEntered
         btnAddToPlateDonut.setBackground(Color.RED);
+        
+        if(qty == 0)
+            {
+                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
+            }
+        else 
+            {
+                CalculateDonutprice();
+            }
     }//GEN-LAST:event_btnAddToPlateDonutMouseEntered
 
     private void btnAddToPlateDonutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMouseExited
@@ -218,18 +231,18 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateDonutStateChanged
 
     private void btnAddToPlateDonutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMouseClicked
-        InsertOrderDetails();
-       
-        if(qty == 0)
-            {
-                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
-            }
-        else 
-            {
-                CalculateDonutprice();
-            }
+         // TODO add your handling code here:         
     }//GEN-LAST:event_btnAddToPlateDonutMouseClicked
 
+    private void btnAddToPlateDonutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMousePressed
+        InsertOrderDetails();   
+    }//GEN-LAST:event_btnAddToPlateDonutMousePressed
+    
+    public double lblDonutPrice() 
+    {
+        return 60.00; 
+    }
+    
     //Declaration of member methods 
      public void  CalculateDonutprice()
     {
@@ -239,18 +252,20 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
            
            if(qty > 20)
             {
-               JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");
-                return;        
+               JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");                      
             }
+           else{
+               
+               Total = Double.toString( qty * lblDonutPrice());
            
-            Total = Double.toString( qty * lblDonutPrice());
-           
-            lblDonutTotalPrice.setText(Total);
+               lblDonutTotalPrice.setText(Total);
+            }            
         }
         else if (spQtyDonut == null)
         lblDonutTotalPrice.setText(Total);
         //Add a message box to add to cart 
     }
+     
     private void InsertOrderDetails() 
     {
         String Insert;
@@ -294,11 +309,6 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
             }
         }
     } 
-    
-    private int lblDonutPrice() 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     /**
      * @param args the command line arguments
