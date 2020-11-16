@@ -7,6 +7,13 @@ package foodorderingsystem;
 
 //Importing Libararies 
 import java.awt.Color;
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +22,20 @@ import javax.swing.JOptionPane;
  */
 public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame  {
 
+    
+     //Declaration of Member Feilds
+    
+    String Total ="00";
+    int qty; 
+    String ProductDescription="Chicken";
+    Connection conn;
+    
+    //Connection setup
+    String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+    String username= "sa";
+    String Pass="anjalo9990";
+   
+    
     /**
      * Creates new form Rice curry
      */
@@ -136,11 +157,11 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame  {
             }
         });
         btnAddToPlateRicenCurry.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnAddToPlateRicenCurryMouseEntered(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnAddToPlateRicenCurryMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAddToPlateRicenCurryMousePressed(evt);
             }
         });
         jPanel1.add(btnAddToPlateRicenCurry, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 50));
@@ -165,21 +186,12 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame  {
     }//GEN-LAST:event_btnCANCELMouseClicked
 
     private void btnAddToPlateRicenCurryMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateRicenCurryMouseMoved
-        btnAddToPlateRicenCurry.setBackground(new Color(0,102,0));
+        btnAddToPlateRicenCurry.setBackground(Color.RED);
     }//GEN-LAST:event_btnAddToPlateRicenCurryMouseMoved
 
     private void btnAddToPlateRicenCurryMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateRicenCurryMouseExited
             btnAddToPlateRicenCurry.setBackground(new Color(0,204,0));
     }//GEN-LAST:event_btnAddToPlateRicenCurryMouseExited
-
-    private void btnAddToPlateRicenCurryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateRicenCurryMouseEntered
-      CalculateMealprice();
-       if(qty==0){
-           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
-        }
-        else {
-        }
-    }//GEN-LAST:event_btnAddToPlateRicenCurryMouseEntered
 
     private void dpriceqtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_dpriceqtyStateChanged
         CalculateMealprice();
@@ -188,10 +200,56 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame  {
     private void SltdropdownItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_SltdropdownItemStateChanged
           CalculateMealprice();
     }//GEN-LAST:event_SltdropdownItemStateChanged
-    //Declaration of member feilds 
+
+    private void btnAddToPlateRicenCurryMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateRicenCurryMousePressed
+          if(qty==0){
+           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
+        }else{
+                 
+         CalculateMealprice();  
+         
+         InsertOrderDetails();
+             }
+    }//GEN-LAST:event_btnAddToPlateRicenCurryMousePressed
     
-    public String Total ="00";
-    public int qty;
+  public void  InsertOrderDetails(){
+     String Insert;
+       
+        try
+        {    
+         //Opening database for connection
+        conn = DriverManager.getConnection(connectionUrl, username, Pass);
+        
+        if(conn!=null){
+            
+          BigDecimal TotalValue=new BigDecimal(Total);
+         
+         Insert="INSERT INTO SalesOrder(ProductDescription,qty,TotalValue) VALUES (?,?,?)";
+         PreparedStatement pstmt = conn.prepareStatement(Insert);
+         pstmt.setString(1, ProductDescription);
+         pstmt.setInt(2, qty);
+         pstmt.setBigDecimal(3, TotalValue);
+         pstmt.executeUpdate();
+         pstmt.close();
+         JOptionPane.showMessageDialog(null,"Sucessfully Added to plate");
+        }
+        }
+        catch(SQLException e){
+               JOptionPane.showMessageDialog(null,"Something went wrong\n");
+             e.printStackTrace();
+  
+    }
+        finally{
+            try {
+                
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(POPUP_Message_FriedRice.class.getName()).log(Level.SEVERE, null, ex);
+            }} 
+   }
+//Declaration of member feilds 
+    
+
     //Declaration of member methods 
      public void  CalculateMealprice(){
          

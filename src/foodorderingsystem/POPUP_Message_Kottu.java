@@ -154,9 +154,6 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
             }
         });
         kottuAddToPlate.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                kottuAddToPlateMouseEntered(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 kottuAddToPlateMouseExited(evt);
             }
@@ -204,18 +201,13 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
          CalculateMealprice();
     }//GEN-LAST:event_SltdropdownItemStateChanged
 
-    private void kottuAddToPlateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kottuAddToPlateMouseEntered
-        CalculateMealprice();
-        if(qty==0){
-           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
-        }
-        else {
-        }
-        
-    }//GEN-LAST:event_kottuAddToPlateMouseEntered
-
     private void kottuAddToPlateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kottuAddToPlateMousePressed
-       InsertOrderDetails();
+          if(qty==0){
+           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
+        }else{
+         CalculateMealprice();  
+         InsertOrderDetails();
+             }
     }//GEN-LAST:event_kottuAddToPlateMousePressed
      public void  CalculateMealprice(){
          if(dpriceqty!=null)
