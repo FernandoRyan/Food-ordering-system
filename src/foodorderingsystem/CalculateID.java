@@ -9,8 +9,9 @@ package foodorderingsystem;
  *
  * @author RYAN
  */
-public interface  CalculateID {
-public void Calid();
+public interface  CalculateID 
+{
+    public void Calid();
 }
     
 

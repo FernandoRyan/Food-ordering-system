@@ -200,13 +200,12 @@
               <Font name="Dialog" size="18" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
+              <StringArray count="5">
                 <StringItem index="0" value="FLAVOUR"/>
                 <StringItem index="1" value="AVACADO"/>
                 <StringItem index="2" value="WATER MELON"/>
-                <StringItem index="3" value="STRAWBERRY"/>
-                <StringItem index="4" value="ORANGE"/>
-                <StringItem index="5" value="MIX FRUIT"/>
+                <StringItem index="3" value="ORANGE"/>
+                <StringItem index="4" value="MIX FRUIT"/>
               </StringArray>
             </Property>
           </Properties>

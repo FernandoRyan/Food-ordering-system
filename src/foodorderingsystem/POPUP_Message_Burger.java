@@ -25,8 +25,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
      * Creates new form BurgerPOPUPMessage
      */
     
-    //Declaration of Member Feilds
-    
+    //Declaration of Member Feilds    
     String Total ="0";
     int qty; 
     String ProductDescription="Chicken Burger";
@@ -34,8 +33,8 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
     
     //Connection setup
     String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username= "sa";
-    String Pass="anjalo9990";
+    String username= "nera";
+    String Pass="neranji0321";
     
     //Frame Creation
     public POPUP_Message_Burger() {
@@ -109,7 +108,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
         lblQTY.getAccessibleContext().setAccessibleName("lblQTY");
 
         spBurgerQty.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        spBurgerQty.setBorder(null);
+        spBurgerQty.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
         spBurgerQty.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         spBurgerQty.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -129,7 +128,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
 
         lblTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblTotalPrice.setForeground(new java.awt.Color(51, 51, 51));
-        lblTotalPrice.setText("200.00");
+        lblTotalPrice.setText("0.00");
         jPanel1.add(lblTotalPrice);
         lblTotalPrice.setBounds(310, 330, 50, 30);
         lblTotalPrice.getAccessibleContext().setAccessibleName("lblTotalPrice");
@@ -156,6 +155,9 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnAddToPlateBurgerMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAddToPlateBurgerMousePressed(evt);
             }
         });
         jPanel1.add(btnAddToPlateBurger);
@@ -191,16 +193,8 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
 
     private void btnAddToPlateBurgerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseEntered
         btnAddToPlateBurger.setBackground(Color.RED);
-    }//GEN-LAST:event_btnAddToPlateBurgerMouseEntered
-
-    private void btnAddToPlateBurgerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseExited
-        btnAddToPlateBurger.setBackground(Color.GREEN);
-    }//GEN-LAST:event_btnAddToPlateBurgerMouseExited
-
-    private void btnAddToPlateBurgerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseClicked
-        InsertOrderDetails();
         
-        if(qty==0)
+        if(qty == 0)
         {
            JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
         }
@@ -208,12 +202,29 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
         {
             CalculateBurgerPrice();    
         }
+    }//GEN-LAST:event_btnAddToPlateBurgerMouseEntered
+
+    private void btnAddToPlateBurgerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseExited
+        btnAddToPlateBurger.setBackground(Color.GREEN);
+    }//GEN-LAST:event_btnAddToPlateBurgerMouseExited
+
+    private void btnAddToPlateBurgerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseClicked
+         // TODO add your handling code here:       
     }//GEN-LAST:event_btnAddToPlateBurgerMouseClicked
 
     private void spBurgerQtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spBurgerQtyStateChanged
         CalculateBurgerPrice();
     }//GEN-LAST:event_spBurgerQtyStateChanged
 
+    private void btnAddToPlateBurgerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMousePressed
+        InsertOrderDetails();
+    }//GEN-LAST:event_btnAddToPlateBurgerMousePressed
+
+    public double lblBurgerPrice() 
+    {
+        return 200.00;                
+    }
+    
     //Declaration of Member Methods     
      public void  CalculateBurgerPrice()
      {
@@ -223,15 +234,16 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
             
             if(qty > 20)
             {
-                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");
-                return;        
+                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");                       
             }
+            else {
         
             Total = Double.toString( qty * lblBurgerPrice());
            
-            lblTotalPrice.setText(Total);                
+            lblTotalPrice.setText(Total);             
+            }            
         }
-         else if (spBurgerQty ==  null)
+        else if (spBurgerQty == null)
               lblTotalPrice.setText(Total);
          //Add a message box to add to cart 
     }
@@ -278,11 +290,6 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
                 Logger.getLogger(POPUP_Message_Burger.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }    
-    
-    private int lblBurgerPrice() 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
      
     /**
@@ -316,10 +323,8 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new POPUP_Message_Burger().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new POPUP_Message_Burger().setVisible(true);
         });
     }
 
