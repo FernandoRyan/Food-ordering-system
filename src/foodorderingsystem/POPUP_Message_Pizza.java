@@ -220,7 +220,7 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
         
         if(qty == 0)
         {
-           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
+           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed..");
         }
         else 
         {
@@ -262,7 +262,7 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
             
             if(qty > 20)
             {
-                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");
+                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff..");
                 return;        
             }
         
@@ -298,7 +298,7 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
                 pstmt.executeUpdate();
                 pstmt.close();
                 
-                JOptionPane.showMessageDialog(null, "Sucessfully Added to the Plate");
+                JOptionPane.showMessageDialog(null, "Sucessfully Added to the Plate!");
             }            
         }
         catch(SQLException e)

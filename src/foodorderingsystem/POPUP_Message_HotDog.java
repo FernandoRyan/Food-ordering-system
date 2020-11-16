@@ -28,7 +28,7 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
     //Declaration of Member Feilds    
     String Total ="0";
     int qty; 
-    String ProductDescription="Hot og";
+    String ProductDescription="Hot Dog";
     Connection conn;
     
     //Connection setup
@@ -219,7 +219,7 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
         
         if(qty == 0)
             {
-                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
+                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed..");
             }
         else 
             {
@@ -261,7 +261,7 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
            
            if(qty > 20)
             {
-               JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");                     
+               JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff..");                     
             }
            else{
                Total = Double.toString( qty * lblHotDogPrice());
@@ -297,7 +297,7 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
                 pstmt.executeUpdate();
                 pstmt.close();
                 
-                JOptionPane.showMessageDialog(null, "Sucessfully Added to the Plate");
+                JOptionPane.showMessageDialog(null, "Sucessfully Added to the Plate!");
             }            
         }
         catch(SQLException e)
