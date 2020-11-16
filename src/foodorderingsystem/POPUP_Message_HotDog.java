@@ -109,6 +109,11 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
         spQtyHotDog.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
         spQtyHotDog.setBorder(null);
         spQtyHotDog.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        spQtyHotDog.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spQtyHotDogStateChanged(evt);
+            }
+        });
         jPanel1.add(spQtyHotDog);
         spQtyHotDog.setBounds(110, 330, 70, 30);
         spQtyHotDog.getAccessibleContext().setAccessibleName("spQtyHotDog");
@@ -227,7 +232,7 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateHotDogMouseExited
 
     private void btnAddToPlateHotDogStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnAddToPlateHotDogStateChanged
-        CalculateHotDogprice();
+        // TODO add your handling code here:     
     }//GEN-LAST:event_btnAddToPlateHotDogStateChanged
 
     private void btnAddToPlateHotDogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateHotDogMouseClicked
@@ -237,6 +242,10 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
     private void btnAddToPlateHotDogMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateHotDogMousePressed
         InsertOrderDetails();
     }//GEN-LAST:event_btnAddToPlateHotDogMousePressed
+
+    private void spQtyHotDogStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtyHotDogStateChanged
+        CalculateHotDogprice();
+    }//GEN-LAST:event_spQtyHotDogStateChanged
     
     public double lblHotDogPrice() 
     {

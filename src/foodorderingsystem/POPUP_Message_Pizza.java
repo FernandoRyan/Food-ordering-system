@@ -110,6 +110,11 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
         spQtyPizza.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
         spQtyPizza.setBorder(null);
         spQtyPizza.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        spQtyPizza.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spQtyPizzaStateChanged(evt);
+            }
+        });
         jPanel1.add(spQtyPizza);
         spQtyPizza.setBounds(110, 330, 70, 30);
         spQtyPizza.getAccessibleContext().setAccessibleName("spQtyPizza");
@@ -228,7 +233,7 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlatePizzaMouseExited
 
     private void btnAddToPlatePizzaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaStateChanged
-        CalculatePizzaPrice();
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnAddToPlatePizzaStateChanged
 
     private void btnAddToPlatePizzaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMouseClicked
@@ -238,6 +243,10 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
     private void btnAddToPlatePizzaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMousePressed
         InsertOrderDetails();
     }//GEN-LAST:event_btnAddToPlatePizzaMousePressed
+
+    private void spQtyPizzaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtyPizzaStateChanged
+        CalculatePizzaPrice();
+    }//GEN-LAST:event_spQtyPizzaStateChanged
     
     public double lblPizzaPrice() 
     {
