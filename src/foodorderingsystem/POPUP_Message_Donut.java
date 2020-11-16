@@ -38,7 +38,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
     
     //Frame Creation
     public POPUP_Message_Donut() {
-        initComponents();
+        initComponents();        
     }
 
     /**
