@@ -28,7 +28,8 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
      */
     /*
     //Declaration of Member Feilds    
-    String OrderType="Dine-In & Take Away";
+    String OrderType1="Dine-In";
+    String OrderType2="Take Away";
     Connection conn;
     
     //Connection setup
@@ -164,12 +165,11 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
         
             if(conn != null)
             {
-                Insert = "INSERT INTO SalesOrder(OrderType) VALUES (?,?,?)";
+                Insert = "INSERT INTO SalesOrder(OrderType) VALUES (?)";
                 
                 PreparedStatement pstmt = conn.prepareStatement(Insert);
                 
-                pstmt.setString(1, OrderType);
-                pstmt.close();
+                pstmt.setString(1, OrderType2);
                 
                 JOptionPane.showMessageDialog(null, "Your order type - 'Take Away' sucessfully added to the plate!");
             }            
@@ -202,12 +202,11 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
         
             if(conn != null)
             {
-                Insert = "INSERT INTO SalesOrder(OrderType) VALUES (?,?,?)";
+                Insert = "INSERT INTO SalesOrder(OrderType) VALUES (?)";
                 
                 PreparedStatement pstmt = conn.prepareStatement(Insert);
                 
-                pstmt.setString(1, OrderType);
-                pstmt.close();
+                pstmt.setString(1, OrderType1);
                 
                 JOptionPane.showMessageDialog(null, "Your order type - 'Dine-In' sucessfully added to the plate!");
             }            
