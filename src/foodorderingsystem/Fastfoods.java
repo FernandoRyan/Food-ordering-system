@@ -21,9 +21,9 @@ public class Fastfoods extends javax.swing.JFrame {
     public int id = 1000; 
 
    
-    public void Calid(Meal newid){
+    public void updateId(int newID){
     
-    newid.id = id + 1;
+    id=newID;
 }       
     
    String value = String.valueOf(id);
@@ -920,17 +920,15 @@ public class Fastfoods extends javax.swing.JFrame {
         Fastfood Pizza = new Fastfood(14, "Pizza",150.00, 1);
         Fastfood Sandwitch = new Fastfood(15, "Sandwitch", 100.00, 1);
         Fastfood Donut = new Fastfood(16, "Donut", 60.00, 1);
+        
+        int id=1001;
+        Fastfoods lm= new Fastfoods();
+        lm.updateId(id++);
 
         //* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new Fastfoods().setVisible(true);
         });
-    }
-
-    //Member Methods
-    public void Cal_total()
-    {
-        int Total = 0;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

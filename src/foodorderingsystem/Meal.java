@@ -16,19 +16,21 @@ import java.awt.Toolkit;
  */
 
 
-public class  Meal extends javax.swing.JFrame  {
+public class  Meal extends javax.swing.JFrame {
 
     //Creating feilds
     public double Total; 
     public int id=1000; 
-
-   
-    public void Calid(Meal newid){
+    /*
+    @Override
+     public void Calid(int newID){
+     this.id=newID;
+  
+    */
     
-    newid.id=id+1;
-}    
-    
-    
+    public void updateId(int newID){
+    id=newID;
+    }
    String value=String.valueOf(id);
     
     /**
@@ -588,6 +590,12 @@ public class  Meal extends javax.swing.JFrame  {
          Meals Kottu_Chicken = new Meals("Kottu with Chicken",220.00,150.00,007);
          Meals Kottu_Egg   = new Meals("Kottu with Egg",190.00,150.00,009.00);
          Meals Kottu_Chicken_Cheese = new Meals("Kottu with Chicken and cheese",260.00,150.00,0010.00);
+         
+         int id=1001;
+         Meal lm= new Meal();
+         lm.updateId(id++);
+         
+         
          
          
         /* Create and display the form */

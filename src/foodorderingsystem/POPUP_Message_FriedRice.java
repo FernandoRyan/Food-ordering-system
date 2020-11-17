@@ -156,9 +156,6 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
             }
         });
         Add_To_Plate.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Add_To_PlateMouseEntered(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 Add_To_PlateMouseExited(evt);
             }
@@ -198,7 +195,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCANCELMouseClicked
 
     private void Add_To_PlateMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Add_To_PlateMouseMoved
-         Add_To_Plate.setBackground(new Color(0,102,0));
+         Add_To_Plate.setBackground(Color.RED);
     }//GEN-LAST:event_Add_To_PlateMouseMoved
 
     private void Add_To_PlateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Add_To_PlateMouseExited
@@ -215,17 +212,15 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
         CalculateMealprice();
     }//GEN-LAST:event_dpriceqtyStateChanged
 
-    private void Add_To_PlateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Add_To_PlateMouseEntered
-         if(qty==0){
-           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
-        }
-        else {
-              CalculateMealprice();    
-        }
-    }//GEN-LAST:event_Add_To_PlateMouseEntered
-
     private void Add_To_PlateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Add_To_PlateMousePressed
+             if(qty==0){
+           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
+        }else{
+                 
+         CalculateMealprice();  
+         
          InsertOrderDetails();
+             }
         
     }//GEN-LAST:event_Add_To_PlateMousePressed
 
@@ -249,7 +244,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");
        return;
            }
-           Total= Double.toString( qty *MatchMenu());
+           Total= Double.toString( qty * MatchMenu());
            
            lblTotalPrice.setText(Total);
        }
