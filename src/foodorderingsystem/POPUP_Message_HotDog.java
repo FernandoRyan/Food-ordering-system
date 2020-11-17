@@ -294,7 +294,7 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
                 pstmt.setString(1, ProductDescription);
                 pstmt.setInt(2, qty);
                 pstmt.setBigDecimal(3, TotalValue);
-                //pstmt.executeUpdate();
+                pstmt.executeUpdate();
                 pstmt.close();
                 
                 JOptionPane.showMessageDialog(null, "Sucessfully Added to the Plate!");
