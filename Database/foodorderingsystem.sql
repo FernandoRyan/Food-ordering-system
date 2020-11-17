@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2020 at 03:04 PM
+-- Generation Time: Nov 17, 2020 at 02:16 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -31,20 +31,18 @@ CREATE TABLE `fastfood` (
   `ProductID` int(10) NOT NULL,
   `ProductDescription` varchar(1000) NOT NULL,
   `ProductPrice` double NOT NULL,
-  `ProductQuantity` int(20) NOT NULL
+  `ProductQty` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `fastfood`
 --
 
-INSERT INTO `fastfood` (`ProductID`, `ProductDescription`, `ProductPrice`, `ProductQuantity`) VALUES
+INSERT INTO `fastfood` (`ProductID`, `ProductDescription`, `ProductPrice`, `ProductQty`) VALUES
 (10, 'Chicken Burger', 200, 1),
 (11, 'Submarine', 200, 1),
-(12, 'Hot Dog', 150, 1),
 (13, 'Pizza', 150, 1),
-(14, 'Sandwich', 100, 1),
-(15, 'Donut', 60, 1);
+(14, 'Sandwich', 100, 1);
 
 -- --------------------------------------------------------
 
@@ -77,6 +75,17 @@ INSERT INTO `meals` (`ProductID`, `ProductDescription`, `ProductPrice`, `Product
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orderbill`
+--
+
+CREATE TABLE `orderbill` (
+  `OrderID` int(10) NOT NULL,
+  `OrderType` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `salesorder`
 --
 
@@ -93,7 +102,15 @@ CREATE TABLE `salesorder` (
 
 INSERT INTO `salesorder` (`ProductDescription`, `qty`, `TotalValue`, `OrderId`) VALUES
 ('Egg', 1, '200', 6),
-('Chicken', 1, '230', 7);
+('Chicken', 1, '230', 7),
+('Chicken Burger', 1, '200', 14),
+('Submarine', 1, '200', 15),
+('Pizza', 1, '150', 17),
+('Sandwitch', 2, '200', 18),
+('Donut', 3, '180', 19),
+('Chicken Burger', 1, '200', 28),
+('Donut', 1, '60', 29),
+('Sandwitch', 1, '100', 30);
 
 --
 -- Indexes for dumped tables
@@ -113,6 +130,12 @@ ALTER TABLE `meals`
   ADD UNIQUE KEY `ProductID` (`ProductID`);
 
 --
+-- Indexes for table `orderbill`
+--
+ALTER TABLE `orderbill`
+  ADD PRIMARY KEY (`OrderID`);
+
+--
 -- Indexes for table `salesorder`
 --
 ALTER TABLE `salesorder`
@@ -126,7 +149,7 @@ ALTER TABLE `salesorder`
 -- AUTO_INCREMENT for table `salesorder`
 --
 ALTER TABLE `salesorder`
-  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

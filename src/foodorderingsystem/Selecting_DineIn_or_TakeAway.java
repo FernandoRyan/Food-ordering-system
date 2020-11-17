@@ -8,14 +8,14 @@ package foodorderingsystem;
 //Import classes
 import java.awt.Dimension;
 import java.awt.Toolkit;
-/*import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;*/
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,7 +26,7 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame2
      */
-    /*
+    
     //Declaration of Member Feilds    
     String OrderType1="Dine-In";
     String OrderType2="Take Away";
@@ -36,7 +36,7 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
     String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
     String username= "nera";
     String Pass="neranji0321";
-    */
+    
     //Frame Creation
     public Selecting_DineIn_or_TakeAway() {
         initComponents();
@@ -156,7 +156,7 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnTakeAwayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTakeAwayMouseClicked
-        /*String Insert;
+        String Insert;
         
         try
         {
@@ -165,7 +165,7 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
         
             if(conn != null)
             {
-                Insert = "INSERT INTO SalesOrder(OrderType) VALUES (?)";
+                Insert = "INSERT INTO orderbill(OrderType) VALUES (?)";
                 
                 PreparedStatement pstmt = conn.prepareStatement(Insert);
                 
@@ -189,11 +189,11 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
             {
                 Logger.getLogger(Selecting_DineIn_or_TakeAway.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }*/
+        }
     }//GEN-LAST:event_btnTakeAwayMouseClicked
 
     private void btnDineInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDineInMouseClicked
-        /*String Insert;
+        String Insert;
         
         try
         {
@@ -202,7 +202,7 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
         
             if(conn != null)
             {
-                Insert = "INSERT INTO SalesOrder(OrderType) VALUES (?)";
+                Insert = "INSERT INTO orderbill(OrderType) VALUES (?)";
                 
                 PreparedStatement pstmt = conn.prepareStatement(Insert);
                 
@@ -226,7 +226,7 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
             {
                 Logger.getLogger(Selecting_DineIn_or_TakeAway.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }*/
+        }
         
     }//GEN-LAST:event_btnDineInMouseClicked
     
