@@ -109,6 +109,11 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
         spSubmarineQty.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
         spSubmarineQty.setBorder(null);
         spSubmarineQty.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        spSubmarineQty.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spSubmarineQtyStateChanged(evt);
+            }
+        });
         jPanel1.add(spSubmarineQty);
         spSubmarineQty.setBounds(100, 340, 70, 30);
         spSubmarineQty.getAccessibleContext().setAccessibleName("spSubmarineQty");
@@ -205,7 +210,7 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
         
         if(qty == 0)
         {
-           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
+           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
         }
         else 
         {
@@ -218,7 +223,7 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateSubmarineMouseExited
 
     private void btnAddToPlateSubmarineStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnAddToPlateSubmarineStateChanged
-        CalculateSubmarinePrice();
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnAddToPlateSubmarineStateChanged
 
     private void btnAddToPlateSubmarineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSubmarineMouseClicked
@@ -228,6 +233,10 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
     private void btnAddToPlateSubmarineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSubmarineMousePressed
         InsertOrderDetails();
     }//GEN-LAST:event_btnAddToPlateSubmarineMousePressed
+
+    private void spSubmarineQtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spSubmarineQtyStateChanged
+        CalculateSubmarinePrice();
+    }//GEN-LAST:event_spSubmarineQtyStateChanged
 
     public double lblSubmarinePrice() 
     {
@@ -243,9 +252,10 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
             
             if(qty > 20)
             {
-                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");                     
+                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff..");                     
             }
-            else{
+            else
+            {
                 Total = Double.toString( qty * lblSubmarinePrice());
            
                 lblSubmarineTotalPrice.setText(Total);       
@@ -279,7 +289,7 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
                 pstmt.executeUpdate();
                 pstmt.close();
                 
-                JOptionPane.showMessageDialog(null, "Sucessfully Added to the Plate");
+                JOptionPane.showMessageDialog(null, "Sucessfully Added to the Plate!");
             }            
         }
         catch(SQLException e)

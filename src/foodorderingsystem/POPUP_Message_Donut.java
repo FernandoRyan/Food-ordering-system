@@ -38,7 +38,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
     
     //Frame Creation
     public POPUP_Message_Donut() {
-        initComponents();
+        initComponents();        
     }
 
     /**
@@ -109,6 +109,11 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
         spQtyDonut.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
         spQtyDonut.setBorder(null);
         spQtyDonut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        spQtyDonut.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spQtyDonutStateChanged(evt);
+            }
+        });
         jPanel1.add(spQtyDonut);
         spQtyDonut.setBounds(110, 330, 70, 30);
         spQtyDonut.getAccessibleContext().setAccessibleName("spQtyDonut");
@@ -214,7 +219,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
         
         if(qty == 0)
             {
-                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
+                JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
             }
         else 
             {
@@ -227,7 +232,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateDonutMouseExited
 
     private void btnAddToPlateDonutStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutStateChanged
-        CalculateDonutprice();
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnAddToPlateDonutStateChanged
 
     private void btnAddToPlateDonutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMouseClicked
@@ -237,6 +242,10 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
     private void btnAddToPlateDonutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMousePressed
         InsertOrderDetails();   
     }//GEN-LAST:event_btnAddToPlateDonutMousePressed
+
+    private void spQtyDonutStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtyDonutStateChanged
+        CalculateDonutprice();
+    }//GEN-LAST:event_spQtyDonutStateChanged
     
     public double lblDonutPrice() 
     {
@@ -252,7 +261,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
            
            if(qty > 20)
             {
-               JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");                      
+               JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff..");                      
             }
            else{
                
@@ -289,7 +298,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
                 pstmt.executeUpdate();
                 pstmt.close();
                 
-                JOptionPane.showMessageDialog(null, "Sucessfully Added to the Plate");
+                JOptionPane.showMessageDialog(null, "Sucessfully Added to the Plate!");
             }            
         }
         catch(SQLException e)
