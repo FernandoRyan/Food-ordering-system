@@ -45,7 +45,7 @@ public class popup_message_ckicken_cheese_balls extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dhanuja Supun\\Downloads\\WhatsApp Image 2020-11-12 at 5.44.48 PM.jpeg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhatsApp Image 2020-11-12 at 5.44.48 PM.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));

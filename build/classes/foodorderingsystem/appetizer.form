@@ -411,7 +411,7 @@
             <Component class="javax.swing.JLabel" name="jLabel14">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Dhanuja Supun\Pictures\Umbalakada wade_43_1.1.244_386X580.jpg"/>
+                  <Image iconType="3" name="/Images/Umbalakada wade_43_1.1.244_386X580.jpg"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="wade"/>
               </Properties>
@@ -425,7 +425,7 @@
             <Component class="javax.swing.JLabel" name="jLabel13">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Dhanuja Supun\Downloads\WhatsApp Image 2020-11-12 at 5.44.48 PM.jpeg"/>
+                  <Image iconType="3" name="/Images/WhatsApp Image 2020-11-12 at 5.44.48 PM.jpeg"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="chickenballs"/>
               </Properties>
@@ -439,7 +439,7 @@
             <Component class="javax.swing.JLabel" name="jLabel18">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Dhanuja Supun\Pictures\potato chips-620.jpg"/>
+                  <Image iconType="3" name="/Images/potato chips-620.jpg"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="chips"/>
               </Properties>
@@ -453,7 +453,7 @@
             <Component class="javax.swing.JLabel" name="jLabel19">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Dhanuja Supun\Pictures\punjabi-samosa-11-500x375.jpg"/>
+                  <Image iconType="3" name="/Images/punjabi-samosa-11-500x375.jpg"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="samosa"/>
               </Properties>
@@ -464,7 +464,7 @@
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Dhanuja Supun\Pictures\cheese-ball-recipe-500x375.jpg"/>
+                  <Image iconType="3" name="/Images/cheese-ball-recipe-500x375.jpg"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="cheeseballs"/>
               </Properties>

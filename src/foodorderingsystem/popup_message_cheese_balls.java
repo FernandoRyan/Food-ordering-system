@@ -41,7 +41,7 @@ public class popup_message_cheese_balls extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dhanuja Supun\\Pictures\\cheese-ball-recipe-500x375.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cheese-ball-recipe-500x375.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));

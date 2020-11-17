@@ -45,7 +45,7 @@ public class popup_message_wade extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dhanuja Supun\\Pictures\\Umbalakada wade_43_1.1.244_386X580.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Umbalakada wade_43_1.1.244_386X580.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));

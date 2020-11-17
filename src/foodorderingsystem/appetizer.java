@@ -114,7 +114,7 @@ public class appetizer extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(153, 153, 153));
         jLabel12.setText("LKR  525.00");
 
-        jLabel14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dhanuja Supun\\Pictures\\Umbalakada wade_43_1.1.244_386X580.jpg")); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Umbalakada wade_43_1.1.244_386X580.jpg"))); // NOI18N
         jLabel14.setText("wade");
         jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -122,7 +122,7 @@ public class appetizer extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dhanuja Supun\\Downloads\\WhatsApp Image 2020-11-12 at 5.44.48 PM.jpeg")); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhatsApp Image 2020-11-12 at 5.44.48 PM.jpeg"))); // NOI18N
         jLabel13.setText("chickenballs");
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -130,7 +130,7 @@ public class appetizer extends javax.swing.JFrame {
             }
         });
 
-        jLabel18.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dhanuja Supun\\Pictures\\potato chips-620.jpg")); // NOI18N
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/potato chips-620.jpg"))); // NOI18N
         jLabel18.setText("chips");
         jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -138,7 +138,7 @@ public class appetizer extends javax.swing.JFrame {
             }
         });
 
-        jLabel19.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dhanuja Supun\\Pictures\\punjabi-samosa-11-500x375.jpg")); // NOI18N
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/punjabi-samosa-11-500x375.jpg"))); // NOI18N
         jLabel19.setText("samosa");
         jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -146,7 +146,7 @@ public class appetizer extends javax.swing.JFrame {
             }
         });
 
-        jLabel20.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dhanuja Supun\\Pictures\\cheese-ball-recipe-500x375.jpg")); // NOI18N
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cheese-ball-recipe-500x375.jpg"))); // NOI18N
         jLabel20.setText("cheeseballs");
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
