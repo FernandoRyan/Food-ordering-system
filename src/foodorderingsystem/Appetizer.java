@@ -9,12 +9,12 @@ package pkginterface;
  *
  * @author Dhanuja Supun
  */
-public class appetizer extends javax.swing.JFrame {
+public class Appetizer extends javax.swing.JFrame {
 
     /**
      * Creates new form appetizer
      */
-    public appetizer() {
+    public Appetizer() {
         initComponents();
     }
 
@@ -62,7 +62,6 @@ public class appetizer extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1301, 707));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dhanuja Supun\\Downloads\\WhatsApp Image 2020-10-31 at 3.59.38 PM.jpeg")); // NOI18N
         jLabel1.setText("jLabel1");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -432,20 +431,21 @@ public class appetizer extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(appetizer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Appetizer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(appetizer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Appetizer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(appetizer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Appetizer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(appetizer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Appetizer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new appetizer().setVisible(true);
+                new Appetizer().setVisible(true);
             }
         });
     }
