@@ -170,6 +170,7 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
                 PreparedStatement pstmt = conn.prepareStatement(Insert);
                 
                 pstmt.setString(1, OrderType2);
+                pstmt.close();
                 
                 JOptionPane.showMessageDialog(null, "Your order type - 'Take Away' sucessfully added to the plate!");
             }            
@@ -207,6 +208,7 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
                 PreparedStatement pstmt = conn.prepareStatement(Insert);
                 
                 pstmt.setString(1, OrderType1);
+                pstmt.close();
                 
                 JOptionPane.showMessageDialog(null, "Your order type - 'Dine-In' sucessfully added to the plate!");
             }            
