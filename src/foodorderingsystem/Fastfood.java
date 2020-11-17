@@ -25,10 +25,4 @@ public class Fastfood extends Fastfoods
         this.ProductPrice = price;
         this.Productquantity = qty;    
     }
-    
-    @Override 
-    public void Cal_total()
-    {
-        
-    }
 }
