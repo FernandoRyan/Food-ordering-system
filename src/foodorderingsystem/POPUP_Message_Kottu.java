@@ -22,10 +22,10 @@ import javax.swing.JOptionPane;
 public class POPUP_Message_Kottu extends javax.swing.JFrame {
 
      //Declaration of Member Feilds
-    
+    public final int CustID=1000;
     String Total ="00";
     int qty; 
-    String ProductDescription="Chicken";
+    String ProductDescription="Kottu With Chicken";
     Connection conn;
     
     //Connection setup
@@ -226,7 +226,7 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
          //Add a message box to add to cart 
     }
     
-    
+    //MAtching Menu With Jcombo
     public double MatchMenu(){
            ProductDescription = Sltdropdown.getSelectedItem().toString();
         switch (ProductDescription) {
@@ -251,13 +251,13 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
         
         if(conn!=null){
             
-          BigDecimal TotalValue=new BigDecimal(Total);
-         
-         Insert="INSERT INTO SalesOrder(ProductDescription,qty,TotalValue) VALUES (?,?,?)";
+         BigDecimal TotalValue=new BigDecimal(Total);
+         Insert="INSERT INTO SalesOrder (CustID,ProductDescription,Quantity,TotalPrice) VALUES (?,?,?,?)";
          PreparedStatement pstmt = conn.prepareStatement(Insert);
-         pstmt.setString(1, ProductDescription);
-         pstmt.setInt(2, qty);
-         pstmt.setBigDecimal(3, TotalValue);
+         pstmt.setInt(1,CustID);
+         pstmt.setString(2, ProductDescription);
+         pstmt.setInt(3, qty);
+         pstmt.setBigDecimal(4, TotalValue);
          pstmt.executeUpdate();
          pstmt.close();
          JOptionPane.showMessageDialog(null,"Sucessfully Added to plate");

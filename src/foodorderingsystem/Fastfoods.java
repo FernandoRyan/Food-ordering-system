@@ -18,23 +18,13 @@ public class Fastfoods extends javax.swing.JFrame {
 
     //Creating feilds
     public double Total; 
-    public int id = 1000; 
-
-   
-    public void Calid(Meal newid){
-    
-    newid.id = id + 1;
-}       
-    
-   String value = String.valueOf(id);
-  
     
     /**
      * Creates new form NewJFrame1
      */
     public Fastfoods() {
         initComponents(); 
-        lblUserId.setText(value);
+     
          //setExtendedState(Meal.MAXIMIZED_BOTH); 
     }
     
