@@ -18,23 +18,13 @@ public class Fastfoods extends javax.swing.JFrame {
 
     //Creating feilds
     public double Total; 
-    public int id = 1000; 
-
-   
-    public void updateId(int newID){
-    
-    id=newID;
-}       
-    
-   String value = String.valueOf(id);
-  
     
     /**
      * Creates new form NewJFrame1
      */
     public Fastfoods() {
         initComponents(); 
-        lblUserId.setText(value);
+     
          //setExtendedState(Meal.MAXIMIZED_BOTH); 
     }
     
@@ -920,15 +910,17 @@ public class Fastfoods extends javax.swing.JFrame {
         Fastfood Pizza = new Fastfood(14, "Pizza",150.00, 1);
         Fastfood Sandwitch = new Fastfood(15, "Sandwitch", 100.00, 1);
         Fastfood Donut = new Fastfood(16, "Donut", 60.00, 1);
-        
-        int id=1001;
-        Fastfoods lm= new Fastfoods();
-        lm.updateId(id++);
 
         //* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new Fastfoods().setVisible(true);
         });
+    }
+
+    //Member Methods
+    public void Cal_total()
+    {
+        int Total = 0;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
