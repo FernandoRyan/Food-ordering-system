@@ -25,7 +25,8 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
      * Creates new form DonutPOPUPMessage
      */
     
-    //Declaration of Member Feilds    
+    //Declaration of Member Feilds  
+    public final int CustID=1000;
     String Total ="0";
     int qty; 
     String ProductDescription="Donut";
@@ -224,6 +225,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
         else 
             {
                 CalculateDonutprice();
+                InsertOrderDetails();   
             }
     }//GEN-LAST:event_btnAddToPlateDonutMouseEntered
 
@@ -236,11 +238,11 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateDonutStateChanged
 
     private void btnAddToPlateDonutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMouseClicked
-         // TODO add your handling code here:         
+        // TODO add your handling code here:         
     }//GEN-LAST:event_btnAddToPlateDonutMouseClicked
 
     private void btnAddToPlateDonutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMousePressed
-        InsertOrderDetails();   
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnAddToPlateDonutMousePressed
 
     private void spQtyDonutStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtyDonutStateChanged

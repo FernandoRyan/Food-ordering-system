@@ -26,6 +26,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
      */
     
     //Declaration of Member Feilds    
+    public final int CustID=1000;
     String Total ="0";
     int qty; 
     String ProductDescription="Chicken Burger";
@@ -200,7 +201,8 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
         }
         else 
         {
-            CalculateBurgerPrice();    
+            CalculateBurgerPrice();  
+            InsertOrderDetails();
         }
     }//GEN-LAST:event_btnAddToPlateBurgerMouseEntered
 
@@ -217,7 +219,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
     }//GEN-LAST:event_spBurgerQtyStateChanged
 
     private void btnAddToPlateBurgerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMousePressed
-        InsertOrderDetails();
+        // TODO add your handling code here:  
     }//GEN-LAST:event_btnAddToPlateBurgerMousePressed
 
     public double lblBurgerPrice() 
@@ -268,7 +270,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
                 pstmt.setString(1, ProductDescription);
                 pstmt.setInt(2, qty);
                 pstmt.setBigDecimal(3, TotalValue);
-                pstmt.executeUpdate();
+                pstmt.executeUpdate();                
                 pstmt.close();
                 
                 JOptionPane.showMessageDialog(null, "Sucessfully Added to the Plate!");

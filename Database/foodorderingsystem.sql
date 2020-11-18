@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2020 at 02:16 PM
+-- Generation Time: Nov 17, 2020 at 07:10 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -83,6 +83,13 @@ CREATE TABLE `orderbill` (
   `OrderType` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `orderbill`
+--
+
+INSERT INTO `orderbill` (`OrderID`, `OrderType`) VALUES
+(1, 'take');
+
 -- --------------------------------------------------------
 
 --
@@ -110,7 +117,9 @@ INSERT INTO `salesorder` (`ProductDescription`, `qty`, `TotalValue`, `OrderId`) 
 ('Donut', 3, '180', 19),
 ('Chicken Burger', 1, '200', 28),
 ('Donut', 1, '60', 29),
-('Sandwitch', 1, '100', 30);
+('Sandwitch', 1, '100', 30),
+('Submarine', 1, '200', 31),
+('Chicken Burger', 1, '200', 32);
 
 --
 -- Indexes for dumped tables
@@ -149,7 +158,7 @@ ALTER TABLE `salesorder`
 -- AUTO_INCREMENT for table `salesorder`
 --
 ALTER TABLE `salesorder`
-  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -25,7 +25,8 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
      * Creates new form PizzaPOPUPMessage
      */
     
-    //Declaration of Member Feilds    
+    //Declaration of Member Feilds   
+    public final int CustID=1000;
     String Total ="0";
     int qty; 
     String ProductDescription="Pizza";
@@ -224,7 +225,8 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
         }
         else 
         {
-            CalculatePizzaPrice();    
+            CalculatePizzaPrice(); 
+            InsertOrderDetails();
         }
     }//GEN-LAST:event_btnAddToPlatePizzaMouseEntered
 
@@ -241,7 +243,7 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlatePizzaMouseClicked
 
     private void btnAddToPlatePizzaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMousePressed
-        InsertOrderDetails();
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnAddToPlatePizzaMousePressed
 
     private void spQtyPizzaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtyPizzaStateChanged
