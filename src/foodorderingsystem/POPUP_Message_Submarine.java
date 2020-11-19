@@ -26,6 +26,7 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
      */
     
     //Declaration of Member Feilds    
+    public final int CustID=1000;
     String Total ="0";
     int qty; 
     String ProductDescription="Submarine";
@@ -214,7 +215,8 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
         }
         else 
         {
-            CalculateSubmarinePrice();    
+            CalculateSubmarinePrice();  
+            InsertOrderDetails();
         }
     }//GEN-LAST:event_btnAddToPlateSubmarineMouseEntered
 
@@ -231,7 +233,7 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateSubmarineMouseClicked
 
     private void btnAddToPlateSubmarineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSubmarineMousePressed
-        InsertOrderDetails();
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnAddToPlateSubmarineMousePressed
 
     private void spSubmarineQtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spSubmarineQtyStateChanged

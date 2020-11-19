@@ -67,6 +67,8 @@ public class Beverages extends javax.swing.JFrame {
         lblTotal = new javax.swing.JLabel();
         lblAmount = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -151,14 +153,18 @@ public class Beverages extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnMeal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnFastFood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnAppetizers, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-            .addComponent(btnBeverages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(lblLogo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBeverages, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                    .addComponent(btnAppetizers, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnFastFood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMeal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +198,7 @@ public class Beverages extends javax.swing.JFrame {
             }
         });
 
-        lblMilkshake.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/shake3.jpg"))); // NOI18N
+        lblMilkshake.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ms1.jpg"))); // NOI18N
         lblMilkshake.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblMilkshakeMousePressed(evt);
@@ -206,14 +212,14 @@ public class Beverages extends javax.swing.JFrame {
             }
         });
 
-        lblFruitJuice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fruitjuice.jpg"))); // NOI18N
+        lblFruitJuice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/juice.jpg"))); // NOI18N
         lblFruitJuice.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblFruitJuiceMousePressed(evt);
             }
         });
 
-        lblIceCoffee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cof.jpg"))); // NOI18N
+        lblIceCoffee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ice.jpg"))); // NOI18N
         lblIceCoffee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblIceCoffeeMousePressed(evt);
@@ -277,104 +283,93 @@ public class Beverages extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(lblNesName, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblNescafe, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(67, 67, 67)
-                                        .addComponent(lblJuicePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(26, 26, 26)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(lblFruitJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(jPanel4Layout.createSequentialGroup()
-                                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(lblIceCoffee)
-                                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                            .addGap(10, 10, 10)
-                                                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                .addComponent(lblMojitoo)
-                                                                .addComponent(lblMojitoPrice))
-                                                            .addGap(181, 181, 181)
-                                                            .addComponent(lblWaterPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                    .addGap(24, 24, 24))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                                    .addComponent(lblSoftDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(23, 23, 23)))
-                                            .addComponent(lblBottledWater))
-                                        .addGap(15, 15, 15))
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(70, 70, 70)
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblMilkshake, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblTopic, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addContainerGap())
+                                        .addComponent(lblIceCoffee))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblJuice)
+                                            .addComponent(lblJuicePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblMojitoPrice)
+                                            .addComponent(lblMojitoo))
+                                        .addGap(24, 24, 24))))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(lblNesPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(73, 73, 73))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(lblNesPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(0, 460, Short.MAX_VALUE)
-                                .addComponent(lblWater, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(59, 59, 59))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(181, 181, 181)
-                                        .addComponent(lblMilkshakes))
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(190, 190, 190)
-                                        .addComponent(jLabel1)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDrinks)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(lblDrinksPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(57, 57, 57))))))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                                .addComponent(lblNescafe, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(70, 70, 70)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblTopic, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblMilkshakes)
+                                        .addComponent(lblMilkshake, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel1))))
+                            .addComponent(lblNesName, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblFruitJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBottledWater)
+                    .addComponent(lblWaterPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblSoftDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblWater, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblJuice)))
-                .addContainerGap(614, Short.MAX_VALUE))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDrinksPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDrinks))))
+                .addGap(236, 236, 236))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(lblTopic, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblMilkshake, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNescafe)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(lblTopic, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(16, 16, 16)
+                                        .addComponent(lblMilkshake, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(27, 27, 27)
+                                        .addComponent(lblSoftDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblMilkshakes)
+                            .addComponent(lblDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNesName))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblNesPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                                .addComponent(lblFruitJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(lblDrinksPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblWater, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(lblSoftDrinks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(lblNescafe))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMilkshakes)
-                    .addComponent(lblDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNesName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNesPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblDrinksPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblWater, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFruitJuice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIceCoffee, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(232, 232, 232)
+                        .addComponent(lblIceCoffee, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblMojitoo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -387,7 +382,7 @@ public class Beverages extends javax.swing.JFrame {
                 .addGap(33, 33, 33))
         );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 870, 800));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 820, 800));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -407,6 +402,9 @@ public class Beverages extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnCheckoutMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCheckoutMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnCheckoutMousePressed(evt);
             }
@@ -422,25 +420,53 @@ public class Beverages extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Product Description", "QTY", "Total"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblAmount, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(lblAmount, javax.swing.GroupLayout.DEFAULT_SIZE, 1020, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(30, 30, 30))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(95, 95, 95)
+                        .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -448,18 +474,20 @@ public class Beverages extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(136, 136, 136)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(lblAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                    .addComponent(lblAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1081, -2, -1, 800));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1031, -2, 1210, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -621,12 +649,20 @@ public class Beverages extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCheckoutMouseClicked
 
     private void btnCheckoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseEntered
+       
+        btnCheckout.setBackground(Color.RED);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCheckoutMouseEntered
 
     private void btnCheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCheckoutMousePressed
+
+    private void btnCheckoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseExited
+       
+        btnCheckout.setBackground(Color.GREEN);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCheckoutMouseExited
 
     /**
      * @param args the command line arguments
@@ -718,6 +754,8 @@ public class Beverages extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblAmount;
     private javax.swing.JLabel lblBottledWater;
     private javax.swing.JLabel lblDrinks;

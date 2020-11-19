@@ -25,7 +25,8 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
      * Creates new form SandwitchPOPUPMessage
      */
     
-    //Declaration of Member Feilds    
+    //Declaration of Member Feilds   
+    public final int CustID=1000;
     String Total ="0";
     int qty; 
     String ProductDescription="Sandwitch";
@@ -223,7 +224,8 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
         }
         else 
         {
-            CalculateSandwitchPrice();    
+            CalculateSandwitchPrice(); 
+            InsertOrderDetails();
         }
     }//GEN-LAST:event_btnAddToPlateSandwitchMouseEntered
 
@@ -240,7 +242,7 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateSandwitchMouseClicked
 
     private void btnAddToPlateSandwitchMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchMousePressed
-        InsertOrderDetails();
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnAddToPlateSandwitchMousePressed
 
     private void spQtySandwitchStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtySandwitchStateChanged
