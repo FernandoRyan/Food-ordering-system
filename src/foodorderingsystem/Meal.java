@@ -265,15 +265,12 @@ public class  Meal extends javax.swing.JFrame {
         lblFASTFOOD.setText("Meals");
 
         firedricelbl.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        firedricelbl.setForeground(new java.awt.Color(0, 0, 0));
         firedricelbl.setText("Fried Rice");
 
         RIceandcurrylbl.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        RIceandcurrylbl.setForeground(new java.awt.Color(0, 0, 0));
         RIceandcurrylbl.setText("Rice and Curry");
 
         Kottulbl.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        Kottulbl.setForeground(new java.awt.Color(0, 0, 0));
         Kottulbl.setText("Kottu Roti");
 
         btnLKR.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -380,7 +377,6 @@ public class  Meal extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        Ordertable.setBackground(new java.awt.Color(255, 255, 255));
         Ordertable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -424,7 +420,6 @@ public class  Meal extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(51, 204, 0));
         jLabel2.setText("My Plate");
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("00.00");
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
@@ -646,7 +641,6 @@ public class  Meal extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton APBTN;
-    private javax.swing.JButton Add_To_Plate;
     private javax.swing.JButton BVGBtn;
     private javax.swing.JButton Checkout;
     private javax.swing.JButton FFbtn;

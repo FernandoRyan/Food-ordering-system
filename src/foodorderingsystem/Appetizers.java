@@ -378,7 +378,11 @@ public class Appetizers extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jLabel22MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MousePressed
-        // TODO add your handling code here:
+        
+        POPUP_Message_CheeseBalls cb = new POPUP_Message_CheeseBalls();
+        cb.setVisible(true);
+
+// TODO add your handling code here:
     }//GEN-LAST:event_jLabel22MousePressed
 
     /**
