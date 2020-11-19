@@ -8,14 +8,6 @@ package foodorderingsystem;
 //Import classes
 import java.awt.Dimension;
 import java.awt.Toolkit;
-/*import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;*/
 
 /**
  *
@@ -26,17 +18,7 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame2
      */
-    /*
-    //Declaration of Member Feilds    
-    String OrderType1="Dine-In";
-    String OrderType2="Take Away";
-    Connection conn;
-    
-    //Connection setup
-    String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username= "nera";
-    String Pass="neranji0321";
-    */
+
     //Frame Creation
     public Selecting_DineIn_or_TakeAway() {
         initComponents();
@@ -151,86 +133,17 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTakeAwayMousePressed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(screenSize.width, screenSize.height);
     }//GEN-LAST:event_formWindowOpened
 
     private void btnTakeAwayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTakeAwayMouseClicked
-        /*String Insert;
-        
-        try
-        {
-            //Opening database for connection
-            conn = DriverManager.getConnection(connectionUrl, username, Pass);         
-        
-            if(conn != null)
-            {
-                Insert = "INSERT INTO SalesOrder(OrderType) VALUES (?)";
-                
-                PreparedStatement pstmt = conn.prepareStatement(Insert);
-                
-                pstmt.setString(1, OrderType2);
-                
-                JOptionPane.showMessageDialog(null, "Your order type - 'Take Away' sucessfully added to the plate!");
-            }            
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null,"Something went wrong!\n");
-            e.printStackTrace();
-        }
-        finally
-        {
-            try 
-            {
-                conn.close();
-            } 
-            catch (SQLException ex) 
-            {
-                Logger.getLogger(Selecting_DineIn_or_TakeAway.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }*/
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnTakeAwayMouseClicked
 
     private void btnDineInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDineInMouseClicked
-        /*String Insert;
-        
-        try
-        {
-            //Opening database for connection
-            conn = DriverManager.getConnection(connectionUrl, username, Pass);         
-        
-            if(conn != null)
-            {
-                Insert = "INSERT INTO SalesOrder(OrderType) VALUES (?)";
-                
-                PreparedStatement pstmt = conn.prepareStatement(Insert);
-                
-                pstmt.setString(1, OrderType1);
-                
-                JOptionPane.showMessageDialog(null, "Your order type - 'Dine-In' sucessfully added to the plate!");
-            }            
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null,"Something went wrong!\n");
-            e.printStackTrace();
-        }
-        finally
-        {
-            try 
-            {
-                conn.close();
-            } 
-            catch (SQLException ex) 
-            {
-                Logger.getLogger(Selecting_DineIn_or_TakeAway.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }*/
-        
+       // TODO add your handling code here:
     }//GEN-LAST:event_btnDineInMouseClicked
-    
-         
     
     /**
      * @param args the command line arguments

@@ -11,7 +11,7 @@ package foodorderingsystem;
  */
 public interface  CalculateID 
 {
-    public void Calid();
+    public void Calid(int newID);
 }
     
 

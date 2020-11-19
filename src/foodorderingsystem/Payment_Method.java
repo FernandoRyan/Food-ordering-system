@@ -5,14 +5,22 @@
  */
 package foodorderingsystem;
 
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+
 /**
  *
  * @author RYAN
  */
 public class Payment_Method extends javax.swing.JFrame {
 
+    //Member Feilds
+   
+    
+   /*
     /**
      * Creates new form Payment
+     * @param mf
      */
     public Payment_Method() {
         initComponents();
@@ -145,16 +153,13 @@ public class Payment_Method extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCANCELMouseClicked
 
     private void CardPaybtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CardPaybtnMousePressed
-      Meal lm= new Meal();
-      lm.Calid(lm);
+    
       this.hide();
       Thanking tk= new Thanking();
       tk.show();
     }//GEN-LAST:event_CardPaybtnMousePressed
 
     private void CashPaybtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CashPaybtnMousePressed
-      Meal lm= new Meal();
-      lm.Calid(lm);
       Thanking tk= new Thanking();
       tk.show();
     }//GEN-LAST:event_CashPaybtnMousePressed

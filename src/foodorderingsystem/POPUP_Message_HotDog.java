@@ -25,7 +25,8 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
      * Creates new form HotDogPOPUPMessage
      */
     
-    //Declaration of Member Feilds    
+    //Declaration of Member Feilds 
+    public final int CustID=1000;
     String Total ="0";
     int qty; 
     String ProductDescription="Hot Dog";
@@ -224,6 +225,7 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
         else 
             {
                 CalculateHotDogprice();
+                InsertOrderDetails();
             }
     }//GEN-LAST:event_btnAddToPlateHotDogMouseEntered
 
@@ -240,7 +242,7 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateHotDogMouseClicked
 
     private void btnAddToPlateHotDogMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateHotDogMousePressed
-        InsertOrderDetails();
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnAddToPlateHotDogMousePressed
 
     private void spQtyHotDogStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtyHotDogStateChanged
