@@ -10,8 +10,10 @@ import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -117,7 +119,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
 
         lblTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblTotalPrice.setForeground(new java.awt.Color(51, 51, 51));
-        lblTotalPrice.setText("200.00");
+        lblTotalPrice.setText("00.00");
         jPanel1.add(lblTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 50, 30));
 
         lblTOTAL.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
@@ -163,22 +165,12 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
                 Add_To_PlateMousePressed(evt);
             }
         });
-        Add_To_Plate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Add_To_PlateActionPerformed(evt);
-            }
-        });
         jPanel1.add(Add_To_Plate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 50));
 
         Sltdropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fried Rice with Chicken","Fried Rice with Egg" }));
         Sltdropdown.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 SltdropdownItemStateChanged(evt);
-            }
-        });
-        Sltdropdown.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SltdropdownActionPerformed(evt);
             }
         });
         jPanel1.add(Sltdropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 170, -1));
@@ -192,6 +184,8 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
 
     private void btnCANCELMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCANCELMouseClicked
         this.setVisible(false);
+        Meal lm= new Meal();
+        lm.UpdateTable();
     }//GEN-LAST:event_btnCANCELMouseClicked
 
     private void Add_To_PlateMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Add_To_PlateMouseMoved
@@ -203,7 +197,8 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
     }//GEN-LAST:event_Add_To_PlateMouseExited
 
     private void SltdropdownItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_SltdropdownItemStateChanged
-    
+     Meal lm= new Meal();
+        lm.UpdateTable();
         CalculateMealprice();
     }//GEN-LAST:event_SltdropdownItemStateChanged
 
@@ -224,14 +219,6 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
         
     }//GEN-LAST:event_Add_To_PlateMousePressed
 
-    private void Add_To_PlateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Add_To_PlateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Add_To_PlateActionPerformed
-
-    private void SltdropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SltdropdownActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SltdropdownActionPerformed
-
     
     //Declaration of Member Methods 
     
@@ -240,7 +227,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
        { 
             qty =(int) dpriceqty.getValue();
           
-           if(qty>30){
+           if(qty>20){
         JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");
        return;
            }
@@ -267,17 +254,31 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
         return 0;
      }
     
-   public void InsertOrderDetails(){
+    
+    public void  InsertOrderDetails(){
      String Insert;
-       
-        try
+     String Update;
+     BigDecimal TotalValue=new BigDecimal(Total);
+       try
         {    
          //Opening database for connection
         conn = DriverManager.getConnection(connectionUrl, username, Pass);
+        Statement st=conn.createStatement();
+        String sql="SELECT * FROM SALESORDER WHERE ProductDescription ='" + ProductDescription +"'";
+        ResultSet rs=st.executeQuery(sql);
+        if(rs.next()){
+         Update="update SALESORDER set Quantity = Quantity + ?, TotalPrice = TotalPrice + ? where ProductDescription = ?";
+         PreparedStatement pstmt = conn.prepareStatement(Update);
+         pstmt.setInt(1,qty);
+         pstmt.setBigDecimal(2,TotalValue);
+         pstmt.setString(3,ProductDescription);
+         pstmt.executeUpdate();
+         pstmt.close();
+         JOptionPane.showMessageDialog(null,"Sucessfully Added to plate");
+        }
         
-        if(conn!=null){
-            
-         BigDecimal TotalValue=new BigDecimal(Total);
+       else{   
+        
          Insert="INSERT INTO SalesOrder (CustID,ProductDescription,Quantity,TotalPrice) VALUES (?,?,?,?)";
          PreparedStatement pstmt = conn.prepareStatement(Insert);
          pstmt.setInt(1,CustID);
@@ -302,6 +303,8 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
                 Logger.getLogger(POPUP_Message_FriedRice.class.getName()).log(Level.SEVERE, null, ex);
             }} 
    }
+    
+   
     /**
      * @param args the command line arguments
      */
