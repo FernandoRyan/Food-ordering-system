@@ -5,12 +5,15 @@
  */
 package foodorderingsystem;
 
+import com.mysql.cj.protocol.Resultset;
 import java.awt.Color;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -189,10 +192,6 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
          kottuAddToPlate.setBackground(Color.RED);
     }//GEN-LAST:event_kottuAddToPlateMouseMoved
 
-    private void kottuAddToPlateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kottuAddToPlateMouseExited
-         kottuAddToPlate.setBackground(new Color(0,204,0));
-    }//GEN-LAST:event_kottuAddToPlateMouseExited
-
     private void dpriceqtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_dpriceqtyStateChanged
         CalculateMealprice();
     }//GEN-LAST:event_dpriceqtyStateChanged
@@ -206,14 +205,18 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
         }else{
          CalculateMealprice();  
-         InsertOrderDetails();
+        InsertOrderDetails();
              }
     }//GEN-LAST:event_kottuAddToPlateMousePressed
+
+    private void kottuAddToPlateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kottuAddToPlateMouseExited
+         kottuAddToPlate.setBackground(new Color(0,204,0));
+    }//GEN-LAST:event_kottuAddToPlateMouseExited
      public void  CalculateMealprice(){
          if(dpriceqty!=null)
        { 
            qty =(int) dpriceqty.getValue();
-           if(qty>30){
+           if(qty>20){
         JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff");
        return;
            }
@@ -241,17 +244,31 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
         }
         return 0;
      }
+    
     public void  InsertOrderDetails(){
      String Insert;
-       
+     String Update;
+     BigDecimal TotalValue=new BigDecimal(Total);
         try
         {    
          //Opening database for connection
         conn = DriverManager.getConnection(connectionUrl, username, Pass);
+        Statement st=conn.createStatement();
+        String sql="SELECT * FROM SALESORDER WHERE ProductDescription ='" + ProductDescription +"'";
+        ResultSet rs=st.executeQuery(sql);
+        if(rs.next()){
+         Update="update SALESORDER set Quantity = Quantity + ?, TotalPrice = TotalPrice + ? where ProductDescription = ?";
+         PreparedStatement pstmt = conn.prepareStatement(Update);
+         pstmt.setInt(1,qty);
+         pstmt.setBigDecimal(2,TotalValue);
+         pstmt.setString(3,ProductDescription);
+         pstmt.executeUpdate();
+         pstmt.close();
+         JOptionPane.showMessageDialog(null,"Sucessfully Added to plate");
+        }
         
-        if(conn!=null){
-            
-         BigDecimal TotalValue=new BigDecimal(Total);
+       else{   
+        
          Insert="INSERT INTO SalesOrder (CustID,ProductDescription,Quantity,TotalPrice) VALUES (?,?,?,?)";
          PreparedStatement pstmt = conn.prepareStatement(Insert);
          pstmt.setInt(1,CustID);
@@ -276,6 +293,8 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
                 Logger.getLogger(POPUP_Message_FriedRice.class.getName()).log(Level.SEVERE, null, ex);
             }} 
    }
+    
+   
     
     
     /**
