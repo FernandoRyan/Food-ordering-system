@@ -20,7 +20,7 @@ public static void main(String [] args) throws ClassNotFoundException {
    
     String username= "sa";
     String Pass="anjalo9990";
- 
+    
     try{
    Connection con = DriverManager.getConnection(connectionUrl, username, Pass);
     if(con!=null)
