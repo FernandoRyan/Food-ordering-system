@@ -4,6 +4,9 @@ package foodorderingsystem;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.sql.Connection;
+
+
 
 
 
@@ -18,6 +21,16 @@ import java.awt.Toolkit;
  * @author samad
  */
 public class Beverages extends javax.swing.JFrame {
+    
+    // CREATING FIELDS 
+     public double Total;
+     int count;
+     
+     //CONNECTION SETTINGS TO DATABASE
+     Connection conn;
+     String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+     String username= "Samadhi";
+     String Pass="123456  ";
 
     /**
      * Creates new form NewJFrame
@@ -686,7 +699,7 @@ public class Beverages extends javax.swing.JFrame {
         
      // NESCAFE / NESTEA /MILO
         
-       Beverage Nescafe = new Beverage(22,"Nescafe",40.00,10);
+      /* Beverage Nescafe = new Beverage(22,"Nescafe",40.00,10);
        Beverage Nestea = new Beverage(23,"Nestea",40.00,10);
        Beverage Milo = new Beverage(24,"Milo",40.00,10);
        
@@ -712,7 +725,16 @@ public class Beverages extends javax.swing.JFrame {
        Beverage Avacado = new Beverage(33,"Avacado Juice",200.00,10);
        Beverage WaterMelon = new Beverage(34,"Water-Melon Juice",200.00,10);
        Beverage Orange = new Beverage(35,"Orange Juice",200.00,10);
-       Beverage MixFruit = new Beverage(36,"Mx Fruit Juice",200.00,10);
+       Beverage MixFruit = new Beverage(36,"Mx Fruit Juice",200.00,10);//*/
+      
+      
+      private void Displayorder(){
+          String qry = "SELECT * FROM SALESORDER";
+          
+          
+      }
+       
+       
        
        
      
@@ -728,6 +750,8 @@ public class Beverages extends javax.swing.JFrame {
             public void run() {
                 new Beverages().setVisible(true);
             }
+
+  
         });
     }
     
