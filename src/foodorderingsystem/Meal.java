@@ -46,6 +46,7 @@ public class  Meal extends javax.swing.JFrame {
         Displayorder() ;
         FormatTable();
         CheckTable();
+        GetTotal();
     }
     
     @SuppressWarnings("unchecked")
@@ -77,11 +78,11 @@ public class  Meal extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         Ordertable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        Checkout = new javax.swing.JButton();
         plateimg = new javax.swing.JLabel();
+        Checkout1 = new javax.swing.JButton();
+        Platebtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -305,21 +306,8 @@ public class  Meal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
-                        .addGap(0, 234, Short.MAX_VALUE)
-                        .addGroup(MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Kottubtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
-                                .addComponent(Kottulbl)
-                                .addGap(90, 90, 90))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
-                                .addComponent(btnLKR2)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnBurgerPrice2)
-                                .addGap(78, 78, 78)))
-                        .addGap(151, 151, 151))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
                         .addComponent(Friedricebtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                         .addComponent(Ricecurrybtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23))
                     .addGroup(MenupanelLayout.createSequentialGroup()
@@ -337,11 +325,25 @@ public class  Meal extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnBurgerPrice1))
                             .addComponent(RIceandcurrylbl))
-                        .addGap(110, 110, 110))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblFASTFOOD)
-                .addGap(289, 289, 289))
+                        .addGap(110, 110, 110))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
+                                .addGroup(MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Kottubtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
+                                        .addComponent(Kottulbl)
+                                        .addGap(90, 90, 90))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
+                                        .addComponent(btnLKR2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnBurgerPrice2)
+                                        .addGap(78, 78, 78)))
+                                .addGap(151, 151, 151))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
+                                .addComponent(lblFASTFOOD)
+                                .addGap(289, 289, 289))))))
         );
         MenupanelLayout.setVerticalGroup(
             MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,7 +396,7 @@ public class  Meal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Item No", "Product Description", "Quantity", "Total"
+                "Item No", "Product Description", "Qty", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -428,74 +430,101 @@ public class  Meal extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(51, 204, 0));
         jLabel1.setText("Total");
 
-        jLabel2.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 204, 0));
-        jLabel2.setText("My Plate");
-
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("00.00");
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/trash.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        Checkout.setBackground(new java.awt.Color(0, 153, 0));
-        Checkout.setFont(new java.awt.Font("Algerian", 1, 24));
-        Checkout.setForeground(new java.awt.Color(255, 255, 255));
-        Checkout.setText("CHECKOUT");
-        Checkout.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Checkout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Checkout.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                CheckoutMouseMoved(evt);
-            }
-        });
-        Checkout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                CheckoutMouseExited(evt);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
             }
         });
 
         plateimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
+
+        Checkout1.setBackground(new java.awt.Color(0, 153, 0));
+        Checkout1.setFont(new java.awt.Font("Algerian", 1, 24));
+        Checkout1.setForeground(new java.awt.Color(255, 255, 255));
+        Checkout1.setText("CHECKOUT");
+        Checkout1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Checkout1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Checkout1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                Checkout1MouseMoved(evt);
+            }
+        });
+        Checkout1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Checkout1MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Checkout1MousePressed(evt);
+            }
+        });
+
+        Platebtn.setBackground(new java.awt.Color(0, 153, 0));
+        Platebtn.setFont(new java.awt.Font("Algerian", 1, 24));
+        Platebtn.setForeground(new java.awt.Color(255, 255, 255));
+        Platebtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_down_48px_5.png"))); // NOI18N
+        Platebtn.setText("Refresh ");
+        Platebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Platebtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Platebtn.setIconTextGap(1);
+        Platebtn.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                PlatebtnMouseMoved(evt);
+            }
+        });
+        Platebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PlatebtnMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                PlatebtnMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(108, 108, 108)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Checkout, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(78, Short.MAX_VALUE)
-                .addComponent(plateimg, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(plateimg, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(Platebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(116, 116, 116))))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addContainerGap(137, Short.MAX_VALUE)
+                    .addComponent(Checkout1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(71, 71, 71)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addComponent(Platebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -505,9 +534,12 @@ public class  Meal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(Checkout, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(90, 90, 90))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addContainerGap(646, Short.MAX_VALUE)
+                    .addComponent(Checkout1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, 420, 700));
@@ -518,23 +550,30 @@ public class  Meal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
    
     private void friedrice(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_friedrice
-    POPUP_Message_FriedRice fp= new POPUP_Message_FriedRice();
+      POPUP_Message_FriedRice fp= new POPUP_Message_FriedRice();
        fp.setVisible(true);
-       UpdateTable();
+      DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+      model.setRowCount(0);
+      Displayorder();
        GetTotal();
     }//GEN-LAST:event_friedrice
 
     private void Ricecurrybtn(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ricecurrybtn
        POPUP_Message_Rice_and_Curry Rc= new POPUP_Message_Rice_and_Curry();
        Rc.setVisible(true);
-       UpdateTable();
+      DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+      model.setRowCount(0);
+      Displayorder();
        GetTotal();
     }//GEN-LAST:event_Ricecurrybtn
 
     private void Kottubtn(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Kottubtn
       POPUP_Message_Kottu Kp= new POPUP_Message_Kottu();
       Kp.setVisible(true);
-      UpdateTable();
+      DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+      model.setRowCount(0);
+      Displayorder();
+       GetTotal();
     }//GEN-LAST:event_Kottubtn
 
     private void MealbtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MealbtnMouseMoved
@@ -604,22 +643,40 @@ public class  Meal extends javax.swing.JFrame {
         this.hide();
     }//GEN-LAST:event_FFbtnMousePressed
 
-    private void CheckoutMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckoutMouseMoved
-       Checkout.setBackground(Color.RED);
-    }//GEN-LAST:event_CheckoutMouseMoved
-
-    private void CheckoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheckoutMouseExited
-          Checkout.setBackground(new Color(0,204,0));
-    }//GEN-LAST:event_CheckoutMouseExited
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-          Deleteorder();
-          UpdateTable();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jPanel2MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jPanel2MouseWheelMoved
          GetTotal();
     }//GEN-LAST:event_jPanel2MouseWheelMoved
+
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+       Deleteorder();
+    }//GEN-LAST:event_jButton1MousePressed
+
+    private void PlatebtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlatebtnMousePressed
+       DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+      model.setRowCount(0);
+      Displayorder();
+       GetTotal();
+    }//GEN-LAST:event_PlatebtnMousePressed
+
+    private void PlatebtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlatebtnMouseExited
+      Platebtn.setBackground(new Color(0,204,0));
+    }//GEN-LAST:event_PlatebtnMouseExited
+
+    private void PlatebtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlatebtnMouseMoved
+        Platebtn.setBackground(Color.RED);
+    }//GEN-LAST:event_PlatebtnMouseMoved
+
+    private void Checkout1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Checkout1MouseMoved
+      Checkout1.setBackground(Color.RED);
+    }//GEN-LAST:event_Checkout1MouseMoved
+
+    private void Checkout1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Checkout1MouseExited
+        Checkout1.setBackground(new Color(0,204,0));
+    }//GEN-LAST:event_Checkout1MouseExited
+
+    private void Checkout1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Checkout1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Checkout1MousePressed
     
    
     //Member Methods 
@@ -634,9 +691,9 @@ public class  Meal extends javax.swing.JFrame {
       
       while(rs.next()){
       String item   =String.valueOf(rs.getInt("ItemNo"));
-      String Des   = rs.getString("ProductDescription");
-      String qty   = String.valueOf(rs.getInt("Quantity"));
-      String price =String.valueOf(rs.getInt("TotalPrice"));
+      String Des   = rs.getString("Product");
+      String qty   = String.valueOf(rs.getInt("QTY"));
+      String price =String.valueOf(rs.getInt("Total"));
       String tbdata[]={item,Des,qty,price};
       DefaultTableModel model=(DefaultTableModel)Ordertable.getModel();
       model.addRow(new Object[]{item,Des, qty, price});
@@ -647,6 +704,7 @@ public class  Meal extends javax.swing.JFrame {
    }
      finally{
        CheckTable();
+       FormatTable();
       }
    } 
    
@@ -656,40 +714,28 @@ public class  Meal extends javax.swing.JFrame {
      DefaultTableModel model=(DefaultTableModel)Ordertable.getModel();
           
           int row =Ordertable.getSelectedRow();
+         
           
           String cell=Ordertable.getModel().getValueAt(row, 0).toString();
          
+     
           String qry="DELETE FROM SALESORDER WHERE ItemNo = " + cell;
           
           try{
                Statement st=conn.prepareStatement(qry);
                st.execute(qry);
               JOptionPane.showMessageDialog(null,"Plate updated");
-          }catch(SQLException e ){
+          }
+          catch(SQLException e ){
                  e.printStackTrace();
            JOptionPane.showMessageDialog(null,"Error");
           }
+          finally{
            CheckTable();
+           FormatTable();
     }
-   
-   
-   public void UpdateTable() {
-       try{
-       conn = DriverManager.getConnection(connectionUrl, username, Pass);
-       String sql="SELECT ItemNo,ProductDescription,Quantity,TotalPrice FROM SALESORDER";
-       Statement st=conn.prepareStatement(sql);
-       ResultSet rs=st.executeQuery(sql);
-     
-       Ordertable.setModel(DbUtils.resultSetToTableModel(rs));
-       } 
-       
-       catch(SQLException e){
-        JOptionPane.showMessageDialog(null,"Somethings wrong");
-       }
-       finally{
-        CheckTable();
-   }
-   }
+    }
+    
   
    
   private void  CheckTable() {
@@ -723,6 +769,27 @@ public class  Meal extends javax.swing.JFrame {
         }
  }
    
+  //Updating Table
+  /*
+  public void UpdateTable() {
+       try{
+       conn = DriverManager.getConnection(connectionUrl, username, Pass);
+       String sql="SELECT ItemNo,Product,QTY,Total FROM SALESORDER";
+       Statement st=conn.prepareStatement(sql);
+       ResultSet rs=st.executeQuery(sql);
+     if(rs!=null){
+       Ordertable.setModel(DbUtils.resultSetToTableModel(rs));
+       } 
+    }
+       catch(SQLException e){
+        JOptionPane.showMessageDialog(null,"Somethings wrong");
+       }
+       finally{
+        CheckTable();
+   }
+   }
+  
+  */
    
    //FOrmating table
    private void FormatTable(){
@@ -739,7 +806,7 @@ public class  Meal extends javax.swing.JFrame {
        
        PreparedStatement pst = null;
        ResultSet rs = null;
-       String qry = "Select Sum(TotalPrice) as sumprice from SALESORDER";
+       String qry = "Select Sum(Total) as sumprice from SALESORDER";
        
        try{
               conn = DriverManager.getConnection(connectionUrl, username, Pass);
@@ -771,7 +838,7 @@ public class  Meal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton APBTN;
     private javax.swing.JButton BVGBtn;
-    private javax.swing.JButton Checkout;
+    private javax.swing.JButton Checkout1;
     private javax.swing.JButton FFbtn;
     private javax.swing.JButton Friedricebtn;
     private javax.swing.JButton Kottubtn;
@@ -780,6 +847,7 @@ public class  Meal extends javax.swing.JFrame {
     private javax.swing.JButton Mealbtn;
     private javax.swing.JPanel Menupanel;
     private javax.swing.JTable Ordertable;
+    private javax.swing.JButton Platebtn;
     private javax.swing.JLabel RIceandcurrylbl;
     private javax.swing.JButton Ricecurrybtn;
     private javax.swing.JPanel Sidepanel;
@@ -792,7 +860,6 @@ public class  Meal extends javax.swing.JFrame {
     private javax.swing.JLabel firedricelbl;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

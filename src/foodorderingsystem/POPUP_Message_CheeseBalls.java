@@ -63,7 +63,7 @@ public class POPUP_Message_CheeseBalls extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("LKR 100.00");
 
-        btnAddToPlateCheeseBalls.setBackground(new java.awt.Color(204, 204, 204));
+        btnAddToPlateCheeseBalls.setBackground(new java.awt.Color(0, 204, 0));
         btnAddToPlateCheeseBalls.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
         btnAddToPlateCheeseBalls.setForeground(new java.awt.Color(255, 255, 255));
         btnAddToPlateCheeseBalls.setText("ADD TO PLATE");
