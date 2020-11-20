@@ -38,145 +38,104 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         BtnChickenCheeseBalls = new javax.swing.JButton();
+        btnCANCEL = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(401, 499));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhatsApp Image 2020-11-12 at 5.44.48 PM.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel1MousePressed(evt);
-            }
-        });
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 240, -1));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Chicken Cheese Balls 4PCs");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 266, 260, 31));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("LKR 150.00");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("QTY");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 47, 36));
+        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 361, 42, 40));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("TOTAL");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 359, 69, 39));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("LKR 150.00");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 358, -1, 40));
 
-        BtnChickenCheeseBalls.setBackground(new java.awt.Color(153, 153, 153));
+        BtnChickenCheeseBalls.setBackground(new java.awt.Color(0, 204, 0));
         BtnChickenCheeseBalls.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
         BtnChickenCheeseBalls.setForeground(new java.awt.Color(255, 255, 255));
         BtnChickenCheeseBalls.setText("ADD TO PLATE");
-        BtnChickenCheeseBalls.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BtnChickenCheeseBallsMouseEntered(evt);
+        BtnChickenCheeseBalls.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                BtnChickenCheeseBallsMouseMoved(evt);
             }
+        });
+        BtnChickenCheeseBalls.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 BtnChickenCheeseBallsMouseExited(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                BtnChickenCheeseBallsMousePressed(evt);
+        });
+        jPanel1.add(BtnChickenCheeseBalls, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 419, 281, 66));
+
+        btnCANCEL.setBackground(new java.awt.Color(255, 0, 0));
+        btnCANCEL.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCANCEL.setForeground(new java.awt.Color(255, 255, 255));
+        btnCANCEL.setText("X");
+        btnCANCEL.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnCANCEL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCANCEL.setPreferredSize(new java.awt.Dimension(181, 36));
+        btnCANCEL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCANCELMouseClicked(evt);
             }
         });
-        BtnChickenCheeseBalls.addActionListener(new java.awt.event.ActionListener() {
+        btnCANCEL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnChickenCheeseBallsActionPerformed(evt);
+                btnCANCELActionPerformed(evt);
             }
         });
+        jPanel1.add(btnCANCEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 20, 20));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel3))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(BtnChickenCheeseBalls, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(BtnChickenCheeseBalls, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 427, 506));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnChickenCheeseBallsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnChickenCheeseBallsMousePressed
-        this.setVisible(false);      
+    private void btnCANCELMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCANCELMouseClicked
+        this.setVisible(false);
 
-// TODO add your handling code here:
-    }//GEN-LAST:event_BtnChickenCheeseBallsMousePressed
+    }//GEN-LAST:event_btnCANCELMouseClicked
 
-    private void BtnChickenCheeseBallsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnChickenCheeseBallsMouseEntered
-        BtnChickenCheeseBalls.setBackground(Color.RED);
-
-// TODO add your handling code here:
-    }//GEN-LAST:event_BtnChickenCheeseBallsMouseEntered
+    private void btnCANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCANCELActionPerformed
+        this.hide();
+    }//GEN-LAST:event_btnCANCELActionPerformed
 
     private void BtnChickenCheeseBallsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnChickenCheeseBallsMouseExited
-        BtnChickenCheeseBalls.setBackground(Color.GREEN);       
-        
-// TODO add your handling code here:
+        BtnChickenCheeseBalls.setBackground(Color.GREEN);
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_BtnChickenCheeseBallsMouseExited
 
-    private void BtnChickenCheeseBallsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnChickenCheeseBallsActionPerformed
+    private void BtnChickenCheeseBallsMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnChickenCheeseBallsMouseMoved
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnChickenCheeseBallsActionPerformed
-
-    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
-       
-     
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel1MousePressed
+    }//GEN-LAST:event_BtnChickenCheeseBallsMouseMoved
 
     /**
      * @param args the command line arguments
@@ -216,6 +175,7 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnChickenCheeseBalls;
+    private javax.swing.JButton btnCANCEL;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

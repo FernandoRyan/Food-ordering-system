@@ -139,6 +139,11 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
                 btnCANCELMouseClicked(evt);
             }
         });
+        btnCANCEL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCANCELActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnCANCEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 20, 20));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -184,8 +189,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
 
     private void btnCANCELMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCANCELMouseClicked
         this.setVisible(false);
-        Meal lm= new Meal();
-        lm.UpdateTable();
+      
     }//GEN-LAST:event_btnCANCELMouseClicked
 
     private void Add_To_PlateMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Add_To_PlateMouseMoved
@@ -197,8 +201,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
     }//GEN-LAST:event_Add_To_PlateMouseExited
 
     private void SltdropdownItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_SltdropdownItemStateChanged
-     Meal lm= new Meal();
-        lm.UpdateTable();
+
         CalculateMealprice();
     }//GEN-LAST:event_SltdropdownItemStateChanged
 
@@ -218,6 +221,10 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
              }
         
     }//GEN-LAST:event_Add_To_PlateMousePressed
+
+    private void btnCANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCANCELActionPerformed
+    this.hide();
+    }//GEN-LAST:event_btnCANCELActionPerformed
 
     
     //Declaration of Member Methods 
@@ -264,10 +271,10 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
          //Opening database for connection
         conn = DriverManager.getConnection(connectionUrl, username, Pass);
         Statement st=conn.createStatement();
-        String sql="SELECT * FROM SALESORDER WHERE ProductDescription ='" + ProductDescription +"'";
+        String sql="SELECT * FROM SALESORDER WHERE Product ='" + ProductDescription +"'";
         ResultSet rs=st.executeQuery(sql);
         if(rs.next()){
-         Update="update SALESORDER set Quantity = Quantity + ?, TotalPrice = TotalPrice + ? where ProductDescription = ?";
+         Update="update SALESORDER set QTY= QTY + ?, Total= Total + ? where Product = ?";
          PreparedStatement pstmt = conn.prepareStatement(Update);
          pstmt.setInt(1,qty);
          pstmt.setBigDecimal(2,TotalValue);
@@ -279,7 +286,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
         
        else{   
         
-         Insert="INSERT INTO SalesOrder (CustID,ProductDescription,Quantity,TotalPrice) VALUES (?,?,?,?)";
+         Insert="INSERT INTO SalesOrder (CustID,Product,QTY,Total) VALUES (?,?,?,?)";
          PreparedStatement pstmt = conn.prepareStatement(Insert);
          pstmt.setInt(1,CustID);
          pstmt.setString(2, ProductDescription);
