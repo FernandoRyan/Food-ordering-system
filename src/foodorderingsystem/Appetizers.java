@@ -310,6 +310,12 @@ public class Appetizers extends javax.swing.JFrame {
         btnmeals.setForeground(new java.awt.Color(255, 255, 255));
         btnmeals.setText("MEALS");
         btnmeals.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnmealsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnmealsMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnmealsMousePressed(evt);
             }
@@ -320,6 +326,12 @@ public class Appetizers extends javax.swing.JFrame {
         btnappetizers.setForeground(new java.awt.Color(255, 255, 255));
         btnappetizers.setText("APPETIZERS");
         btnappetizers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnappetizersMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnappetizersMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnappetizersMousePressed(evt);
             }
@@ -330,6 +342,12 @@ public class Appetizers extends javax.swing.JFrame {
         btnbeverages.setForeground(new java.awt.Color(255, 255, 255));
         btnbeverages.setText("BEVERAGES");
         btnbeverages.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnbeveragesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnbeveragesMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnbeveragesMousePressed(evt);
             }
@@ -345,6 +363,12 @@ public class Appetizers extends javax.swing.JFrame {
         btnfastfoods.setForeground(new java.awt.Color(255, 255, 255));
         btnfastfoods.setText("FAST FOOD");
         btnfastfoods.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnfastfoodsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnfastfoodsMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnfastfoodsMousePressed(evt);
             }
@@ -547,6 +571,58 @@ public class Appetizers extends javax.swing.JFrame {
     private void btncheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncheckoutMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_btncheckoutMousePressed
+
+    private void btnmealsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmealsMouseEntered
+        // Rechange the Meal button & Fastfood button background colors, when cursor move out the Meal button:
+        btnmeals.setBackground(new Color(0,102,0));
+        btnfastfoods.setBackground(Color.GREEN);  
+    }//GEN-LAST:event_btnmealsMouseEntered
+
+    private void btnmealsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmealsMouseExited
+        // Rechange the Meal button & Fastfood button background colors, when cursor move out the Meal button:
+        btnmeals.setBackground(Color.GREEN);
+        btnfastfoods.setBackground(new Color(0,102,0));
+        btnfastfoods.setForeground(Color.WHITE);
+
+    }//GEN-LAST:event_btnmealsMouseExited
+
+    private void btnfastfoodsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfastfoodsMouseEntered
+        // Changing the Fastfood button background color, when cursor move to the Fastfood button:
+        btnfastfoods.setForeground(Color.GREEN);
+        btnfastfoods.setBackground(new Color(0,102,0));
+    }//GEN-LAST:event_btnfastfoodsMouseEntered
+
+    private void btnfastfoodsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfastfoodsMouseExited
+        // Rechange the Fastfood button background color, when cursor move out the Fastfood button:
+        btnfastfoods.setBackground(new Color(0,102,0));
+        btnfastfoods.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnfastfoodsMouseExited
+
+    private void btnappetizersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnappetizersMouseEntered
+        // Changing the Appetizers button & Fastfood button background colors, when cursor move to the Appetizers button:
+        btnappetizers.setBackground(new Color(0,102,0));
+        btnfastfoods.setBackground(Color.GREEN);
+    }//GEN-LAST:event_btnappetizersMouseEntered
+
+    private void btnappetizersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnappetizersMouseExited
+        // Rechange the Appetizers button & Fastfood button background colors, when cursor move out the Appetizers button:
+        btnappetizers.setBackground(Color.GREEN);
+        btnfastfoods.setBackground(new Color(0,102,0));
+        btnfastfoods.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnappetizersMouseExited
+
+    private void btnbeveragesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbeveragesMouseEntered
+        // Changing the Beverages button & Fastfood button background colors, when cursor move to the Beverages button:
+        btnbeverages.setBackground(new Color(0,102,0));
+        btnfastfoods.setBackground(Color.GREEN);
+    }//GEN-LAST:event_btnbeveragesMouseEntered
+
+    private void btnbeveragesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbeveragesMouseExited
+        // Rechange the Beverages button & Fastfood button background colors, when cursor move out the Beverages button:
+        btnbeverages.setBackground(Color.GREEN);
+        btnfastfoods.setBackground(new Color(0,102,0));
+        btnfastfoods.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnbeveragesMouseExited
 
     /**
      * @param args the command line arguments
