@@ -254,10 +254,10 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
          //Opening database for connection
         conn = DriverManager.getConnection(connectionUrl, username, Pass);
         Statement st=conn.createStatement();
-        String sql="SELECT * FROM SALESORDER WHERE ProductDescription ='" + ProductDescription +"'";
+        String sql="SELECT * FROM SALESORDER WHERE Product ='" + ProductDescription +"'";
         ResultSet rs=st.executeQuery(sql);
         if(rs.next()){
-         Update="update SALESORDER set Quantity = Quantity + ?, TotalPrice = TotalPrice + ? where ProductDescription = ?";
+         Update="update SALESORDER set QTY = QTY + ?, Total = Total + ? where Product = ?";
          PreparedStatement pstmt = conn.prepareStatement(Update);
          pstmt.setInt(1,qty);
          pstmt.setBigDecimal(2,TotalValue);
@@ -269,7 +269,7 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame {
         
        else{   
         
-         Insert="INSERT INTO SalesOrder (CustID,ProductDescription,Quantity,TotalPrice) VALUES (?,?,?,?)";
+         Insert="INSERT INTO SalesOrder (CustID,Product,QTY,Total) VALUES (?,?,?,?)";
          PreparedStatement pstmt = conn.prepareStatement(Insert);
          pstmt.setInt(1,CustID);
          pstmt.setString(2, ProductDescription);
