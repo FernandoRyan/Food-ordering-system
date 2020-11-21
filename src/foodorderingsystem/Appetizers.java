@@ -381,7 +381,7 @@ public class Appetizers extends javax.swing.JFrame {
 
     private void jLabel22MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MousePressed
         
-        POPUP_Message_CheeseBalls cb = new POPUP_Message_CheeseBalls();
+        POPUP_Message_Chicken_CheeseBalls cb = new POPUP_Message_Chicken_CheeseBalls();
         cb.setVisible(true);
 
 // TODO add your handling code here:
