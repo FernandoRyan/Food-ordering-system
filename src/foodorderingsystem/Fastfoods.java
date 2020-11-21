@@ -1105,38 +1105,10 @@ public class Fastfoods extends javax.swing.JFrame {
         {
             ex.printStackTrace();
         }
-    
-        
-    //Updating Table
-  /*
-    public void UpdateTable() 
-    {
-        try
-        {
-            conn = DriverManager.getConnection(connectionUrl, username, Pass);
-            String sql = "SELECT ItemNo,Product,QTY,Total FROM SALESORDER";
-            Statement st = conn.prepareStatement(sql);
-            ResultSet rs = st.executeQuery(sql);
-            
-            if(rs != null)
-            {
-                tblOrder.setModel(DbUtils.resultSetToTableModel(rs));
-            } 
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null,"Somethings wrong");
-        }
-        finally
-        {
-            CheckTable();
-        }
-   }*/
-  
-  
-    //Formating table
-    private void FormatTable()
-    {       
+    }
+   
+
+    private void FormatTable(){
         tblOrder.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
         tblOrder.getTableHeader().setOpaque(true);
         tblOrder.getTableHeader().setBackground(new Color(32,136,203));
@@ -1167,6 +1139,7 @@ public class Fastfoods extends javax.swing.JFrame {
         {
             ex.printStackTrace();
         }
+    }
        
     /**
      * @param args the command line arguments
