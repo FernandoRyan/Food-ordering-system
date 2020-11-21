@@ -622,7 +622,7 @@ public class Appetizers extends javax.swing.JFrame {
         cb.setVisible(true);
 // TODO add your handling code here:
     }//GEN-LAST:event_CheeseBallsMousePressed
-=======
+
     private void lblwadeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblwadeMousePressed
         // TODO add your handling code here:
         POPUP_Message_Wade w = new POPUP_Message_Wade();
@@ -694,7 +694,7 @@ public class Appetizers extends javax.swing.JFrame {
     private void btncheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncheckoutMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_btncheckoutMousePressed
->>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
+
 
     private void btnmealsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmealsMouseEntered
         // Rechange the Meal button & Fastfood button background colors, when cursor move out the Meal button:
