@@ -8,7 +8,16 @@ package foodorderingsystem;
 //Import classes
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,14 +27,23 @@ public class Fastfoods extends javax.swing.JFrame {
 
     //Creating feilds
     public double Total; 
+    int count;
+    
+    //Connection settings to database
+    Connection conn;
+    String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+    String username = "nera";
+    String Pass = "neranji0321";
     
     /**
-     * Creates new form NewJFrame1
+     * Creates new form Fastfoods
      */
     public Fastfoods() {
-        initComponents(); 
-     
-         //setExtendedState(Meal.MAXIMIZED_BOTH); 
+        initComponents();
+        Displayorder() ;
+        FormatTable();
+        CheckTable();
+        GetTotal();
     }
     
 
@@ -81,9 +99,11 @@ public class Fastfoods extends javax.swing.JFrame {
         lblLKRTotal = new javax.swing.JLabel();
         lblTotalPrice = new javax.swing.JLabel();
         btnCheckout = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        lblPlateImage = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblOrder = new javax.swing.JTable();
+        btnRefresh = new javax.swing.JButton();
+        btnTrash = new javax.swing.JButton();
 
         jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(153, 153, 153));
@@ -561,22 +581,27 @@ public class Fastfoods extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel2.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                jPanel2MouseWheelMoved(evt);
+            }
+        });
 
         lblMyPlate.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblMyPlate.setForeground(new java.awt.Color(153, 153, 153));
         lblMyPlate.setText("MY PLATE");
 
-        lblTotalName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblTotalName.setForeground(new java.awt.Color(153, 153, 153));
+        lblTotalName.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
+        lblTotalName.setForeground(new java.awt.Color(0, 204, 0));
         lblTotalName.setText("TOTAL");
 
-        lblLKRTotal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblLKRTotal.setForeground(new java.awt.Color(153, 153, 153));
+        lblLKRTotal.setFont(new java.awt.Font("Algerian", 1, 20)); // NOI18N
+        lblLKRTotal.setForeground(new java.awt.Color(0, 0, 0));
         lblLKRTotal.setText("LKR");
 
-        lblTotalPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblTotalPrice.setForeground(new java.awt.Color(153, 153, 153));
-        lblTotalPrice.setText("0.00");
+        lblTotalPrice.setFont(new java.awt.Font("Algerian", 1, 20)); // NOI18N
+        lblTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
+        lblTotalPrice.setText("00.00");
 
         btnCheckout.setBackground(new java.awt.Color(0, 204, 0));
         btnCheckout.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -604,65 +629,113 @@ public class Fastfoods extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
+        lblPlateImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblOrder.setBackground(new java.awt.Color(255, 255, 255));
+        tblOrder.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        tblOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Product Description", "QTY", "Total"
+                "Item No", "Product Description", "QTY", "Total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        jScrollPane1.setViewportView(jTable1);
+        tblOrder.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        tblOrder.setFillsViewportHeight(true);
+        tblOrder.setGridColor(new java.awt.Color(255, 255, 255));
+        tblOrder.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        tblOrder.setMinimumSize(new java.awt.Dimension(60, 0));
+        tblOrder.setPreferredSize(new java.awt.Dimension(535, 0));
+        tblOrder.setRowHeight(25);
+        tblOrder.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        tblOrder.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tblOrder.setShowHorizontalLines(false);
+        tblOrder.setSurrendersFocusOnKeystroke(true);
+        tblOrder.setUpdateSelectionOnSort(false);
+        jScrollPane1.setViewportView(tblOrder);
+        tblOrder.getAccessibleContext().setAccessibleName("tblOrder");
+
+        btnRefresh.setBackground(new java.awt.Color(0, 204, 0));
+        btnRefresh.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_down_48px_5.png"))); // NOI18N
+        btnRefresh.setText("REFRESH");
+        btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnRefreshMousePressed(evt);
+            }
+        });
+
+        btnTrash.setBackground(new java.awt.Color(255, 255, 255));
+        btnTrash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/trash.png"))); // NOI18N
+        btnTrash.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnTrash.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTrash.setPreferredSize(new java.awt.Dimension(50, 26));
+        btnTrash.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnTrashMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblMyPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(109, 109, 109))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPlateImage))
+                        .addGap(3, 3, 3)
+                        .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(lblMyPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCheckout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(lblTotalName)
-                        .addGap(51, 51, 51)
-                        .addComponent(lblLKRTotal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblTotalPrice)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(44, 44, 44))
+                .addGap(36, 36, 36)
+                .addComponent(lblTotalName)
+                .addGap(51, 51, 51)
+                .addComponent(lblLKRTotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblTotalPrice)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addContainerGap()
                 .addComponent(lblMyPlate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTotalName)
                     .addComponent(lblTotalPrice)
@@ -677,6 +750,9 @@ public class Fastfoods extends javax.swing.JFrame {
         lblLKRTotal.getAccessibleContext().setAccessibleName("lblLKR");
         lblTotalPrice.getAccessibleContext().setAccessibleName("lblTotalPrice");
         btnCheckout.getAccessibleContext().setAccessibleName("btnCheckout");
+        lblPlateImage.getAccessibleContext().setAccessibleName("lblPlateImage");
+        btnRefresh.getAccessibleContext().setAccessibleName("btnRefresh");
+        btnTrash.getAccessibleContext().setAccessibleName("btnTrash");
 
         javax.swing.GroupLayout pnlFastfoodLayout = new javax.swing.GroupLayout(pnlFastfood);
         pnlFastfood.setLayout(pnlFastfoodLayout);
@@ -732,36 +808,66 @@ public class Fastfoods extends javax.swing.JFrame {
         // Show PopUp Burger Message
         POPUP_Message_Burger bp = new POPUP_Message_Burger();
         bp.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
     }//GEN-LAST:event_btnBurgerMouseClicked
 
     private void btnSubmarineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmarineMouseClicked
         // Show PopUp Submarine Message
         POPUP_Message_Submarine bp = new POPUP_Message_Submarine();
         bp.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
     }//GEN-LAST:event_btnSubmarineMouseClicked
 
     private void btnHotDogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHotDogMouseClicked
         // Show PopUp Hot Dog Message
         POPUP_Message_HotDog bp = new POPUP_Message_HotDog();
         bp.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
     }//GEN-LAST:event_btnHotDogMouseClicked
 
     private void btnPizzaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPizzaMouseClicked
         // Show PopUp Pizza Message
         POPUP_Message_Pizza bp = new POPUP_Message_Pizza();
         bp.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
     }//GEN-LAST:event_btnPizzaMouseClicked
 
     private void btnSandwitchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSandwitchMouseClicked
         // Show PopUp Sandwitch Message
         POPUP_Message_Sandwitch bp = new POPUP_Message_Sandwitch();
         bp.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
     }//GEN-LAST:event_btnSandwitchMouseClicked
 
     private void btnDonutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDonutMouseClicked
         // Show PopUp Donut Message
         POPUP_Message_Donut bp = new POPUP_Message_Donut();
         bp.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
     }//GEN-LAST:event_btnDonutMouseClicked
 
     private void btnMealMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealMouseEntered
@@ -864,7 +970,7 @@ public class Fastfoods extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCheckoutActionPerformed
 
     private void btnCheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMousePressed
-
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnCheckoutMousePressed
 
     private void btnCheckoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseExited
@@ -883,55 +989,191 @@ public class Fastfoods extends javax.swing.JFrame {
         this.hide();
     }//GEN-LAST:event_btnCheckoutMouseClicked
 
+    private void jPanel2MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jPanel2MouseWheelMoved
+        GetTotal();
+    }//GEN-LAST:event_jPanel2MouseWheelMoved
+
+    private void btnTrashMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTrashMousePressed
+        Deleteorder();
+    }//GEN-LAST:event_btnTrashMousePressed
+
+    private void btnRefreshMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMousePressed
+        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
+    }//GEN-LAST:event_btnRefreshMousePressed
+
+                                    //Member Methods.... 
+    
+    private  void Displayorder()
+    {
+        String qry="SELECT * FROM SALESORDER";
+      
+        try
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            Statement st=conn.prepareStatement(qry);
+            ResultSet rs=st.executeQuery(qry);
+      
+            while(rs.next())
+            {
+                String item  = String.valueOf(rs.getInt("ItemNo"));
+                String Des   = rs.getString("Product");
+                String qty   = String.valueOf(rs.getInt("QTY"));
+                String price = String.valueOf(rs.getInt("Total"));
+                String tbdata[] = {item,Des,qty,price};
+                DefaultTableModel model = (DefaultTableModel)tblOrder.getModel();
+                model.addRow(new Object[]{item,Des, qty, price});
+            }      
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,"Something went wrong\n");
+        }
+        finally
+        {
+            CheckTable();
+            FormatTable();
+        }
+    } 
+   
+   
+    private void Deleteorder()
+    {    
+        DefaultTableModel model = (DefaultTableModel)tblOrder.getModel();
+          
+        int row = tblOrder.getSelectedRow();
+         
+        String cell = tblOrder.getModel().getValueAt(row, 0).toString();
+         
+        String qry = "DELETE FROM SALESORDER WHERE ItemNo = " + cell;
+          
+        try
+        {
+            Statement st = conn.prepareStatement(qry);
+            st.execute(qry);
+            JOptionPane.showMessageDialog(null,"Plate updated");
+        }
+        catch(SQLException e )
+        {
+           e.printStackTrace();
+           JOptionPane.showMessageDialog(null,"Error");
+        }
+        finally
+        {
+           CheckTable();
+           FormatTable();
+        }
+    }    
+  
+   
+    private void  CheckTable() 
+    {
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String qry = " SELECT * From SALESORDER ";
+
+        try 
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            stmt = (PreparedStatement) conn.prepareStatement(qry);
+            rs =  stmt.executeQuery();
+            count = 0;
+            while(rs.next())
+            {
+               count++;
+            }
+            if(count == 0)
+            { 
+                jScrollPane1.hide();
+                tblOrder.setVisible(false);
+                btnTrash.setVisible(false);
+                lblPlateImage.show();
+            }
+            else
+            {
+                jScrollPane1.show();
+                tblOrder.setVisible(true);
+                btnTrash.setVisible(true);
+                lblPlateImage.hide();
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    
+        
+    //Updating Table
+  /*
+    public void UpdateTable() 
+    {
+        try
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            String sql = "SELECT ItemNo,Product,QTY,Total FROM SALESORDER";
+            Statement st = conn.prepareStatement(sql);
+            ResultSet rs = st.executeQuery(sql);
+            
+            if(rs != null)
+            {
+                Ordertable.setModel(DbUtils.resultSetToTableModel(rs));
+            } 
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,"Somethings wrong");
+        }
+        finally
+        {
+            CheckTable();
+        }
+   }*/
+  
+  
+    //Formating table
+    private void FormatTable()
+    {       
+        tblOrder.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
+        tblOrder.getTableHeader().setOpaque(true);
+        tblOrder.getTableHeader().setBackground(new Color(32,136,203));
+        tblOrder.getTableHeader().setForeground(new Color(255,255,255));
+        tblOrder.setRowHeight(25);    
+    }
+   
+    
+    private void GetTotal()
+    {       
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String qry = "Select Sum(Total) as sumprice from SALESORDER";
+       
+        try
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            pst=conn.prepareStatement(qry);
+            rs=pst.executeQuery();
+            
+            if(rs.next())
+            {
+                String sum = rs.getString("sumprice");
+                lblPlateImage.setText(sum);
+            }
+        }
+       catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+       
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Fastfoods.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Fastfoods.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Fastfoods.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Fastfoods.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        
-        //Creation of objects and intilization
-      
-        Fastfood Cheese_Burger = new Fastfood(11, "Burger", 200.00, 1);
-        Fastfood Submarine = new Fastfood(12, "Submarine", 200.00, 1);
-        Fastfood Hot_Dog = new Fastfood(13, "HotDog", 150.00, 1);
-        Fastfood Pizza = new Fastfood(14, "Pizza",150.00, 1);
-        Fastfood Sandwitch = new Fastfood(15, "Sandwitch", 100.00, 1);
-        Fastfood Donut = new Fastfood(16, "Donut", 60.00, 1);
-
-        //* Create and display the form */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new Fastfoods().setVisible(true);
         });
-    }
-
-    //Member Methods
-    public void Cal_total()
-    {
-        int Total = 0;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -944,17 +1186,17 @@ public class Fastfoods extends javax.swing.JFrame {
     private javax.swing.JButton btnHotDog;
     private javax.swing.JButton btnMeal;
     private javax.swing.JButton btnPizza;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnSandwitch;
     private javax.swing.JButton btnSubmarine;
+    private javax.swing.JButton btnTrash;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblBurger;
     private javax.swing.JLabel lblBurgerPrice;
     private javax.swing.JLabel lblDonut;
@@ -973,6 +1215,7 @@ public class Fastfoods extends javax.swing.JFrame {
     private javax.swing.JLabel lblMyPlate;
     private javax.swing.JLabel lblPizza;
     private javax.swing.JLabel lblPizzaPrice;
+    private javax.swing.JLabel lblPlateImage;
     private javax.swing.JLabel lblSandwitch;
     private javax.swing.JLabel lblSandwitchPrice;
     private javax.swing.JLabel lblSubmarine;
@@ -981,5 +1224,6 @@ public class Fastfoods extends javax.swing.JFrame {
     private javax.swing.JLabel lblTotalPrice;
     private javax.swing.JPanel pnlFastfood;
     private javax.swing.JPanel pnlFoods;
+    private javax.swing.JTable tblOrder;
     // End of variables declaration//GEN-END:variables
 }
