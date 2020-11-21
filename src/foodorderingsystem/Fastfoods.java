@@ -1138,7 +1138,7 @@ public class Fastfoods extends javax.swing.JFrame {
     }*/
     
     
-    //Format table
+    //Format table  
     private void FormatTable() 
     {
         tblOrder.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
