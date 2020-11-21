@@ -1108,7 +1108,8 @@ public class Fastfoods extends javax.swing.JFrame {
         catch (SQLException ex) 
         {
             ex.printStackTrace();
-        }    
+        } 
+    }
         
      /*   
     //Update Table  
@@ -1134,7 +1135,7 @@ public class Fastfoods extends javax.swing.JFrame {
         {
             CheckTable();
         }
-   }*/
+    }*/
     
     
     //Format table
