@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2020 at 03:34 PM
+-- Generation Time: Nov 21, 2020 at 03:52 PM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- PHP Version: 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,59 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `foodorderingsystem`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `fastfood`
---
-
-CREATE TABLE `fastfood` (
-  `ProductID` int(10) NOT NULL,
-  `ProductDescription` varchar(1000) NOT NULL,
-  `ProductPrice` double NOT NULL,
-  `ProductQty` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `fastfood`
---
-
-INSERT INTO `fastfood` (`ProductID`, `ProductDescription`, `ProductPrice`, `ProductQty`) VALUES
-(10, 'Chicken Burger', 200, 1),
-(11, 'Submarine', 200, 1),
-(12, 'Hot Dog', 150, 1),
-(13, 'Pizza', 150, 1),
-(14, 'Sandwich', 100, 1),
-(15, 'Donut', 60, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `meals`
---
-
-CREATE TABLE `meals` (
-  `ProductID` int(11) NOT NULL,
-  `ProductDescription` varchar(100) NOT NULL,
-  `ProductPrice` decimal(10,0) NOT NULL,
-  `ProductQty` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `meals`
---
-
-INSERT INTO `meals` (`ProductID`, `ProductDescription`, `ProductPrice`, `ProductQty`) VALUES
-(1, 'White Rice with Chicken', '130', 150),
-(2, 'WhiteRice With Egg', '110', 150),
-(3, 'BrownRice with Egg', '110', 150),
-(4, 'Brown Rice with Chicken', '130', 150),
-(5, 'Fried Rice with chicken', '210', 150),
-(6, 'Fried Rice with Egg', '200', 150),
-(7, 'Kottu with Chicken', '220', 150),
-(8, 'Kottu with Egg', '190', 150),
-(9, 'Kottu with Chicken and cheese', '260', 150);
+CREATE DATABASE IF NOT EXISTS `foodorderingsystem` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `foodorderingsystem`;
 
 -- --------------------------------------------------------
 
@@ -80,7 +29,7 @@ INSERT INTO `meals` (`ProductID`, `ProductDescription`, `ProductPrice`, `Product
 -- Table structure for table `orderbill`
 --
 
-CREATE TABLE `orderbill` (
+CREATE TABLE IF NOT EXISTS `orderbill` (
   `OrderID` int(10) NOT NULL,
   `OrderType` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -95,72 +44,58 @@ INSERT INTO `orderbill` (`OrderID`, `OrderType`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `products`
+--
+
+CREATE TABLE IF NOT EXISTS `products` (
+  `ProductID` int(11) NOT NULL,
+  `ProductDescription` varchar(100) NOT NULL,
+  `ProductPrice` decimal(10,0) NOT NULL,
+  `ProductQty` int(11) NOT NULL,
+  PRIMARY KEY (`ProductID`),
+  UNIQUE KEY `ProductID` (`ProductID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`ProductID`, `ProductDescription`, `ProductPrice`, `ProductQty`) VALUES
+(1, 'White Rice with Chicken', '130', 150),
+(2, 'WhiteRice With Egg', '110', 150),
+(3, 'BrownRice with Egg', '110', 150),
+(4, 'Brown Rice with Chicken', '130', 150),
+(5, 'Fried Rice with chicken', '210', 150),
+(6, 'Fried Rice with Egg', '200', 150),
+(7, 'Kottu with Chicken', '220', 150),
+(8, 'Kottu with Egg', '190', 150),
+(9, 'Kottu with Chicken and cheese', '260', 150);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `salesorder`
 --
 
-CREATE TABLE `salesorder` (
-  `ProductDescription` varchar(100) NOT NULL,
-  `qty` int(11) NOT NULL,
-  `TotalValue` decimal(10,0) NOT NULL,
-  `OrderId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE IF NOT EXISTS `salesorder` (
+  `ItemNo` int(11) NOT NULL AUTO_INCREMENT,
+  `CustID` int(11) DEFAULT NULL,
+  `Product` varchar(100) DEFAULT NULL,
+  `QTY` int(11) DEFAULT NULL,
+  `Total` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (`ItemNo`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `salesorder`
 --
 
-INSERT INTO `salesorder` (`ProductDescription`, `qty`, `TotalValue`, `OrderId`) VALUES
-('Egg', 1, '200', 6),
-('Chicken', 1, '230', 7),
-('Chicken Burger', 1, '200', 14),
-('Submarine', 1, '200', 15),
-('Pizza', 1, '150', 17),
-('Sandwitch', 2, '200', 18),
-('Donut', 3, '180', 19),
-('Chicken Burger', 1, '200', 28),
-('Donut', 1, '60', 29),
-('Sandwitch', 1, '100', 30),
-('Submarine', 1, '200', 31),
-('Chicken Burger', 1, '200', 32);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `fastfood`
---
-ALTER TABLE `fastfood`
-  ADD PRIMARY KEY (`ProductID`);
-
---
--- Indexes for table `meals`
---
-ALTER TABLE `meals`
-  ADD PRIMARY KEY (`ProductID`),
-  ADD UNIQUE KEY `ProductID` (`ProductID`);
-
---
--- Indexes for table `orderbill`
---
-ALTER TABLE `orderbill`
-  ADD PRIMARY KEY (`OrderID`);
-
---
--- Indexes for table `salesorder`
---
-ALTER TABLE `salesorder`
-  ADD PRIMARY KEY (`OrderId`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `salesorder`
---
-ALTER TABLE `salesorder`
-  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+INSERT INTO `salesorder` (`ItemNo`, `CustID`, `Product`, `QTY`, `Total`) VALUES
+(21, 1000, 'Fried Rice with Chicken', 5, '1150'),
+(22, 1000, 'White Rice with Chicken', 1, '130'),
+(23, 1000, 'Fried Rice with Egg', 1, '200'),
+(24, 1000, 'White rice with Egg', 1, '110'),
+(25, 1000, 'Brown rice with Egg', 2, '220');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
