@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -653,7 +654,6 @@ public class Fastfoods extends javax.swing.JFrame {
         tblOrder.setFillsViewportHeight(true);
         tblOrder.setGridColor(new java.awt.Color(255, 255, 255));
         tblOrder.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        tblOrder.setMinimumSize(new java.awt.Dimension(60, 0));
         tblOrder.setPreferredSize(new java.awt.Dimension(535, 0));
         tblOrder.setRowHeight(25);
         tblOrder.setSelectionBackground(new java.awt.Color(232, 57, 95));
@@ -671,6 +671,12 @@ public class Fastfoods extends javax.swing.JFrame {
         btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnRefreshMousePressed(evt);
             }
@@ -1006,8 +1012,21 @@ public class Fastfoods extends javax.swing.JFrame {
         GetTotal();
     }//GEN-LAST:event_btnRefreshMousePressed
 
+    private void btnRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseEntered
+        // Changing the Refresh button background color, when cursor move to the Refresh button
+        btnRefresh.setBackground(Color.RED);
+        btnRefresh.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnRefreshMouseEntered
+
+    private void btnRefreshMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseExited
+        // Rechange the Refresh button background color, when cursor move out the Refresh button
+        btnRefresh.setBackground(Color.GREEN);
+        btnRefresh.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnRefreshMouseExited
+
                                     //Member Methods.... 
     
+    //Display Order
     private  void Displayorder()
     {
         String qry="SELECT * FROM SALESORDER";
@@ -1040,7 +1059,8 @@ public class Fastfoods extends javax.swing.JFrame {
         }
     } 
    
-   
+    
+   //Delete Order
     private void Deleteorder()
     {    
         DefaultTableModel model = (DefaultTableModel)tblOrder.getModel();
@@ -1070,6 +1090,7 @@ public class Fastfoods extends javax.swing.JFrame {
     }    
   
    
+    //Checking table
     private void  CheckTable() 
     {
         PreparedStatement stmt = null;
@@ -1104,21 +1125,50 @@ public class Fastfoods extends javax.swing.JFrame {
         catch (SQLException ex) 
         {
             ex.printStackTrace();
-        }
+        } 
     }
-   
-
-    private void FormatTable(){
+        
+     /*   
+    //Update Table  
+    private void UpdateTable() 
+    {
+        try
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            String sql = "SELECT ItemNo,Product,QTY,Total FROM SALESORDER";
+            Statement st = conn.prepareStatement(sql);
+            ResultSet rs = st.executeQuery(sql);
+            
+            if(rs != null)
+            {
+                tblOrder.setModel(DbUtils.resultSetToTableModel(rs));
+            } 
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,"Somethings wrong");
+        }
+        finally
+        {
+            CheckTable();
+        }
+    }*/
+    
+    
+    //Format table  
+    private void FormatTable() 
+    {
         tblOrder.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
         tblOrder.getTableHeader().setOpaque(true);
         tblOrder.getTableHeader().setBackground(new Color(32,136,203));
         tblOrder.getTableHeader().setForeground(new Color(255,255,255));
-        tblOrder.setRowHeight(25);    
+        tblOrder.setRowHeight(25);   
     }
-   
+
     
-    private void GetTotal()
-    {       
+    //Get Total
+    private void GetTotal() 
+    {
         PreparedStatement pst = null;
         ResultSet rs = null;
         String qry = "Select Sum(Total) as sumprice from SALESORDER";
@@ -1140,10 +1190,11 @@ public class Fastfoods extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }
-       
+    
+    
     /**
      * @param args the command line arguments
-     */
+     */ 
     public static void main(String args[]) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
