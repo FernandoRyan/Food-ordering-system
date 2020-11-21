@@ -53,10 +53,10 @@ public class Appetizers extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        btnmeals = new javax.swing.JButton();
+        btnappetizers = new javax.swing.JButton();
+        btnbeverages = new javax.swing.JButton();
+        btnfastfoods = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -134,6 +134,11 @@ public class Appetizers extends javax.swing.JFrame {
 
         lblwade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Umbalakada wade_43_1.1.244_386X580.jpg"))); // NOI18N
         lblwade.setText("jLabel13");
+        lblwade.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblwadeMousePressed(evt);
+            }
+        });
 
         lblpotatochips.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/potato chips-620.jpg"))); // NOI18N
         lblpotatochips.setText("jLabel14");
@@ -270,30 +275,50 @@ public class Appetizers extends javax.swing.JFrame {
         jLabel17.setForeground(new java.awt.Color(153, 153, 153));
         jLabel17.setText("LKR  0.00");
 
-        jButton8.setBackground(new java.awt.Color(0, 204, 0));
-        jButton8.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("MEALS");
-
-        jButton9.setBackground(new java.awt.Color(0, 204, 0));
-        jButton9.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("APPETIZERS");
-
-        jButton10.setBackground(new java.awt.Color(0, 204, 0));
-        jButton10.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setText("BEVERAGES");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+        btnmeals.setBackground(new java.awt.Color(0, 204, 0));
+        btnmeals.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
+        btnmeals.setForeground(new java.awt.Color(255, 255, 255));
+        btnmeals.setText("MEALS");
+        btnmeals.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnmealsMousePressed(evt);
             }
         });
 
-        jButton11.setBackground(new java.awt.Color(0, 204, 0));
-        jButton11.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
-        jButton11.setForeground(new java.awt.Color(255, 255, 255));
-        jButton11.setText("FAST FOOD");
+        btnappetizers.setBackground(new java.awt.Color(0, 204, 0));
+        btnappetizers.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
+        btnappetizers.setForeground(new java.awt.Color(255, 255, 255));
+        btnappetizers.setText("APPETIZERS");
+        btnappetizers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnappetizersMousePressed(evt);
+            }
+        });
+
+        btnbeverages.setBackground(new java.awt.Color(0, 204, 0));
+        btnbeverages.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
+        btnbeverages.setForeground(new java.awt.Color(255, 255, 255));
+        btnbeverages.setText("BEVERAGES");
+        btnbeverages.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnbeveragesMousePressed(evt);
+            }
+        });
+        btnbeverages.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbeveragesActionPerformed(evt);
+            }
+        });
+
+        btnfastfoods.setBackground(new java.awt.Color(0, 204, 0));
+        btnfastfoods.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
+        btnfastfoods.setForeground(new java.awt.Color(255, 255, 255));
+        btnfastfoods.setText("FAST FOOD");
+        btnfastfoods.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnfastfoodsMousePressed(evt);
+            }
+        });
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/new.jpg"))); // NOI18N
         jLabel20.setText("jLabel1");
@@ -328,10 +353,10 @@ public class Appetizers extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnbeverages, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnappetizers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnfastfoods, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnmeals, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -388,13 +413,13 @@ public class Appetizers extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnmeals, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnfastfoods, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnappetizers, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnbeverages, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35))))
         );
 
@@ -404,9 +429,9 @@ public class Appetizers extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void btnbeveragesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbeveragesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_btnbeveragesActionPerformed
 
     private void lblchickencheeseballsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblchickencheeseballsMousePressed
         
@@ -420,6 +445,37 @@ public class Appetizers extends javax.swing.JFrame {
          Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
    this.setSize(screenSize.width, screenSize.height);
     }//GEN-LAST:event_formWindowOpened
+
+    private void lblwadeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblwadeMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblwadeMousePressed
+
+    private void btnmealsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmealsMousePressed
+        // Redirecting to the Meals Page:
+        Meal ml = new Meal();
+        ml.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_btnmealsMousePressed
+
+    private void btnfastfoodsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnfastfoodsMousePressed
+        // Redirecting to the Fastfoods Page:
+        Fastfoods fd = new Fastfoods();
+        fd.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_btnfastfoodsMousePressed
+
+    private void btnappetizersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnappetizersMousePressed
+        // Only in this page:
+        this.setVisible(true);
+        
+    }//GEN-LAST:event_btnappetizersMousePressed
+
+    private void btnbeveragesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbeveragesMousePressed
+        // Redirecting to the Beverages page:
+        Beverages bv = new Beverages();
+        bv.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_btnbeveragesMousePressed
 
     /**
      * @param args the command line arguments
@@ -460,11 +516,11 @@ public class Appetizers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
+    private javax.swing.JButton btnappetizers;
+    private javax.swing.JButton btnbeverages;
+    private javax.swing.JButton btnfastfoods;
+    private javax.swing.JButton btnmeals;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
