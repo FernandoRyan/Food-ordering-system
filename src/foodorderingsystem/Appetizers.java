@@ -5,6 +5,7 @@
  */
 package foodorderingsystem;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -50,7 +51,7 @@ public class Appetizers extends javax.swing.JFrame {
         lblsamosa = new javax.swing.JLabel();
         lblcheeseballs = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        btncheckout = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         btnmeals = new javax.swing.JButton();
@@ -142,12 +143,27 @@ public class Appetizers extends javax.swing.JFrame {
 
         lblpotatochips.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/potato chips-620.jpg"))); // NOI18N
         lblpotatochips.setText("jLabel14");
+        lblpotatochips.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblpotatochipsMousePressed(evt);
+            }
+        });
 
         lblsamosa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/punjabi-samosa-11-500x375.jpg"))); // NOI18N
         lblsamosa.setText("jLabel18");
+        lblsamosa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblsamosaMousePressed(evt);
+            }
+        });
 
         lblcheeseballs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cheese-ball-recipe-500x375.jpg"))); // NOI18N
         lblcheeseballs.setText("jLabel19");
+        lblcheeseballs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblcheeseballsMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -261,11 +277,25 @@ public class Appetizers extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(153, 153, 153));
         jLabel15.setText("MY PLATE");
 
-        jButton7.setBackground(new java.awt.Color(51, 255, 51));
-        jButton7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("CHECKOUT");
-        jButton7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btncheckout.setBackground(new java.awt.Color(51, 255, 51));
+        btncheckout.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btncheckout.setForeground(new java.awt.Color(255, 255, 255));
+        btncheckout.setText("CHECKOUT");
+        btncheckout.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btncheckout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btncheckoutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btncheckoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btncheckoutMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btncheckoutMousePressed(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(153, 153, 153));
@@ -366,7 +396,7 @@ public class Appetizers extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btncheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -405,7 +435,7 @@ public class Appetizers extends javax.swing.JFrame {
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btncheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 736, Short.MAX_VALUE)
@@ -448,6 +478,8 @@ public class Appetizers extends javax.swing.JFrame {
 
     private void lblwadeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblwadeMousePressed
         // TODO add your handling code here:
+        POPUP_Message_Wade w = new POPUP_Message_Wade();
+        w.setVisible(true);
     }//GEN-LAST:event_lblwadeMousePressed
 
     private void btnmealsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmealsMousePressed
@@ -476,6 +508,45 @@ public class Appetizers extends javax.swing.JFrame {
         bv.setVisible(true);
         this.hide();
     }//GEN-LAST:event_btnbeveragesMousePressed
+
+    private void lblpotatochipsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblpotatochipsMousePressed
+        // TODO add your handling code here:
+        POPUP_Message_PotatoChips pc = new POPUP_Message_PotatoChips();
+        pc.setVisible(true);
+    }//GEN-LAST:event_lblpotatochipsMousePressed
+
+    private void lblsamosaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblsamosaMousePressed
+        // TODO add your handling code here:
+        POPUP_Message_Samosa s = new POPUP_Message_Samosa();
+        s.setVisible(true);
+    }//GEN-LAST:event_lblsamosaMousePressed
+
+    private void lblcheeseballsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblcheeseballsMousePressed
+        // TODO add your handling code here:
+        POPUP_Message_CheeseBalls cb = new POPUP_Message_CheeseBalls();
+        cb.setVisible(true);
+    }//GEN-LAST:event_lblcheeseballsMousePressed
+
+    private void btncheckoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncheckoutMouseClicked
+        // TODO add your handling code here:
+        Order_Details od = new Order_Details();
+        od.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_btncheckoutMouseClicked
+
+    private void btncheckoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncheckoutMouseEntered
+        // TODO add your handling code here:
+        btncheckout.setBackground(Color.RED);
+    }//GEN-LAST:event_btncheckoutMouseEntered
+
+    private void btncheckoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncheckoutMouseExited
+        // TODO add your handling code here:
+         btncheckout.setBackground(Color.GREEN);
+    }//GEN-LAST:event_btncheckoutMouseExited
+
+    private void btncheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncheckoutMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btncheckoutMousePressed
 
     /**
      * @param args the command line arguments
@@ -518,9 +589,9 @@ public class Appetizers extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnappetizers;
     private javax.swing.JButton btnbeverages;
+    private javax.swing.JButton btncheckout;
     private javax.swing.JButton btnfastfoods;
     private javax.swing.JButton btnmeals;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
