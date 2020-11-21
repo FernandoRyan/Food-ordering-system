@@ -323,7 +323,7 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
             } 
             catch (SQLException ex) 
             {
-                Logger.getLogger(POPUP_Message_FriedRice.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(POPUP_Message_Submarine.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }    

@@ -332,7 +332,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
             } 
             catch (SQLException ex) 
             {
-                Logger.getLogger(POPUP_Message_FriedRice.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(POPUP_Message_Donut.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     } 

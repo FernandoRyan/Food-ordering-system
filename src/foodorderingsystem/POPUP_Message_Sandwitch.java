@@ -331,7 +331,7 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
             } 
             catch (SQLException ex) 
             {
-                Logger.getLogger(POPUP_Message_FriedRice.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(POPUP_Message_Sandwitch.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }        
