@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="undecorated" type="boolean" value="true"/>
@@ -53,10 +53,10 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jButton10" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jButton9" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jButton11" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jButton8" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnbeverages" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnappetizers" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnfastfoods" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnmeals" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Component id="jLabel20" min="-2" pref="143" max="-2" attributes="0"/>
@@ -68,7 +68,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jButton7" min="-2" pref="225" max="-2" attributes="0"/>
+                          <Component id="btncheckout" min="-2" pref="225" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -78,15 +78,23 @@
                           <Component id="jLabel17" min="-2" pref="92" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel15" min="-2" pref="135" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" pref="209" max="-2" attributes="0"/>
-                          <EmptySpace pref="21" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabel15" min="-2" pref="135" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jScrollPane1" min="-2" pref="247" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -101,6 +109,8 @@
                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Component id="jLabel15" min="-2" pref="46" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="109" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" pref="304" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -108,7 +118,7 @@
                               <Component id="jLabel16" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="jButton7" min="-2" pref="59" max="-2" attributes="0"/>
+                          <Component id="btncheckout" min="-2" pref="59" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -118,13 +128,13 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel20" min="-2" pref="124" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jButton8" min="-2" pref="95" max="-2" attributes="0"/>
+                          <Component id="btnmeals" min="-2" pref="95" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                          <Component id="jButton11" min="-2" pref="95" max="-2" attributes="0"/>
+                          <Component id="btnfastfoods" min="-2" pref="95" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="jButton9" min="-2" pref="95" max="-2" attributes="0"/>
+                          <Component id="btnappetizers" min="-2" pref="95" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                          <Component id="jButton10" min="-2" pref="95" max="-2" attributes="0"/>
+                          <Component id="btnbeverages" min="-2" pref="95" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -171,14 +181,21 @@
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                                               <Component id="ChickenCheeseBalls" min="-2" pref="230" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                                               <Component id="Wade" min="-2" pref="282" max="-2" attributes="0"/>
+=======
+                                              <Component id="lblchickencheeseballs" min="-2" pref="230" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                              <Component id="lblwade" min="-2" pref="282" max="-2" attributes="0"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -191,6 +208,11 @@
                                               <Component id="jLabel8" min="-2" pref="116" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+=======
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Component id="lblpotatochips" min="-2" pref="243" max="-2" attributes="0"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
@@ -201,7 +223,11 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                                   <Component id="Samosa" min="-2" pref="239" max="-2" attributes="0"/>
+=======
+                                  <Component id="lblsamosa" min="-2" pref="239" max="-2" attributes="0"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -212,7 +238,11 @@
                               </Group>
                               <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                                   <Component id="CheeseBalls" min="-2" pref="249" max="-2" attributes="0"/>
+=======
+                                  <Component id="lblcheeseballs" min="-2" pref="249" max="-2" attributes="0"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
@@ -239,15 +269,24 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+<<<<<<< HEAD
                               <Component id="ChickenCheeseBalls" min="-2" pref="203" max="-2" attributes="0"/>
+=======
+                              <Component id="lblchickencheeseballs" min="-2" pref="203" max="-2" attributes="0"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel4" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
+<<<<<<< HEAD
                                   <Component id="Wade" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="PotatoChips" alignment="3" max="32767" attributes="0"/>
+=======
+                                  <Component id="lblwade" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblpotatochips" alignment="3" max="32767" attributes="0"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                               </Group>
                           </Group>
                       </Group>
@@ -274,8 +313,13 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
+<<<<<<< HEAD
                                           <Component id="CheeseBalls" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="Samosa" alignment="3" min="-2" pref="179" max="-2" attributes="0"/>
+=======
+                                          <Component id="lblcheeseballs" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblsamosa" alignment="3" min="-2" pref="179" max="-2" attributes="0"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
@@ -424,7 +468,11 @@
                 <Property name="text" type="java.lang.String" value="LKR 35.00"/>
               </Properties>
             </Component>
+<<<<<<< HEAD
             <Component class="javax.swing.JLabel" name="ChickenCheeseBalls">
+=======
+            <Component class="javax.swing.JLabel" name="lblchickencheeseballs">
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/WhatsApp Image 2020-11-12 at 5.44.48 PM.jpg"/>
@@ -432,10 +480,17 @@
                 <Property name="text" type="java.lang.String" value="jLabel22"/>
               </Properties>
               <Events>
+<<<<<<< HEAD
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ChickenCheeseBallsMousePressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="Wade">
+=======
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblchickencheeseballsMousePressed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblwade">
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/Umbalakada wade_43_1.1.244_386X580.jpg"/>
@@ -443,10 +498,17 @@
                 <Property name="text" type="java.lang.String" value="jLabel13"/>
               </Properties>
               <Events>
+<<<<<<< HEAD
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="WadeMousePressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="PotatoChips">
+=======
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblwadeMousePressed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblpotatochips">
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/potato chips-620.jpg"/>
@@ -454,10 +516,17 @@
                 <Property name="text" type="java.lang.String" value="jLabel14"/>
               </Properties>
               <Events>
+<<<<<<< HEAD
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PotatoChipsMousePressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="Samosa">
+=======
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblpotatochipsMousePressed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblsamosa">
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/punjabi-samosa-11-500x375.jpg"/>
@@ -465,10 +534,17 @@
                 <Property name="text" type="java.lang.String" value="jLabel18"/>
               </Properties>
               <Events>
+<<<<<<< HEAD
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SamosaMousePressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="CheeseBalls">
+=======
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblsamosaMousePressed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblcheeseballs">
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/cheese-ball-recipe-500x375.jpg"/>
@@ -476,7 +552,11 @@
                 <Property name="text" type="java.lang.String" value="jLabel19"/>
               </Properties>
               <Events>
+<<<<<<< HEAD
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CheeseBallsMousePressed"/>
+=======
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblcheeseballsMousePressed"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
               </Events>
             </Component>
           </SubComponents>
@@ -492,7 +572,7 @@
             <Property name="text" type="java.lang.String" value="MY PLATE"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton7">
+        <Component class="javax.swing.JButton" name="btncheckout">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="ff" red="33" type="rgb"/>
@@ -510,6 +590,12 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btncheckoutMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btncheckoutMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btncheckoutMouseExited"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btncheckoutMousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
           <Properties>
@@ -533,7 +619,7 @@
             <Property name="text" type="java.lang.String" value="LKR  0.00"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton8">
+        <Component class="javax.swing.JButton" name="btnmeals">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="cc" red="0" type="rgb"/>
@@ -546,8 +632,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="MEALS"/>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnmealsMousePressed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton9">
+        <Component class="javax.swing.JButton" name="btnappetizers">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="cc" red="0" type="rgb"/>
@@ -560,8 +649,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="APPETIZERS"/>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnappetizersMousePressed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton10">
+        <Component class="javax.swing.JButton" name="btnbeverages">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="cc" red="0" type="rgb"/>
@@ -575,10 +667,11 @@
             <Property name="text" type="java.lang.String" value="BEVERAGES"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton10ActionPerformed"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnbeveragesMousePressed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnbeveragesActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton11">
+        <Component class="javax.swing.JButton" name="btnfastfoods">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="cc" red="0" type="rgb"/>
@@ -591,6 +684,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="FAST FOOD"/>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnfastfoodsMousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel20">
           <Properties>
@@ -608,6 +704,35 @@
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
         </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="jTable1">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="3" rowCount="0">
+                    <Column editable="true" title="Product Description" type="java.lang.String"/>
+                    <Column editable="true" title="QTY" type="java.lang.Integer"/>
+                    <Column editable="true" title="Total" type="java.lang.Double"/>
+                  </Table>
+                </Property>
+                <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="selectionForeground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                </Property>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>
