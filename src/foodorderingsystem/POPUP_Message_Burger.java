@@ -195,17 +195,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCANCELMouseClicked
 
     private void btnAddToPlateBurgerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseEntered
-        btnAddToPlateBurger.setBackground(Color.RED);
-        
-        if(qty == 0)
-        {
-           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
-        }
-        else 
-        {
-            CalculateBurgerPrice();  
-            InsertOrderDetails();
-        }
+        btnAddToPlateBurger.setBackground(Color.RED);        
     }//GEN-LAST:event_btnAddToPlateBurgerMouseEntered
 
     private void btnAddToPlateBurgerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseExited
@@ -221,7 +211,16 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
     }//GEN-LAST:event_spBurgerQtyStateChanged
 
     private void btnAddToPlateBurgerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMousePressed
-        // TODO add your handling code here:  
+        
+        if(qty == 0)
+        {
+           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
+        }
+        else 
+        {
+            CalculateBurgerPrice();  
+            InsertOrderDetails();
+        }
     }//GEN-LAST:event_btnAddToPlateBurgerMousePressed
 
     public double lblBurgerPrice() 
