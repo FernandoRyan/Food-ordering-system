@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -1008,6 +1009,7 @@ public class Fastfoods extends javax.swing.JFrame {
 
                                     //Member Methods.... 
     
+    //Display Order
     private  void Displayorder()
     {
         String qry="SELECT * FROM SALESORDER";
@@ -1040,7 +1042,8 @@ public class Fastfoods extends javax.swing.JFrame {
         }
     } 
    
-   
+    
+   //Delete Order
     private void Deleteorder()
     {    
         DefaultTableModel model = (DefaultTableModel)tblOrder.getModel();
@@ -1070,6 +1073,7 @@ public class Fastfoods extends javax.swing.JFrame {
     }    
   
    
+    //Checking table
     private void  CheckTable() 
     {
         PreparedStatement stmt = null;
@@ -1104,12 +1108,11 @@ public class Fastfoods extends javax.swing.JFrame {
         catch (SQLException ex) 
         {
             ex.printStackTrace();
-        }
-    
+        }    
         
-    //Updating Table
-  /*
-    public void UpdateTable() 
+     /*   
+    //Update Table  
+    private void UpdateTable() 
     {
         try
         {
@@ -1132,21 +1135,22 @@ public class Fastfoods extends javax.swing.JFrame {
             CheckTable();
         }
    }*/
-  
-  
-    //Formating table
-    private void FormatTable()
-    {       
+    
+    
+    //Format table
+    private void FormatTable() 
+    {
         tblOrder.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
         tblOrder.getTableHeader().setOpaque(true);
         tblOrder.getTableHeader().setBackground(new Color(32,136,203));
         tblOrder.getTableHeader().setForeground(new Color(255,255,255));
-        tblOrder.setRowHeight(25);    
+        tblOrder.setRowHeight(25);   
     }
-   
+
     
-    private void GetTotal()
-    {       
+    //Get Total
+    private void GetTotal() 
+    {
         PreparedStatement pst = null;
         ResultSet rs = null;
         String qry = "Select Sum(Total) as sumprice from SALESORDER";
@@ -1167,10 +1171,12 @@ public class Fastfoods extends javax.swing.JFrame {
         {
             ex.printStackTrace();
         }
-       
+    }
+    
+    
     /**
      * @param args the command line arguments
-     */
+     */ 
     public static void main(String args[]) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
