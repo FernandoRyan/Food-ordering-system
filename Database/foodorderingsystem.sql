@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2020 at 05:15 PM
+-- Generation Time: Nov 21, 2020 at 03:52 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `foodorderingsystem`
 --
+CREATE DATABASE IF NOT EXISTS `foodorderingsystem` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `foodorderingsystem`;
 
 -- --------------------------------------------------------
 
@@ -27,7 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `orderbill`
 --
 
-CREATE TABLE `orderbill` (
+CREATE TABLE IF NOT EXISTS `orderbill` (
   `OrderID` int(10) NOT NULL,
   `OrderType` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -45,11 +47,13 @@ INSERT INTO `orderbill` (`OrderID`, `OrderType`) VALUES
 -- Table structure for table `products`
 --
 
-CREATE TABLE `products` (
+CREATE TABLE IF NOT EXISTS `products` (
   `ProductID` int(11) NOT NULL,
   `ProductDescription` varchar(100) NOT NULL,
   `ProductPrice` decimal(10,0) NOT NULL,
-  `ProductQty` int(11) NOT NULL
+  `ProductQty` int(11) NOT NULL,
+  PRIMARY KEY (`ProductID`),
+  UNIQUE KEY `ProductID` (`ProductID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -73,13 +77,14 @@ INSERT INTO `products` (`ProductID`, `ProductDescription`, `ProductPrice`, `Prod
 -- Table structure for table `salesorder`
 --
 
-CREATE TABLE `salesorder` (
-  `ItemNo` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `salesorder` (
+  `ItemNo` int(11) NOT NULL AUTO_INCREMENT,
   `CustID` int(11) DEFAULT NULL,
   `Product` varchar(100) DEFAULT NULL,
   `QTY` int(11) DEFAULT NULL,
-  `Total` decimal(10,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Total` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (`ItemNo`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `salesorder`
@@ -91,33 +96,6 @@ INSERT INTO `salesorder` (`ItemNo`, `CustID`, `Product`, `QTY`, `Total`) VALUES
 (23, 1000, 'Fried Rice with Egg', 1, '200'),
 (24, 1000, 'White rice with Egg', 1, '110'),
 (25, 1000, 'Brown rice with Egg', 2, '220');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`ProductID`),
-  ADD UNIQUE KEY `ProductID` (`ProductID`);
-
---
--- Indexes for table `salesorder`
---
-ALTER TABLE `salesorder`
-  ADD PRIMARY KEY (`ItemNo`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `salesorder`
---
-ALTER TABLE `salesorder`
-  MODIFY `ItemNo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
