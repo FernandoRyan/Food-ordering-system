@@ -49,32 +49,32 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhatsApp Image 2020-11-12 at 5.44.48 PM.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel1MousePressed(evt);
+            }
+        });
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 240, -1));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Chicken Cheese Balls 4PCs");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 266, 260, 31));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("LKR 150.00");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("QTY");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 47, 36));
         jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 361, 42, 40));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("TOTAL");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 359, 69, 39));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("LKR 150.00");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 358, -1, 40));
 
@@ -88,6 +88,9 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame {
             }
         });
         BtnChickenCheeseBalls.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnChickenCheeseBallsMouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 BtnChickenCheeseBallsMouseExited(evt);
             }
@@ -136,6 +139,18 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame {
     private void BtnChickenCheeseBallsMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnChickenCheeseBallsMouseMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnChickenCheeseBallsMouseMoved
+
+    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+
+        this.setVisible(false);
+// TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1MousePressed
+
+    private void BtnChickenCheeseBallsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnChickenCheeseBallsMouseEntered
+       
+        BtnChickenCheeseBalls.setBackground(Color.RED);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnChickenCheeseBallsMouseEntered
 
     /**
      * @param args the command line arguments

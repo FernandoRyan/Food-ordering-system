@@ -181,32 +181,53 @@
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
+                                              <Component id="ChickenCheeseBalls" min="-2" pref="230" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                              <Component id="Wade" min="-2" pref="282" max="-2" attributes="0"/>
+=======
                                               <Component id="lblchickencheeseballs" min="-2" pref="230" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                                               <Component id="lblwade" min="-2" pref="282" max="-2" attributes="0"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                              <Component id="PotatoChips" min="-2" pref="243" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                                              <Component id="jLabel8" min="-2" pref="116" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+=======
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                       <Component id="lblpotatochips" min="-2" pref="243" max="-2" attributes="0"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel8" min="-2" pref="116" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" min="-2" pref="117" max="-2" attributes="0"/>
-                                      </Group>
+                                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                                      <Component id="jLabel7" min="-2" pref="205" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
+                                  <Component id="Samosa" min="-2" pref="239" max="-2" attributes="0"/>
+=======
                                   <Component id="lblsamosa" min="-2" pref="239" max="-2" attributes="0"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -217,7 +238,11 @@
                               </Group>
                               <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
+                                  <Component id="CheeseBalls" min="-2" pref="249" max="-2" attributes="0"/>
+=======
                                   <Component id="lblcheeseballs" min="-2" pref="249" max="-2" attributes="0"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
@@ -244,26 +269,34 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                              <Component id="ChickenCheeseBalls" min="-2" pref="203" max="-2" attributes="0"/>
+=======
                               <Component id="lblchickencheeseballs" min="-2" pref="203" max="-2" attributes="0"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel4" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
+<<<<<<< HEAD
+                                  <Component id="Wade" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="PotatoChips" alignment="3" max="32767" attributes="0"/>
+=======
                                   <Component id="lblwade" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblpotatochips" alignment="3" max="32767" attributes="0"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel7" alignment="1" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel7" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
@@ -280,8 +313,13 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
+<<<<<<< HEAD
+                                          <Component id="CheeseBalls" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Samosa" alignment="3" min="-2" pref="179" max="-2" attributes="0"/>
+=======
                                           <Component id="lblcheeseballs" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblsamosa" alignment="3" min="-2" pref="179" max="-2" attributes="0"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
@@ -326,7 +364,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Wade 3PCs"/>
+                <Property name="text" type="java.lang.String" value="WADE 1PC"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
@@ -337,7 +375,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="LKR  150.00"/>
+                <Property name="text" type="java.lang.String" value="LKR  40.00"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
@@ -345,7 +383,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Chicken Cheese Balls 4PCs"/>
+                <Property name="text" type="java.lang.String" value="CHICKEN CHEESE BALLS 1PC"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
@@ -356,7 +394,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="LKR  150.00"/>
+                <Property name="text" type="java.lang.String" value="LKR  20.00"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
@@ -364,7 +402,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Potato Chips"/>
+                <Property name="text" type="java.lang.String" value="POTATO CHIPS PLATE"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
@@ -375,7 +413,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="LKR  100.00"/>
+                <Property name="text" type="java.lang.String" value="LKR  80.00"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
@@ -383,7 +421,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Samosa"/>
+                <Property name="text" type="java.lang.String" value="SAMOSA 1PC"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
@@ -394,7 +432,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="LKR  150.00"/>
+                <Property name="text" type="java.lang.String" value="LKR  40.00"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
@@ -402,7 +440,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cheese Balls 4PCs"/>
+                <Property name="text" type="java.lang.String" value="CHEESE BALLS 1PC"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
@@ -427,10 +465,14 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="LKR 100.00"/>
+                <Property name="text" type="java.lang.String" value="LKR 35.00"/>
               </Properties>
             </Component>
+<<<<<<< HEAD
+            <Component class="javax.swing.JLabel" name="ChickenCheeseBalls">
+=======
             <Component class="javax.swing.JLabel" name="lblchickencheeseballs">
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/WhatsApp Image 2020-11-12 at 5.44.48 PM.jpg"/>
@@ -438,10 +480,17 @@
                 <Property name="text" type="java.lang.String" value="jLabel22"/>
               </Properties>
               <Events>
+<<<<<<< HEAD
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ChickenCheeseBallsMousePressed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="Wade">
+=======
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblchickencheeseballsMousePressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblwade">
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/Umbalakada wade_43_1.1.244_386X580.jpg"/>
@@ -449,10 +498,17 @@
                 <Property name="text" type="java.lang.String" value="jLabel13"/>
               </Properties>
               <Events>
+<<<<<<< HEAD
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="WadeMousePressed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="PotatoChips">
+=======
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblwadeMousePressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblpotatochips">
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/potato chips-620.jpg"/>
@@ -460,10 +516,17 @@
                 <Property name="text" type="java.lang.String" value="jLabel14"/>
               </Properties>
               <Events>
+<<<<<<< HEAD
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PotatoChipsMousePressed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="Samosa">
+=======
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblpotatochipsMousePressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblsamosa">
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/punjabi-samosa-11-500x375.jpg"/>
@@ -471,10 +534,17 @@
                 <Property name="text" type="java.lang.String" value="jLabel18"/>
               </Properties>
               <Events>
+<<<<<<< HEAD
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SamosaMousePressed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="CheeseBalls">
+=======
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblsamosaMousePressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblcheeseballs">
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/cheese-ball-recipe-500x375.jpg"/>
@@ -482,7 +552,11 @@
                 <Property name="text" type="java.lang.String" value="jLabel19"/>
               </Properties>
               <Events>
+<<<<<<< HEAD
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CheeseBallsMousePressed"/>
+=======
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblcheeseballsMousePressed"/>
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
               </Events>
             </Component>
           </SubComponents>

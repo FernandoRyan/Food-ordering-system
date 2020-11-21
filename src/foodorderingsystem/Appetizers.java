@@ -45,11 +45,19 @@ public class Appetizers extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+<<<<<<< HEAD
+        ChickenCheeseBalls = new javax.swing.JLabel();
+        Wade = new javax.swing.JLabel();
+        PotatoChips = new javax.swing.JLabel();
+        Samosa = new javax.swing.JLabel();
+        CheeseBalls = new javax.swing.JLabel();
+=======
         lblchickencheeseballs = new javax.swing.JLabel();
         lblwade = new javax.swing.JLabel();
         lblpotatochips = new javax.swing.JLabel();
         lblsamosa = new javax.swing.JLabel();
         lblcheeseballs = new javax.swing.JLabel();
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
         jLabel15 = new javax.swing.JLabel();
         btncheckout = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
@@ -86,35 +94,35 @@ public class Appetizers extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(22, 0, 0));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setText("Wade 3PCs");
+        jLabel2.setText("WADE 1PC");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel3.setText("LKR  150.00");
+        jLabel3.setText("LKR  40.00");
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setText("Chicken Cheese Balls 4PCs");
+        jLabel5.setText("CHICKEN CHEESE BALLS 1PC");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel6.setText("LKR  150.00");
+        jLabel6.setText("LKR  20.00");
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setText("Potato Chips");
+        jLabel7.setText("POTATO CHIPS PLATE");
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel8.setText("LKR  100.00");
+        jLabel8.setText("LKR  80.00");
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel9.setText("Samosa");
+        jLabel9.setText("SAMOSA 1PC");
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel10.setText("LKR  150.00");
+        jLabel10.setText("LKR  40.00");
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel11.setText("Cheese Balls 4PCs");
+        jLabel11.setText("CHEESE BALLS 1PC");
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(153, 153, 153));
@@ -123,8 +131,47 @@ public class Appetizers extends javax.swing.JFrame {
         jLabel21.setBackground(new java.awt.Color(153, 153, 153));
         jLabel21.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel21.setText("LKR 100.00");
+        jLabel21.setText("LKR 35.00");
 
+<<<<<<< HEAD
+        ChickenCheeseBalls.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhatsApp Image 2020-11-12 at 5.44.48 PM.jpg"))); // NOI18N
+        ChickenCheeseBalls.setText("jLabel22");
+        ChickenCheeseBalls.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ChickenCheeseBallsMousePressed(evt);
+            }
+        });
+
+        Wade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Umbalakada wade_43_1.1.244_386X580.jpg"))); // NOI18N
+        Wade.setText("jLabel13");
+        Wade.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                WadeMousePressed(evt);
+            }
+        });
+
+        PotatoChips.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/potato chips-620.jpg"))); // NOI18N
+        PotatoChips.setText("jLabel14");
+        PotatoChips.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                PotatoChipsMousePressed(evt);
+            }
+        });
+
+        Samosa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/punjabi-samosa-11-500x375.jpg"))); // NOI18N
+        Samosa.setText("jLabel18");
+        Samosa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                SamosaMousePressed(evt);
+            }
+        });
+
+        CheeseBalls.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cheese-ball-recipe-500x375.jpg"))); // NOI18N
+        CheeseBalls.setText("jLabel19");
+        CheeseBalls.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CheeseBallsMousePressed(evt);
+=======
         lblchickencheeseballs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhatsApp Image 2020-11-12 at 5.44.48 PM.jpg"))); // NOI18N
         lblchickencheeseballs.setText("jLabel22");
         lblchickencheeseballs.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -162,6 +209,7 @@ public class Appetizers extends javax.swing.JFrame {
         lblcheeseballs.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblcheeseballsMousePressed(evt);
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
             }
         });
 
@@ -186,6 +234,21 @@ public class Appetizers extends javax.swing.JFrame {
                                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel2)))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
+<<<<<<< HEAD
+                                        .addComponent(ChickenCheeseBalls, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(70, 70, 70)
+                                        .addComponent(Wade, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(24, 24, 24)
+                                        .addComponent(PotatoChips, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(63, 63, 63)
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
+=======
                                         .addComponent(lblchickencheeseballs, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(70, 70, 70)
                                         .addComponent(lblwade, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -194,15 +257,18 @@ public class Appetizers extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
                                 .addComponent(lblpotatochips, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(83, 83, 83)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(169, 169, 169)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
+                            .addComponent(Samosa, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
                             .addComponent(lblsamosa, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(41, 41, 41)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +276,11 @@ public class Appetizers extends javax.swing.JFrame {
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(142, 142, 142)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
+                            .addComponent(CheeseBalls, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
                             .addComponent(lblcheeseballs, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(47, 47, 47)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -229,20 +299,29 @@ public class Appetizers extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(76, 76, 76)
+<<<<<<< HEAD
+                        .addComponent(ChickenCheeseBalls, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
                         .addComponent(lblchickencheeseballs, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+<<<<<<< HEAD
+                            .addComponent(Wade)
+                            .addComponent(PotatoChips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+=======
                             .addComponent(lblwade)
                             .addComponent(lblpotatochips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
@@ -257,8 +336,13 @@ public class Appetizers extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(42, 42, 42)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+<<<<<<< HEAD
+                                    .addComponent(CheeseBalls)
+                                    .addComponent(Samosa, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
                                     .addComponent(lblcheeseballs)
                                     .addComponent(lblsamosa, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -487,6 +571,15 @@ public class Appetizers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbeveragesActionPerformed
 
+<<<<<<< HEAD
+    private void ChickenCheeseBallsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChickenCheeseBallsMousePressed
+        
+        POPUP_Message_Chicken_CheeseBalls ccb = new POPUP_Message_Chicken_CheeseBalls();
+        ccb.setVisible(true);
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_ChickenCheeseBallsMousePressed
+=======
     private void lblchickencheeseballsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblchickencheeseballsMousePressed
         
         POPUP_Message_Chicken_CheeseBalls cb = new POPUP_Message_Chicken_CheeseBalls();
@@ -494,12 +587,42 @@ public class Appetizers extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_lblchickencheeseballsMousePressed
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
          Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
    this.setSize(screenSize.width, screenSize.height);
     }//GEN-LAST:event_formWindowOpened
 
+<<<<<<< HEAD
+    private void WadeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WadeMousePressed
+       
+        POPUP_Message_Wade w = new POPUP_Message_Wade();
+        w.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_WadeMousePressed
+
+    private void PotatoChipsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PotatoChipsMousePressed
+
+        POPUP_Message_PotatoChips pc = new POPUP_Message_PotatoChips();
+        pc.setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_PotatoChipsMousePressed
+
+    private void SamosaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SamosaMousePressed
+       
+        POPUP_Message_Samosa s  = new POPUP_Message_Samosa();
+        s.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SamosaMousePressed
+
+    private void CheeseBallsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CheeseBallsMousePressed
+
+        POPUP_Message_CheeseBalls cb = new POPUP_Message_CheeseBalls();
+        cb.setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_CheeseBallsMousePressed
+=======
     private void lblwadeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblwadeMousePressed
         // TODO add your handling code here:
         POPUP_Message_Wade w = new POPUP_Message_Wade();
@@ -571,6 +694,7 @@ public class Appetizers extends javax.swing.JFrame {
     private void btncheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncheckoutMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_btncheckoutMousePressed
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
 
     private void btnmealsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmealsMouseEntered
         // Rechange the Meal button & Fastfood button background colors, when cursor move out the Meal button:
@@ -672,11 +796,24 @@ public class Appetizers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
+    private javax.swing.JLabel CheeseBalls;
+    private javax.swing.JLabel ChickenCheeseBalls;
+    private javax.swing.JLabel PotatoChips;
+    private javax.swing.JLabel Samosa;
+    private javax.swing.JLabel Wade;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+=======
     private javax.swing.JButton btnappetizers;
     private javax.swing.JButton btnbeverages;
     private javax.swing.JButton btncheckout;
     private javax.swing.JButton btnfastfoods;
     private javax.swing.JButton btnmeals;
+>>>>>>> 6b75f561926c57159d48942b47055a01911e9be6
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
