@@ -578,7 +578,16 @@ public class Appetizers extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
+        //* Creation of objects and initialization */
+        
+         Appetizer Chicken_Cheese_Balls = new Appetizer(17,"Chicken Cheese Balls",150.00,10);
+         Appetizer Wade = new Appetizer(18,"Wade",150.00,10);
+         Appetizer Potato_chips = new Appetizer(19,"Chips",100.00,10);
+         Appetizer Samosa = new Appetizer(20,"Samosa",150.00,10);
+         Appetizer Cheese_Balls = new Appetizer(21,"Cheese Balls",100.00,10);
+         
+      
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Appetizers().setVisible(true);
