@@ -1190,6 +1190,8 @@
                 <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="btnRefresh"/>
               </AccessibilityProperties>
               <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRefreshMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRefreshMouseExited"/>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRefreshMousePressed"/>
               </Events>
             </Component>

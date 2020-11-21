@@ -654,7 +654,6 @@ public class Fastfoods extends javax.swing.JFrame {
         tblOrder.setFillsViewportHeight(true);
         tblOrder.setGridColor(new java.awt.Color(255, 255, 255));
         tblOrder.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        tblOrder.setMinimumSize(new java.awt.Dimension(60, 0));
         tblOrder.setPreferredSize(new java.awt.Dimension(535, 0));
         tblOrder.setRowHeight(25);
         tblOrder.setSelectionBackground(new java.awt.Color(232, 57, 95));
@@ -672,6 +671,12 @@ public class Fastfoods extends javax.swing.JFrame {
         btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnRefreshMousePressed(evt);
             }
@@ -1006,6 +1011,18 @@ public class Fastfoods extends javax.swing.JFrame {
         Displayorder();
         GetTotal();
     }//GEN-LAST:event_btnRefreshMousePressed
+
+    private void btnRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseEntered
+        // Changing the Refresh button background color, when cursor move to the Refresh button
+        btnRefresh.setBackground(Color.RED);
+        btnRefresh.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnRefreshMouseEntered
+
+    private void btnRefreshMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseExited
+        // Rechange the Refresh button background color, when cursor move out the Refresh button
+        btnRefresh.setBackground(Color.GREEN);
+        btnRefresh.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnRefreshMouseExited
 
                                     //Member Methods.... 
     
