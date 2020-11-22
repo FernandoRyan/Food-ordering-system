@@ -263,15 +263,12 @@ public class  Meal extends javax.swing.JFrame {
         lblFASTFOOD.setText("Meals");
 
         firedricelbl.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        firedricelbl.setForeground(new java.awt.Color(0, 0, 0));
         firedricelbl.setText("Fried Rice");
 
         RIceandcurrylbl.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        RIceandcurrylbl.setForeground(new java.awt.Color(0, 0, 0));
         RIceandcurrylbl.setText("Rice and Curry");
 
         Kottulbl.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        Kottulbl.setForeground(new java.awt.Color(0, 0, 0));
         Kottulbl.setText("Kottu Roti");
 
         btnLKR.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -389,7 +386,6 @@ public class  Meal extends javax.swing.JFrame {
             }
         });
 
-        Ordertable.setBackground(new java.awt.Color(255, 255, 255));
         Ordertable.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         Ordertable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -431,7 +427,6 @@ public class  Meal extends javax.swing.JFrame {
         jLabel1.setText("Total");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("00.00");
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));

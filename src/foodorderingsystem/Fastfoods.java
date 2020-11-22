@@ -597,11 +597,9 @@ public class Fastfoods extends javax.swing.JFrame {
         lblTotalName.setText("TOTAL");
 
         lblLKRTotal.setFont(new java.awt.Font("Algerian", 1, 20)); // NOI18N
-        lblLKRTotal.setForeground(new java.awt.Color(0, 0, 0));
         lblLKRTotal.setText("LKR");
 
         lblTotalPrice.setFont(new java.awt.Font("Algerian", 1, 20)); // NOI18N
-        lblTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
         lblTotalPrice.setText("00.00");
 
         btnCheckout.setBackground(new java.awt.Color(0, 204, 0));
@@ -632,7 +630,6 @@ public class Fastfoods extends javax.swing.JFrame {
 
         lblPlateImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
 
-        tblOrder.setBackground(new java.awt.Color(255, 255, 255));
         tblOrder.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         tblOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -657,7 +654,6 @@ public class Fastfoods extends javax.swing.JFrame {
         tblOrder.setPreferredSize(new java.awt.Dimension(535, 0));
         tblOrder.setRowHeight(25);
         tblOrder.setSelectionBackground(new java.awt.Color(232, 57, 95));
-        tblOrder.setSelectionForeground(new java.awt.Color(255, 255, 255));
         tblOrder.setShowHorizontalLines(false);
         tblOrder.setSurrendersFocusOnKeystroke(true);
         tblOrder.setUpdateSelectionOnSort(false);
