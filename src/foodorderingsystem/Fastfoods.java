@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
+
 /**
  *
  * @author Neranji Sulakshika
@@ -33,8 +34,8 @@ public class Fastfoods extends javax.swing.JFrame {
     //Connection settings to database
     Connection conn;
     String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username = "nera";
-    String Pass = "neranji0321";
+    String username = "sa";
+    String Pass = "anjalo9990";
     
     /**
      * Creates new form Fastfoods
@@ -182,11 +183,6 @@ public class Fastfoods extends javax.swing.JFrame {
         btnPizza.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnPizzaMouseClicked(evt);
-            }
-        });
-        btnPizza.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPizzaActionPerformed(evt);
             }
         });
 
@@ -475,11 +471,6 @@ public class Fastfoods extends javax.swing.JFrame {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnMealMousePressed(evt);
-            }
-        });
-        btnMeal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMealActionPerformed(evt);
             }
         });
 
@@ -804,14 +795,6 @@ public class Fastfoods extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizzaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPizzaActionPerformed
-
-    private void btnMealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMealActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMealActionPerformed
-
     private void btnBurgerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBurgerMouseClicked
         // Show PopUp Burger Message
         POPUP_Message_Burger bp = new POPUP_Message_Burger();
@@ -912,21 +895,21 @@ public class Fastfoods extends javax.swing.JFrame {
     private void btnAppetizersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppetizersMouseExited
         // Rechange the Appetizers button & Fastfood button background colors, when cursor move out the Appetizers button
         btnAppetizers.setBackground(Color.GREEN);
-        btnFastfood.setBackground(new Color(0,102,0));
+//        btnFastfood.setBackground(new Color(0,102,0));
         btnFastfood.setForeground(Color.WHITE);
     }//GEN-LAST:event_btnAppetizersMouseExited
 
     private void btnBeveragesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMouseEntered
         // Changing the Beverages button & Fastfood button background colors, when cursor move to the Beverages button
         btnBeverages.setBackground(new Color(0,102,0));
-        btnFastfood.setBackground(Color.GREEN);
+  //      btnFastfood.setBackground(Color.GREEN);
     }//GEN-LAST:event_btnBeveragesMouseEntered
 
     private void btnBeveragesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMouseExited
         // Rechange the Beverages button & Fastfood button background colors, when cursor move out the Beverages button
         btnBeverages.setBackground(Color.GREEN);
-        btnFastfood.setBackground(new Color(0,102,0));
-        btnFastfood.setForeground(Color.WHITE);
+    //    btnFastfood.setBackground(new Color(0,102,0));
+      //  btnFastfood.setForeground(Color.WHITE);
     }//GEN-LAST:event_btnBeveragesMouseExited
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -958,7 +941,7 @@ public class Fastfoods extends javax.swing.JFrame {
 
     private void btnFastfoodMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastfoodMousePressed
         // Only in this page
-        this.setVisible(true);
+       // this.setVisible(true);
     }//GEN-LAST:event_btnFastfoodMousePressed
 
     private void btnFastfoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFastfoodActionPerformed
@@ -1182,7 +1165,7 @@ public class Fastfoods extends javax.swing.JFrame {
             if(rs.next())
             {
                 String sum = rs.getString("sumprice");
-                lblPlateImage.setText(sum);
+               lblTotalPrice.setText(sum);
             }
         }
        catch (SQLException ex) 

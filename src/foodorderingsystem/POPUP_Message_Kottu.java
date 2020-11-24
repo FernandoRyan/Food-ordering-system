@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
  *
  * @author RYAN
  */
-public class POPUP_Message_Kottu extends javax.swing.JFrame {
+public class POPUP_Message_Kottu extends javax.swing.JFrame implements PopUpInterface {
 
      //Declaration of Member Feilds
     public final int CustID=1000;
