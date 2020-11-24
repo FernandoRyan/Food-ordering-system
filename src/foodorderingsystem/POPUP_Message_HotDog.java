@@ -220,16 +220,6 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
 
     private void btnAddToPlateHotDogMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateHotDogMouseEntered
         btnAddToPlateHotDog.setBackground(Color.RED);
-        
-        if(qty == 0)
-            {
-                JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
-            }
-        else 
-            {
-                CalculateHotDogprice();
-                InsertOrderDetails();
-            }
     }//GEN-LAST:event_btnAddToPlateHotDogMouseEntered
 
     private void btnAddToPlateHotDogMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateHotDogMouseExited
@@ -245,7 +235,15 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateHotDogMouseClicked
 
     private void btnAddToPlateHotDogMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateHotDogMousePressed
-        // TODO add your handling code here:
+        if(qty == 0)
+            {
+                JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
+            }
+        else 
+            {
+                CalculateHotDogprice();
+                InsertOrderDetails();
+            }
     }//GEN-LAST:event_btnAddToPlateHotDogMousePressed
 
     private void spQtyHotDogStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtyHotDogStateChanged

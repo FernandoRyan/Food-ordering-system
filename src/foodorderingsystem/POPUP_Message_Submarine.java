@@ -211,16 +211,6 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
 
     private void btnAddToPlateSubmarineMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSubmarineMouseEntered
         btnAddToPlateSubmarine.setBackground(Color.RED);
-        
-        if(qty == 0)
-        {
-           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
-        }
-        else 
-        {
-            CalculateSubmarinePrice();  
-            InsertOrderDetails();
-        }
     }//GEN-LAST:event_btnAddToPlateSubmarineMouseEntered
 
     private void btnAddToPlateSubmarineMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSubmarineMouseExited
@@ -236,7 +226,15 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateSubmarineMouseClicked
 
     private void btnAddToPlateSubmarineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSubmarineMousePressed
-        // TODO add your handling code here:
+        if(qty == 0)
+        {
+           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
+        }
+        else 
+        {
+            CalculateSubmarinePrice();  
+            InsertOrderDetails();
+        }
     }//GEN-LAST:event_btnAddToPlateSubmarineMousePressed
 
     private void spSubmarineQtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spSubmarineQtyStateChanged
