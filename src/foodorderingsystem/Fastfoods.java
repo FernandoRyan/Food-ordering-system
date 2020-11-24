@@ -1025,7 +1025,7 @@ public class Fastfoods extends javax.swing.JFrame {
     //Display Order
     private  void Displayorder()
     {
-        String qry="SELECT * FROM SALESORDER";
+        String qry="SELECT * FROM salesorder";
       
         try
         {
@@ -1065,7 +1065,7 @@ public class Fastfoods extends javax.swing.JFrame {
          
         String cell = tblOrder.getModel().getValueAt(row, 0).toString();
          
-        String qry = "DELETE FROM SALESORDER WHERE ItemNo = " + cell;
+        String qry = "DELETE FROM salesorder WHERE ItemNo = " + cell;
           
         try
         {
@@ -1091,7 +1091,7 @@ public class Fastfoods extends javax.swing.JFrame {
     {
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String qry = " SELECT * From SALESORDER ";
+        String qry = " SELECT * From salesorder ";
 
         try 
         {
@@ -1131,7 +1131,7 @@ public class Fastfoods extends javax.swing.JFrame {
         try
         {
             conn = DriverManager.getConnection(connectionUrl, username, Pass);
-            String sql = "SELECT ItemNo,Product,QTY,Total FROM SALESORDER";
+            String sql = "SELECT ItemNo,Product,QTY,Total FROM salesorder";
             Statement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery(sql);
             
@@ -1167,7 +1167,7 @@ public class Fastfoods extends javax.swing.JFrame {
     {
         PreparedStatement pst = null;
         ResultSet rs = null;
-        String qry = "Select Sum(Total) as sumprice from SALESORDER";
+        String qry = "Select Sum(Total) as sumprice from salesorder";
        
         try
         {
