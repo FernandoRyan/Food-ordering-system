@@ -33,8 +33,8 @@ public class Fastfoods extends javax.swing.JFrame {
     //Connection settings to database
     Connection conn;
     String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username = "nera";
-    String Pass = "neranji0321";
+    String username= "sa";
+    String Pass="anjalo9990";
     
     /**
      * Creates new form Fastfoods
