@@ -999,7 +999,7 @@ public class FASTFOOD extends javax.swing.JFrame {
     private void Deleteorder()
     {
     
-        /*DefaultTableModel model=(DefaultTableModel)tblOrder.getModel();
+        DefaultTableModel model=(DefaultTableModel)tblOrder.getModel();
           
         int row =tblOrder.getSelectedRow();
          
@@ -1022,11 +1022,11 @@ public class FASTFOOD extends javax.swing.JFrame {
         {
             CheckTable();
             FormatTable();
-        }*/
+        }
     }
    
     private void  CheckTable() 
-    {/*
+    {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         String qry = " SELECT * From SALESORDER ";
@@ -1059,22 +1059,22 @@ public class FASTFOOD extends javax.swing.JFrame {
         } catch (SQLException ex) 
         {
             ex.printStackTrace();
-        }*/
+        }
     }
     
     //Formating table
     private void FormatTable()
-    {/*
+    {
        tblOrder.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
        tblOrder.getTableHeader().setOpaque(true);
        tblOrder.getTableHeader().setBackground(new Color(32,136,203));
        tblOrder.getTableHeader().setForeground(new Color(255,255,255));
-       tblOrder.setRowHeight(25);*/
+       tblOrder.setRowHeight(25);
     }
    
     //Getting the Total
     private void GetTotal()
-    {/*
+    {
         PreparedStatement pst = null;
         ResultSet rs = null;
         String qry = "Select Sum(Total) as sumprice from SALESORDER";
@@ -1093,7 +1093,7 @@ public class FASTFOOD extends javax.swing.JFrame {
         catch (SQLException ex) 
         {
             ex.printStackTrace();
-        }*/
+        }
     }
     /**
      * @param args the command line arguments
