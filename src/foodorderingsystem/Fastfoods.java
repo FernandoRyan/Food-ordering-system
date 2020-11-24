@@ -20,7 +20,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
-
 /**
  *
  * @author Neranji Sulakshika
@@ -34,8 +33,8 @@ public class Fastfoods extends javax.swing.JFrame {
     //Connection settings to database
     Connection conn;
     String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username = "sa";
-    String Pass = "anjalo9990";
+    String username= "sa";
+    String Pass="anjalo9990";
     
     /**
      * Creates new form Fastfoods
@@ -183,6 +182,11 @@ public class Fastfoods extends javax.swing.JFrame {
         btnPizza.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnPizzaMouseClicked(evt);
+            }
+        });
+        btnPizza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPizzaActionPerformed(evt);
             }
         });
 
@@ -473,6 +477,11 @@ public class Fastfoods extends javax.swing.JFrame {
                 btnMealMousePressed(evt);
             }
         });
+        btnMeal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMealActionPerformed(evt);
+            }
+        });
 
         btnFastfood.setBackground(new java.awt.Color(0, 102, 0));
         btnFastfood.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
@@ -588,11 +597,9 @@ public class Fastfoods extends javax.swing.JFrame {
         lblTotalName.setText("TOTAL");
 
         lblLKRTotal.setFont(new java.awt.Font("Algerian", 1, 20)); // NOI18N
-        lblLKRTotal.setForeground(new java.awt.Color(0, 0, 0));
         lblLKRTotal.setText("LKR");
 
         lblTotalPrice.setFont(new java.awt.Font("Algerian", 1, 20)); // NOI18N
-        lblTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
         lblTotalPrice.setText("00.00");
 
         btnCheckout.setBackground(new java.awt.Color(0, 204, 0));
@@ -623,7 +630,6 @@ public class Fastfoods extends javax.swing.JFrame {
 
         lblPlateImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
 
-        tblOrder.setBackground(new java.awt.Color(255, 255, 255));
         tblOrder.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         tblOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -648,7 +654,6 @@ public class Fastfoods extends javax.swing.JFrame {
         tblOrder.setPreferredSize(new java.awt.Dimension(535, 0));
         tblOrder.setRowHeight(25);
         tblOrder.setSelectionBackground(new java.awt.Color(232, 57, 95));
-        tblOrder.setSelectionForeground(new java.awt.Color(255, 255, 255));
         tblOrder.setShowHorizontalLines(false);
         tblOrder.setSurrendersFocusOnKeystroke(true);
         tblOrder.setUpdateSelectionOnSort(false);
@@ -795,6 +800,14 @@ public class Fastfoods extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizzaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPizzaActionPerformed
+
+    private void btnMealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMealActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMealActionPerformed
+
     private void btnBurgerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBurgerMouseClicked
         // Show PopUp Burger Message
         POPUP_Message_Burger bp = new POPUP_Message_Burger();
@@ -895,21 +908,21 @@ public class Fastfoods extends javax.swing.JFrame {
     private void btnAppetizersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppetizersMouseExited
         // Rechange the Appetizers button & Fastfood button background colors, when cursor move out the Appetizers button
         btnAppetizers.setBackground(Color.GREEN);
-//        btnFastfood.setBackground(new Color(0,102,0));
+        btnFastfood.setBackground(new Color(0,102,0));
         btnFastfood.setForeground(Color.WHITE);
     }//GEN-LAST:event_btnAppetizersMouseExited
 
     private void btnBeveragesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMouseEntered
         // Changing the Beverages button & Fastfood button background colors, when cursor move to the Beverages button
         btnBeverages.setBackground(new Color(0,102,0));
-  //      btnFastfood.setBackground(Color.GREEN);
+        btnFastfood.setBackground(Color.GREEN);
     }//GEN-LAST:event_btnBeveragesMouseEntered
 
     private void btnBeveragesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMouseExited
         // Rechange the Beverages button & Fastfood button background colors, when cursor move out the Beverages button
         btnBeverages.setBackground(Color.GREEN);
-    //    btnFastfood.setBackground(new Color(0,102,0));
-      //  btnFastfood.setForeground(Color.WHITE);
+        btnFastfood.setBackground(new Color(0,102,0));
+        btnFastfood.setForeground(Color.WHITE);
     }//GEN-LAST:event_btnBeveragesMouseExited
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -941,7 +954,7 @@ public class Fastfoods extends javax.swing.JFrame {
 
     private void btnFastfoodMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastfoodMousePressed
         // Only in this page
-       // this.setVisible(true);
+        this.setVisible(true);
     }//GEN-LAST:event_btnFastfoodMousePressed
 
     private void btnFastfoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFastfoodActionPerformed
@@ -1012,7 +1025,7 @@ public class Fastfoods extends javax.swing.JFrame {
     //Display Order
     private  void Displayorder()
     {
-        String qry="SELECT * FROM SALESORDER";
+        String qry="SELECT * FROM salesorder";
       
         try
         {
@@ -1052,7 +1065,7 @@ public class Fastfoods extends javax.swing.JFrame {
          
         String cell = tblOrder.getModel().getValueAt(row, 0).toString();
          
-        String qry = "DELETE FROM SALESORDER WHERE ItemNo = " + cell;
+        String qry = "DELETE FROM salesorder WHERE ItemNo = " + cell;
           
         try
         {
@@ -1078,7 +1091,7 @@ public class Fastfoods extends javax.swing.JFrame {
     {
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String qry = " SELECT * From SALESORDER ";
+        String qry = " SELECT * From salesorder ";
 
         try 
         {
@@ -1118,7 +1131,7 @@ public class Fastfoods extends javax.swing.JFrame {
         try
         {
             conn = DriverManager.getConnection(connectionUrl, username, Pass);
-            String sql = "SELECT ItemNo,Product,QTY,Total FROM SALESORDER";
+            String sql = "SELECT ItemNo,Product,QTY,Total FROM salesorder";
             Statement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery(sql);
             
@@ -1154,7 +1167,7 @@ public class Fastfoods extends javax.swing.JFrame {
     {
         PreparedStatement pst = null;
         ResultSet rs = null;
-        String qry = "Select Sum(Total) as sumprice from SALESORDER";
+        String qry = "Select Sum(Total) as sumprice from salesorder";
        
         try
         {
@@ -1165,7 +1178,7 @@ public class Fastfoods extends javax.swing.JFrame {
             if(rs.next())
             {
                 String sum = rs.getString("sumprice");
-               lblTotalPrice.setText(sum);
+                lblPlateImage.setText(sum);
             }
         }
        catch (SQLException ex) 

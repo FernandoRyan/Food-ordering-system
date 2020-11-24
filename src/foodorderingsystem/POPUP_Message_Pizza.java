@@ -36,8 +36,8 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
     
     //Connection setup
     String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username = "nera";
-    String Pass = "neranji0321";
+    String username= "sa";
+    String Pass="anjalo9990";
     
     //Frame Creation
     public POPUP_Message_Pizza() {
@@ -221,16 +221,6 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
 
     private void btnAddToPlatePizzaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMouseEntered
         btnAddToPlatePizza.setBackground(Color.RED);
-        
-        if(qty == 0)
-        {
-           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
-        }
-        else 
-        {
-            CalculatePizzaPrice(); 
-            InsertOrderDetails();
-        }
     }//GEN-LAST:event_btnAddToPlatePizzaMouseEntered
 
     private void btnAddToPlatePizzaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMouseExited
@@ -246,7 +236,15 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlatePizzaMouseClicked
 
     private void btnAddToPlatePizzaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMousePressed
-        // TODO add your handling code here:
+        if(qty == 0)
+        {
+           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
+        }
+        else 
+        {
+            CalculatePizzaPrice(); 
+            InsertOrderDetails();
+        }
     }//GEN-LAST:event_btnAddToPlatePizzaMousePressed
 
     private void spQtyPizzaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtyPizzaStateChanged

@@ -36,8 +36,8 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
     
     //Connection setup
     String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username = "nera";
-    String Pass = "neranji0321";
+    String username= "sa";
+    String Pass="anjalo9990";
     
     //Frame Creation
     public POPUP_Message_Sandwitch() {
@@ -220,16 +220,6 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
 
     private void btnAddToPlateSandwitchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchMouseEntered
         btnAddToPlateSandwitch.setBackground(Color.RED);
-        
-        if(qty == 0)
-        {
-           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
-        }
-        else 
-        {
-            CalculateSandwitchPrice(); 
-            InsertOrderDetails();
-        }
     }//GEN-LAST:event_btnAddToPlateSandwitchMouseEntered
 
     private void btnAddToPlateSandwitchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchMouseExited
@@ -245,7 +235,15 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateSandwitchMouseClicked
 
     private void btnAddToPlateSandwitchMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchMousePressed
-        // TODO add your handling code here:
+        if(qty == 0)
+        {
+           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
+        }
+        else 
+        {
+            CalculateSandwitchPrice(); 
+            InsertOrderDetails();
+        }
     }//GEN-LAST:event_btnAddToPlateSandwitchMousePressed
 
     private void spQtySandwitchStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtySandwitchStateChanged

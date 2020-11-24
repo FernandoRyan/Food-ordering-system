@@ -29,15 +29,15 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
     
     //Declaration of Member Feilds    
     public final int CustID = 1000;
-    String Total = "0";
+    String Total = "00";
     int qty; 
     String ProductDescription = "Chicken Burger";
     Connection conn;
     
     //Connection setup
     String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username = "nera";
-    String Pass = "neranji0321";
+    String username= "sa";
+    String Pass="anjalo9990";
     
     //Frame Creation
     public POPUP_Message_Burger() {
@@ -251,20 +251,19 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
          //Add a message box to add to cart 
     }
      
-    private void InsertOrderDetails() 
+    public void  InsertOrderDetails()
     {
         String Insert;
         String Update;
-        BigDecimal TotalValue = new BigDecimal(Total);
-        
+        BigDecimal TotalValue=new BigDecimal(Total);
         try
         {    
-        //Opening database for connection
+            //Opening database for connection
             conn = DriverManager.getConnection(connectionUrl, username, Pass);
-            Statement st = conn.createStatement();
+            Statement st=conn.createStatement();
             
             String sql="SELECT * FROM SALESORDER WHERE Product ='" + ProductDescription +"'";
-            ResultSet rs = st.executeQuery(sql);
+            ResultSet rs=st.executeQuery(sql);
             
             if(rs.next())
             {
@@ -275,11 +274,11 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
                 pstmt.setString(3,ProductDescription);
                 pstmt.executeUpdate();
                 pstmt.close();
-                JOptionPane.showMessageDialog(null,"Sucessfully added to plate");
+                JOptionPane.showMessageDialog(null,"Sucessfully Added to plate");
             }
             else
-            { 
-                Insert = "INSERT INTO SalesOrder (CustID, Product, QTY, Total) VALUES (?, ?, ?, ?)";
+            {   
+                Insert="INSERT INTO SalesOrder (CustID,Product,QTY,Total) VALUES (?,?,?,?)";
                 PreparedStatement pstmt = conn.prepareStatement(Insert);
                 pstmt.setInt(1,CustID);
                 pstmt.setString(2, ProductDescription);
@@ -305,7 +304,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
             {
                 Logger.getLogger(POPUP_Message_Burger.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } 
+        }     
     }
      
     /**

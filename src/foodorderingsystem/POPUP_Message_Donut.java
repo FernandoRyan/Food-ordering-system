@@ -36,8 +36,8 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
     
     //Connection setup
     String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username = "nera";
-    String Pass = "neranji0321";
+    String username= "sa";
+    String Pass="anjalo9990";
     
     //Frame Creation
     public POPUP_Message_Donut() {
@@ -220,16 +220,6 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
 
     private void btnAddToPlateDonutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMouseEntered
         btnAddToPlateDonut.setBackground(Color.RED);
-        
-        if(qty == 0)
-            {
-                JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
-            }
-        else 
-            {
-                CalculateDonutprice();
-                InsertOrderDetails();   
-            }
     }//GEN-LAST:event_btnAddToPlateDonutMouseEntered
 
     private void btnAddToPlateDonutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMouseExited
@@ -245,7 +235,15 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateDonutMouseClicked
 
     private void btnAddToPlateDonutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMousePressed
-        // TODO add your handling code here:
+        if(qty == 0)
+            {
+                JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
+            }
+        else 
+            {
+                CalculateDonutprice();
+                InsertOrderDetails();   
+            }
     }//GEN-LAST:event_btnAddToPlateDonutMousePressed
 
     private void spQtyDonutStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtyDonutStateChanged
