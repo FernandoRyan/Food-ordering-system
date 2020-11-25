@@ -7,14 +7,13 @@ package foodorderingsystem;
 
 /**
  *
- * @author RYAN
+ * @author Neranji Sulakshika
  */
-public interface PopUpInterface {
-
-    //Declaration of Member Methods
-    void CalculateMealprice();
-
+public interface PopUpInterface_Fastfoods 
+{
+    void  CalculateFastfoodsPrice();
+    
     void InsertOrderDetails();
-
-    double MatchMenu();    
+    
+    double lblPrice();
 }

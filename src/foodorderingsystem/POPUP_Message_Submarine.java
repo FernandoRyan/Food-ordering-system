@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Neranji Sulakshika
  */
-public class POPUP_Message_Submarine extends javax.swing.JFrame {
+public class POPUP_Message_Submarine extends javax.swing.JFrame implements PopUpInterface_Fastfoods {
 
     /**
      * Creates new form NewJFrame
@@ -57,7 +57,7 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblSubmarine = new javax.swing.JLabel();
         lblSubmarineName = new javax.swing.JLabel();
-        lblSubmarinePrice = new javax.swing.JLabel();
+        lblPrice = new javax.swing.JLabel();
         lblLKR = new javax.swing.JLabel();
         lblQty = new javax.swing.JLabel();
         spSubmarineQty = new javax.swing.JSpinner();
@@ -88,12 +88,12 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
         lblSubmarineName.setBounds(120, 220, 150, 30);
         lblSubmarineName.getAccessibleContext().setAccessibleName("lblSubmarineName");
 
-        lblSubmarinePrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        lblSubmarinePrice.setForeground(new java.awt.Color(51, 51, 51));
-        lblSubmarinePrice.setText("200.00");
-        jPanel1.add(lblSubmarinePrice);
-        lblSubmarinePrice.setBounds(160, 260, 50, 20);
-        lblSubmarinePrice.getAccessibleContext().setAccessibleName("lblSubmarinePrice");
+        lblPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblPrice.setForeground(new java.awt.Color(51, 51, 51));
+        lblPrice.setText("200.00");
+        jPanel1.add(lblPrice);
+        lblPrice.setBounds(160, 260, 50, 20);
+        lblPrice.getAccessibleContext().setAccessibleName("lblPrice");
 
         lblLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblLKR.setForeground(new java.awt.Color(51, 51, 51));
@@ -232,22 +232,24 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
         }
         else 
         {
-            CalculateSubmarinePrice();  
+            CalculateFastfoodsPrice();  
             InsertOrderDetails();
         }
     }//GEN-LAST:event_btnAddToPlateSubmarineMousePressed
 
     private void spSubmarineQtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spSubmarineQtyStateChanged
-        CalculateSubmarinePrice();
+        CalculateFastfoodsPrice();
     }//GEN-LAST:event_spSubmarineQtyStateChanged
 
-    public double lblSubmarinePrice() 
+    @Override
+    public double lblPrice() 
     {
         return 200.00;
     }
 
     //Declaration of member methods 
-    private void CalculateSubmarinePrice() 
+    @Override
+    public void CalculateFastfoodsPrice() 
     {
         if(spSubmarineQty != null)
         {
@@ -259,7 +261,7 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
             }
             else
             {
-                Total = Double.toString( qty * lblSubmarinePrice());
+                Total = Double.toString( qty * lblPrice());
            
                 lblSubmarineTotalPrice.setText(Total);       
             }     
@@ -269,7 +271,8 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
          //Add a message box to add to cart 
     }    
     
-    private void InsertOrderDetails() 
+    @Override
+    public void InsertOrderDetails() 
     {
         String Insert;
         String Update;
@@ -367,10 +370,10 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame {
     private javax.swing.JButton btnCancel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblLKR;
+    private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblQty;
     private javax.swing.JLabel lblSubmarine;
     private javax.swing.JLabel lblSubmarineName;
-    private javax.swing.JLabel lblSubmarinePrice;
     private javax.swing.JLabel lblSubmarineTotalPrice;
     private javax.swing.JLabel lblTOTAL;
     private javax.swing.JLabel lblTotalLKR;

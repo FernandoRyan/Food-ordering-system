@@ -21,15 +21,15 @@ import javax.swing.JOptionPane;
  *
  * @author Neranji Sulakshika
  */
-public class POPUP_Message_Burger extends javax.swing.JFrame {
+public class POPUP_Message_Burger extends javax.swing.JFrame implements PopUpInterface_Fastfoods {
 
     /**
      * Creates new form BurgerPOPUPMessage
      */
     
     //Declaration of Member Feilds    
-    public final int CustID = 1000;
-    String Total = "00";
+    public final int CustID=1000;
+    String Total ="00";
     int qty; 
     String ProductDescription = "Chicken Burger";
     Connection conn;
@@ -207,7 +207,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateBurgerMouseClicked
 
     private void spBurgerQtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spBurgerQtyStateChanged
-        CalculateBurgerPrice();
+        CalculateFastfoodsPrice();
     }//GEN-LAST:event_spBurgerQtyStateChanged
 
     private void btnAddToPlateBurgerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMousePressed
@@ -218,18 +218,20 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
         }
         else 
         {
-            CalculateBurgerPrice();  
+            CalculateFastfoodsPrice();  
             InsertOrderDetails();
         }
     }//GEN-LAST:event_btnAddToPlateBurgerMousePressed
 
-    public double lblBurgerPrice() 
+    @Override
+    public double lblPrice() 
     {
         return 200.00;                
     }
     
-    //Declaration of Member Methods     
-     public void  CalculateBurgerPrice()
+    //Declaration of Member Methods  
+    @Override
+     public void  CalculateFastfoodsPrice()
      {
         if(spBurgerQty != null)
         {
@@ -241,7 +243,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
             }
             else 
             {        
-                Total = Double.toString( qty * lblBurgerPrice());
+                Total = Double.toString( qty * lblPrice());
            
                 lblTotalPrice.setText(Total);             
             }            
@@ -250,8 +252,9 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
               lblTotalPrice.setText(Total);
          //Add a message box to add to cart 
     }
-     
-    public void  InsertOrderDetails()
+    
+    @Override
+    public void InsertOrderDetails()
     {
         String Insert;
         String Update;
@@ -357,5 +360,4 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
     private javax.swing.JLabel lblTotalPrice;
     private javax.swing.JSpinner spBurgerQty;
     // End of variables declaration//GEN-END:variables
-
 }
