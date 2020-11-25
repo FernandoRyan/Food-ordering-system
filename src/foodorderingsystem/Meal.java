@@ -26,17 +26,17 @@ import net.proteanit.sql.DbUtils;
  */
 
 
-public class  Meal extends javax.swing.JFrame implements Maininterface {
+public class  Meal extends javax.swing.JFrame implements MealsInterface {
 
     //Creating feilds
     private double Total; 
     private int count;
     
     //Connection settings to database
-    Connection conn;
-    String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username= "sa";
-    String Pass="anjalo9990";
+    private Connection conn;
+    private String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+    private String username= "sa";
+    private String Pass="anjalo9990";
     
     /**
      * Creates new form Meal

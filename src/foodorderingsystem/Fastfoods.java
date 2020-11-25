@@ -24,7 +24,7 @@ import net.proteanit.sql.DbUtils;
  *
  * @author Neranji Sulakshika
  */
-public class Fastfoods extends javax.swing.JFrame {
+public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
 
     //Creating feilds
     public double Total=0.0;
@@ -1009,7 +1009,7 @@ public class Fastfoods extends javax.swing.JFrame {
                                     //Member Methods.... 
     
     //Display Order
-    private  void Displayorder()
+    public  void Displayorder()
     {
         String qry="SELECT * FROM salesorder";
       
@@ -1044,7 +1044,7 @@ public class Fastfoods extends javax.swing.JFrame {
    
     
    //Delete Order
-    private void Deleteorder()
+    public void Deleteorder()
     {    
         DefaultTableModel model = (DefaultTableModel)tblOrder.getModel();
           
@@ -1074,7 +1074,7 @@ public class Fastfoods extends javax.swing.JFrame {
   
    
     //Checking table
-    private void  CheckTable() 
+    public void  CheckTable() 
     {
         
         PreparedStatement stmt = null;
@@ -1114,12 +1114,9 @@ public class Fastfoods extends javax.swing.JFrame {
         
     }
         
-        
-    
-    
     
     //Format table  
-    private void FormatTable() 
+    public void FormatTable() 
     {
         tblOrder.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
         tblOrder.getTableHeader().setOpaque(true);
@@ -1130,7 +1127,7 @@ public class Fastfoods extends javax.swing.JFrame {
 
     
     //Get Total
-    private void GetTotal() 
+    public void GetTotal() 
     {
         PreparedStatement pst = null;
         ResultSet rs = null;

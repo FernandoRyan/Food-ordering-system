@@ -9,7 +9,7 @@ package foodorderingsystem;
  *
  * @author RYAN
  */
-public interface Maininterface {
+public interface MealsInterface {
 
     void CheckTable();
 
@@ -20,5 +20,7 @@ public interface Maininterface {
 
     //FOrmating table
     void FormatTable();
+    
+    void GetTotal();
     
 }
