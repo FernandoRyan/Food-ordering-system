@@ -200,7 +200,7 @@ public class  Meal extends javax.swing.JFrame implements Maininterface {
             .addGroup(SidepanelLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(Logobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 59, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         SidepanelLayout.setVerticalGroup(
             SidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,6 +247,11 @@ public class  Meal extends javax.swing.JFrame implements Maininterface {
         Friedricebtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 friedrice(evt);
+            }
+        });
+        Friedricebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FriedricebtnActionPerformed(evt);
             }
         });
 
@@ -678,6 +683,10 @@ public class  Meal extends javax.swing.JFrame implements Maininterface {
     private void Checkout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Checkout1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Checkout1ActionPerformed
+
+    private void FriedricebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FriedricebtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FriedricebtnActionPerformed
     
    
     //Member Methods 
