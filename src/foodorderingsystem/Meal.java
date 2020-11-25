@@ -658,7 +658,9 @@ public class  Meal extends javax.swing.JFrame implements Maininterface {
     }//GEN-LAST:event_Checkout1MouseExited
 
     private void Checkout1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Checkout1MousePressed
-        // TODO add your handling code here:
+       Order_Details OD= new  Order_Details();
+       OD.show();
+       this.hide();
     }//GEN-LAST:event_Checkout1MousePressed
     
    

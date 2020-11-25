@@ -27,7 +27,7 @@ import net.proteanit.sql.DbUtils;
 public class Fastfoods extends javax.swing.JFrame {
 
     //Creating feilds
-    public double Total; 
+    public double Total=0.0;
     int count;
     
     //Connection settings to database
@@ -37,14 +37,14 @@ public class Fastfoods extends javax.swing.JFrame {
     String Pass="anjalo9990";
     
     /**
-     * Creates new form Fastfoods
+     * Creates new form Fast foods
      */
     public Fastfoods() {
         initComponents();
-        Displayorder() ;
-        FormatTable();
-        CheckTable();
-        GetTotal();
+       Displayorder() ;
+       FormatTable();
+       CheckTable();
+       GetTotal();
     }
     
 
@@ -182,11 +182,6 @@ public class Fastfoods extends javax.swing.JFrame {
         btnPizza.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnPizzaMouseClicked(evt);
-            }
-        });
-        btnPizza.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPizzaActionPerformed(evt);
             }
         });
 
@@ -477,11 +472,6 @@ public class Fastfoods extends javax.swing.JFrame {
                 btnMealMousePressed(evt);
             }
         });
-        btnMeal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMealActionPerformed(evt);
-            }
-        });
 
         btnFastfood.setBackground(new java.awt.Color(0, 102, 0));
         btnFastfood.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
@@ -638,15 +628,7 @@ public class Fastfoods extends javax.swing.JFrame {
             new String [] {
                 "Item No", "Product Description", "QTY", "Total"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         tblOrder.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         tblOrder.setFillsViewportHeight(true);
         tblOrder.setGridColor(new java.awt.Color(255, 255, 255));
@@ -658,6 +640,10 @@ public class Fastfoods extends javax.swing.JFrame {
         tblOrder.setSurrendersFocusOnKeystroke(true);
         tblOrder.setUpdateSelectionOnSort(false);
         jScrollPane1.setViewportView(tblOrder);
+        if (tblOrder.getColumnModel().getColumnCount() > 0) {
+            tblOrder.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tblOrder.getColumnModel().getColumn(1).setPreferredWidth(200);
+        }
         tblOrder.getAccessibleContext().setAccessibleName("tblOrder");
 
         btnRefresh.setBackground(new java.awt.Color(0, 204, 0));
@@ -788,7 +774,7 @@ public class Fastfoods extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFastfood, javax.swing.GroupLayout.PREFERRED_SIZE, 1338, Short.MAX_VALUE)
+            .addComponent(pnlFastfood, javax.swing.GroupLayout.DEFAULT_SIZE, 1338, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1050,9 +1036,10 @@ public class Fastfoods extends javax.swing.JFrame {
         }
         finally
         {
-            CheckTable();
-            FormatTable();
+           CheckTable();
+           // FormatTable();
         }
+       
     } 
    
     
@@ -1089,6 +1076,7 @@ public class Fastfoods extends javax.swing.JFrame {
     //Checking table
     private void  CheckTable() 
     {
+        
         PreparedStatement stmt = null;
         ResultSet rs = null;
         String qry = " SELECT * From salesorder ";
@@ -1117,38 +1105,17 @@ public class Fastfoods extends javax.swing.JFrame {
                 btnTrash.setVisible(true);
                 lblPlateImage.hide();
             }
+        
         } 
         catch (SQLException ex) 
         {
             ex.printStackTrace();
         } 
+        
     }
         
-     /*   
-    //Update Table  
-    private void UpdateTable() 
-    {
-        try
-        {
-            conn = DriverManager.getConnection(connectionUrl, username, Pass);
-            String sql = "SELECT ItemNo,Product,QTY,Total FROM salesorder";
-            Statement st = conn.prepareStatement(sql);
-            ResultSet rs = st.executeQuery(sql);
-            
-            if(rs != null)
-            {
-                tblOrder.setModel(DbUtils.resultSetToTableModel(rs));
-            } 
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null,"Somethings wrong");
-        }
-        finally
-        {
-            CheckTable();
-        }
-    }*/
+        
+    
     
     
     //Format table  
@@ -1193,8 +1160,10 @@ public class Fastfoods extends javax.swing.JFrame {
      */ 
     public static void main(String args[]) {
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new Fastfoods().setVisible(true);
+       java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Fastfoods().setVisible(true);
+            }
         });
     }
 
