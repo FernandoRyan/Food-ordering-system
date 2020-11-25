@@ -184,11 +184,6 @@ public class Fastfoods extends javax.swing.JFrame implements Maininterface {
                 btnPizzaMouseClicked(evt);
             }
         });
-        btnPizza.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPizzaActionPerformed(evt);
-            }
-        });
 
         btnSandwitch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SANDWITCH.jpg"))); // NOI18N
         btnSandwitch.setText("jButton5");
@@ -477,11 +472,6 @@ public class Fastfoods extends javax.swing.JFrame implements Maininterface {
                 btnMealMousePressed(evt);
             }
         });
-        btnMeal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMealActionPerformed(evt);
-            }
-        });
 
         btnFastfood.setBackground(new java.awt.Color(0, 102, 0));
         btnFastfood.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
@@ -638,15 +628,7 @@ public class Fastfoods extends javax.swing.JFrame implements Maininterface {
             new String [] {
                 "Item No", "Product Description", "QTY", "Total"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         tblOrder.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         tblOrder.setFillsViewportHeight(true);
         tblOrder.setGridColor(new java.awt.Color(255, 255, 255));
@@ -1039,7 +1021,7 @@ public class Fastfoods extends javax.swing.JFrame implements Maininterface {
             while(rs.next())
             {
                 String item   =String.valueOf(rs.getInt("ItemNo"));
-                String Des   = rs.getString("Product");
+                String Des   = rs.getString("Product"); 
                 String qty   = String.valueOf(rs.getInt("QTY"));
                 String price =String.valueOf(rs.getInt("Total"));
                 String tbdata[]={item,Des,qty,price};
@@ -1049,7 +1031,7 @@ public class Fastfoods extends javax.swing.JFrame implements Maininterface {
         }
         catch(SQLException e)
         {
-            JOptionPane.showMessageDialog(null,"Something went wrong\n");
+            e.printStackTrace();
         }
         finally
         {
