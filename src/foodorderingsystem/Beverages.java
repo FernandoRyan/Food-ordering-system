@@ -37,8 +37,8 @@ public class Beverages extends javax.swing.JFrame {
      //CONNECTION SETTINGS TO DATABASE
      Connection conn;
      String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-     String username= "Samadhi";
-     String Pass="123456";
+     String username= "Sa";
+     String Pass="anjalo9990";
 
     /**
      * Creates new form NewJFrame
