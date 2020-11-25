@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Neranji Sulakshika
  */
-public class POPUP_Message_Donut extends javax.swing.JFrame {
+public class POPUP_Message_Donut extends javax.swing.JFrame implements PopUpInterface_Fastfoods {
 
     /**
      * Creates new form DonutPOPUPMessage
@@ -36,8 +36,8 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
     
     //Connection setup
     String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username = "nera";
-    String Pass = "neranji0321";
+    String username= "sa";
+    String Pass="anjalo9990";
     
     //Frame Creation
     public POPUP_Message_Donut() {
@@ -57,7 +57,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblDonut = new javax.swing.JLabel();
         lblDonutName = new javax.swing.JLabel();
-        lblDonutPrice = new javax.swing.JLabel();
+        lblPrice = new javax.swing.JLabel();
         lblLKR = new javax.swing.JLabel();
         lblQTY = new javax.swing.JLabel();
         spQtyDonut = new javax.swing.JSpinner();
@@ -88,12 +88,12 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
         lblDonutName.setBounds(140, 220, 150, 30);
         lblDonutName.getAccessibleContext().setAccessibleName("lblDonutName");
 
-        lblDonutPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        lblDonutPrice.setForeground(new java.awt.Color(51, 51, 51));
-        lblDonutPrice.setText("60.00");
-        jPanel1.add(lblDonutPrice);
-        lblDonutPrice.setBounds(180, 260, 50, 20);
-        lblDonutPrice.getAccessibleContext().setAccessibleName("lblDonutPrice");
+        lblPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblPrice.setForeground(new java.awt.Color(51, 51, 51));
+        lblPrice.setText("60.00");
+        jPanel1.add(lblPrice);
+        lblPrice.setBounds(180, 260, 50, 20);
+        lblPrice.getAccessibleContext().setAccessibleName("lblPrice");
 
         lblLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblLKR.setForeground(new java.awt.Color(51, 51, 51));
@@ -220,16 +220,6 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
 
     private void btnAddToPlateDonutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMouseEntered
         btnAddToPlateDonut.setBackground(Color.RED);
-        
-        if(qty == 0)
-            {
-                JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
-            }
-        else 
-            {
-                CalculateDonutprice();
-                InsertOrderDetails();   
-            }
     }//GEN-LAST:event_btnAddToPlateDonutMouseEntered
 
     private void btnAddToPlateDonutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMouseExited
@@ -245,20 +235,30 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateDonutMouseClicked
 
     private void btnAddToPlateDonutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMousePressed
-        // TODO add your handling code here:
+        if(qty == 0)
+            {
+                JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
+            }
+        else 
+            {
+                CalculateFastfoodsPrice();
+                InsertOrderDetails();   
+            }
     }//GEN-LAST:event_btnAddToPlateDonutMousePressed
 
     private void spQtyDonutStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtyDonutStateChanged
-        CalculateDonutprice();
+        CalculateFastfoodsPrice();
     }//GEN-LAST:event_spQtyDonutStateChanged
     
-    public double lblDonutPrice() 
+    @Override
+    public double lblPrice() 
     {
         return 60.00; 
     }
     
     //Declaration of member methods 
-     public void  CalculateDonutprice()
+    @Override
+     public void  CalculateFastfoodsPrice()
     {
         if(spQtyDonut != null)
         { 
@@ -270,7 +270,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
             }
            else{
                
-               Total = Double.toString( qty * lblDonutPrice());
+               Total = Double.toString( qty * lblPrice());
            
                lblDonutTotalPrice.setText(Total);
             }            
@@ -280,7 +280,8 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
         //Add a message box to add to cart 
     }
      
-    private void InsertOrderDetails() 
+    @Override
+    public void InsertOrderDetails() 
     {
         String Insert;
         String Update;
@@ -379,13 +380,12 @@ public class POPUP_Message_Donut extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblDonut;
     private javax.swing.JLabel lblDonutName;
-    private javax.swing.JLabel lblDonutPrice;
     private javax.swing.JLabel lblDonutTotalPrice;
     private javax.swing.JLabel lblLKR;
+    private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblQTY;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JLabel lblTotalLKR;
     private javax.swing.JSpinner spQtyDonut;
     // End of variables declaration//GEN-END:variables
-
 }

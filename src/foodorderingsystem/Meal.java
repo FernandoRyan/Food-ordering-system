@@ -26,11 +26,11 @@ import net.proteanit.sql.DbUtils;
  */
 
 
-public class  Meal extends javax.swing.JFrame {
+public class  Meal extends javax.swing.JFrame implements Maininterface {
 
     //Creating feilds
-    public double Total; 
-    int count;
+    private double Total; 
+    private int count;
     
     //Connection settings to database
     Connection conn;
@@ -79,7 +79,7 @@ public class  Meal extends javax.swing.JFrame {
         Ordertable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Deletebtn = new javax.swing.JButton();
         plateimg = new javax.swing.JLabel();
         Checkout1 = new javax.swing.JButton();
         Platebtn = new javax.swing.JButton();
@@ -121,23 +121,15 @@ public class  Meal extends javax.swing.JFrame {
             }
         });
 
-        Mealbtn.setBackground(new java.awt.Color(0, 204, 0));
+        Mealbtn.setBackground(new java.awt.Color(0, 102, 0));
         Mealbtn.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
         Mealbtn.setForeground(new java.awt.Color(255, 255, 255));
         Mealbtn.setText("MEAL");
         Mealbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Mealbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Mealbtn.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                MealbtnMouseMoved(evt);
-            }
-        });
         Mealbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 MealbtnMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                MealbtnMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 MealbtnMousePressed(evt);
@@ -208,7 +200,7 @@ public class  Meal extends javax.swing.JFrame {
             .addGroup(SidepanelLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(Logobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 59, Short.MAX_VALUE))
         );
         SidepanelLayout.setVerticalGroup(
             SidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,7 +296,7 @@ public class  Meal extends javax.swing.JFrame {
                 .addGroup(MenupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenupanelLayout.createSequentialGroup()
                         .addComponent(Friedricebtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                         .addComponent(Ricecurrybtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23))
                     .addGroup(MenupanelLayout.createSequentialGroup()
@@ -429,11 +421,11 @@ public class  Meal extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel3.setText("00.00");
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/trash.png"))); // NOI18N
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Deletebtn.setBackground(new java.awt.Color(255, 255, 255));
+        Deletebtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/trash.png"))); // NOI18N
+        Deletebtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton1MousePressed(evt);
+                DeletebtnMousePressed(evt);
             }
         });
 
@@ -468,7 +460,7 @@ public class  Meal extends javax.swing.JFrame {
         Platebtn.setFont(new java.awt.Font("Algerian", 1, 24));
         Platebtn.setForeground(new java.awt.Color(255, 255, 255));
         Platebtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_down_48px_5.png"))); // NOI18N
-        Platebtn.setText("Refresh ");
+        Platebtn.setText("View Plate");
         Platebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Platebtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Platebtn.setIconTextGap(1);
@@ -508,19 +500,19 @@ public class  Meal extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(78, Short.MAX_VALUE)
+                .addContainerGap(74, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(plateimg, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(Platebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(116, 116, 116))))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(137, Short.MAX_VALUE)
+                    .addContainerGap(127, Short.MAX_VALUE)
                     .addComponent(Checkout1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(71, 71, 71)))
         );
@@ -534,7 +526,7 @@ public class  Meal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(plateimg, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(Deletebtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -547,7 +539,7 @@ public class  Meal extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, 420, 700));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, 410, 700));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 730));
 
@@ -564,12 +556,12 @@ public class  Meal extends javax.swing.JFrame {
     }//GEN-LAST:event_friedrice
 
     private void Ricecurrybtn(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ricecurrybtn
-       POPUP_Message_Rice_and_Curry Rc= new POPUP_Message_Rice_and_Curry();
-       Rc.setVisible(true);
+      POPUP_Message_Rice_and_Curry Rc= new POPUP_Message_Rice_and_Curry();
+      Rc.setVisible(true);
       DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
       model.setRowCount(0);
       Displayorder();
-       GetTotal();
+      GetTotal();
     }//GEN-LAST:event_Ricecurrybtn
 
     private void Kottubtn(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Kottubtn
@@ -580,10 +572,6 @@ public class  Meal extends javax.swing.JFrame {
       Displayorder();
        GetTotal();
     }//GEN-LAST:event_Kottubtn
-
-    private void MealbtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MealbtnMouseMoved
-      Mealbtn.setBackground(new Color(0,102,0));
-    }//GEN-LAST:event_MealbtnMouseMoved
 
     private void FFbtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FFbtnMouseMoved
         FFbtn.setBackground(new Color(0,102,0));
@@ -600,10 +588,6 @@ public class  Meal extends javax.swing.JFrame {
     private void MealbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MealbtnMouseReleased
        Mealbtn.setBackground(new Color(0,204,0));
     }//GEN-LAST:event_MealbtnMouseReleased
-
-    private void MealbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MealbtnMouseExited
-          Mealbtn.setBackground(new Color(0,204,0));
-    }//GEN-LAST:event_MealbtnMouseExited
 
     private void FFbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FFbtnMouseExited
           FFbtn.setBackground(new Color(0,204,0));
@@ -652,9 +636,13 @@ public class  Meal extends javax.swing.JFrame {
          GetTotal();
     }//GEN-LAST:event_jPanel2MouseWheelMoved
 
-    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+    private void DeletebtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeletebtnMousePressed
        Deleteorder();
-    }//GEN-LAST:event_jButton1MousePressed
+       DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+      model.setRowCount(0);
+      Displayorder();
+       GetTotal();
+    }//GEN-LAST:event_DeletebtnMousePressed
 
     private void PlatebtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlatebtnMousePressed
        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
@@ -694,7 +682,8 @@ public class  Meal extends javax.swing.JFrame {
    
     //Member Methods 
      
-   private  void Displayorder(){
+    @Override
+   public  void Displayorder(){
       String qry="SELECT * FROM SALESORDER";
       
       try{
@@ -711,7 +700,7 @@ public class  Meal extends javax.swing.JFrame {
       DefaultTableModel model=(DefaultTableModel)Ordertable.getModel();
       model.addRow(new Object[]{item,Des, qty, price});
       }
-      
+     
    }catch(SQLException e){
        JOptionPane.showMessageDialog(null,"Something went wrong\n");
    }
@@ -722,7 +711,8 @@ public class  Meal extends javax.swing.JFrame {
    } 
    
    
-    private void Deleteorder(){
+    @Override
+    public void Deleteorder(){
     
      DefaultTableModel model=(DefaultTableModel)Ordertable.getModel();
           
@@ -751,7 +741,8 @@ public class  Meal extends javax.swing.JFrame {
     
   
    
-  private void  CheckTable() {
+    @Override
+  public void  CheckTable() {
 
        PreparedStatement stmt = null;
        ResultSet rs = null;
@@ -761,20 +752,21 @@ public class  Meal extends javax.swing.JFrame {
             conn = DriverManager.getConnection(connectionUrl, username, Pass);
             stmt = (PreparedStatement) conn.prepareStatement(qry);
             rs =  stmt.executeQuery();
-            count = 0;
+            setCount(0);
             while(rs.next()){
-               count++;
+                setCount(getCount() + 1);
             }
-            if(count == 0){ 
+            if(getCount() == 0){ 
                 jScrollPane2.hide();
                 Ordertable.setVisible(false);
-                jButton1.setVisible(false);
+                Deletebtn.setVisible(false);
                 plateimg.show();
+                
             }
             else{
                  jScrollPane2.show();
                  Ordertable.setVisible(true);
-                jButton1.setVisible(true);
+                Deletebtn.setVisible(true);
                  plateimg.hide();
             }
        } catch (SQLException ex) {
@@ -782,30 +774,11 @@ public class  Meal extends javax.swing.JFrame {
         }
  }
    
-  //Updating Table
-  /*
-  public void UpdateTable() {
-       try{
-       conn = DriverManager.getConnection(connectionUrl, username, Pass);
-       String sql="SELECT ItemNo,Product,QTY,Total FROM SALESORDER";
-       Statement st=conn.prepareStatement(sql);
-       ResultSet rs=st.executeQuery(sql);
-     if(rs!=null){
-       Ordertable.setModel(DbUtils.resultSetToTableModel(rs));
-       } 
-    }
-       catch(SQLException e){
-        JOptionPane.showMessageDialog(null,"Somethings wrong");
-       }
-       finally{
-        CheckTable();
-   }
-   }
-  
-  */
+ 
    
    //FOrmating table
-   private void FormatTable(){
+    @Override
+ public void FormatTable(){
        
        Ordertable.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
        Ordertable.getTableHeader().setOpaque(true);
@@ -815,7 +788,7 @@ public class  Meal extends javax.swing.JFrame {
     
    }
    
-   private void GetTotal(){
+  public void GetTotal(){
        
        PreparedStatement pst = null;
        ResultSet rs = null;
@@ -852,6 +825,7 @@ public class  Meal extends javax.swing.JFrame {
     private javax.swing.JButton APBTN;
     private javax.swing.JButton BVGBtn;
     private javax.swing.JButton Checkout1;
+    private javax.swing.JButton Deletebtn;
     private javax.swing.JButton FFbtn;
     private javax.swing.JButton Friedricebtn;
     private javax.swing.JButton Kottubtn;
@@ -871,7 +845,6 @@ public class  Meal extends javax.swing.JFrame {
     private javax.swing.JLabel btnLKR1;
     private javax.swing.JLabel btnLKR2;
     private javax.swing.JLabel firedricelbl;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
@@ -880,4 +853,32 @@ public class  Meal extends javax.swing.JFrame {
     private javax.swing.JLabel lblFASTFOOD;
     private javax.swing.JLabel plateimg;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the Total
+     */
+    public double getTotal() {
+        return Total;
+    }
+
+    /**
+     * @param Total the Total to set
+     */
+    public void setTotal(double Total) {
+        this.Total = Total;
+    }
+
+    /**
+     * @return the count
+     */
+    public int getCount() {
+        return count;
+    }
+
+    /**
+     * @param count the count to set
+     */
+    public void setCount(int count) {
+        this.count = count;
+    }
 }

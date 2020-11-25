@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Neranji Sulakshika
  */
-public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
+public class POPUP_Message_Sandwitch extends javax.swing.JFrame implements PopUpInterface_Fastfoods {
 
     /**
      * Creates new form SandwitchPOPUPMessage
@@ -36,8 +36,8 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
     
     //Connection setup
     String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username = "nera";
-    String Pass = "neranji0321";
+    String username= "sa";
+    String Pass="anjalo9990";
     
     //Frame Creation
     public POPUP_Message_Sandwitch() {
@@ -57,7 +57,7 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblSandwitch = new javax.swing.JLabel();
         lblSandwitchName = new javax.swing.JLabel();
-        lblSandwitchPrice = new javax.swing.JLabel();
+        lblPrice = new javax.swing.JLabel();
         lblLKR = new javax.swing.JLabel();
         lblQTY = new javax.swing.JLabel();
         spQtySandwitch = new javax.swing.JSpinner();
@@ -88,12 +88,12 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
         lblSandwitchName.setBounds(120, 220, 150, 30);
         lblSandwitchName.getAccessibleContext().setAccessibleName("lblSandwitchName");
 
-        lblSandwitchPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        lblSandwitchPrice.setForeground(new java.awt.Color(51, 51, 51));
-        lblSandwitchPrice.setText("100.00");
-        jPanel1.add(lblSandwitchPrice);
-        lblSandwitchPrice.setBounds(160, 260, 50, 20);
-        lblSandwitchPrice.getAccessibleContext().setAccessibleName("lblSandwitchPrice");
+        lblPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblPrice.setForeground(new java.awt.Color(51, 51, 51));
+        lblPrice.setText("100.00");
+        jPanel1.add(lblPrice);
+        lblPrice.setBounds(160, 260, 50, 20);
+        lblPrice.getAccessibleContext().setAccessibleName("lblPrice");
 
         lblLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblLKR.setForeground(new java.awt.Color(51, 51, 51));
@@ -220,16 +220,6 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
 
     private void btnAddToPlateSandwitchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchMouseEntered
         btnAddToPlateSandwitch.setBackground(Color.RED);
-        
-        if(qty == 0)
-        {
-           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
-        }
-        else 
-        {
-            CalculateSandwitchPrice(); 
-            InsertOrderDetails();
-        }
     }//GEN-LAST:event_btnAddToPlateSandwitchMouseEntered
 
     private void btnAddToPlateSandwitchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchMouseExited
@@ -245,20 +235,30 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateSandwitchMouseClicked
 
     private void btnAddToPlateSandwitchMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchMousePressed
-        // TODO add your handling code here:
+        if(qty == 0)
+        {
+           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
+        }
+        else 
+        {
+            CalculateFastfoodsPrice(); 
+            InsertOrderDetails();
+        }
     }//GEN-LAST:event_btnAddToPlateSandwitchMousePressed
 
     private void spQtySandwitchStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtySandwitchStateChanged
-        CalculateSandwitchPrice();
+        CalculateFastfoodsPrice();
     }//GEN-LAST:event_spQtySandwitchStateChanged
-        
-    public double lblSandwitchPrice() 
+     
+    @Override
+    public double lblPrice() 
     {
         return 100.00;      
     }
     
     //Declaration of member methods 
-    private void CalculateSandwitchPrice() 
+    @Override
+    public void CalculateFastfoodsPrice() 
     {
         if(spQtySandwitch != null)
         {
@@ -269,7 +269,7 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff..");                   
             }
             else{
-                Total = Double.toString( qty * lblSandwitchPrice());
+                Total = Double.toString( qty * lblPrice());
            
                 lblTotalPrice.setText(Total);  
             }              
@@ -279,7 +279,8 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
          //Add a message box to add to cart 
     }
 
-    private void InsertOrderDetails() 
+    @Override
+    public void InsertOrderDetails() 
     {
         String Insert;
         String Update;
@@ -375,10 +376,10 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame {
     private javax.swing.JButton btnCancel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblLKR;
+    private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblQTY;
     private javax.swing.JLabel lblSandwitch;
     private javax.swing.JLabel lblSandwitchName;
-    private javax.swing.JLabel lblSandwitchPrice;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JLabel lblTotalLKR;
     private javax.swing.JLabel lblTotalPrice;

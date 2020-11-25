@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Neranji Sulakshika
  */
-public class POPUP_Message_HotDog extends javax.swing.JFrame {
+public class POPUP_Message_HotDog extends javax.swing.JFrame implements PopUpInterface_Fastfoods  {
 
     /**
      * Creates new form HotDogPOPUPMessage
@@ -36,8 +36,8 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
     
     //Connection setup
     String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username = "nera";
-    String Pass = "neranji0321";
+    String username= "sa";
+    String Pass="anjalo9990";
     
     //Frame Creation
     public POPUP_Message_HotDog() {
@@ -57,7 +57,7 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblHotDog = new javax.swing.JLabel();
         lblHotDogName = new javax.swing.JLabel();
-        lblHotDogPrice = new javax.swing.JLabel();
+        lblPrice = new javax.swing.JLabel();
         lblLKR = new javax.swing.JLabel();
         lblQTY = new javax.swing.JLabel();
         spQtyHotDog = new javax.swing.JSpinner();
@@ -88,12 +88,12 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
         lblHotDogName.setBounds(130, 220, 140, 30);
         lblHotDogName.getAccessibleContext().setAccessibleName("lblHotDogName");
 
-        lblHotDogPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        lblHotDogPrice.setForeground(new java.awt.Color(51, 51, 51));
-        lblHotDogPrice.setText("150.00");
-        jPanel1.add(lblHotDogPrice);
-        lblHotDogPrice.setBounds(170, 260, 50, 20);
-        lblHotDogPrice.getAccessibleContext().setAccessibleName("lblHotDogPrice");
+        lblPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblPrice.setForeground(new java.awt.Color(51, 51, 51));
+        lblPrice.setText("150.00");
+        jPanel1.add(lblPrice);
+        lblPrice.setBounds(170, 260, 50, 20);
+        lblPrice.getAccessibleContext().setAccessibleName("lblPrice");
 
         lblLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblLKR.setForeground(new java.awt.Color(51, 51, 51));
@@ -220,16 +220,6 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
 
     private void btnAddToPlateHotDogMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateHotDogMouseEntered
         btnAddToPlateHotDog.setBackground(Color.RED);
-        
-        if(qty == 0)
-            {
-                JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
-            }
-        else 
-            {
-                CalculateHotDogprice();
-                InsertOrderDetails();
-            }
     }//GEN-LAST:event_btnAddToPlateHotDogMouseEntered
 
     private void btnAddToPlateHotDogMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateHotDogMouseExited
@@ -245,20 +235,30 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateHotDogMouseClicked
 
     private void btnAddToPlateHotDogMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateHotDogMousePressed
-        // TODO add your handling code here:
+        if(qty == 0)
+            {
+                JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
+            }
+        else 
+            {
+                CalculateFastfoodsPrice();
+                InsertOrderDetails();
+            }
     }//GEN-LAST:event_btnAddToPlateHotDogMousePressed
 
     private void spQtyHotDogStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtyHotDogStateChanged
-        CalculateHotDogprice();
+        CalculateFastfoodsPrice();
     }//GEN-LAST:event_spQtyHotDogStateChanged
     
-    public double lblHotDogPrice() 
+    @Override
+    public double lblPrice() 
     {
         return 150.00; 
     }
     
     //Declaration of member methods 
-    private void CalculateHotDogprice() 
+    @Override
+    public void CalculateFastfoodsPrice() 
     {
         if(spQtyHotDog != null)
         { 
@@ -269,7 +269,7 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff..");                     
             }
            else{
-               Total = Double.toString( qty * lblHotDogPrice());
+               Total = Double.toString( qty * lblPrice());
            
                lblHotDogTotalPrice.setText(Total);
            }            
@@ -279,7 +279,8 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
         //Add a message box to add to cart 
     }    
     
-    private void InsertOrderDetails() 
+    @Override
+    public void InsertOrderDetails() 
     {
         String Insert;
         String Update;
@@ -376,9 +377,9 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblHotDog;
     private javax.swing.JLabel lblHotDogName;
-    private javax.swing.JLabel lblHotDogPrice;
     private javax.swing.JLabel lblHotDogTotalPrice;
     private javax.swing.JLabel lblLKR;
+    private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblQTY;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JLabel lblTotalLKR;
