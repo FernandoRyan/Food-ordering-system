@@ -450,6 +450,11 @@ public class  Meal extends javax.swing.JFrame implements Maininterface {
                 Checkout1MousePressed(evt);
             }
         });
+        Checkout1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Checkout1ActionPerformed(evt);
+            }
+        });
 
         Platebtn.setBackground(new java.awt.Color(0, 153, 0));
         Platebtn.setFont(new java.awt.Font("Algerian", 1, 24));
@@ -470,6 +475,11 @@ public class  Meal extends javax.swing.JFrame implements Maininterface {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 PlatebtnMousePressed(evt);
+            }
+        });
+        Platebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PlatebtnActionPerformed(evt);
             }
         });
 
@@ -662,6 +672,14 @@ public class  Meal extends javax.swing.JFrame implements Maininterface {
         od.setVisible(true);
         this.hide();
     }//GEN-LAST:event_Checkout1MousePressed
+
+    private void PlatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlatebtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PlatebtnActionPerformed
+
+    private void Checkout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Checkout1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Checkout1ActionPerformed
     
    
     //Member Methods 
