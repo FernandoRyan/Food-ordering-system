@@ -24,11 +24,11 @@ import net.proteanit.sql.DbUtils;
  *
  * @author Neranji Sulakshika
  */
-public class Fastfoods extends javax.swing.JFrame {
+public class Fastfoods extends javax.swing.JFrame implements Maininterface {
 
     //Creating feilds
-    public double Total; 
-    int count;
+    private double Total; 
+    private int count;
     
     //Connection settings to database
     Connection conn;
@@ -934,27 +934,27 @@ public class Fastfoods extends javax.swing.JFrame {
     private void btnMealMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealMousePressed
         // Shifting to the Meal page
         Meal ml = new Meal();
-        ml.setVisible(true);
-        this.hide();
+        ml.show();
+       this.hide();
     }//GEN-LAST:event_btnMealMousePressed
 
     private void btnAppetizersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppetizersMousePressed
         //Shifting to the Appetizers page
         Appetizers ap = new Appetizers();
-        ap.setVisible(true);
-        this.hide();
+        ap.show();
+       this.hide();
     }//GEN-LAST:event_btnAppetizersMousePressed
 
     private void btnBeveragesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMousePressed
         //Shifting to the Beverages page
         Beverages bv = new Beverages();
-        bv.setVisible(true);
-        this.hide();
+        bv.show();
+       this.hide();
     }//GEN-LAST:event_btnBeveragesMousePressed
 
     private void btnFastfoodMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastfoodMousePressed
         // Only in this page
-        this.setVisible(true);
+        this.show();
     }//GEN-LAST:event_btnFastfoodMousePressed
 
     private void btnFastfoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFastfoodActionPerformed
@@ -999,6 +999,10 @@ public class Fastfoods extends javax.swing.JFrame {
 
     private void btnTrashMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTrashMousePressed
         Deleteorder();
+        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
     }//GEN-LAST:event_btnTrashMousePressed
 
     private void btnRefreshMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMousePressed
@@ -1020,12 +1024,13 @@ public class Fastfoods extends javax.swing.JFrame {
         btnRefresh.setForeground(Color.WHITE);
     }//GEN-LAST:event_btnRefreshMouseExited
 
-                                    //Member Methods.... 
+                      //Member Methods.... 
     
     //Display Order
-    private  void Displayorder()
+    @Override
+    public  void Displayorder()
     {
-        String qry="SELECT * FROM salesorder";
+        String qry="SELECT * FROM SALESORDER";
       
         try
         {
@@ -1035,14 +1040,14 @@ public class Fastfoods extends javax.swing.JFrame {
       
             while(rs.next())
             {
-                String item  = String.valueOf(rs.getInt("ItemNo"));
+                String item   =String.valueOf(rs.getInt("ItemNo"));
                 String Des   = rs.getString("Product");
                 String qty   = String.valueOf(rs.getInt("QTY"));
-                String price = String.valueOf(rs.getInt("Total"));
-                String tbdata[] = {item,Des,qty,price};
-                DefaultTableModel model = (DefaultTableModel)tblOrder.getModel();
+                String price =String.valueOf(rs.getInt("Total"));
+                String tbdata[]={item,Des,qty,price};
+                DefaultTableModel model=(DefaultTableModel)tblOrder.getModel();
                 model.addRow(new Object[]{item,Des, qty, price});
-            }      
+            }
         }
         catch(SQLException e)
         {
@@ -1057,58 +1062,63 @@ public class Fastfoods extends javax.swing.JFrame {
    
     
    //Delete Order
-    private void Deleteorder()
+    @Override
+    public void Deleteorder()
     {    
-        DefaultTableModel model = (DefaultTableModel)tblOrder.getModel();
+        DefaultTableModel model=(DefaultTableModel)tblOrder.getModel();
           
         int row = tblOrder.getSelectedRow();
-         
+          
         String cell = tblOrder.getModel().getValueAt(row, 0).toString();
-         
-        String qry = "DELETE FROM salesorder WHERE ItemNo = " + cell;
+     
+        String qry = "DELETE FROM SALESORDER WHERE ItemNo = " + cell;
           
         try
         {
-            Statement st = conn.prepareStatement(qry);
+            Statement st=conn.prepareStatement(qry);
             st.execute(qry);
             JOptionPane.showMessageDialog(null,"Plate updated");
         }
         catch(SQLException e )
         {
-           e.printStackTrace();
-           JOptionPane.showMessageDialog(null,"Error");
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"Error");
         }
         finally
         {
-           CheckTable();
-           FormatTable();
+            CheckTable();
+            FormatTable();
         }
-    }    
+    }
   
    
     //Checking table
-    private void  CheckTable() 
+    @Override
+    public void  CheckTable() 
     {
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        String qry = " SELECT * From salesorder ";
 
-        try 
+       PreparedStatement stmt = null;
+       ResultSet rs = null;
+       String qry = " SELECT * From SALESORDER ";
+
+       try 
         {
             conn = DriverManager.getConnection(connectionUrl, username, Pass);
             stmt = (PreparedStatement) conn.prepareStatement(qry);
             rs =  stmt.executeQuery();
-            count = 0;
+            setCount(0);
+            
             while(rs.next())
             {
-               count++;
+                setCount(getCount() + 1);
             }
-            if(count == 0)
-            { 
+            
+            if(getCount() == 0){ 
                 jScrollPane1.hide();
                 tblOrder.setVisible(false);
                 btnTrash.setVisible(false);
                 lblPlateImage.show();
+                
             }
             else
             {
@@ -1118,56 +1128,30 @@ public class Fastfoods extends javax.swing.JFrame {
                 lblPlateImage.hide();
             }
         } 
-        catch (SQLException ex) 
+       catch (SQLException ex) 
         {
             ex.printStackTrace();
-        } 
+        }
     }
-        
-     /*   
-    //Update Table  
-    private void UpdateTable() 
-    {
-        try
-        {
-            conn = DriverManager.getConnection(connectionUrl, username, Pass);
-            String sql = "SELECT ItemNo,Product,QTY,Total FROM salesorder";
-            Statement st = conn.prepareStatement(sql);
-            ResultSet rs = st.executeQuery(sql);
-            
-            if(rs != null)
-            {
-                tblOrder.setModel(DbUtils.resultSetToTableModel(rs));
-            } 
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null,"Somethings wrong");
-        }
-        finally
-        {
-            CheckTable();
-        }
-    }*/
-    
     
     //Format table  
-    private void FormatTable() 
-    {
-        tblOrder.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
-        tblOrder.getTableHeader().setOpaque(true);
-        tblOrder.getTableHeader().setBackground(new Color(32,136,203));
-        tblOrder.getTableHeader().setForeground(new Color(255,255,255));
-        tblOrder.setRowHeight(25);   
+    @Override
+    public void FormatTable()
+    {       
+       tblOrder.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
+       tblOrder.getTableHeader().setOpaque(true);
+       tblOrder.getTableHeader().setBackground(new Color(32,136,203));
+       tblOrder.getTableHeader().setForeground(new Color(255,255,255));
+       tblOrder.setRowHeight(25);    
     }
 
     
     //Get Total
-    private void GetTotal() 
-    {
+    public void GetTotal()
+    {       
         PreparedStatement pst = null;
         ResultSet rs = null;
-        String qry = "Select Sum(Total) as sumprice from salesorder";
+        String qry = "Select Sum(Total) as sumprice from SALESORDER";
        
         try
         {
@@ -1178,10 +1162,10 @@ public class Fastfoods extends javax.swing.JFrame {
             if(rs.next())
             {
                 String sum = rs.getString("sumprice");
-                lblPlateImage.setText(sum);
+                lblTotalPrice.setText(sum);
             }
         }
-       catch (SQLException ex) 
+        catch (SQLException ex) 
         {
             ex.printStackTrace();
         }
@@ -1248,4 +1232,36 @@ public class Fastfoods extends javax.swing.JFrame {
     private javax.swing.JPanel pnlSidePanel;
     private javax.swing.JTable tblOrder;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the Total
+     */
+    public double getTotal() 
+    {
+        return Total;
+    }
+
+    /**
+     * @param Total the Total to set
+     */
+    public void setTotal(double Total) 
+    {
+        this.Total = Total;
+    }
+
+    /**
+     * @return the count
+     */
+    public int getCount() 
+    {
+        return count;
+    }
+
+    /**
+     * @param count the count to set
+     */
+    public void setCount(int count) 
+    {
+        this.count = count;
+    }
 }
