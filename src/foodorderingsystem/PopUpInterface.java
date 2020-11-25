@@ -16,6 +16,5 @@ public interface PopUpInterface {
 
     void InsertOrderDetails();
 
-    double MatchMenu();
-    
+    double MatchMenu();    
 }
