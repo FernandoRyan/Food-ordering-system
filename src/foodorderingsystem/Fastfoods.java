@@ -100,7 +100,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         btnTrash = new javax.swing.JButton();
         lblPlateImage = new javax.swing.JLabel();
         btnCheckout = new javax.swing.JButton();
-        btnRefresh = new javax.swing.JButton();
+        btnViewPlate = new javax.swing.JButton();
         lblLKR = new javax.swing.JLabel();
 
         jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -661,33 +661,33 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
             }
         });
 
-        btnRefresh.setBackground(new java.awt.Color(0, 153, 0));
-        btnRefresh.setFont(new java.awt.Font("Algerian", 1, 24));
-        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
-        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_down_48px_5.png"))); // NOI18N
-        btnRefresh.setText("View Plate");
-        btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRefresh.setIconTextGap(1);
-        btnRefresh.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        btnViewPlate.setBackground(new java.awt.Color(0, 153, 0));
+        btnViewPlate.setFont(new java.awt.Font("Algerian", 1, 24));
+        btnViewPlate.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewPlate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_down_48px_5.png"))); // NOI18N
+        btnViewPlate.setText("View Plate");
+        btnViewPlate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnViewPlate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnViewPlate.setIconTextGap(1);
+        btnViewPlate.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                btnRefreshMouseMoved(evt);
+                btnViewPlateMouseMoved(evt);
             }
         });
-        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnViewPlate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnRefreshMouseEntered(evt);
+                btnViewPlateMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnRefreshMouseExited(evt);
+                btnViewPlateMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnRefreshMousePressed(evt);
+                btnViewPlateMousePressed(evt);
             }
         });
-        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+        btnViewPlate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshActionPerformed(evt);
+                btnViewPlateActionPerformed(evt);
             }
         });
 
@@ -716,7 +716,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
                 .addContainerGap(26, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
-                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnViewPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -729,7 +729,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnViewPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -756,7 +756,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         btnTrash.getAccessibleContext().setAccessibleName("btnTrash");
         lblPlateImage.getAccessibleContext().setAccessibleName("lblPlateImage");
         btnCheckout.getAccessibleContext().setAccessibleName("btnCheckout");
-        btnRefresh.getAccessibleContext().setAccessibleName("btnRefresh");
+        btnViewPlate.getAccessibleContext().setAccessibleName("btnViewPlate");
         lblLKR.getAccessibleContext().setAccessibleName("lblLKR");
 
         javax.swing.GroupLayout pnlFastfoodLayout = new javax.swing.GroupLayout(pnlFastfood);
@@ -815,6 +815,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         POPUP_Message_Burger bp = new POPUP_Message_Burger();
         bp.setVisible(true);
         
+        // Displaying the number of Chicken Burgers we added to the plate
         DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
         model.setRowCount(0);
         Displayorder();
@@ -826,6 +827,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         POPUP_Message_Submarine bp = new POPUP_Message_Submarine();
         bp.setVisible(true);
         
+        // Displaying the number of Submarine buns we added to the plate
         DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
         model.setRowCount(0);
         Displayorder();
@@ -837,6 +839,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         POPUP_Message_HotDog bp = new POPUP_Message_HotDog();
         bp.setVisible(true);
         
+        // Displaying the number of HotDogs we added to the plate
         DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
         model.setRowCount(0);
         Displayorder();
@@ -848,6 +851,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         POPUP_Message_Pizza bp = new POPUP_Message_Pizza();
         bp.setVisible(true);
         
+        // Displaying the number of Pizzas we added to the plate
         DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
         model.setRowCount(0);
         Displayorder();
@@ -859,6 +863,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         POPUP_Message_Sandwitch bp = new POPUP_Message_Sandwitch();
         bp.setVisible(true);
         
+        // Displaying the number of Sandwitches we added to the plate
         DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
         model.setRowCount(0);
         Displayorder();
@@ -870,6 +875,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         POPUP_Message_Donut bp = new POPUP_Message_Donut();
         bp.setVisible(true);
         
+        // Displaying the number of Donuts we added to the plate
         DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
         model.setRowCount(0);
         Displayorder();
@@ -955,7 +961,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
     }//GEN-LAST:event_btnBeveragesMousePressed
 
     private void btnFastfoodMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastfoodMousePressed
-        // Only in this page
+        // Only show this page
         this.setVisible(true);
     }//GEN-LAST:event_btnFastfoodMousePressed
 
@@ -972,31 +978,34 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
     }//GEN-LAST:event_btnBurgerActionPerformed
 
     private void pnlMyPlateMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_pnlMyPlateMouseWheelMoved
+        // Getting the total price
         GetTotal();
     }//GEN-LAST:event_pnlMyPlateMouseWheelMoved
 
     private void btnTrashMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTrashMousePressed
+        // Delete selected item, when Trash button pressed
         Deleteorder();
     }//GEN-LAST:event_btnTrashMousePressed
 
-    private void btnRefreshMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMousePressed
+    private void btnViewPlateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewPlateMousePressed
+        // Refreshing the order table, when the ViewPlate button pressed
         DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
         model.setRowCount(0);
         Displayorder();
         GetTotal();
-    }//GEN-LAST:event_btnRefreshMousePressed
+    }//GEN-LAST:event_btnViewPlateMousePressed
 
-    private void btnRefreshMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseExited
+    private void btnViewPlateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewPlateMouseExited
         // Rechange the Refresh button background color, when cursor move out the Refresh button
-        btnRefresh.setBackground(Color.GREEN);
-        btnRefresh.setForeground(Color.WHITE);
-    }//GEN-LAST:event_btnRefreshMouseExited
+        btnViewPlate.setBackground(Color.GREEN);
+        btnViewPlate.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnViewPlateMouseExited
 
-    private void btnRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseEntered
+    private void btnViewPlateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewPlateMouseEntered
         // Changing the Refresh button background color, when cursor move to the Refresh button
-        btnRefresh.setBackground(Color.RED);
-        btnRefresh.setForeground(Color.WHITE);
-    }//GEN-LAST:event_btnRefreshMouseEntered
+        btnViewPlate.setBackground(Color.RED);
+        btnViewPlate.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnViewPlateMouseEntered
 
     private void btnCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckoutActionPerformed
         // TODO add your handling code here:
@@ -1017,26 +1026,29 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
     }//GEN-LAST:event_btnCheckoutMouseEntered
 
     private void btnCheckoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseClicked
+        // Going to the next page, which is Order Details Page and hide this page
         Order_Details od = new Order_Details();
         od.setVisible(true);
         this.hide();
     }//GEN-LAST:event_btnCheckoutMouseClicked
 
     private void jPanel2MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jPanel2MouseWheelMoved
+        // Getting the total
         GetTotal();
     }//GEN-LAST:event_jPanel2MouseWheelMoved
 
-    private void btnRefreshMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseMoved
-        btnRefresh.setBackground(Color.RED);
-    }//GEN-LAST:event_btnRefreshMouseMoved
+    private void btnViewPlateMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewPlateMouseMoved
+        // Changing the ViewPlate button background color, when cursor move to the ViewPlate button
+        btnViewPlate.setBackground(Color.RED);
+    }//GEN-LAST:event_btnViewPlateMouseMoved
 
     private void btnCheckoutMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseMoved
-        btnCheckout.setBackground(Color.RED);
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnCheckoutMouseMoved
 
-    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+    private void btnViewPlateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPlateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRefreshActionPerformed
+    }//GEN-LAST:event_btnViewPlateActionPerformed
 
                                     //Member Methods.... 
     
@@ -1215,10 +1227,10 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
     private javax.swing.JButton btnHotDog;
     private javax.swing.JButton btnMeal;
     private javax.swing.JButton btnPizza;
-    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnSandwitch;
     private javax.swing.JButton btnSubmarine;
     private javax.swing.JButton btnTrash;
+    private javax.swing.JButton btnViewPlate;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
