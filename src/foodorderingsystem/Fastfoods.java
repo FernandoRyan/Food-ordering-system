@@ -868,7 +868,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
     }//GEN-LAST:event_btnDonutMouseClicked
 
     private void btnMealMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealMouseEntered
-        // Changing the Meal button background color, when cursor move to the Meal button
+        // Rechange the Meal button & Fastfood button background colors, when cursor move out the Meal button
         btnMeal.setBackground(new Color(0,102,0));
         btnFastfood.setBackground(Color.GREEN);       
     }//GEN-LAST:event_btnMealMouseEntered
