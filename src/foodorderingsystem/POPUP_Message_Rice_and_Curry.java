@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
  *
  * @author RYAN
  */
-public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame  {
+public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame implements PopUpInterface  {
 
     
      //Declaration of Member Feilds
@@ -44,7 +44,8 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame  {
     public POPUP_Message_Rice_and_Curry() {
         initComponents();
     }
-    
+
+ 
  
     /**
      * This method is called from within the constructor to initialize the form.
@@ -185,6 +186,7 @@ public class POPUP_Message_Rice_and_Curry extends javax.swing.JFrame  {
 
     private void btnCANCELMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCANCELMouseClicked
         this.setVisible(false);
+        
     }//GEN-LAST:event_btnCANCELMouseClicked
 
     private void btnAddToPlateRicenCurryMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateRicenCurryMouseMoved

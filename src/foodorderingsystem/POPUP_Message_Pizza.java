@@ -10,7 +10,9 @@ import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -19,27 +21,28 @@ import javax.swing.JOptionPane;
  *
  * @author Neranji Sulakshika
  */
-public class POPUP_Message_Pizza extends javax.swing.JFrame {
+public class POPUP_Message_Pizza extends javax.swing.JFrame implements PopUpInterface_Fastfoods {
 
     /**
      * Creates new form PizzaPOPUPMessage
      */
     
     //Declaration of Member Feilds   
-    public final int CustID=1000;
-    String Total ="0";
+    public final int CustID = 1000;
+    String Total = "0";
     int qty; 
-    String ProductDescription="Pizza";
+    String ProductDescription = "Pizza";
     Connection conn;
     
     //Connection setup
     String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username= "nera";
-    String Pass="neranji0321";
+    String username= "sa";
+    String Pass="anjalo9990";
     
     //Frame Creation
     public POPUP_Message_Pizza() {
         initComponents();
+        // ProductDescription = Sltdropdown.getSelectedItem().toString();
     }
 
     /**
@@ -54,7 +57,7 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblPizza = new javax.swing.JLabel();
         lblPizzaName = new javax.swing.JLabel();
-        lblPizzaPrice = new javax.swing.JLabel();
+        lblPrice = new javax.swing.JLabel();
         lblLKR = new javax.swing.JLabel();
         lblQTY = new javax.swing.JLabel();
         spQtyPizza = new javax.swing.JSpinner();
@@ -85,12 +88,12 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
         lblPizzaName.setBounds(150, 220, 120, 30);
         lblPizzaName.getAccessibleContext().setAccessibleName("lblPizzaName");
 
-        lblPizzaPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        lblPizzaPrice.setForeground(new java.awt.Color(51, 51, 51));
-        lblPizzaPrice.setText("150.00");
-        jPanel1.add(lblPizzaPrice);
-        lblPizzaPrice.setBounds(180, 260, 50, 20);
-        lblPizzaPrice.getAccessibleContext().setAccessibleName("lblPizzaPrice");
+        lblPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblPrice.setForeground(new java.awt.Color(51, 51, 51));
+        lblPrice.setText("150.00");
+        jPanel1.add(lblPrice);
+        lblPrice.setBounds(180, 260, 50, 20);
+        lblPrice.getAccessibleContext().setAccessibleName("lblPrice");
 
         lblLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblLKR.setForeground(new java.awt.Color(51, 51, 51));
@@ -218,16 +221,6 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
 
     private void btnAddToPlatePizzaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMouseEntered
         btnAddToPlatePizza.setBackground(Color.RED);
-        
-        if(qty == 0)
-        {
-           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
-        }
-        else 
-        {
-            CalculatePizzaPrice(); 
-            InsertOrderDetails();
-        }
     }//GEN-LAST:event_btnAddToPlatePizzaMouseEntered
 
     private void btnAddToPlatePizzaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMouseExited
@@ -243,20 +236,30 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlatePizzaMouseClicked
 
     private void btnAddToPlatePizzaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMousePressed
-        // TODO add your handling code here:
+        if(qty == 0)
+        {
+           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
+        }
+        else 
+        {
+            CalculateFastfoodsPrice(); 
+            InsertOrderDetails();
+        }
     }//GEN-LAST:event_btnAddToPlatePizzaMousePressed
 
     private void spQtyPizzaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtyPizzaStateChanged
-        CalculatePizzaPrice();
+        CalculateFastfoodsPrice();
     }//GEN-LAST:event_spQtyPizzaStateChanged
     
-    public double lblPizzaPrice() 
+    @Override
+    public double lblPrice() 
     {
         return 150.00;
     }
     
     //Declaration of member methods 
-    private void CalculatePizzaPrice() 
+    @Override
+    public void CalculateFastfoodsPrice() 
     {
         if(spQtyPizza != null)
         {
@@ -268,7 +271,7 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
                 return;        
             }
         
-            Total = Double.toString( qty * lblPizzaPrice());
+            Total = Double.toString( qty * lblPrice());
            
             lblPizzaTotalPrice.setText(Total);                
         }
@@ -277,35 +280,49 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
          //Add a message box to add to cart 
     }
     
-    private void InsertOrderDetails() 
+    @Override
+    public void InsertOrderDetails() 
     {
         String Insert;
+        String Update;
+        BigDecimal TotalValue = new BigDecimal(Total);
         
         try
-        {
-            //Opening database for connection
-            conn = DriverManager.getConnection(connectionUrl, username, Pass);         
-        
-            if(conn != null)
+        {    
+        //Opening database for connection
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            Statement st = conn.createStatement();
+            
+            String sql="SELECT * FROM SALESORDER WHERE Product ='" + ProductDescription +"'";
+            ResultSet rs = st.executeQuery(sql);
+            
+            if(rs.next())
             {
-                BigDecimal TotalValue = new BigDecimal(Total);
-                
-                Insert = "INSERT INTO SalesOrder(ProductDescription,qty,TotalValue) VALUES (?,?,?)";
-                
-                PreparedStatement pstmt = conn.prepareStatement(Insert);
-                
-                pstmt.setString(1, ProductDescription);
-                pstmt.setInt(2, qty);
-                pstmt.setBigDecimal(3, TotalValue);
+                Update="update SALESORDER set QTY= QTY + ?, Total= Total + ? where Product = ?";
+                PreparedStatement pstmt = conn.prepareStatement(Update);
+                pstmt.setInt(1,qty);
+                pstmt.setBigDecimal(2,TotalValue);
+                pstmt.setString(3,ProductDescription);
                 pstmt.executeUpdate();
                 pstmt.close();
-                
-                JOptionPane.showMessageDialog(null, "Sucessfully Added to the Plate!");
-            }            
+                JOptionPane.showMessageDialog(null,"Sucessfully added to plate");
+            }
+            else
+            { 
+                Insert = "INSERT INTO SalesOrder (CustID, Product, QTY, Total) VALUES (?, ?, ?, ?)";
+                PreparedStatement pstmt = conn.prepareStatement(Insert);
+                pstmt.setInt(1,CustID);
+                pstmt.setString(2, ProductDescription);
+                pstmt.setInt(3, qty);
+                pstmt.setBigDecimal(4, TotalValue);
+                pstmt.executeUpdate();
+                pstmt.close();
+                JOptionPane.showMessageDialog(null,"Sucessfully Added to plate");
+            }
         }
         catch(SQLException e)
         {
-            JOptionPane.showMessageDialog(null,"Something went wrong!\n");
+            JOptionPane.showMessageDialog(null,"Something went wrong\n");
             e.printStackTrace();
         }
         finally
@@ -363,8 +380,8 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame {
     private javax.swing.JLabel lblLKR;
     private javax.swing.JLabel lblPizza;
     private javax.swing.JLabel lblPizzaName;
-    private javax.swing.JLabel lblPizzaPrice;
     private javax.swing.JLabel lblPizzaTotalPrice;
+    private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblQTY;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JLabel lblTotalLKR;

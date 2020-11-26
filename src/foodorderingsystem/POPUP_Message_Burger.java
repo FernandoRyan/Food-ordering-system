@@ -10,7 +10,9 @@ import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -19,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Neranji Sulakshika
  */
-public class POPUP_Message_Burger extends javax.swing.JFrame {
+public class POPUP_Message_Burger extends javax.swing.JFrame implements PopUpInterface_Fastfoods {
 
     /**
      * Creates new form BurgerPOPUPMessage
@@ -27,20 +29,20 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
     
     //Declaration of Member Feilds    
     public final int CustID=1000;
-    String Total ="0";
+    String Total ="00";
     int qty; 
-    String ProductDescription="Chicken Burger";
+    String ProductDescription = "Chicken Burger";
     Connection conn;
     
     //Connection setup
     String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username= "nera";
-    String Pass="neranji0321";
+    String username= "sa";
+    String Pass="anjalo9990";
     
     //Frame Creation
     public POPUP_Message_Burger() {
         initComponents();
-        setBackground(new Color(0,0,0,0));
+        // ProductDescription = Sltdropdown.getSelectedItem().toString();
     }
 
     /**
@@ -193,17 +195,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCANCELMouseClicked
 
     private void btnAddToPlateBurgerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseEntered
-        btnAddToPlateBurger.setBackground(Color.RED);
-        
-        if(qty == 0)
-        {
-           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
-        }
-        else 
-        {
-            CalculateBurgerPrice();  
-            InsertOrderDetails();
-        }
+        btnAddToPlateBurger.setBackground(Color.RED);        
     }//GEN-LAST:event_btnAddToPlateBurgerMouseEntered
 
     private void btnAddToPlateBurgerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseExited
@@ -215,20 +207,31 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddToPlateBurgerMouseClicked
 
     private void spBurgerQtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spBurgerQtyStateChanged
-        CalculateBurgerPrice();
+        CalculateFastfoodsPrice();
     }//GEN-LAST:event_spBurgerQtyStateChanged
 
     private void btnAddToPlateBurgerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMousePressed
-        // TODO add your handling code here:  
+        
+        if(qty == 0)
+        {
+           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
+        }
+        else 
+        {
+            CalculateFastfoodsPrice();  
+            InsertOrderDetails();
+        }
     }//GEN-LAST:event_btnAddToPlateBurgerMousePressed
 
-    public double lblBurgerPrice() 
+    @Override
+    public double lblPrice() 
     {
         return 200.00;                
     }
     
-    //Declaration of Member Methods     
-     public void  CalculateBurgerPrice()
+    //Declaration of Member Methods  
+    @Override
+     public void  CalculateFastfoodsPrice()
      {
         if(spBurgerQty != null)
         {
@@ -240,7 +243,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
             }
             else 
             {        
-                Total = Double.toString( qty * lblBurgerPrice());
+                Total = Double.toString( qty * lblPrice());
            
                 lblTotalPrice.setText(Total);             
             }            
@@ -249,36 +252,49 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
               lblTotalPrice.setText(Total);
          //Add a message box to add to cart 
     }
-     
-    private void InsertOrderDetails() 
+    
+    @Override
+    public void InsertOrderDetails()
     {
         String Insert;
-        
+        String Update;
+        BigDecimal TotalValue=new BigDecimal(Total);
         try
-        {
+        {    
             //Opening database for connection
-            conn = DriverManager.getConnection(connectionUrl, username, Pass);         
-        
-            if(conn != null)
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            Statement st=conn.createStatement();
+            
+            String sql="SELECT * FROM SALESORDER WHERE Product ='" + ProductDescription +"'";
+            ResultSet rs=st.executeQuery(sql);
+            
+            if(rs.next())
             {
-                BigDecimal TotalValue = new BigDecimal(Total);
-                
-                Insert = "INSERT INTO SalesOrder(ProductDescription,qty,TotalValue) VALUES (?,?,?)";
-                
-                PreparedStatement pstmt = conn.prepareStatement(Insert);
-                
-                pstmt.setString(1, ProductDescription);
-                pstmt.setInt(2, qty);
-                pstmt.setBigDecimal(3, TotalValue);
-                pstmt.executeUpdate();                
+                Update="update SALESORDER set QTY= QTY + ?, Total= Total + ? where Product = ?";
+                PreparedStatement pstmt = conn.prepareStatement(Update);
+                pstmt.setInt(1,qty);
+                pstmt.setBigDecimal(2,TotalValue);
+                pstmt.setString(3,ProductDescription);
+                pstmt.executeUpdate();
                 pstmt.close();
-                
-                JOptionPane.showMessageDialog(null, "Sucessfully Added to the Plate!");
-            }            
+                JOptionPane.showMessageDialog(null,"Sucessfully Added to plate");
+            }
+            else
+            {   
+                Insert="INSERT INTO SalesOrder (CustID,Product,QTY,Total) VALUES (?,?,?,?)";
+                PreparedStatement pstmt = conn.prepareStatement(Insert);
+                pstmt.setInt(1,CustID);
+                pstmt.setString(2, ProductDescription);
+                pstmt.setInt(3, qty);
+                pstmt.setBigDecimal(4, TotalValue);
+                pstmt.executeUpdate();
+                pstmt.close();
+                JOptionPane.showMessageDialog(null,"Sucessfully Added to plate");
+            }
         }
         catch(SQLException e)
         {
-            JOptionPane.showMessageDialog(null,"Something went wrong!\n");
+            JOptionPane.showMessageDialog(null,"Something went wrong\n");
             e.printStackTrace();
         }
         finally
@@ -291,7 +307,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
             {
                 Logger.getLogger(POPUP_Message_Burger.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        }     
     }
      
     /**
@@ -344,5 +360,4 @@ public class POPUP_Message_Burger extends javax.swing.JFrame {
     private javax.swing.JLabel lblTotalPrice;
     private javax.swing.JSpinner spBurgerQty;
     // End of variables declaration//GEN-END:variables
-
 }

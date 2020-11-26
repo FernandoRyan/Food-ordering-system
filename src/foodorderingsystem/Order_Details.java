@@ -22,6 +22,17 @@ public class Order_Details extends javax.swing.JFrame {
         this.setExtendedState(Order_Details.MAXIMIZED_BOTH);
     }
 
+    public String ordertype;
+    
+    
+    Order_Details(String type) 
+    {
+        initComponents();
+        //lblOrderType.setText(type);
+        ordertype = type;
+        lblOrderType.setText(ordertype);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,6 +55,8 @@ public class Order_Details extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        lblOrderTypeName = new javax.swing.JLabel();
+        lblOrderType = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -108,7 +121,7 @@ public class Order_Details extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Total");
+        jLabel5.setText("Total           :");
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 300, 70));
@@ -118,18 +131,29 @@ public class Order_Details extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Servise Charge");
+        jLabel4.setText("Servise Charge:");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Sub Total");
+        jLabel2.setText("Sub Total           :");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Tax (VAT)");
+        jLabel3.setText("Tax (VAT)          :");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        lblOrderTypeName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblOrderTypeName.setForeground(new java.awt.Color(0, 0, 0));
+        lblOrderTypeName.setText("Order Type       :");
+        jPanel3.add(lblOrderTypeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, -1));
+        lblOrderTypeName.getAccessibleContext().setAccessibleName("lblOrderTypeName");
+
+        lblOrderType.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        lblOrderType.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.add(lblOrderType, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 100, 30));
+        lblOrderType.getAccessibleContext().setAccessibleName("lblOrderType");
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 250, -1));
 
@@ -209,5 +233,7 @@ public class Order_Details extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblOrderType;
+    private javax.swing.JLabel lblOrderTypeName;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2020 at 05:15 PM
+-- Generation Time: Nov 22, 2020 at 03:06 PM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -65,7 +65,13 @@ INSERT INTO `products` (`ProductID`, `ProductDescription`, `ProductPrice`, `Prod
 (6, 'Fried Rice with Egg', '200', 150),
 (7, 'Kottu with Chicken', '220', 150),
 (8, 'Kottu with Egg', '190', 150),
-(9, 'Kottu with Chicken and cheese', '260', 150);
+(9, 'Kottu with Chicken and cheese', '260', 150),
+(10, 'Chicken Burger', '200', 1),
+(11, 'Submarine', '200', 1),
+(12, 'Hot Dog', '150', 1),
+(13, 'Pizza', '150', 1),
+(14, 'Sandwich', '100', 1),
+(15, 'Donut', '60', 1);
 
 -- --------------------------------------------------------
 

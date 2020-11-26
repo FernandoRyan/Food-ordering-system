@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author RYAN
  */
-public class POPUP_Message_FriedRice extends javax.swing.JFrame {
+public class POPUP_Message_FriedRice extends javax.swing.JFrame implements PopUpInterface {
 
     /**
      * Creates new form Fried rice
@@ -40,9 +40,9 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
     
     public POPUP_Message_FriedRice() {
         initComponents();
-       // ProductDescription = Sltdropdown.getSelectedItem().toString();
     }
 
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -218,6 +218,8 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
          CalculateMealprice();  
          
          InsertOrderDetails();
+         
+      
              }
         
     }//GEN-LAST:event_Add_To_PlateMousePressed
@@ -229,6 +231,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
     
     //Declaration of Member Methods 
     
+    @Override
      public void  CalculateMealprice(){
          if(dpriceqty!=null)
        { 
@@ -248,6 +251,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
     }
     
     
+    @Override
     public double MatchMenu(){
         ProductDescription = Sltdropdown.getSelectedItem().toString();
         switch (ProductDescription) {
@@ -262,6 +266,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame {
      }
     
     
+    @Override
     public void  InsertOrderDetails(){
      String Insert;
      String Update;

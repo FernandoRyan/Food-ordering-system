@@ -3,8 +3,16 @@ package foodorderingsystem;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -29,14 +37,19 @@ public class Beverages extends javax.swing.JFrame {
      //CONNECTION SETTINGS TO DATABASE
      Connection conn;
      String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-     String username= "Samadhi";
-     String Pass="123456  ";
+     String username= "Sa";
+     String Pass="anjalo9990";
 
     /**
      * Creates new form NewJFrame
      */
     public Beverages() {
         initComponents();
+        Displayorder() ;
+        FormatTable();
+        CheckTable();
+        GetTotal();
+        
     }
 
     /**
@@ -79,9 +92,11 @@ public class Beverages extends javax.swing.JFrame {
         btnCheckout = new javax.swing.JButton();
         lblTotal = new javax.swing.JLabel();
         lblAmount = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblPlateimage = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        orderTable = new javax.swing.JTable();
+        btnTrash = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -389,6 +404,11 @@ public class Beverages extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                jPanel2MouseWheelMoved(evt);
+            }
+        });
 
         lblPlate.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lblPlate.setForeground(new java.awt.Color(153, 153, 153));
@@ -421,45 +441,59 @@ public class Beverages extends javax.swing.JFrame {
         lblAmount.setForeground(new java.awt.Color(153, 153, 153));
         lblAmount.setText("      LKR  0.00");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
+        lblPlateimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Product Description", "QTY", "Total"
+                "Item No", "Product Description", "Qty", "Total"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
-            };
+        ));
+        orderTable.setGridColor(new java.awt.Color(255, 255, 255));
+        orderTable.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        jScrollPane1.setViewportView(orderTable);
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+        btnTrash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/trash.png"))); // NOI18N
+        btnTrash.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnTrash.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnTrashMousePressed(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+
+        btnRefresh.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_down_48px_5.png"))); // NOI18N
+        btnRefresh.setText("REFRESH");
+        btnRefresh.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnRefreshMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
                         .addComponent(lblAmount, javax.swing.GroupLayout.DEFAULT_SIZE, 1020, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(30, 30, 30))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -469,7 +503,13 @@ public class Beverages extends javax.swing.JFrame {
                         .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(lblPlateimage, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -477,11 +517,15 @@ public class Beverages extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPlateimage, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
                     .addComponent(lblAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -499,6 +543,11 @@ public class Beverages extends javax.swing.JFrame {
         
         POPUP_Message_Nescafe ns = new POPUP_Message_Nescafe();
         ns.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) orderTable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
 
 // TODO add your handling code here:
     }//GEN-LAST:event_lblNescafeMousePressed
@@ -507,6 +556,11 @@ public class Beverages extends javax.swing.JFrame {
         
         POPUP_Message_Milkshakes ms = new POPUP_Message_Milkshakes();
         ms.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) orderTable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
 
 // TODO add your handling code here:
     }//GEN-LAST:event_lblMilkshakeMousePressed
@@ -515,6 +569,11 @@ public class Beverages extends javax.swing.JFrame {
             
         POPUP_Message_Softdrinks sd = new POPUP_Message_Softdrinks();
         sd.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) orderTable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
 // TODO add your handling code here:
     }//GEN-LAST:event_lblSoftDrinksMousePressed
 
@@ -522,6 +581,11 @@ public class Beverages extends javax.swing.JFrame {
         
         POPUP_Message_FruitJuice fj = new POPUP_Message_FruitJuice();
         fj.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) orderTable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
 
 // TODO add your handling code here:
     }//GEN-LAST:event_lblFruitJuiceMousePressed
@@ -530,6 +594,11 @@ public class Beverages extends javax.swing.JFrame {
         
         POPUP_Message_IceCoffee m = new POPUP_Message_IceCoffee();
         m.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) orderTable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
 
 // TODO add your handling code here:
     }//GEN-LAST:event_lblIceCoffeeMousePressed
@@ -538,6 +607,11 @@ public class Beverages extends javax.swing.JFrame {
         
         POPUP_Message_Water w = new POPUP_Message_Water();
         w.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) orderTable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
 
 // TODO add your handling code here:
     }//GEN-LAST:event_lblWaterMousePressed
@@ -667,6 +741,215 @@ public class Beverages extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCheckoutMouseExited
 
+    private void btnTrashMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTrashMousePressed
+      
+        Deleteorder();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTrashMousePressed
+
+    private void btnRefreshMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMousePressed
+       
+        DefaultTableModel model = (DefaultTableModel) orderTable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRefreshMousePressed
+
+    private void btnRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseEntered
+
+        // Changing the Refresh button background color, when cursor move to the Refresh button
+        btnRefresh.setBackground(Color.RED);
+        btnRefresh.setForeground(Color.WHITE);
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnRefreshMouseEntered
+
+    private void btnRefreshMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseExited
+
+        // Rechange the Refresh button background color, when cursor move out the Refresh button
+        btnRefresh.setBackground(Color.GREEN);
+        btnRefresh.setForeground(Color.WHITE);        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnRefreshMouseExited
+
+    private void jPanel2MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jPanel2MouseWheelMoved
+
+        GetTotal();
+// TODO add your handling code here:
+    }//GEN-LAST:event_jPanel2MouseWheelMoved
+
+    
+                // MEMBER METHODS 
+    
+      private void Displayorder()
+    {
+        String qry="SELECT * FROM SALESORDER";
+      
+        try
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            Statement st=conn.prepareStatement(qry);
+            ResultSet rs=st.executeQuery(qry);
+      
+            while(rs.next())
+            {
+                String item  = String.valueOf(rs.getInt("ItemNo"));
+                String Des   = rs.getString("Product");
+                String qty   = String.valueOf(rs.getInt("QTY"));
+                String price = String.valueOf(rs.getInt("Total"));
+                String tbdata[] = {item,Des,qty,price};
+                DefaultTableModel model = (DefaultTableModel) orderTable.getModel();
+                model.addRow(new Object[]{item,Des, qty, price});
+            }      
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,"Something went wrong\n");
+        }
+        finally
+        {
+            CheckTable();
+            FormatTable();
+        }
+    } 
+   
+    
+   //Delete Order
+    private void Deleteorder()
+    {    
+        DefaultTableModel model = (DefaultTableModel) orderTable.getModel();
+          
+        int row = orderTable.getSelectedRow();
+         
+        String cell = orderTable.getModel().getValueAt(row, 0).toString();
+         
+        String qry = "DELETE FROM SALESORDER WHERE ItemNo = " + cell;
+          
+        try
+        {
+            Statement st = conn.prepareStatement(qry);
+            st.execute(qry);
+            JOptionPane.showMessageDialog(null,"Plate updated");
+        }
+        catch(SQLException e )
+        {
+           e.printStackTrace();
+           JOptionPane.showMessageDialog(null,"Error");
+        }
+        finally
+        {
+           CheckTable();
+           FormatTable();
+        }
+    }    
+  
+   
+    //Checking table
+    private void  CheckTable() 
+    {
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String qry = " SELECT * From SALESORDER ";
+
+        try 
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            stmt = (PreparedStatement) conn.prepareStatement(qry);
+            rs =  stmt.executeQuery();
+            count = 0;
+            while(rs.next())
+            {
+               count++;
+            }
+            if(count == 0)
+            { 
+                jScrollPane1.hide();
+                orderTable.setVisible(false);
+                btnTrash.setVisible(false);
+                lblPlateimage.show();
+            }
+            else
+            {
+                jScrollPane1.show();
+                orderTable.setVisible(true);
+                btnTrash.setVisible(true);
+                lblPlateimage.hide();
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        } 
+    }
+        
+     /*   
+    //Update Table  
+    private void UpdateTable() 
+    {
+        try
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            String sql = "SELECT ItemNo,Product,QTY,Total FROM SALESORDER";
+            Statement st = conn.prepareStatement(sql);
+            ResultSet rs = st.executeQuery(sql);
+            
+            if(rs != null)
+            {
+                tblOrder.setModel(DbUtils.resultSetToTableModel(rs));
+            } 
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,"Somethings wrong");
+        }
+        finally
+        {
+            CheckTable();
+        }
+    }*/
+    
+    
+    //Format table  
+    private void FormatTable() 
+    {
+        orderTable.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
+        orderTable.getTableHeader().setOpaque(true);
+        orderTable.getTableHeader().setBackground(new Color(32,136,203));
+        orderTable.getTableHeader().setForeground(new Color(255,255,255));
+        orderTable.setRowHeight(25);   
+    }
+
+    
+    //Get Total
+    private void GetTotal() 
+    {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String qry = "Select Sum(Total) as sumprice from SALESORDER";
+       
+        try
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            pst=conn.prepareStatement(qry);
+            rs=pst.executeQuery();
+            
+            if(rs.next())
+            {
+                String sum = rs.getString("sumprice");
+                lblAmount.setText(sum);
+            }
+        }
+       catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+    
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -694,57 +977,7 @@ public class Beverages extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        
-        // Creation of Objects and Initialization
-        
-     // NESCAFE / NESTEA /MILO
-        
-      /* Beverage Nescafe = new Beverage(22,"Nescafe",40.00,10);
-       Beverage Nestea = new Beverage(23,"Nestea",40.00,10);
-       Beverage Milo = new Beverage(24,"Milo",40.00,10);
-       
       
-     // MILKSHAKES
-       
-       Beverage Chocolate_Shake = new Beverage(25,"Chocolate Milkshake",300.00,10);
-       Beverage Oreo_Shake = new Beverage(26,"Oreo Milkshake",300.00,10);
-       Beverage Coffee_Shake = new Beverage(27,"Coffee Milkshake",300.00,10);
-       Beverage Strawberry_Shake = new Beverage(28,"Strawberry Milkshake",300.00,10);
-       Beverage Caramel_Shake = new Beverage(29,"Caramel Milkshake",300.00,10);
-       
-       
-     // SOFTDRINKS
-       
-       Beverage Sprite = new Beverage(30,"Sprite",50.00,10);
-       Beverage CocaCola = new Beverage(31,"Coca-Cola",50.00,10);
-       Beverage Fanta = new Beverage(32,"Fanta",50.00,10);
-       
-       
-      // FRUIT JUICE
-       
-       Beverage Avacado = new Beverage(33,"Avacado Juice",200.00,10);
-       Beverage WaterMelon = new Beverage(34,"Water-Melon Juice",200.00,10);
-       Beverage Orange = new Beverage(35,"Orange Juice",200.00,10);
-       Beverage MixFruit = new Beverage(36,"Mx Fruit Juice",200.00,10);//*/
-      
-      
-      private void Displayorder(){
-          String qry = "SELECT * FROM SALESORDER";
-          
-          
-      }
-       
-       
-       
-       
-     
-           
-           
-     
-     
-        
-       
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -763,13 +996,13 @@ public class Beverages extends javax.swing.JFrame {
     private javax.swing.JButton btnCheckout;
     private javax.swing.JButton btnFastFood;
     private javax.swing.JButton btnMeal;
+    private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnTrash;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblAmount;
     private javax.swing.JLabel lblBottledWater;
     private javax.swing.JLabel lblDrinks;
@@ -787,10 +1020,12 @@ public class Beverages extends javax.swing.JFrame {
     private javax.swing.JLabel lblNesPrice;
     private javax.swing.JLabel lblNescafe;
     private javax.swing.JLabel lblPlate;
+    private javax.swing.JLabel lblPlateimage;
     private javax.swing.JLabel lblSoftDrinks;
     private javax.swing.JLabel lblTopic;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JLabel lblWater;
     private javax.swing.JLabel lblWaterPrice;
+    private javax.swing.JTable orderTable;
     // End of variables declaration//GEN-END:variables
 }

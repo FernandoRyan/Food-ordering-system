@@ -113,11 +113,15 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDineInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDineInActionPerformed
-        // TODO add your handling code here:
+        String type = "Dine-In";
+        Order_Details obj = new Order_Details(type);
+        //obj.setVisible(true);
     }//GEN-LAST:event_btnDineInActionPerformed
 
     private void btnTakeAwayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTakeAwayActionPerformed
-        // TODO add your handling code here:
+        String type = "Take Away";
+        Order_Details obj = new Order_Details(type);
+       // obj.setVisible(true);
     }//GEN-LAST:event_btnTakeAwayActionPerformed
 
     private void btnDineInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDineInMousePressed
