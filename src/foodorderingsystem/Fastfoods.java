@@ -10,8 +10,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -618,7 +616,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
 
         lblTotalName.setFont(new java.awt.Font("Algerian", 0, 24)); // NOI18N
         lblTotalName.setForeground(new java.awt.Color(51, 204, 0));
-        lblTotalName.setText("Total");
+        lblTotalName.setText("TOTAL");
 
         lblTotalPrice.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
@@ -701,21 +699,21 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))
+                        .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblTotalName, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(58, 58, 58)
+                        .addComponent(lblTotalName, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblLKR)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60))))
+                        .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(26, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1135,6 +1133,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
                 btnTrash.setVisible(false);
                 lblLKR.setVisible(false);
                 lblPlateImage.show();
+                lblTotalPrice.hide();
             }
             else
             {
@@ -1143,6 +1142,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
                 btnTrash.setVisible(true);
                 lblLKR.setVisible(true);
                 lblPlateImage.hide();
+                lblTotalPrice.show();
             }
         
         } 
