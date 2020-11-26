@@ -70,24 +70,23 @@ public class Appetizers extends javax.swing.JFrame {
         lblPotatoChips = new javax.swing.JLabel();
         lblSamosa = new javax.swing.JLabel();
         lblCheeseBalls = new javax.swing.JLabel();
-        lblNesName = new javax.swing.JLabel();
+        lblChickCheeese = new javax.swing.JLabel();
         lblNesPrice = new javax.swing.JLabel();
-        lblMilkshakes = new javax.swing.JLabel();
+        lblwade = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        lblDrinks = new javax.swing.JLabel();
+        lblpotatochips = new javax.swing.JLabel();
         lblDrinksPrice = new javax.swing.JLabel();
-        lblJuice = new javax.swing.JLabel();
+        lblsamosa = new javax.swing.JLabel();
         lblJuicePrice = new javax.swing.JLabel();
-        lblMojitoo = new javax.swing.JLabel();
+        lblCheese = new javax.swing.JLabel();
         lblMojitoPrice = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        lblPlate = new javax.swing.JLabel();
         btnCheckout = new javax.swing.JButton();
-        lblTotal = new javax.swing.JLabel();
-        lblAmount = new javax.swing.JLabel();
+        lblTotalName = new javax.swing.JLabel();
+        lblTotalprice = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        OrderTable = new javax.swing.JTable();
         btnTrash = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
 
@@ -239,36 +238,36 @@ public class Appetizers extends javax.swing.JFrame {
             }
         });
 
-        lblNesName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblNesName.setText("Chicken Cheese Balls");
+        lblChickCheeese.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblChickCheeese.setText("Chicken Cheese Balls");
 
         lblNesPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblNesPrice.setForeground(new java.awt.Color(153, 153, 153));
         lblNesPrice.setText("LKR  100.00");
 
-        lblMilkshakes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblMilkshakes.setText("Wade");
+        lblwade.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblwade.setText("Wade");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
         jLabel1.setText("LKR  150.00");
 
-        lblDrinks.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblDrinks.setText("Potato Chips");
+        lblpotatochips.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblpotatochips.setText("Potato Chips");
 
         lblDrinksPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblDrinksPrice.setForeground(new java.awt.Color(153, 153, 153));
         lblDrinksPrice.setText("LKR  100.00");
 
-        lblJuice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblJuice.setText("Samosa");
+        lblsamosa.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblsamosa.setText("Samosa");
 
         lblJuicePrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblJuicePrice.setForeground(new java.awt.Color(153, 153, 153));
         lblJuicePrice.setText("LKR  150.00");
 
-        lblMojitoo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblMojitoo.setText("Cheese Balls");
+        lblCheese.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblCheese.setText("Cheese Balls");
 
         lblMojitoPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblMojitoPrice.setForeground(new java.awt.Color(153, 153, 153));
@@ -288,7 +287,7 @@ public class Appetizers extends javax.swing.JFrame {
                                 .addComponent(lblTopic, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblNesName, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblChickCheeese, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(lblChickenCheeseBalls, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(42, 42, 42)
@@ -298,14 +297,14 @@ public class Appetizers extends javax.swing.JFrame {
                                 .addComponent(lblNesPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMilkshakes)
+                                    .addComponent(lblwade)
                                     .addComponent(jLabel1))
                                 .addGap(106, 106, 106)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDrinks)
+                                    .addComponent(lblpotatochips)
                                     .addComponent(lblDrinksPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(42, 42, 42)
@@ -317,11 +316,11 @@ public class Appetizers extends javax.swing.JFrame {
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblJuice)
+                                    .addComponent(lblsamosa)
                                     .addComponent(lblJuicePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(275, 275, 275)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMojitoo)
+                                    .addComponent(lblCheese)
                                     .addComponent(lblMojitoPrice)))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(lblSamosa, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -348,10 +347,10 @@ public class Appetizers extends javax.swing.JFrame {
                                     .addComponent(lblWade, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMilkshakes)
+                            .addComponent(lblwade)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblNesName)
-                                .addComponent(lblDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lblChickCheeese)
+                                .addComponent(lblpotatochips, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -363,11 +362,11 @@ public class Appetizers extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblCheeseBalls, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblsamosa, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(124, 124, 124))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblMojitoo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCheese, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMojitoPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -377,10 +376,6 @@ public class Appetizers extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        lblPlate.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblPlate.setForeground(new java.awt.Color(153, 153, 153));
-        lblPlate.setText("MY PLATE");
 
         btnCheckout.setBackground(new java.awt.Color(0, 204, 0));
         btnCheckout.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -401,17 +396,17 @@ public class Appetizers extends javax.swing.JFrame {
             }
         });
 
-        lblTotal.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblTotal.setForeground(new java.awt.Color(153, 153, 153));
-        lblTotal.setText("TOTAL");
+        lblTotalName.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTotalName.setForeground(new java.awt.Color(153, 153, 153));
+        lblTotalName.setText("TOTAL");
 
-        lblAmount.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblAmount.setForeground(new java.awt.Color(153, 153, 153));
-        lblAmount.setText("      LKR  0.00");
+        lblTotalprice.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTotalprice.setForeground(new java.awt.Color(153, 153, 153));
+        lblTotalprice.setText("      LKR  0.00");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        OrderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -427,7 +422,7 @@ public class Appetizers extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(OrderTable);
 
         btnTrash.setBackground(new java.awt.Color(255, 255, 255));
         btnTrash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/trash.png"))); // NOI18N
@@ -479,9 +474,9 @@ public class Appetizers extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblTotalName, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
-                        .addComponent(lblAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblTotalprice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -495,21 +490,16 @@ public class Appetizers extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
+                        .addGap(41, 41, 41)
                         .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(21, 21, 21)
                 .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(52, 52, 52)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -520,8 +510,8 @@ public class Appetizers extends javax.swing.JFrame {
                         .addComponent(btnTrash)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                    .addComponent(lblAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTotalName, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                    .addComponent(lblTotalprice, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -778,6 +768,145 @@ public class Appetizers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRefreshActionPerformed
 
+               //Member methods
+    //Display Order
+    
+    public void Displayorder()
+    {
+         String qry="SELECT * FROM salesorder";
+      
+        try
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            Statement st=conn.prepareStatement(qry);
+            ResultSet rs=st.executeQuery(qry);
+      
+            while(rs.next())
+            {
+                String item   =String.valueOf(rs.getInt("ItemNo"));
+                String Des   = rs.getString("Product");
+                String qty   = String.valueOf(rs.getInt("QTY"));
+                String price =String.valueOf(rs.getInt("Total"));
+                String tbdata[]={item,Des,qty,price};
+                DefaultTableModel model=(DefaultTableModel)Ordertable.getModel();
+                model.addRow(new Object[]{item,Des, qty, price});
+            }      
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,"Something went wrong\n");
+        }
+        finally
+        {
+           CheckTable();
+           FormatTable();
+        }       
+    }
+    
+    
+    //Delete Order
+    
+    public void Deleteorder()
+    {
+        DefaultTableModel model = (DefaultTableModel)Ordertable.getModel();
+          
+        int row = Ordertable.getSelectedRow();
+         
+        String cell = Ordertable.getModel().getValueAt(row, 0).toString();
+         
+        String qry = "DELETE FROM salesorder WHERE ItemNo = " + cell;
+          
+        try
+        {
+            Statement st = conn.prepareStatement(qry);
+            st.execute(qry);
+            JOptionPane.showMessageDialog(null,"Plate updated");
+        }
+        catch(SQLException e )
+        {
+           e.printStackTrace();
+           JOptionPane.showMessageDialog(null,"Error");
+        }
+        finally
+        {
+           CheckTable();
+           FormatTable();
+        }
+    }
+    
+    //Checking Table
+    
+    public void CheckTable()
+    {
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String qry = " SELECT * From SALESORDER ";
+
+        try 
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            stmt = (PreparedStatement) conn.prepareStatement(qry);
+            rs =  stmt.executeQuery();
+            setCount(0);
+            
+            while(rs.next())
+            {
+               setCount(getCount() + 1);
+            }
+            if(count == 0)
+            { 
+                jScrollPane2hide();
+                Ordertable.setVisible(false);
+                btnTrash.setVisible(false);
+                lblTotalPrice.setVisible(true);
+                lblPlateImage.show();
+            }
+            else
+            {
+                jScrollPane2.show();
+                Ordertable.setVisible(true);
+                btnTrash.setVisible(true);
+                lblTotalPrice.setVisible(true);
+                lblPlateImage.hide();
+            }
+        
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }         
+    }
+            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -814,6 +943,7 @@ public class Appetizers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable OrderTable;
     private javax.swing.JButton btnAppetizers;
     private javax.swing.JButton btnBeverages;
     private javax.swing.JButton btnCheckout;
@@ -827,25 +957,23 @@ public class Appetizers extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblAmount;
+    private javax.swing.JLabel lblCheese;
     private javax.swing.JLabel lblCheeseBalls;
+    private javax.swing.JLabel lblChickCheeese;
     private javax.swing.JLabel lblChickenCheeseBalls;
-    private javax.swing.JLabel lblDrinks;
     private javax.swing.JLabel lblDrinksPrice;
-    private javax.swing.JLabel lblJuice;
     private javax.swing.JLabel lblJuicePrice;
     private javax.swing.JLabel lblLogo;
-    private javax.swing.JLabel lblMilkshakes;
     private javax.swing.JLabel lblMojitoPrice;
-    private javax.swing.JLabel lblMojitoo;
-    private javax.swing.JLabel lblNesName;
     private javax.swing.JLabel lblNesPrice;
-    private javax.swing.JLabel lblPlate;
     private javax.swing.JLabel lblPotatoChips;
     private javax.swing.JLabel lblSamosa;
     private javax.swing.JLabel lblTopic;
-    private javax.swing.JLabel lblTotal;
+    private javax.swing.JLabel lblTotalName;
+    private javax.swing.JLabel lblTotalprice;
     private javax.swing.JLabel lblWade;
+    private javax.swing.JLabel lblpotatochips;
+    private javax.swing.JLabel lblsamosa;
+    private javax.swing.JLabel lblwade;
     // End of variables declaration//GEN-END:variables
 }
