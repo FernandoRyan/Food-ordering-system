@@ -272,10 +272,6 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         pnlMenuPanel.setLayout(pnlMenuPanelLayout);
         pnlMenuPanelLayout.setHorizontalGroup(
             pnlMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMenuPanelLayout.createSequentialGroup()
-                .addGap(333, 333, 333)
-                .addComponent(lblFASTFOOD, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMenuPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -314,32 +310,37 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
                                 .addComponent(lblHotDog)
                                 .addGap(18, 18, 18)))
                         .addGap(157, 157, 157))))
-            .addGroup(pnlMenuPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(pnlMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPizza, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMenuPanelLayout.createSequentialGroup()
+                .addGroup(pnlMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlMenuPanelLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(pnlMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(pnlMenuPanelLayout.createSequentialGroup()
-                                .addComponent(lblPizza)
-                                .addGap(81, 81, 81))
-                            .addGroup(pnlMenuPanelLayout.createSequentialGroup()
-                                .addComponent(lblLKR4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblPizzaPrice)
-                                .addGap(48, 48, 48)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSandwitch, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblFASTFOOD, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlMenuPanelLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addGroup(pnlMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSandwitch)
+                        .addGap(20, 20, 20)
+                        .addGroup(pnlMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnPizza, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnlMenuPanelLayout.createSequentialGroup()
-                                .addComponent(lblLKR5)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblSandwitchPrice)))))
+                                .addGap(53, 53, 53)
+                                .addGroup(pnlMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(pnlMenuPanelLayout.createSequentialGroup()
+                                        .addComponent(lblPizza)
+                                        .addGap(81, 81, 81))
+                                    .addGroup(pnlMenuPanelLayout.createSequentialGroup()
+                                        .addComponent(lblLKR4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblPizzaPrice)
+                                        .addGap(48, 48, 48)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSandwitch, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlMenuPanelLayout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addGroup(pnlMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblSandwitch)
+                                    .addGroup(pnlMenuPanelLayout.createSequentialGroup()
+                                        .addComponent(lblLKR5)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblSandwitchPrice)))))))
                 .addGap(63, 63, 63)
                 .addGroup(pnlMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnDonut, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -547,9 +548,9 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         pnlSidePanelLayout.setVerticalGroup(
             pnlSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSidePanelLayout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
                 .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnMeal, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(btnFastfood, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -593,7 +594,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         });
         Ordertable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         Ordertable.setAutoscrolls(false);
-        Ordertable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Ordertable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Ordertable.setFillsViewportHeight(true);
         Ordertable.setFocusable(false);
         Ordertable.setGridColor(new java.awt.Color(255, 255, 255));
@@ -604,6 +605,12 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         Ordertable.setSurrendersFocusOnKeystroke(true);
         Ordertable.setUpdateSelectionOnSort(false);
         jScrollPane2.setViewportView(Ordertable);
+        if (Ordertable.getColumnModel().getColumnCount() > 0) {
+            Ordertable.getColumnModel().getColumn(0).setPreferredWidth(30);
+            Ordertable.getColumnModel().getColumn(1).setPreferredWidth(100);
+            Ordertable.getColumnModel().getColumn(2).setPreferredWidth(30);
+            Ordertable.getColumnModel().getColumn(3).setPreferredWidth(30);
+        }
         Ordertable.getAccessibleContext().setAccessibleName("Ordertable");
 
         lblTotalName.setFont(new java.awt.Font("Algerian", 0, 24)); // NOI18N
@@ -615,6 +622,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
 
         btnTrash.setBackground(new java.awt.Color(255, 255, 255));
         btnTrash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/trash.png"))); // NOI18N
+        btnTrash.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnTrash.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnTrashMousePressed(evt);
@@ -635,6 +643,9 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
             }
         });
         btnCheckout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCheckoutMouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnCheckoutMouseExited(evt);
             }
@@ -662,6 +673,9 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
             }
         });
         btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnRefreshMouseExited(evt);
             }
@@ -685,9 +699,6 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
                         .addGap(67, 67, 67)
                         .addComponent(lblTotalName, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -699,6 +710,10 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addContainerGap(68, Short.MAX_VALUE)
@@ -707,20 +722,22 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTrash))
-                .addGap(41, 41, 41)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnTrash)
+                        .addGap(0, 247, Short.MAX_VALUE))
+                    .addComponent(lblPlateImage, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTotalName, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(71, 71, 71))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addContainerGap(663, Short.MAX_VALUE)
@@ -745,8 +762,8 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(659, 659, 659))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(638, 638, 638))
         );
         pnlFastfoodLayout.setVerticalGroup(
             pnlFastfoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -766,7 +783,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFastfood, javax.swing.GroupLayout.PREFERRED_SIZE, 1338, Short.MAX_VALUE)
+            .addComponent(pnlFastfood, javax.swing.GroupLayout.PREFERRED_SIZE, 1360, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -853,7 +870,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
     }//GEN-LAST:event_btnDonutMouseClicked
 
     private void btnMealMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealMouseEntered
-        // Changing the Meal button background color, when cursor move to the Meal button
+        // Rechange the Meal button & Fastfood button background colors, when cursor move out the Meal button
         btnMeal.setBackground(new Color(0,102,0));
         btnFastfood.setBackground(Color.GREEN);       
     }//GEN-LAST:event_btnMealMouseEntered
@@ -1031,8 +1048,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         {
            CheckTable();
            FormatTable();
-        }
-       
+        }       
     } 
    
     
@@ -1108,8 +1124,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         catch (SQLException ex) 
         {
             ex.printStackTrace();
-        } 
-        
+        }         
     }
         
     
