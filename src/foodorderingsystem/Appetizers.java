@@ -83,10 +83,10 @@ public class Appetizers extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnCheckout = new javax.swing.JButton();
         lblTotalName = new javax.swing.JLabel();
-        lblTotalprice = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblTotalPrice = new javax.swing.JLabel();
+        lblPlateImage = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        OrderTable = new javax.swing.JTable();
+        Ordertable = new javax.swing.JTable();
         btnTrash = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
 
@@ -400,13 +400,13 @@ public class Appetizers extends javax.swing.JFrame {
         lblTotalName.setForeground(new java.awt.Color(153, 153, 153));
         lblTotalName.setText("TOTAL");
 
-        lblTotalprice.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblTotalprice.setForeground(new java.awt.Color(153, 153, 153));
-        lblTotalprice.setText("      LKR  0.00");
+        lblTotalPrice.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTotalPrice.setForeground(new java.awt.Color(153, 153, 153));
+        lblTotalPrice.setText("      LKR  0.00");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
+        lblPlateImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
 
-        OrderTable.setModel(new javax.swing.table.DefaultTableModel(
+        Ordertable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -422,7 +422,7 @@ public class Appetizers extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(OrderTable);
+        jScrollPane1.setViewportView(Ordertable);
 
         btnTrash.setBackground(new java.awt.Color(255, 255, 255));
         btnTrash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/trash.png"))); // NOI18N
@@ -476,10 +476,10 @@ public class Appetizers extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(lblTotalName, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
-                        .addComponent(lblTotalprice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblTotalPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -504,14 +504,14 @@ public class Appetizers extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(btnTrash)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTotalName, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                    .addComponent(lblTotalprice, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -876,37 +876,44 @@ public class Appetizers extends javax.swing.JFrame {
             ex.printStackTrace();
         }         
     }
+ 
+    
+    //Format table
+    public void FormatTable()
+    {
+        Ordertable.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
+        Ordertable.getTableHeader().setOpaque(true);
+        Ordertable.getTableHeader().setBackground(new Color(32,136,203));
+        Ordertable.getTableHeader().setForeground(new Color(255,255,255));
+        Ordertable.setRowHeight(25);  
+    }
+    
+    //Get Total
+    public void GetTotal()
+    {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String qry = "Select Sum(Total) as sumprice from salesorder";
+       
+        try
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            pst=conn.prepareStatement(qry);
+            rs=pst.executeQuery();
             
+            if(rs.next())
+            {
+                String sum = rs.getString("sumprice");
+                lblTotalPrice.setText(sum);
+            }
+        }
+       catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+     
     /**
      * @param args the command line arguments
      */
@@ -943,7 +950,7 @@ public class Appetizers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable OrderTable;
+    private javax.swing.JTable Ordertable;
     private javax.swing.JButton btnAppetizers;
     private javax.swing.JButton btnBeverages;
     private javax.swing.JButton btnCheckout;
@@ -952,7 +959,6 @@ public class Appetizers extends javax.swing.JFrame {
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnTrash;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -966,14 +972,48 @@ public class Appetizers extends javax.swing.JFrame {
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblMojitoPrice;
     private javax.swing.JLabel lblNesPrice;
+    private javax.swing.JLabel lblPlateImage;
     private javax.swing.JLabel lblPotatoChips;
     private javax.swing.JLabel lblSamosa;
     private javax.swing.JLabel lblTopic;
     private javax.swing.JLabel lblTotalName;
-    private javax.swing.JLabel lblTotalprice;
+    private javax.swing.JLabel lblTotalPrice;
     private javax.swing.JLabel lblWade;
     private javax.swing.JLabel lblpotatochips;
     private javax.swing.JLabel lblsamosa;
     private javax.swing.JLabel lblwade;
     // End of variables declaration//GEN-END:variables
+
+  /**
+     * @return the Total
+     */
+    public double getTotal() 
+    {
+        return Total;
+    }
+
+    /**
+     * @param Total the Total to set
+     */
+    public void setTotal(double Total) 
+    {
+        this.Total = Total;
+    }
+
+    /**
+     * @return the count
+     */
+    public int getCount() 
+    {
+        return count;
+    }
+
+    /**
+     * @param count the count to set
+     */
+    public void setCount(int count) 
+    {
+        this.count = count;
+    }
+
 }
