@@ -16,6 +16,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -23,12 +25,27 @@ import java.sql.Statement;
  * @author Dhanuja Supun
  */
 public class Appetizers extends javax.swing.JFrame {
+    
+    //Creating fields
+    public double Total=0.0;
+    int count;
+    
+    //Connection settings to database
+    private Connection conn;
+    private String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+    private String username= "sa";
+    private String Pass="anjalo9990";
+    
 
     /**
      * Creates new form Appetizers
      */
     public Appetizers() {
         initComponents();
+        Displayorder() ;
+        FormatTable();
+        CheckTable();
+        GetTotal();
     }
 
     /**
@@ -71,6 +88,8 @@ public class Appetizers extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        btnTrash = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -410,25 +429,64 @@ public class Appetizers extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        btnTrash.setBackground(new java.awt.Color(255, 255, 255));
+        btnTrash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/trash.png"))); // NOI18N
+        btnTrash.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTrash.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnTrashMousePressed(evt);
+            }
+        });
+
+        btnRefresh.setBackground(new java.awt.Color(0, 153, 0));
+        btnRefresh.setFont(new java.awt.Font("Algerian", 1, 24));
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_down_48px_5.png"))); // NOI18N
+        btnRefresh.setText("View Plate");
+        btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRefresh.setIconTextGap(1);
+        btnRefresh.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseMoved(evt);
+            }
+        });
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnRefreshMousePressed(evt);
+            }
+        });
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
                         .addComponent(lblAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(30, 30, 30))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -438,7 +496,10 @@ public class Appetizers extends javax.swing.JFrame {
                         .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -446,10 +507,17 @@ public class Appetizers extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(btnTrash)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
@@ -476,7 +544,7 @@ public class Appetizers extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 808, Short.MAX_VALUE)
+            .addGap(0, 826, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -515,6 +583,7 @@ public class Appetizers extends javax.swing.JFrame {
         Meal ml = new Meal();
         ml.setVisible(true);
         this.hide();
+        
     }//GEN-LAST:event_btnMealsMousePressed
 
     private void btnFastfoodsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastfoodsMouseEntered
@@ -538,6 +607,7 @@ public class Appetizers extends javax.swing.JFrame {
         Fastfoods fd = new Fastfoods();
         fd.setVisible(true);
         this.hide();
+        
     }//GEN-LAST:event_btnFastfoodsMousePressed
 
     private void btnAppetizersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppetizersMouseEntered
@@ -559,6 +629,7 @@ public class Appetizers extends javax.swing.JFrame {
 
     private void btnAppetizersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppetizersMousePressed
        this.setVisible(true);
+       
     }//GEN-LAST:event_btnAppetizersMousePressed
 
     private void btnBeveragesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMouseEntered
@@ -578,6 +649,12 @@ public class Appetizers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBeveragesMouseExited
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {                                  
+        // This display the Frame into middle of the screen
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(screenSize.width, screenSize.height);
+    }
+    
     private void btnBeveragesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMousePressed
         Beverages bv = new Beverages();
         bv.setVisible(true);
@@ -588,6 +665,11 @@ public class Appetizers extends javax.swing.JFrame {
 
         POPUP_Message_Chicken_CheeseBalls cc = new POPUP_Message_Chicken_CheeseBalls();
         cc.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
 
     }//GEN-LAST:event_lblChickenCheeseBallsMousePressed
 
@@ -595,6 +677,11 @@ public class Appetizers extends javax.swing.JFrame {
 
         POPUP_Message_Wade w = new POPUP_Message_Wade();
         w.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
 
     }//GEN-LAST:event_lblWadeMousePressed
 
@@ -602,6 +689,11 @@ public class Appetizers extends javax.swing.JFrame {
 
         POPUP_Message_PotatoChips pc = new POPUP_Message_PotatoChips();
         pc.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
        
     }//GEN-LAST:event_lblPotatoChipsMousePressed
 
@@ -609,6 +701,11 @@ public class Appetizers extends javax.swing.JFrame {
 
         POPUP_Message_Samosa s = new POPUP_Message_Samosa();
         s.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
        
     }//GEN-LAST:event_lblSamosaMousePressed
 
@@ -616,6 +713,11 @@ public class Appetizers extends javax.swing.JFrame {
 
         POPUP_Message_CheeseBalls cb = new POPUP_Message_CheeseBalls();
         cb.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_lblCheeseBallsMousePressed
@@ -643,6 +745,38 @@ public class Appetizers extends javax.swing.JFrame {
     private void btnCheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCheckoutMousePressed
+
+    private void btnTrashMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTrashMousePressed
+      
+        Deleteorder();
+    }//GEN-LAST:event_btnTrashMousePressed
+
+    private void btnRefreshMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRefreshMouseMoved
+
+    private void btnRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseEntered
+        // Changing the Refresh button background color, when cursor move to the Refresh button
+        btnRefresh.setBackground(Color.RED);
+        btnRefresh.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnRefreshMouseEntered
+
+    private void btnRefreshMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseExited
+        // Rechange the Refresh button background color, when cursor move out the Refresh button
+        btnRefresh.setBackground(Color.GREEN);
+        btnRefresh.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnRefreshMouseExited
+
+    private void btnRefreshMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMousePressed
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
+    }//GEN-LAST:event_btnRefreshMousePressed
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRefreshActionPerformed
 
     /**
      * @param args the command line arguments
@@ -685,6 +819,8 @@ public class Appetizers extends javax.swing.JFrame {
     private javax.swing.JButton btnCheckout;
     private javax.swing.JButton btnFastfoods;
     private javax.swing.JButton btnMeals;
+    private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnTrash;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
