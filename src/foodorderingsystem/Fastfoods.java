@@ -1031,8 +1031,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         {
            CheckTable();
            FormatTable();
-        }
-       
+        }       
     } 
    
     
@@ -1108,8 +1107,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         catch (SQLException ex) 
         {
             ex.printStackTrace();
-        } 
-        
+        }         
     }
         
     
