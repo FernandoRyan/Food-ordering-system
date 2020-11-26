@@ -5,6 +5,19 @@
  */
 package foodorderingsystem;
 
+//Import Classes
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+
 /**
  *
  * @author Dhanuja Supun
@@ -315,10 +328,11 @@ public class Appetizers extends javax.swing.JFrame {
                                     .addComponent(lblPotatoChips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblWade, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNesName)
-                            .addComponent(lblDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMilkshakes))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMilkshakes)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblNesName)
+                                .addComponent(lblDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -415,7 +429,7 @@ public class Appetizers extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 857, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(30, 30, 30))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -449,7 +463,7 @@ public class Appetizers extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2242, Short.MAX_VALUE)
+            .addGap(0, 1372, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -457,7 +471,7 @@ public class Appetizers extends javax.swing.JFrame {
                     .addGap(0, 0, 0)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(1, 1, 1)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -544,9 +558,7 @@ public class Appetizers extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAppetizersMouseExited
 
     private void btnAppetizersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppetizersMousePressed
-        Appetizers ap = new Appetizers();
-        ap.setVisible(true);
-        this.hide();
+       this.setVisible(true);
     }//GEN-LAST:event_btnAppetizersMousePressed
 
     private void btnBeveragesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMouseEntered
@@ -577,7 +589,6 @@ public class Appetizers extends javax.swing.JFrame {
         POPUP_Message_Chicken_CheeseBalls cc = new POPUP_Message_Chicken_CheeseBalls();
         cc.setVisible(true);
 
-        // TODO add your handling code here:
     }//GEN-LAST:event_lblChickenCheeseBallsMousePressed
 
     private void lblWadeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblWadeMousePressed
@@ -585,22 +596,20 @@ public class Appetizers extends javax.swing.JFrame {
         POPUP_Message_Wade w = new POPUP_Message_Wade();
         w.setVisible(true);
 
-        // TODO add your handling code here:
     }//GEN-LAST:event_lblWadeMousePressed
 
     private void lblPotatoChipsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPotatoChipsMousePressed
 
         POPUP_Message_PotatoChips pc = new POPUP_Message_PotatoChips();
         pc.setVisible(true);
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_lblPotatoChipsMousePressed
 
     private void lblSamosaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSamosaMousePressed
 
         POPUP_Message_Samosa s = new POPUP_Message_Samosa();
         s.setVisible(true);
-
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_lblSamosaMousePressed
 
     private void lblCheeseBallsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCheeseBallsMousePressed
