@@ -9,7 +9,7 @@ package foodorderingsystem;
  *
  * @author RYAN
  */
-public interface MealsInterface {
+public interface FoodsInterface {
 
     void CheckTable();
 

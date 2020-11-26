@@ -26,7 +26,7 @@ import net.proteanit.sql.DbUtils;
  */
 
 
-public class  Meal extends javax.swing.JFrame implements MealsInterface {
+public class  Meal extends javax.swing.JFrame implements FoodsInterface {
 
     //Creating feilds
     private double Total; 
@@ -200,7 +200,7 @@ public class  Meal extends javax.swing.JFrame implements MealsInterface {
             .addGroup(SidepanelLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(Logobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 59, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         SidepanelLayout.setVerticalGroup(
             SidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -450,6 +450,11 @@ public class  Meal extends javax.swing.JFrame implements MealsInterface {
                 Checkout1MousePressed(evt);
             }
         });
+        Checkout1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Checkout1ActionPerformed(evt);
+            }
+        });
 
         Platebtn.setBackground(new java.awt.Color(0, 153, 0));
         Platebtn.setFont(new java.awt.Font("Algerian", 1, 24));
@@ -470,6 +475,11 @@ public class  Meal extends javax.swing.JFrame implements MealsInterface {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 PlatebtnMousePressed(evt);
+            }
+        });
+        Platebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PlatebtnActionPerformed(evt);
             }
         });
 

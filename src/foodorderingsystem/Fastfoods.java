@@ -18,33 +18,31 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
-
 /**
  *
  * @author Neranji Sulakshika
  */
-public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
+public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
 
     //Creating feilds
     public double Total=0.0;
     int count;
     
     //Connection settings to database
-    Connection conn;
-    String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    String username= "sa";
-    String Pass="anjalo9990";
+    private Connection conn;
+    private String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+    private String username= "sa";
+    private String Pass="anjalo9990";
     
     /**
      * Creates new form Fast foods
      */
     public Fastfoods() {
         initComponents();
-       Displayorder() ;
-       FormatTable();
-       CheckTable();
-       GetTotal();
+        Displayorder() ;
+        FormatTable();
+        CheckTable();
+        GetTotal();
     }
     
 
@@ -94,17 +92,15 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
         btnFastfood = new javax.swing.JButton();
         btnAppetizers = new javax.swing.JButton();
         btnBeverages = new javax.swing.JButton();
-        pnlMyPlate = new javax.swing.JPanel();
-        lblMyPlate = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Ordertable = new javax.swing.JTable();
         lblTotalName = new javax.swing.JLabel();
-        lblLKRTotal = new javax.swing.JLabel();
         lblTotalPrice = new javax.swing.JLabel();
-        btnCheckout = new javax.swing.JButton();
-        lblPlateImage = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblOrder = new javax.swing.JTable();
-        btnRefresh = new javax.swing.JButton();
         btnTrash = new javax.swing.JButton();
+        lblPlateImage = new javax.swing.JLabel();
+        btnCheckout = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
 
         jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(153, 153, 153));
@@ -570,41 +566,75 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
         btnAppetizers.getAccessibleContext().setAccessibleName("btnAppetizers");
         btnBeverages.getAccessibleContext().setAccessibleName("btnBeverages");
 
-        pnlMyPlate.setBackground(new java.awt.Color(255, 255, 255));
-        pnlMyPlate.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        pnlMyPlate.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel2.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
-                pnlMyPlateMouseWheelMoved(evt);
+                jPanel2MouseWheelMoved(evt);
             }
         });
 
-        lblMyPlate.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblMyPlate.setForeground(new java.awt.Color(153, 153, 153));
-        lblMyPlate.setText("MY PLATE");
+        Ordertable.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Ordertable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        lblTotalName.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
-        lblTotalName.setForeground(new java.awt.Color(0, 204, 0));
-        lblTotalName.setText("TOTAL");
+            },
+            new String [] {
+                "Item No", "Product Description", "Qty", "Total"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        lblLKRTotal.setFont(new java.awt.Font("Algerian", 1, 20)); // NOI18N
-        lblLKRTotal.setText("LKR");
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Ordertable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        Ordertable.setAutoscrolls(false);
+        Ordertable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Ordertable.setFillsViewportHeight(true);
+        Ordertable.setFocusable(false);
+        Ordertable.setGridColor(new java.awt.Color(255, 255, 255));
+        Ordertable.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        Ordertable.setRowHeight(25);
+        Ordertable.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        Ordertable.setShowHorizontalLines(false);
+        Ordertable.setSurrendersFocusOnKeystroke(true);
+        Ordertable.setUpdateSelectionOnSort(false);
+        jScrollPane2.setViewportView(Ordertable);
+        Ordertable.getAccessibleContext().setAccessibleName("Ordertable");
 
-        lblTotalPrice.setFont(new java.awt.Font("Algerian", 1, 20)); // NOI18N
+        lblTotalName.setFont(new java.awt.Font("Algerian", 0, 24)); // NOI18N
+        lblTotalName.setForeground(new java.awt.Color(51, 204, 0));
+        lblTotalName.setText("Total");
+
+        lblTotalPrice.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblTotalPrice.setText("00.00");
 
-        btnCheckout.setBackground(new java.awt.Color(0, 204, 0));
-        btnCheckout.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnTrash.setBackground(new java.awt.Color(255, 255, 255));
+        btnTrash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/trash.png"))); // NOI18N
+        btnTrash.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnTrashMousePressed(evt);
+            }
+        });
+
+        lblPlateImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
+
+        btnCheckout.setBackground(new java.awt.Color(0, 153, 0));
+        btnCheckout.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnCheckout.setForeground(new java.awt.Color(255, 255, 255));
         btnCheckout.setText("CHECKOUT");
         btnCheckout.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCheckout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCheckout.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btnCheckoutMouseMoved(evt);
+            }
+        });
         btnCheckout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCheckoutMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCheckoutMouseEntered(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnCheckoutMouseExited(evt);
             }
@@ -618,44 +648,20 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
             }
         });
 
-        lblPlateImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
-
-        tblOrder.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        tblOrder.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Item No", "Product Description", "QTY", "Total"
-            }
-        ));
-        tblOrder.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        tblOrder.setFillsViewportHeight(true);
-        tblOrder.setGridColor(new java.awt.Color(255, 255, 255));
-        tblOrder.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        tblOrder.setPreferredSize(new java.awt.Dimension(535, 0));
-        tblOrder.setRowHeight(25);
-        tblOrder.setSelectionBackground(new java.awt.Color(232, 57, 95));
-        tblOrder.setShowHorizontalLines(false);
-        tblOrder.setSurrendersFocusOnKeystroke(true);
-        tblOrder.setUpdateSelectionOnSort(false);
-        jScrollPane1.setViewportView(tblOrder);
-        if (tblOrder.getColumnModel().getColumnCount() > 0) {
-            tblOrder.getColumnModel().getColumn(0).setPreferredWidth(80);
-            tblOrder.getColumnModel().getColumn(1).setPreferredWidth(200);
-        }
-        tblOrder.getAccessibleContext().setAccessibleName("tblOrder");
-
-        btnRefresh.setBackground(new java.awt.Color(0, 204, 0));
-        btnRefresh.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnRefresh.setBackground(new java.awt.Color(0, 153, 0));
+        btnRefresh.setFont(new java.awt.Font("Algerian", 1, 24));
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
         btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_down_48px_5.png"))); // NOI18N
-        btnRefresh.setText("REFRESH");
+        btnRefresh.setText("View Plate");
         btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnRefreshMouseEntered(evt);
+        btnRefresh.setIconTextGap(1);
+        btnRefresh.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseMoved(evt);
             }
+        });
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnRefreshMouseExited(evt);
             }
@@ -663,84 +669,71 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
                 btnRefreshMousePressed(evt);
             }
         });
-
-        btnTrash.setBackground(new java.awt.Color(255, 255, 255));
-        btnTrash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/trash.png"))); // NOI18N
-        btnTrash.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnTrash.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnTrash.setPreferredSize(new java.awt.Dimension(50, 26));
-        btnTrash.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnTrashMousePressed(evt);
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout pnlMyPlateLayout = new javax.swing.GroupLayout(pnlMyPlate);
-        pnlMyPlate.setLayout(pnlMyPlateLayout);
-        pnlMyPlateLayout.setHorizontalGroup(
-            pnlMyPlateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMyPlateLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(lblTotalName, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlMyPlateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMyPlateLayout.createSequentialGroup()
-                        .addComponent(lblMyPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(109, 109, 109))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMyPlateLayout.createSequentialGroup()
-                        .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMyPlateLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMyPlateLayout.createSequentialGroup()
-                        .addGroup(pnlMyPlateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPlateImage))
-                        .addGap(3, 3, 3)
-                        .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-            .addGroup(pnlMyPlateLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(lblTotalName)
-                .addGap(51, 51, 51)
-                .addComponent(lblLKRTotal)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblTotalPrice)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addContainerGap(68, Short.MAX_VALUE)
+                    .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(71, 71, 71)))
         );
-        pnlMyPlateLayout.setVerticalGroup(
-            pnlMyPlateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMyPlateLayout.createSequentialGroup()
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblMyPlate)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(pnlMyPlateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlMyPlateLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlMyPlateLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlMyPlateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTotalName)
-                    .addComponent(lblTotalPrice)
-                    .addComponent(lblLKRTotal))
-                .addGap(18, 18, 18)
-                .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTrash))
+                .addGap(41, 41, 41)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTotalName, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addContainerGap(663, Short.MAX_VALUE)
+                    .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
 
-        lblMyPlate.getAccessibleContext().setAccessibleName("lblMyPlate");
         lblTotalName.getAccessibleContext().setAccessibleName("lblTotalName");
-        lblLKRTotal.getAccessibleContext().setAccessibleName("lblLKR");
         lblTotalPrice.getAccessibleContext().setAccessibleName("lblTotalPrice");
-        btnCheckout.getAccessibleContext().setAccessibleName("btnCheckout");
-        lblPlateImage.getAccessibleContext().setAccessibleName("lblPlateImage");
-        btnRefresh.getAccessibleContext().setAccessibleName("btnRefresh");
         btnTrash.getAccessibleContext().setAccessibleName("btnTrash");
+        lblPlateImage.getAccessibleContext().setAccessibleName("lblPlateImage");
+        btnCheckout.getAccessibleContext().setAccessibleName("btnCheckout");
+        btnRefresh.getAccessibleContext().setAccessibleName("btnRefresh");
 
         javax.swing.GroupLayout pnlFastfoodLayout = new javax.swing.GroupLayout(pnlFastfood);
         pnlFastfood.setLayout(pnlFastfoodLayout);
@@ -752,8 +745,8 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlMyPlate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(288, 288, 288))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(659, 659, 659))
         );
         pnlFastfoodLayout.setVerticalGroup(
             pnlFastfoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -762,19 +755,18 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
                 .addGroup(pnlFastfoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlSidePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlMyPlate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         pnlMenuPanel.getAccessibleContext().setAccessibleName("pnlMenuPanel");
         pnlSidePanel.getAccessibleContext().setAccessibleName("pnlSidePanel");
-        pnlMyPlate.getAccessibleContext().setAccessibleName("pnlMyPlate");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFastfood, javax.swing.GroupLayout.DEFAULT_SIZE, 1338, Short.MAX_VALUE)
+            .addComponent(pnlFastfood, javax.swing.GroupLayout.PREFERRED_SIZE, 1338, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -799,7 +791,7 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
         POPUP_Message_Burger bp = new POPUP_Message_Burger();
         bp.setVisible(true);
         
-        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
         model.setRowCount(0);
         Displayorder();
         GetTotal();
@@ -810,7 +802,7 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
         POPUP_Message_Submarine bp = new POPUP_Message_Submarine();
         bp.setVisible(true);
         
-        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
         model.setRowCount(0);
         Displayorder();
         GetTotal();
@@ -821,7 +813,7 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
         POPUP_Message_HotDog bp = new POPUP_Message_HotDog();
         bp.setVisible(true);
         
-        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
         model.setRowCount(0);
         Displayorder();
         GetTotal();
@@ -832,7 +824,7 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
         POPUP_Message_Pizza bp = new POPUP_Message_Pizza();
         bp.setVisible(true);
         
-        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
         model.setRowCount(0);
         Displayorder();
         GetTotal();
@@ -843,7 +835,7 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
         POPUP_Message_Sandwitch bp = new POPUP_Message_Sandwitch();
         bp.setVisible(true);
         
-        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
         model.setRowCount(0);
         Displayorder();
         GetTotal();
@@ -854,7 +846,7 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
         POPUP_Message_Donut bp = new POPUP_Message_Donut();
         bp.setVisible(true);
         
-        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
         model.setRowCount(0);
         Displayorder();
         GetTotal();
@@ -955,6 +947,33 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBurgerActionPerformed
 
+    private void pnlMyPlateMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_pnlMyPlateMouseWheelMoved
+        GetTotal();
+    }//GEN-LAST:event_pnlMyPlateMouseWheelMoved
+
+    private void btnTrashMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTrashMousePressed
+        Deleteorder();
+    }//GEN-LAST:event_btnTrashMousePressed
+
+    private void btnRefreshMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMousePressed
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
+    }//GEN-LAST:event_btnRefreshMousePressed
+
+    private void btnRefreshMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseExited
+        // Rechange the Refresh button background color, when cursor move out the Refresh button
+        btnRefresh.setBackground(Color.GREEN);
+        btnRefresh.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnRefreshMouseExited
+
+    private void btnRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseEntered
+        // Changing the Refresh button background color, when cursor move to the Refresh button
+        btnRefresh.setBackground(Color.RED);
+        btnRefresh.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnRefreshMouseEntered
+
     private void btnCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckoutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCheckoutActionPerformed
@@ -979,36 +998,10 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
         this.hide();
     }//GEN-LAST:event_btnCheckoutMouseClicked
 
-    private void pnlMyPlateMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_pnlMyPlateMouseWheelMoved
-        GetTotal();
-    }//GEN-LAST:event_pnlMyPlateMouseWheelMoved
-
-    private void btnTrashMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTrashMousePressed
-        Deleteorder();
-    }//GEN-LAST:event_btnTrashMousePressed
-
-    private void btnRefreshMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMousePressed
-        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
-        model.setRowCount(0);
-        Displayorder();
-        GetTotal();
-    }//GEN-LAST:event_btnRefreshMousePressed
-
-    private void btnRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseEntered
-        // Changing the Refresh button background color, when cursor move to the Refresh button
-        btnRefresh.setBackground(Color.RED);
-        btnRefresh.setForeground(Color.WHITE);
-    }//GEN-LAST:event_btnRefreshMouseEntered
-
-    private void btnRefreshMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseExited
-        // Rechange the Refresh button background color, when cursor move out the Refresh button
-        btnRefresh.setBackground(Color.GREEN);
-        btnRefresh.setForeground(Color.WHITE);
-    }//GEN-LAST:event_btnRefreshMouseExited
-
                                     //Member Methods.... 
     
     //Display Order
+    @Override
     public  void Displayorder()
     {
         String qry="SELECT * FROM salesorder";
@@ -1021,12 +1014,12 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
       
             while(rs.next())
             {
-                String item  = String.valueOf(rs.getInt("ItemNo"));
+                String item   =String.valueOf(rs.getInt("ItemNo"));
                 String Des   = rs.getString("Product");
                 String qty   = String.valueOf(rs.getInt("QTY"));
-                String price = String.valueOf(rs.getInt("Total"));
-                String tbdata[] = {item,Des,qty,price};
-                DefaultTableModel model = (DefaultTableModel)tblOrder.getModel();
+                String price =String.valueOf(rs.getInt("Total"));
+                String tbdata[]={item,Des,qty,price};
+                DefaultTableModel model=(DefaultTableModel)Ordertable.getModel();
                 model.addRow(new Object[]{item,Des, qty, price});
             }      
         }
@@ -1037,20 +1030,20 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
         finally
         {
            CheckTable();
-           // FormatTable();
-        }
-       
+           FormatTable();
+        }       
     } 
    
     
    //Delete Order
+    @Override
     public void Deleteorder()
     {    
-        DefaultTableModel model = (DefaultTableModel)tblOrder.getModel();
+        DefaultTableModel model = (DefaultTableModel)Ordertable.getModel();
           
-        int row = tblOrder.getSelectedRow();
+        int row = Ordertable.getSelectedRow();
          
-        String cell = tblOrder.getModel().getValueAt(row, 0).toString();
+        String cell = Ordertable.getModel().getValueAt(row, 0).toString();
          
         String qry = "DELETE FROM salesorder WHERE ItemNo = " + cell;
           
@@ -1074,35 +1067,39 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
   
    
     //Checking table
+    @Override
     public void  CheckTable() 
     {
         
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String qry = " SELECT * From salesorder ";
+        String qry = " SELECT * From SALESORDER ";
 
         try 
         {
             conn = DriverManager.getConnection(connectionUrl, username, Pass);
             stmt = (PreparedStatement) conn.prepareStatement(qry);
             rs =  stmt.executeQuery();
-            count = 0;
+            setCount(0);
+            
             while(rs.next())
             {
-               count++;
+               setCount(getCount() + 1);
             }
             if(count == 0)
             { 
-                jScrollPane1.hide();
-                tblOrder.setVisible(false);
+                jScrollPane2.hide();
+                Ordertable.setVisible(false);
                 btnTrash.setVisible(false);
+                lblTotalPrice.setVisible(true);
                 lblPlateImage.show();
             }
             else
             {
-                jScrollPane1.show();
-                tblOrder.setVisible(true);
+                jScrollPane2.show();
+                Ordertable.setVisible(true);
                 btnTrash.setVisible(true);
+                lblTotalPrice.setVisible(true);
                 lblPlateImage.hide();
             }
         
@@ -1110,23 +1107,24 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
         catch (SQLException ex) 
         {
             ex.printStackTrace();
-        } 
-        
+        }         
     }
         
     
     //Format table  
+    @Override
     public void FormatTable() 
     {
-        tblOrder.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
-        tblOrder.getTableHeader().setOpaque(true);
-        tblOrder.getTableHeader().setBackground(new Color(32,136,203));
-        tblOrder.getTableHeader().setForeground(new Color(255,255,255));
-        tblOrder.setRowHeight(25);   
+        Ordertable.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
+        Ordertable.getTableHeader().setOpaque(true);
+        Ordertable.getTableHeader().setBackground(new Color(32,136,203));
+        Ordertable.getTableHeader().setForeground(new Color(255,255,255));
+        Ordertable.setRowHeight(25);   
     }
 
     
     //Get Total
+    @Override
     public void GetTotal() 
     {
         PreparedStatement pst = null;
@@ -1142,7 +1140,7 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
             if(rs.next())
             {
                 String sum = rs.getString("sumprice");
-                lblPlateImage.setText(sum);
+                lblTotalPrice.setText(sum);
             }
         }
        catch (SQLException ex) 
@@ -1165,6 +1163,7 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Ordertable;
     private javax.swing.JButton btnAppetizers;
     private javax.swing.JButton btnBeverages;
     private javax.swing.JButton btnBurger;
@@ -1182,7 +1181,8 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblBurger;
     private javax.swing.JLabel lblBurgerPrice;
     private javax.swing.JLabel lblDonut;
@@ -1196,9 +1196,7 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
     private javax.swing.JLabel lblLKR4;
     private javax.swing.JLabel lblLKR5;
     private javax.swing.JLabel lblLKR6;
-    private javax.swing.JLabel lblLKRTotal;
     private javax.swing.JLabel lblLogo;
-    private javax.swing.JLabel lblMyPlate;
     private javax.swing.JLabel lblPizza;
     private javax.swing.JLabel lblPizzaPrice;
     private javax.swing.JLabel lblPlateImage;
@@ -1210,8 +1208,38 @@ public class Fastfoods extends javax.swing.JFrame implements MealsInterface {
     private javax.swing.JLabel lblTotalPrice;
     private javax.swing.JPanel pnlFastfood;
     private javax.swing.JPanel pnlMenuPanel;
-    private javax.swing.JPanel pnlMyPlate;
     private javax.swing.JPanel pnlSidePanel;
-    private javax.swing.JTable tblOrder;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the Total
+     */
+    public double getTotal() 
+    {
+        return Total;
+    }
+
+    /**
+     * @param Total the Total to set
+     */
+    public void setTotal(double Total) 
+    {
+        this.Total = Total;
+    }
+
+    /**
+     * @return the count
+     */
+    public int getCount() 
+    {
+        return count;
+    }
+
+    /**
+     * @param count the count to set
+     */
+    public void setCount(int count) 
+    {
+        this.count = count;
+    }
 }
