@@ -547,9 +547,9 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         pnlSidePanelLayout.setVerticalGroup(
             pnlSidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSidePanelLayout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
                 .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnMeal, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(btnFastfood, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -593,7 +593,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
         });
         Ordertable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         Ordertable.setAutoscrolls(false);
-        Ordertable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Ordertable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Ordertable.setFillsViewportHeight(true);
         Ordertable.setFocusable(false);
         Ordertable.setGridColor(new java.awt.Color(255, 255, 255));
@@ -621,6 +621,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
 
         btnTrash.setBackground(new java.awt.Color(255, 255, 255));
         btnTrash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/trash.png"))); // NOI18N
+        btnTrash.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnTrash.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnTrashMousePressed(evt);
@@ -730,7 +731,7 @@ public class Fastfoods extends javax.swing.JFrame implements FoodsInterface {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnTrash)
                         .addGap(0, 247, Short.MAX_VALUE))
-                    .addComponent(lblPlateImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblPlateImage, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTotalName, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
