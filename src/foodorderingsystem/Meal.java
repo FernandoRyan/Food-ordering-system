@@ -59,7 +59,7 @@ public class  Meal extends javax.swing.JFrame implements FoodsInterface {
         Mealbtn = new javax.swing.JButton();
         APBTN = new javax.swing.JButton();
         BVGBtn = new javax.swing.JButton();
-        Logobtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         Menupanel = new javax.swing.JPanel();
         Ricecurrybtn = new javax.swing.JButton();
         Kottubtn = new javax.swing.JButton();
@@ -159,6 +159,11 @@ public class  Meal extends javax.swing.JFrame implements FoodsInterface {
                 APBTNMousePressed(evt);
             }
         });
+        APBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                APBTNActionPerformed(evt);
+            }
+        });
 
         BVGBtn.setBackground(new java.awt.Color(0, 204, 0));
         BVGBtn.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
@@ -181,8 +186,7 @@ public class  Meal extends javax.swing.JFrame implements FoodsInterface {
             }
         });
 
-        Logobtn.setBackground(new java.awt.Color(255, 255, 255));
-        Logobtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
 
         javax.swing.GroupLayout SidepanelLayout = new javax.swing.GroupLayout(Sidepanel);
         Sidepanel.setLayout(SidepanelLayout);
@@ -196,18 +200,18 @@ public class  Meal extends javax.swing.JFrame implements FoodsInterface {
                         .addComponent(BVGBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(FFbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Mealbtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-            .addGroup(SidepanelLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(Logobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidepanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
         SidepanelLayout.setVerticalGroup(
             SidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SidepanelLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(Logobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
+                .addGap(38, 38, 38)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85)
                 .addComponent(Mealbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addComponent(FFbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,7 +219,7 @@ public class  Meal extends javax.swing.JFrame implements FoodsInterface {
                 .addComponent(APBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(BVGBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         jPanel1.add(Sidepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 240, 700));
@@ -450,11 +454,6 @@ public class  Meal extends javax.swing.JFrame implements FoodsInterface {
                 Checkout1MousePressed(evt);
             }
         });
-        Checkout1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Checkout1ActionPerformed(evt);
-            }
-        });
 
         Platebtn.setBackground(new java.awt.Color(0, 153, 0));
         Platebtn.setFont(new java.awt.Font("Algerian", 1, 24));
@@ -475,11 +474,6 @@ public class  Meal extends javax.swing.JFrame implements FoodsInterface {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 PlatebtnMousePressed(evt);
-            }
-        });
-        Platebtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PlatebtnActionPerformed(evt);
             }
         });
 
@@ -668,10 +662,14 @@ public class  Meal extends javax.swing.JFrame implements FoodsInterface {
     }//GEN-LAST:event_Checkout1MouseExited
 
     private void Checkout1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Checkout1MousePressed
-       Order_Details OD= new  Order_Details();
-       OD.show();
+      // Order_Details OD= new  Order_Details();
+       //OD.show();
        this.hide();
     }//GEN-LAST:event_Checkout1MousePressed
+
+    private void APBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_APBTNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_APBTNActionPerformed
     
    
     //Member Methods 
@@ -824,7 +822,6 @@ public class  Meal extends javax.swing.JFrame implements FoodsInterface {
     private javax.swing.JButton Friedricebtn;
     private javax.swing.JButton Kottubtn;
     private javax.swing.JLabel Kottulbl;
-    private javax.swing.JButton Logobtn;
     private javax.swing.JButton Mealbtn;
     private javax.swing.JPanel Menupanel;
     private javax.swing.JTable Ordertable;
@@ -839,6 +836,7 @@ public class  Meal extends javax.swing.JFrame implements FoodsInterface {
     private javax.swing.JLabel btnLKR1;
     private javax.swing.JLabel btnLKR2;
     private javax.swing.JLabel firedricelbl;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
