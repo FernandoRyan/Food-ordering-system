@@ -985,7 +985,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tblOrder">
+                <Component class="javax.swing.JTable" name="Ordertable">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
@@ -1049,7 +1049,7 @@
                     <Property name="updateSelectionOnSort" type="boolean" value="false"/>
                   </Properties>
                   <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="tblOrder"/>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Ordertable"/>
                   </AccessibilityProperties>
                 </Component>
               </SubComponents>
