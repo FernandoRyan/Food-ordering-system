@@ -138,11 +138,6 @@ public class  Meal extends javax.swing.JFrame implements MainInterface {
                 MealbtnMouseReleased(evt);
             }
         });
-        Mealbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MealbtnActionPerformed(evt);
-            }
-        });
 
         APBTN.setBackground(new java.awt.Color(0, 204, 0));
         APBTN.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
@@ -692,10 +687,6 @@ public class  Meal extends javax.swing.JFrame implements MainInterface {
     private void FriedricebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FriedricebtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FriedricebtnActionPerformed
-
-    private void MealbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MealbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MealbtnActionPerformed
     
    
     //Member Methods 
