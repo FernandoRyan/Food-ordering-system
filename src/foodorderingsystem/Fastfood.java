@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Neranji Sulakshika
  */
-public class Fastfood extends javax.swing.JFrame implements FoodsInterface {
+public class Fastfood extends javax.swing.JFrame implements MainInterface {
 
     //Creating feilds
     public double Total=0.0;

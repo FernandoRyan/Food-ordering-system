@@ -26,7 +26,7 @@ import net.proteanit.sql.DbUtils;
  */
 
 
-public class  Meal extends javax.swing.JFrame implements FoodsInterface {
+public class  Meal extends javax.swing.JFrame implements MainInterface {
 
     //Creating feilds
     private double Total; 
