@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author samad
  */
-public class Beverage extends javax.swing.JFrame implements FoodsInterface{
+public class Beverage extends javax.swing.JFrame implements MainInterface{
     
      //Creating feilds
     private double Total; 
