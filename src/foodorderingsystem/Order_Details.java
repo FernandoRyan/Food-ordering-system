@@ -160,20 +160,20 @@ public class Order_Details extends javax.swing.JFrame {
         jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Item No", "Product Description", "Unit Price", "Qty", "Sub Total"
+                "Item No", "Product Description", "Qty", "Sub Total"
             }
         ));
         jTable1.setGridColor(new java.awt.Color(102, 255, 51));
         jTable1.setShowVerticalLines(false);
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 880, 310));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 880, 100));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1070, 710));
 
@@ -443,7 +443,7 @@ public class Order_Details extends javax.swing.JFrame {
    
  
    
-   //FOrmating table
+ 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -468,19 +468,5 @@ public class Order_Details extends javax.swing.JFrame {
     private javax.swing.JLabel lblOrderTypeName;
     // End of variables declaration//GEN-END:variables
 
-    private void setCount(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void Displayorder() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void GetTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void Deleteorder() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
