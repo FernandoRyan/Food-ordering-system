@@ -26,7 +26,7 @@ import net.proteanit.sql.DbUtils;
  */
 
 
-public class  Meal extends javax.swing.JFrame implements Maininterface {
+public class  Meal extends javax.swing.JFrame implements MainInterface {
 
     //Creating feilds
     private double Total; 
@@ -637,7 +637,7 @@ public class  Meal extends javax.swing.JFrame implements Maininterface {
     }//GEN-LAST:event_BVGBtnMousePressed
 
     private void FFbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FFbtnMousePressed
-        Fastfoods ff= new Fastfoods();
+        Fastfood ff= new Fastfood();
         ff.show();
         this.hide();
     }//GEN-LAST:event_FFbtnMousePressed
