@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Neranji Sulakshika
  */
-public class POPUP_Message_Sandwitch extends javax.swing.JFrame implements PopUpInterface_Fastfoods {
+public class POPUP_Message_Sandwitch extends javax.swing.JFrame implements PopUpInterface_Fastfood {
 
     /**
      * Creates new form SandwitchPOPUPMessage
@@ -211,6 +211,7 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame implements PopUp
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
+        // This page is not visible
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelMouseClicked
 
@@ -219,10 +220,12 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame implements PopUp
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnAddToPlateSandwitchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchMouseEntered
+        // Changing the AddToPlateSandwitch button background color, when cursor move to the AddToPlateSandwitch button
         btnAddToPlateSandwitch.setBackground(Color.RED);
     }//GEN-LAST:event_btnAddToPlateSandwitchMouseEntered
 
     private void btnAddToPlateSandwitchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchMouseExited
+        // Rechange the AddToPlateSandwitch button background color, when cursor move out the AddToPlateSandwitch button
         btnAddToPlateSandwitch.setBackground(Color.GREEN);
     }//GEN-LAST:event_btnAddToPlateSandwitchMouseExited
 
@@ -235,6 +238,7 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame implements PopUp
     }//GEN-LAST:event_btnAddToPlateSandwitchMouseClicked
 
     private void btnAddToPlateSandwitchMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSandwitchMousePressed
+        // Adding number of Sandwitches to the plate
         if(qty == 0)
         {
            JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
@@ -247,9 +251,11 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame implements PopUp
     }//GEN-LAST:event_btnAddToPlateSandwitchMousePressed
 
     private void spQtySandwitchStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtySandwitchStateChanged
+        // Calculate Sandwitches price
         CalculateFastfoodsPrice();
     }//GEN-LAST:event_spQtySandwitchStateChanged
      
+    // Declaration of Sandwitch Price
     @Override
     public double lblPrice() 
     {
@@ -279,6 +285,7 @@ public class POPUP_Message_Sandwitch extends javax.swing.JFrame implements PopUp
          //Add a message box to add to cart 
     }
 
+    // Inserting the order details
     @Override
     public void InsertOrderDetails() 
     {

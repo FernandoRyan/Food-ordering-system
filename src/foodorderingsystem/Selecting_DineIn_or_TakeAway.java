@@ -34,8 +34,8 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnDineIn = new javax.swing.JButton();
-        btnTakeAway = new javax.swing.JButton();
+        lblDine_In = new javax.swing.JButton();
+        lblTake_Away = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,48 +50,48 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1367, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnDineIn.setFont(new java.awt.Font("Algerian", 1, 50)); // NOI18N
-        btnDineIn.setForeground(new java.awt.Color(255, 255, 255));
-        btnDineIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/DineIn.png"))); // NOI18N
-        btnDineIn.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        btnDineIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnDineIn.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblDine_In.setFont(new java.awt.Font("Algerian", 1, 50)); // NOI18N
+        lblDine_In.setForeground(new java.awt.Color(255, 255, 255));
+        lblDine_In.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/DineIn.png"))); // NOI18N
+        lblDine_In.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblDine_In.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblDine_In.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnDineInMouseClicked(evt);
+                lblDine_InMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnDineInMousePressed(evt);
+                lblDine_InMousePressed(evt);
             }
         });
-        btnDineIn.addActionListener(new java.awt.event.ActionListener() {
+        lblDine_In.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDineInActionPerformed(evt);
+                lblDine_InActionPerformed(evt);
             }
         });
-        jPanel1.add(btnDineIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 260, 260));
-        btnDineIn.getAccessibleContext().setAccessibleName("btnDineIn");
+        jPanel1.add(lblDine_In, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 260, 260));
+        lblDine_In.getAccessibleContext().setAccessibleName("lblDine_In");
 
-        btnTakeAway.setFont(new java.awt.Font("Algerian", 1, 50)); // NOI18N
-        btnTakeAway.setForeground(new java.awt.Color(255, 255, 255));
-        btnTakeAway.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/TakeAway.png"))); // NOI18N
-        btnTakeAway.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        btnTakeAway.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnTakeAway.setPreferredSize(new java.awt.Dimension(149, 58));
-        btnTakeAway.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblTake_Away.setFont(new java.awt.Font("Algerian", 1, 50)); // NOI18N
+        lblTake_Away.setForeground(new java.awt.Color(255, 255, 255));
+        lblTake_Away.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/TakeAway.png"))); // NOI18N
+        lblTake_Away.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        lblTake_Away.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblTake_Away.setPreferredSize(new java.awt.Dimension(149, 58));
+        lblTake_Away.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnTakeAwayMouseClicked(evt);
+                lblTake_AwayMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnTakeAwayMousePressed(evt);
+                lblTake_AwayMousePressed(evt);
             }
         });
-        btnTakeAway.addActionListener(new java.awt.event.ActionListener() {
+        lblTake_Away.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTakeAwayActionPerformed(evt);
+                lblTake_AwayActionPerformed(evt);
             }
         });
-        jPanel1.add(btnTakeAway, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 290, 260, 260));
-        btnTakeAway.getAccessibleContext().setAccessibleName("btnTakeAway");
+        jPanel1.add(lblTake_Away, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 290, 260, 260));
+        lblTake_Away.getAccessibleContext().setAccessibleName("lblTake_Away");
 
         jLabel1.setBackground(new java.awt.Color(153, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SelectingPage_Background.png"))); // NOI18N
@@ -112,42 +112,40 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDineInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDineInActionPerformed
-        String type = "Dine-In";
-        Order_Details obj = new Order_Details(type);
-        //obj.setVisible(true);
-    }//GEN-LAST:event_btnDineInActionPerformed
+    private void lblDine_InActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblDine_InActionPerformed
+        String ordertype = "Dine-In";
+        Order_Details obj = new Order_Details(ordertype);
+        obj.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_lblDine_InActionPerformed
 
-    private void btnTakeAwayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTakeAwayActionPerformed
-        String type = "Take Away";
-        Order_Details obj = new Order_Details(type);
-       // obj.setVisible(true);
-    }//GEN-LAST:event_btnTakeAwayActionPerformed
+    private void lblTake_AwayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblTake_AwayActionPerformed
+        String ordertype = "Take Away";
+        Order_Details obj = new Order_Details(ordertype);
+        obj.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_lblTake_AwayActionPerformed
 
-    private void btnDineInMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDineInMousePressed
-       Meal ml= new Meal();
-       ml.show();
-       this.hide();
-    }//GEN-LAST:event_btnDineInMousePressed
+    private void lblDine_InMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDine_InMousePressed
+       
+    }//GEN-LAST:event_lblDine_InMousePressed
 
-    private void btnTakeAwayMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTakeAwayMousePressed
-       Meal ml= new Meal();
-       ml.show();
-       this.hide();
-    }//GEN-LAST:event_btnTakeAwayMousePressed
+    private void lblTake_AwayMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTake_AwayMousePressed
+       
+    }//GEN-LAST:event_lblTake_AwayMousePressed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(screenSize.width, screenSize.height);
     }//GEN-LAST:event_formWindowOpened
 
-    private void btnTakeAwayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTakeAwayMouseClicked
+    private void lblTake_AwayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTake_AwayMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnTakeAwayMouseClicked
+    }//GEN-LAST:event_lblTake_AwayMouseClicked
 
-    private void btnDineInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDineInMouseClicked
+    private void lblDine_InMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDine_InMouseClicked
        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDineInMouseClicked
+    }//GEN-LAST:event_lblDine_InMouseClicked
     
     /**
      * @param args the command line arguments
@@ -186,9 +184,9 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDineIn;
-    private javax.swing.JButton btnTakeAway;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JButton lblDine_In;
+    public javax.swing.JButton lblTake_Away;
     // End of variables declaration//GEN-END:variables
 }

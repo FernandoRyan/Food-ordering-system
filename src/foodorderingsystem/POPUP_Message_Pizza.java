@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Neranji Sulakshika
  */
-public class POPUP_Message_Pizza extends javax.swing.JFrame implements PopUpInterface_Fastfoods {
+public class POPUP_Message_Pizza extends javax.swing.JFrame implements PopUpInterface_Fastfood {
 
     /**
      * Creates new form PizzaPOPUPMessage
@@ -212,6 +212,7 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame implements PopUpInte
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelMouseClicked
+        // This page is not visible
         this.setVisible(false);
     }//GEN-LAST:event_lblCancelMouseClicked
 
@@ -220,10 +221,12 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame implements PopUpInte
     }//GEN-LAST:event_lblCancelActionPerformed
 
     private void btnAddToPlatePizzaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMouseEntered
+        // Changing the AddToPlatePizza button background color, when cursor move to the AddToPlatePizza button
         btnAddToPlatePizza.setBackground(Color.RED);
     }//GEN-LAST:event_btnAddToPlatePizzaMouseEntered
 
     private void btnAddToPlatePizzaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMouseExited
+        // Rechange the AddToPlatePizza button background color, when cursor move out the AddToPlatePizza button
         btnAddToPlatePizza.setBackground(Color.GREEN);
     }//GEN-LAST:event_btnAddToPlatePizzaMouseExited
 
@@ -236,6 +239,7 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame implements PopUpInte
     }//GEN-LAST:event_btnAddToPlatePizzaMouseClicked
 
     private void btnAddToPlatePizzaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePizzaMousePressed
+        // Adding number of Pizzas to the plate
         if(qty == 0)
         {
            JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
@@ -248,9 +252,11 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame implements PopUpInte
     }//GEN-LAST:event_btnAddToPlatePizzaMousePressed
 
     private void spQtyPizzaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtyPizzaStateChanged
+        // Calculate Pizzas price
         CalculateFastfoodsPrice();
     }//GEN-LAST:event_spQtyPizzaStateChanged
     
+    // Declaration of Pizza Price
     @Override
     public double lblPrice() 
     {
@@ -280,6 +286,7 @@ public class POPUP_Message_Pizza extends javax.swing.JFrame implements PopUpInte
          //Add a message box to add to cart 
     }
     
+    // Inserting the order details
     @Override
     public void InsertOrderDetails() 
     {

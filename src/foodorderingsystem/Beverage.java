@@ -638,7 +638,7 @@ public class Beverage extends javax.swing.JFrame implements FoodsInterface{
     }//GEN-LAST:event_btnFastFoodMouseExited
 
     private void btnFastFoodMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastFoodMousePressed
-        Fastfoods fd = new Fastfoods();
+        Fastfood fd = new Fastfood();
         fd.setVisible(true);
         this.hide();
     }//GEN-LAST:event_btnFastFoodMousePressed

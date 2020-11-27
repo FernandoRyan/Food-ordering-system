@@ -16,6 +16,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -23,12 +25,27 @@ import java.sql.Statement;
  * @author Dhanuja Supun
  */
 public class Appetizers extends javax.swing.JFrame {
+    
+    //Creating fields
+    public double Total=0.0;
+    int count;
+    
+    //Connection settings to database
+    private Connection conn;
+    private String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+    private String username= "sa";
+    private String Pass="anjalo9990";
+    
 
     /**
      * Creates new form Appetizers
      */
     public Appetizers() {
         initComponents();
+        Displayorder() ;
+        FormatTable();
+        CheckTable();
+        GetTotal();
     }
 
     /**
@@ -53,24 +70,25 @@ public class Appetizers extends javax.swing.JFrame {
         lblPotatoChips = new javax.swing.JLabel();
         lblSamosa = new javax.swing.JLabel();
         lblCheeseBalls = new javax.swing.JLabel();
-        lblNesName = new javax.swing.JLabel();
+        lblChickCheeese = new javax.swing.JLabel();
         lblNesPrice = new javax.swing.JLabel();
-        lblMilkshakes = new javax.swing.JLabel();
+        lblwade = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        lblDrinks = new javax.swing.JLabel();
+        lblpotatochips = new javax.swing.JLabel();
         lblDrinksPrice = new javax.swing.JLabel();
-        lblJuice = new javax.swing.JLabel();
+        lblsamosa = new javax.swing.JLabel();
         lblJuicePrice = new javax.swing.JLabel();
-        lblMojitoo = new javax.swing.JLabel();
+        lblCheese = new javax.swing.JLabel();
         lblMojitoPrice = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        lblPlate = new javax.swing.JLabel();
         btnCheckout = new javax.swing.JButton();
-        lblTotal = new javax.swing.JLabel();
-        lblAmount = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblTotalName = new javax.swing.JLabel();
+        lblTotalPrice = new javax.swing.JLabel();
+        lblPlateImage = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Ordertable = new javax.swing.JTable();
+        btnTrash = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -220,36 +238,36 @@ public class Appetizers extends javax.swing.JFrame {
             }
         });
 
-        lblNesName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblNesName.setText("Chicken Cheese Balls");
+        lblChickCheeese.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblChickCheeese.setText("Chicken Cheese Balls");
 
         lblNesPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblNesPrice.setForeground(new java.awt.Color(153, 153, 153));
         lblNesPrice.setText("LKR  100.00");
 
-        lblMilkshakes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblMilkshakes.setText("Wade");
+        lblwade.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblwade.setText("Wade");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
         jLabel1.setText("LKR  150.00");
 
-        lblDrinks.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblDrinks.setText("Potato Chips");
+        lblpotatochips.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblpotatochips.setText("Potato Chips");
 
         lblDrinksPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblDrinksPrice.setForeground(new java.awt.Color(153, 153, 153));
         lblDrinksPrice.setText("LKR  100.00");
 
-        lblJuice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblJuice.setText("Samosa");
+        lblsamosa.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblsamosa.setText("Samosa");
 
         lblJuicePrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblJuicePrice.setForeground(new java.awt.Color(153, 153, 153));
         lblJuicePrice.setText("LKR  150.00");
 
-        lblMojitoo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblMojitoo.setText("Cheese Balls");
+        lblCheese.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblCheese.setText("Cheese Balls");
 
         lblMojitoPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblMojitoPrice.setForeground(new java.awt.Color(153, 153, 153));
@@ -269,7 +287,7 @@ public class Appetizers extends javax.swing.JFrame {
                                 .addComponent(lblTopic, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblNesName, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblChickCheeese, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(lblChickenCheeseBalls, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(42, 42, 42)
@@ -279,14 +297,14 @@ public class Appetizers extends javax.swing.JFrame {
                                 .addComponent(lblNesPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMilkshakes)
+                                    .addComponent(lblwade)
                                     .addComponent(jLabel1))
                                 .addGap(106, 106, 106)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDrinks)
+                                    .addComponent(lblpotatochips)
                                     .addComponent(lblDrinksPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(42, 42, 42)
@@ -298,11 +316,11 @@ public class Appetizers extends javax.swing.JFrame {
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblJuice)
+                                    .addComponent(lblsamosa)
                                     .addComponent(lblJuicePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(275, 275, 275)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMojitoo)
+                                    .addComponent(lblCheese)
                                     .addComponent(lblMojitoPrice)))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(lblSamosa, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -329,10 +347,10 @@ public class Appetizers extends javax.swing.JFrame {
                                     .addComponent(lblWade, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMilkshakes)
+                            .addComponent(lblwade)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblNesName)
-                                .addComponent(lblDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lblChickCheeese)
+                                .addComponent(lblpotatochips, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -344,11 +362,11 @@ public class Appetizers extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblCheeseBalls, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblsamosa, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(124, 124, 124))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblMojitoo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCheese, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMojitoPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -358,10 +376,6 @@ public class Appetizers extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        lblPlate.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblPlate.setForeground(new java.awt.Color(153, 153, 153));
-        lblPlate.setText("MY PLATE");
 
         btnCheckout.setBackground(new java.awt.Color(0, 204, 0));
         btnCheckout.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -382,17 +396,17 @@ public class Appetizers extends javax.swing.JFrame {
             }
         });
 
-        lblTotal.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblTotal.setForeground(new java.awt.Color(153, 153, 153));
-        lblTotal.setText("TOTAL");
+        lblTotalName.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTotalName.setForeground(new java.awt.Color(153, 153, 153));
+        lblTotalName.setText("TOTAL");
 
-        lblAmount.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblAmount.setForeground(new java.awt.Color(153, 153, 153));
-        lblAmount.setText("      LKR  0.00");
+        lblTotalPrice.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTotalPrice.setForeground(new java.awt.Color(153, 153, 153));
+        lblTotalPrice.setText("      LKR  0.00");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
+        lblPlateImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Ordertable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -408,27 +422,66 @@ public class Appetizers extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Ordertable);
+
+        btnTrash.setBackground(new java.awt.Color(255, 255, 255));
+        btnTrash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/trash.png"))); // NOI18N
+        btnTrash.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTrash.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnTrashMousePressed(evt);
+            }
+        });
+
+        btnRefresh.setBackground(new java.awt.Color(0, 153, 0));
+        btnRefresh.setFont(new java.awt.Font("Algerian", 1, 24));
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_down_48px_5.png"))); // NOI18N
+        btnRefresh.setText("View Plate");
+        btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRefresh.setIconTextGap(1);
+        btnRefresh.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseMoved(evt);
+            }
+        });
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnRefreshMousePressed(evt);
+            }
+        });
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblTotalName, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
-                        .addComponent(lblAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblTotalPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(30, 30, 30))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -437,23 +490,28 @@ public class Appetizers extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(41, 41, 41)
+                        .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(btnTrash)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                    .addComponent(lblAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTotalName, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                    .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -476,7 +534,7 @@ public class Appetizers extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 808, Short.MAX_VALUE)
+            .addGap(0, 826, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -515,6 +573,7 @@ public class Appetizers extends javax.swing.JFrame {
         Meal ml = new Meal();
         ml.setVisible(true);
         this.hide();
+        
     }//GEN-LAST:event_btnMealsMousePressed
 
     private void btnFastfoodsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastfoodsMouseEntered
@@ -535,9 +594,10 @@ public class Appetizers extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFastfoodsMouseExited
 
     private void btnFastfoodsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastfoodsMousePressed
-        Fastfoods fd = new Fastfoods();
+        Fastfood fd = new Fastfood();
         fd.setVisible(true);
         this.hide();
+        
     }//GEN-LAST:event_btnFastfoodsMousePressed
 
     private void btnAppetizersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppetizersMouseEntered
@@ -559,6 +619,7 @@ public class Appetizers extends javax.swing.JFrame {
 
     private void btnAppetizersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppetizersMousePressed
        this.setVisible(true);
+       
     }//GEN-LAST:event_btnAppetizersMousePressed
 
     private void btnBeveragesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMouseEntered
@@ -578,6 +639,12 @@ public class Appetizers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBeveragesMouseExited
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {                                  
+        // This display the Frame into middle of the screen
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(screenSize.width, screenSize.height);
+    }
+    
     private void btnBeveragesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeveragesMousePressed
         Beverages bv = new Beverages();
         bv.setVisible(true);
@@ -588,6 +655,11 @@ public class Appetizers extends javax.swing.JFrame {
 
         POPUP_Message_Chicken_CheeseBalls cc = new POPUP_Message_Chicken_CheeseBalls();
         cc.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
 
     }//GEN-LAST:event_lblChickenCheeseBallsMousePressed
 
@@ -595,6 +667,11 @@ public class Appetizers extends javax.swing.JFrame {
 
         POPUP_Message_Wade w = new POPUP_Message_Wade();
         w.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
 
     }//GEN-LAST:event_lblWadeMousePressed
 
@@ -602,6 +679,11 @@ public class Appetizers extends javax.swing.JFrame {
 
         POPUP_Message_PotatoChips pc = new POPUP_Message_PotatoChips();
         pc.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
        
     }//GEN-LAST:event_lblPotatoChipsMousePressed
 
@@ -609,6 +691,11 @@ public class Appetizers extends javax.swing.JFrame {
 
         POPUP_Message_Samosa s = new POPUP_Message_Samosa();
         s.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
        
     }//GEN-LAST:event_lblSamosaMousePressed
 
@@ -616,6 +703,11 @@ public class Appetizers extends javax.swing.JFrame {
 
         POPUP_Message_CheeseBalls cb = new POPUP_Message_CheeseBalls();
         cb.setVisible(true);
+        
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_lblCheeseBallsMousePressed
@@ -644,6 +736,184 @@ public class Appetizers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCheckoutMousePressed
 
+    private void btnTrashMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTrashMousePressed
+      
+        Deleteorder();
+    }//GEN-LAST:event_btnTrashMousePressed
+
+    private void btnRefreshMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRefreshMouseMoved
+
+    private void btnRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseEntered
+        // Changing the Refresh button background color, when cursor move to the Refresh button
+        btnRefresh.setBackground(Color.RED);
+        btnRefresh.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnRefreshMouseEntered
+
+    private void btnRefreshMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseExited
+        // Rechange the Refresh button background color, when cursor move out the Refresh button
+        btnRefresh.setBackground(Color.GREEN);
+        btnRefresh.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnRefreshMouseExited
+
+    private void btnRefreshMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMousePressed
+        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+        model.setRowCount(0);
+        Displayorder();
+        GetTotal();
+    }//GEN-LAST:event_btnRefreshMousePressed
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
+               //Member methods
+    //Display Order
+    
+    public void Displayorder()
+    {
+         String qry="SELECT * FROM salesorder";
+      
+        try
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            Statement st=conn.prepareStatement(qry);
+            ResultSet rs=st.executeQuery(qry);
+      
+            while(rs.next())
+            {
+                String item   =String.valueOf(rs.getInt("ItemNo"));
+                String Des   = rs.getString("Product");
+                String qty   = String.valueOf(rs.getInt("QTY"));
+                String price =String.valueOf(rs.getInt("Total"));
+                String tbdata[]={item,Des,qty,price};
+                DefaultTableModel model=(DefaultTableModel)Ordertable.getModel();
+                model.addRow(new Object[]{item,Des, qty, price});
+            }      
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,"Something went wrong\n");
+        }
+        finally
+        {
+           CheckTable();
+           FormatTable();
+        }       
+    }
+    
+    
+    //Delete Order
+    
+    public void Deleteorder()
+    {
+        DefaultTableModel model = (DefaultTableModel)Ordertable.getModel();
+          
+        int row = Ordertable.getSelectedRow();
+         
+        String cell = Ordertable.getModel().getValueAt(row, 0).toString();
+         
+        String qry = "DELETE FROM salesorder WHERE ItemNo = " + cell;
+          
+        try
+        {
+            Statement st = conn.prepareStatement(qry);
+            st.execute(qry);
+            JOptionPane.showMessageDialog(null,"Plate updated");
+        }
+        catch(SQLException e )
+        {
+           e.printStackTrace();
+           JOptionPane.showMessageDialog(null,"Error");
+        }
+        finally
+        {
+           CheckTable();
+           FormatTable();
+        }
+    }
+    
+    //Checking Table
+    
+    public void CheckTable()
+    {
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String qry = " SELECT * From SALESORDER ";
+
+        try 
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            stmt = (PreparedStatement) conn.prepareStatement(qry);
+            rs =  stmt.executeQuery();
+            setCount(0);
+            
+            while(rs.next())
+            {
+               setCount(getCount() + 1);
+            }
+            if(count == 0)
+            { 
+                jScrollPane2hide();
+                Ordertable.setVisible(false);
+                btnTrash.setVisible(false);
+                lblTotalPrice.setVisible(true);
+                lblPlateImage.show();
+            }
+            else
+            {
+                jScrollPane2.show();
+                Ordertable.setVisible(true);
+                btnTrash.setVisible(true);
+                lblTotalPrice.setVisible(true);
+                lblPlateImage.hide();
+            }
+        
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }         
+    }
+ 
+    
+    //Format table
+    public void FormatTable()
+    {
+        Ordertable.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
+        Ordertable.getTableHeader().setOpaque(true);
+        Ordertable.getTableHeader().setBackground(new Color(32,136,203));
+        Ordertable.getTableHeader().setForeground(new Color(255,255,255));
+        Ordertable.setRowHeight(25);  
+    }
+    
+    //Get Total
+    public void GetTotal()
+    {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String qry = "Select Sum(Total) as sumprice from salesorder";
+       
+        try
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            pst=conn.prepareStatement(qry);
+            rs=pst.executeQuery();
+            
+            if(rs.next())
+            {
+                String sum = rs.getString("sumprice");
+                lblTotalPrice.setText(sum);
+            }
+        }
+       catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+    
+     
     /**
      * @param args the command line arguments
      */
@@ -680,36 +950,70 @@ public class Appetizers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Ordertable;
     private javax.swing.JButton btnAppetizers;
     private javax.swing.JButton btnBeverages;
     private javax.swing.JButton btnCheckout;
     private javax.swing.JButton btnFastfoods;
     private javax.swing.JButton btnMeals;
+    private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnTrash;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblAmount;
+    private javax.swing.JLabel lblCheese;
     private javax.swing.JLabel lblCheeseBalls;
+    private javax.swing.JLabel lblChickCheeese;
     private javax.swing.JLabel lblChickenCheeseBalls;
-    private javax.swing.JLabel lblDrinks;
     private javax.swing.JLabel lblDrinksPrice;
-    private javax.swing.JLabel lblJuice;
     private javax.swing.JLabel lblJuicePrice;
     private javax.swing.JLabel lblLogo;
-    private javax.swing.JLabel lblMilkshakes;
     private javax.swing.JLabel lblMojitoPrice;
-    private javax.swing.JLabel lblMojitoo;
-    private javax.swing.JLabel lblNesName;
     private javax.swing.JLabel lblNesPrice;
-    private javax.swing.JLabel lblPlate;
+    private javax.swing.JLabel lblPlateImage;
     private javax.swing.JLabel lblPotatoChips;
     private javax.swing.JLabel lblSamosa;
     private javax.swing.JLabel lblTopic;
-    private javax.swing.JLabel lblTotal;
+    private javax.swing.JLabel lblTotalName;
+    private javax.swing.JLabel lblTotalPrice;
     private javax.swing.JLabel lblWade;
+    private javax.swing.JLabel lblpotatochips;
+    private javax.swing.JLabel lblsamosa;
+    private javax.swing.JLabel lblwade;
     // End of variables declaration//GEN-END:variables
+
+  /**
+     * @return the Total
+     */
+    public double getTotal() 
+    {
+        return Total;
+    }
+
+    /**
+     * @param Total the Total to set
+     */
+    public void setTotal(double Total) 
+    {
+        this.Total = Total;
+    }
+
+    /**
+     * @return the count
+     */
+    public int getCount() 
+    {
+        return count;
+    }
+
+    /**
+     * @param count the count to set
+     */
+    public void setCount(int count) 
+    {
+        this.count = count;
+    }
+
 }

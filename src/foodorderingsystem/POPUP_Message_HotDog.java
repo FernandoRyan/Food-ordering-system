@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Neranji Sulakshika
  */
-public class POPUP_Message_HotDog extends javax.swing.JFrame implements PopUpInterface_Fastfoods  {
+public class POPUP_Message_HotDog extends javax.swing.JFrame implements PopUpInterface_Fastfood  {
 
     /**
      * Creates new form HotDogPOPUPMessage
@@ -211,6 +211,7 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame implements PopUpInt
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
+        // This page is not visible
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelMouseClicked
 
@@ -219,10 +220,12 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame implements PopUpInt
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnAddToPlateHotDogMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateHotDogMouseEntered
+        // Changing the AddToPlateHotDog button background color, when cursor move to the AddToPlateHotDog button
         btnAddToPlateHotDog.setBackground(Color.RED);
     }//GEN-LAST:event_btnAddToPlateHotDogMouseEntered
 
     private void btnAddToPlateHotDogMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateHotDogMouseExited
+        // Rechange the AddToPlateHotDog button background color, when cursor move out the AddToPlateHotDog button
         btnAddToPlateHotDog.setBackground(Color.GREEN);
     }//GEN-LAST:event_btnAddToPlateHotDogMouseExited
 
@@ -235,6 +238,7 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame implements PopUpInt
     }//GEN-LAST:event_btnAddToPlateHotDogMouseClicked
 
     private void btnAddToPlateHotDogMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateHotDogMousePressed
+        // Adding number of HotDogs to the plate
         if(qty == 0)
             {
                 JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
@@ -247,9 +251,11 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame implements PopUpInt
     }//GEN-LAST:event_btnAddToPlateHotDogMousePressed
 
     private void spQtyHotDogStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtyHotDogStateChanged
+        // Calculate HotDogs price
         CalculateFastfoodsPrice();
     }//GEN-LAST:event_spQtyHotDogStateChanged
     
+    // Declaration of HotDog Price
     @Override
     public double lblPrice() 
     {
@@ -279,6 +285,7 @@ public class POPUP_Message_HotDog extends javax.swing.JFrame implements PopUpInt
         //Add a message box to add to cart 
     }    
     
+    // Inserting the order details
     @Override
     public void InsertOrderDetails() 
     {
