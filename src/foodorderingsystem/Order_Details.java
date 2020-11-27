@@ -39,6 +39,7 @@ public class Order_Details extends javax.swing.JFrame {
     
     public Order_Details() {
         initComponents();
+        displayorder();
         this.setExtendedState(Order_Details.MAXIMIZED_BOTH);
     }
 
@@ -77,8 +78,8 @@ public class Order_Details extends javax.swing.JFrame {
         lblOrderTypeName = new javax.swing.JLabel();
         lblOrderType = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        ordertable = new javax.swing.JTable();
         Sidepanel = new javax.swing.JPanel();
         FFbtn = new javax.swing.JButton();
         APBTN = new javax.swing.JButton();
@@ -155,25 +156,38 @@ public class Order_Details extends javax.swing.JFrame {
         jLabel5.setText("Total           :");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 620, -1, -1));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ordertable.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        ordertable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Item No", "Product Description", "Qty", "Sub Total"
+                "Item No", "Product Description", "Qty", "Total"
             }
-        ));
-        jTable1.setGridColor(new java.awt.Color(102, 255, 51));
-        jTable1.setShowVerticalLines(false);
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 880, 100));
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        ordertable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        ordertable.setAutoscrolls(false);
+        ordertable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ordertable.setFillsViewportHeight(true);
+        ordertable.setFocusable(false);
+        ordertable.setGridColor(new java.awt.Color(255, 255, 255));
+        ordertable.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        ordertable.setRowHeight(25);
+        ordertable.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        ordertable.setShowHorizontalLines(false);
+        ordertable.setSurrendersFocusOnKeystroke(true);
+        ordertable.setUpdateSelectionOnSort(false);
+        jScrollPane3.setViewportView(ordertable);
+
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, 340));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1070, 710));
 
@@ -402,6 +416,29 @@ public class Order_Details extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MousePressed
 //bevarage end
+    public void displayorder(){
+    String qry="SELECT * FROM SALESORDER";
+    try{
+        conn=DriverManager.getConnection(connectionUrl, username, Pass);
+    
+      Statement st=conn.prepareStatement(qry);
+      ResultSet rs=st.executeQuery(qry);
+      
+      while(rs.next()){
+      String item   =String.valueOf(rs.getInt("ItemNo"));
+      String Des   = rs.getString("Product");
+      String qty   = String.valueOf(rs.getInt("QTY"));
+      String price =String.valueOf(rs.getInt("Total"));
+      String tbdata[]={item,Des,qty,price};
+      DefaultTableModel model=(DefaultTableModel)ordertable.getModel();
+      model.addRow(new Object[]{item,Des, qty, price});
+      
+    }
+    }
+    catch(SQLException e){
+        e.printStackTrace();
+    }
+    }
     /**
      * @param args the command line arguments
      */
@@ -462,10 +499,10 @@ public class Order_Details extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JLabel lblOrderType;
     private javax.swing.JLabel lblOrderTypeName;
+    private javax.swing.JTable ordertable;
     // End of variables declaration//GEN-END:variables
 
     
