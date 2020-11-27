@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Neranji Sulakshika
  */
-public class POPUP_Message_Donut extends javax.swing.JFrame implements PopUpInterface_Fastfoods {
+public class POPUP_Message_Donut extends javax.swing.JFrame implements PopUpInterface_Fastfood {
 
     /**
      * Creates new form DonutPOPUPMessage
@@ -211,6 +211,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame implements PopUpInte
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
+        // This page is not visible
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelMouseClicked
 
@@ -219,10 +220,12 @@ public class POPUP_Message_Donut extends javax.swing.JFrame implements PopUpInte
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnAddToPlateDonutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMouseEntered
+        // Changing the AddToPlateDonut button background color, when cursor move to the AddToPlateDonut button
         btnAddToPlateDonut.setBackground(Color.RED);
     }//GEN-LAST:event_btnAddToPlateDonutMouseEntered
 
     private void btnAddToPlateDonutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMouseExited
+        // Rechange the AddToPlateDonut button background color, when cursor move out the AddToPlateDonut button
         btnAddToPlateDonut.setBackground(Color.GREEN);
     }//GEN-LAST:event_btnAddToPlateDonutMouseExited
 
@@ -235,6 +238,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame implements PopUpInte
     }//GEN-LAST:event_btnAddToPlateDonutMouseClicked
 
     private void btnAddToPlateDonutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateDonutMousePressed
+        // Adding number of Donuts to the plate
         if(qty == 0)
             {
                 JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
@@ -247,9 +251,11 @@ public class POPUP_Message_Donut extends javax.swing.JFrame implements PopUpInte
     }//GEN-LAST:event_btnAddToPlateDonutMousePressed
 
     private void spQtyDonutStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spQtyDonutStateChanged
+        // Calculate Donuts price
         CalculateFastfoodsPrice();
     }//GEN-LAST:event_spQtyDonutStateChanged
     
+    // Declaration of Donut Price
     @Override
     public double lblPrice() 
     {
@@ -280,6 +286,7 @@ public class POPUP_Message_Donut extends javax.swing.JFrame implements PopUpInte
         //Add a message box to add to cart 
     }
      
+    // Inserting the order details
     @Override
     public void InsertOrderDetails() 
     {

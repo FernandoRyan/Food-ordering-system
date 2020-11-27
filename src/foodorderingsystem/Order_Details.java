@@ -42,10 +42,15 @@ public class Order_Details extends javax.swing.JFrame {
         this.setExtendedState(Order_Details.MAXIMIZED_BOTH);
     }
 
+    public String ordertype;
+    
+    
     Order_Details(String type) 
     {
         initComponents();
-        lblOrderType.setText(type);
+        //lblOrderType.setText(type);
+        ordertype = type;
+        lblOrderType.setText(ordertype);
     }
    
     
