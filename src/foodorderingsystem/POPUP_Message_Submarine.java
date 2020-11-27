@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Neranji Sulakshika
  */
-public class POPUP_Message_Submarine extends javax.swing.JFrame implements PopUpInterface_Fastfoods {
+public class POPUP_Message_Submarine extends javax.swing.JFrame implements PopUpInterface_Fastfood {
 
     /**
      * Creates new form NewJFrame
@@ -206,14 +206,17 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame implements PopUp
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
+        // This page is not visible
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelMouseClicked
 
     private void btnAddToPlateSubmarineMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSubmarineMouseEntered
+        // Changing the AddToPlateSubmarine button background color, when cursor move to the AddToPlateSubmarine button
         btnAddToPlateSubmarine.setBackground(Color.RED);
     }//GEN-LAST:event_btnAddToPlateSubmarineMouseEntered
 
     private void btnAddToPlateSubmarineMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSubmarineMouseExited
+        // Rechange the AddToPlateSubmarine button background color, when cursor move out the AddToPlateSubmarine button
         btnAddToPlateSubmarine.setBackground(Color.GREEN);
     }//GEN-LAST:event_btnAddToPlateSubmarineMouseExited
 
@@ -226,6 +229,7 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame implements PopUp
     }//GEN-LAST:event_btnAddToPlateSubmarineMouseClicked
 
     private void btnAddToPlateSubmarineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSubmarineMousePressed
+        // Adding number of Submarines to the plate
         if(qty == 0)
         {
            JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
@@ -238,9 +242,11 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame implements PopUp
     }//GEN-LAST:event_btnAddToPlateSubmarineMousePressed
 
     private void spSubmarineQtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spSubmarineQtyStateChanged
+        // Calculate Submarines price
         CalculateFastfoodsPrice();
     }//GEN-LAST:event_spSubmarineQtyStateChanged
 
+    // Declaration of Submarine Price
     @Override
     public double lblPrice() 
     {
@@ -271,6 +277,7 @@ public class POPUP_Message_Submarine extends javax.swing.JFrame implements PopUp
          //Add a message box to add to cart 
     }    
     
+    // Inserting the order details
     @Override
     public void InsertOrderDetails() 
     {

@@ -26,17 +26,17 @@ import net.proteanit.sql.DbUtils;
  */
 
 
-public class  Meal extends javax.swing.JFrame implements FoodsInterface {
+public class  Meal extends javax.swing.JFrame implements MainInterface {
 
     //Creating feilds
     private double Total; 
     private int count;
     
     //Connection settings to database
-    private Connection conn;
-    private String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
-    private String username= "sa";
-    private String Pass="anjalo9990";
+    Connection conn;
+    String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+    String username= "sa";
+    String Pass="anjalo9990";
     
     /**
      * Creates new form Meal
@@ -247,6 +247,11 @@ public class  Meal extends javax.swing.JFrame implements FoodsInterface {
         Friedricebtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 friedrice(evt);
+            }
+        });
+        Friedricebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FriedricebtnActionPerformed(evt);
             }
         });
 
@@ -627,7 +632,7 @@ public class  Meal extends javax.swing.JFrame implements FoodsInterface {
     }//GEN-LAST:event_BVGBtnMousePressed
 
     private void FFbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FFbtnMousePressed
-        Fastfoods ff= new Fastfoods();
+        Fastfood ff= new Fastfood();
         ff.show();
         this.hide();
     }//GEN-LAST:event_FFbtnMousePressed
@@ -668,10 +673,20 @@ public class  Meal extends javax.swing.JFrame implements FoodsInterface {
     }//GEN-LAST:event_Checkout1MouseExited
 
     private void Checkout1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Checkout1MousePressed
-       Order_Details OD= new  Order_Details();
-       OD.show();
-       this.hide();
+        // TODO add your handling code here:
     }//GEN-LAST:event_Checkout1MousePressed
+
+    private void PlatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlatebtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PlatebtnActionPerformed
+
+    private void Checkout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Checkout1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Checkout1ActionPerformed
+
+    private void FriedricebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FriedricebtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FriedricebtnActionPerformed
     
    
     //Member Methods 

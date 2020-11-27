@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Neranji Sulakshika
  */
-public class POPUP_Message_Burger extends javax.swing.JFrame implements PopUpInterface_Fastfoods {
+public class POPUP_Message_Burger extends javax.swing.JFrame implements PopUpInterface_Fastfood {
 
     /**
      * Creates new form BurgerPOPUPMessage
@@ -191,14 +191,17 @@ public class POPUP_Message_Burger extends javax.swing.JFrame implements PopUpInt
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCANCELMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCANCELMouseClicked
+        // This page is not visible
         this.setVisible(false);
     }//GEN-LAST:event_btnCANCELMouseClicked
 
     private void btnAddToPlateBurgerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseEntered
+        // Changing the AddToPlateBurger button background color, when cursor move to the AddToPlateBurger button
         btnAddToPlateBurger.setBackground(Color.RED);        
     }//GEN-LAST:event_btnAddToPlateBurgerMouseEntered
 
     private void btnAddToPlateBurgerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMouseExited
+        // Rechange the AddToPlateBurger button background color, when cursor move out the AddToPlateBurger button
         btnAddToPlateBurger.setBackground(Color.GREEN);
     }//GEN-LAST:event_btnAddToPlateBurgerMouseExited
 
@@ -207,11 +210,12 @@ public class POPUP_Message_Burger extends javax.swing.JFrame implements PopUpInt
     }//GEN-LAST:event_btnAddToPlateBurgerMouseClicked
 
     private void spBurgerQtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spBurgerQtyStateChanged
+        // Calculate burgers price
         CalculateFastfoodsPrice();
     }//GEN-LAST:event_spBurgerQtyStateChanged
 
     private void btnAddToPlateBurgerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateBurgerMousePressed
-        
+        // Adding number of burgers to the plate
         if(qty == 0)
         {
            JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
@@ -223,6 +227,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame implements PopUpInt
         }
     }//GEN-LAST:event_btnAddToPlateBurgerMousePressed
 
+    // Declaration of Burger Price
     @Override
     public double lblPrice() 
     {
@@ -253,6 +258,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame implements PopUpInt
          //Add a message box to add to cart 
     }
     
+     // Inserting the order details
     @Override
     public void InsertOrderDetails()
     {
