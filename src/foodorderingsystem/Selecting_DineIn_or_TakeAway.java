@@ -116,24 +116,22 @@ public class Selecting_DineIn_or_TakeAway extends javax.swing.JFrame {
         String ordertype = "Dine-In";
         Order_Details obj = new Order_Details(ordertype);
         obj.setVisible(true);
+        this.hide();
     }//GEN-LAST:event_lblDine_InActionPerformed
 
     private void lblTake_AwayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblTake_AwayActionPerformed
         String ordertype = "Take Away";
         Order_Details obj = new Order_Details(ordertype);
-       // obj.setVisible(true);
+        obj.setVisible(true);
+        this.hide();
     }//GEN-LAST:event_lblTake_AwayActionPerformed
 
     private void lblDine_InMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDine_InMousePressed
-       Meal ml= new Meal();
-       ml.show();
-       this.hide();
+       
     }//GEN-LAST:event_lblDine_InMousePressed
 
     private void lblTake_AwayMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTake_AwayMousePressed
-       Meal ml= new Meal();
-       ml.show();
-       this.hide();
+       
     }//GEN-LAST:event_lblTake_AwayMousePressed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

@@ -49,7 +49,6 @@ public class Order_Details extends javax.swing.JFrame {
     {
         initComponents();
         ordertype = type;
-        Selecting_DineIn_or_TakeAway s = new Selecting_DineIn_or_TakeAway();
         lblOrderType.setText(ordertype);
     }
    
