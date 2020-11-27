@@ -49,8 +49,10 @@ public class Order_Details extends javax.swing.JFrame {
     {
         initComponents();
         //lblOrderType.setText(type);
-        ordertype = type;
-        lblOrderType.setText(ordertype);
+        ordertype = type = lblOrderType.getText();
+        Selecting_DineIn_or_TakeAway s = new Selecting_DineIn_or_TakeAway();
+
+        //lblOrderType.setText(ordertype);
     }
    
     
@@ -346,7 +348,7 @@ public class Order_Details extends javax.swing.JFrame {
     }//GEN-LAST:event_FFbtnMouseExited
 
     private void FFbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FFbtnMousePressed
-        Fastfoods ff= new Fastfoods();
+        Fastfood ff= new Fastfood();
         ff.show();
         this.hide();
     }//GEN-LAST:event_FFbtnMousePressed
@@ -462,7 +464,7 @@ public class Order_Details extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblOrderType;
+    public javax.swing.JLabel lblOrderType;
     private javax.swing.JLabel lblOrderTypeName;
     // End of variables declaration//GEN-END:variables
 
