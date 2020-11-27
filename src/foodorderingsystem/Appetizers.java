@@ -594,7 +594,7 @@ public class Appetizers extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFastfoodsMouseExited
 
     private void btnFastfoodsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastfoodsMousePressed
-        Fastfoods fd = new Fastfoods();
+        Fastfood fd = new Fastfood();
         fd.setVisible(true);
         this.hide();
         

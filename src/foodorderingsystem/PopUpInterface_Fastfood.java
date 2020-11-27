@@ -9,7 +9,7 @@ package foodorderingsystem;
  *
  * @author Neranji Sulakshika
  */
-public interface PopUpInterface_Fastfoods 
+public interface PopUpInterface_Fastfood 
 {
     void  CalculateFastfoodsPrice();
     

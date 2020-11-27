@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Neranji Sulakshika
  */
-public class POPUP_Message_Donut extends javax.swing.JFrame implements PopUpInterface_Fastfoods {
+public class POPUP_Message_Donut extends javax.swing.JFrame implements PopUpInterface_Fastfood {
 
     /**
      * Creates new form DonutPOPUPMessage
