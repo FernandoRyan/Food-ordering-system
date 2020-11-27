@@ -53,7 +53,6 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame implements PopUpInte
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblrice = new javax.swing.JLabel();
         lblricen = new javax.swing.JLabel();
         lblLKR = new javax.swing.JLabel();
         lblriceprice = new javax.swing.JLabel();
@@ -66,19 +65,15 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame implements PopUpInte
         jLabel1 = new javax.swing.JLabel();
         kottuAddToPlate = new javax.swing.JButton();
         Sltdropdown = new javax.swing.JComboBox<>();
+        lblrice = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblrice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kottu.jpg"))); // NOI18N
-        lblrice.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        jPanel1.add(lblrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 240, 130));
 
         lblricen.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblricen.setForeground(new java.awt.Color(0, 0, 0));
@@ -173,6 +168,11 @@ public class POPUP_Message_Kottu extends javax.swing.JFrame implements PopUpInte
             }
         });
         jPanel1.add(Sltdropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 180, -1));
+
+        lblrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblrice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kottu.jpg"))); // NOI18N
+        lblrice.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jPanel1.add(lblrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 250, 140));
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 490);
