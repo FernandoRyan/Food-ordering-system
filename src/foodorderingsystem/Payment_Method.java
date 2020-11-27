@@ -5,13 +5,7 @@
  */
 package foodorderingsystem;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.event.WindowEvent;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
 import javax.swing.JFrame;
 
 /**
@@ -50,6 +44,7 @@ public class Payment_Method extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(420, 499));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -78,11 +73,6 @@ public class Payment_Method extends javax.swing.JFrame {
         CardPaybtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 CardPaybtnMousePressed(evt);
-            }
-        });
-        CardPaybtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CardPaybtnActionPerformed(evt);
             }
         });
 
@@ -173,46 +163,6 @@ public class Payment_Method extends javax.swing.JFrame {
       Thanking tk= new Thanking();
       tk.show();
     }//GEN-LAST:event_CashPaybtnMousePressed
-
-    private void CardPaybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CardPaybtnActionPerformed
-        // TODO add your handling code here:
-        PrinterJob job = PrinterJob.getPrinterJob();
-            job.setJobName("Print Data");
-
-            job.setPrintable(new Printable(){
-            public int print(Graphics pg,PageFormat pf, int pageNum){
-                    pf.setOrientation(PageFormat.LANDSCAPE);
-                 if(pageNum>0){
-                    return Printable.NO_SUCH_PAGE;
-                }
-
-                Graphics2D g2 = (Graphics2D)pg;
-                g2.translate(pf.getImageableX(), pf.getImageableY());
-                g2.scale(0.24,0.24);
-
-                jPanel1.paint(g2);
-//          
-
-                return Printable.PAGE_EXISTS;
-
-
-            }
-
-            @Override
-            public int print(Graphics grphcs, PageFormat pf, int i) throws PrinterException {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-    });
-
-        boolean ok = job.printDialog();
-        if(ok){
-        try{
-
-        job.print();
-        }
-        catch (PrinterException ex){}
-        }
-    }//GEN-LAST:event_CardPaybtnActionPerformed
 
     /**
      * @param args the command line arguments
