@@ -61,8 +61,10 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame implements PopUpIn
         btnAddToPlateNescafe = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
+        btnCANCEL = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -75,6 +77,12 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame implements PopUpIn
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setText("QTY");
+
+        qtyNescafe.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                qtyNescafeStateChanged(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setText("TOTAL : ");
@@ -118,6 +126,19 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame implements PopUpIn
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setText("LKR  40.00");
 
+        btnCANCEL.setBackground(new java.awt.Color(255, 0, 0));
+        btnCANCEL.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCANCEL.setForeground(new java.awt.Color(255, 255, 255));
+        btnCANCEL.setText("X");
+        btnCANCEL.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnCANCEL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCANCEL.setPreferredSize(new java.awt.Dimension(181, 36));
+        btnCANCEL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCANCELMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -131,7 +152,9 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame implements PopUpIn
                         .addGap(126, 126, 126)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(74, 74, 74))
+                .addGap(31, 31, 31)
+                .addComponent(btnCANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -162,8 +185,13 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame implements PopUpIn
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnCANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(37, 37, 37)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -185,7 +213,7 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame implements PopUpIn
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 530, 590);
 
-        setSize(new java.awt.Dimension(548, 633));
+        setSize(new java.awt.Dimension(530, 586));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -229,6 +257,17 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame implements PopUpIn
         }
 // TODO add your handling code here:
     }//GEN-LAST:event_btnAddToPlateNescafeMouseClicked
+
+    private void qtyNescafeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_qtyNescafeStateChanged
+        
+        CalculateBeverageprice();
+// TODO add your handling code here:
+    }//GEN-LAST:event_qtyNescafeStateChanged
+
+    private void btnCANCELMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCANCELMouseClicked
+        // This page is not visible
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCANCELMouseClicked
 
         @Override
     public double Price() 
@@ -355,6 +394,7 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame implements PopUpIn
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddToPlateNescafe;
+    private javax.swing.JButton btnCANCEL;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
