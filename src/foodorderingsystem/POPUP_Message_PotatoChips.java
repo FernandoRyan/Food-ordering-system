@@ -6,16 +6,39 @@
 package foodorderingsystem;
 
 import java.awt.Color;
-
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Dhanuja Supun
  */
-public class POPUP_Message_PotatoChips extends javax.swing.JFrame {
+public class POPUP_Message_PotatoChips extends javax.swing.JFrame implements PopUpInterface_Appetizer {
 
     /**
      * Creates new form popup_message_potato_chips
      */
+    
+    //Declaration of Member fields
+    public final int CustID = 1000;
+    String Total = "0";
+    int qty; 
+    String ProductDescription = "Potato Chips";
+    Connection conn;
+    
+    //Connection setup
+    String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+    String username= "sa";
+    String Pass="anjalo9990";
+    
+    
     public POPUP_Message_PotatoChips() {
         initComponents();
     }
@@ -30,37 +53,46 @@ public class POPUP_Message_PotatoChips extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblPotatoChips = new javax.swing.JLabel();
+        lblpotatochipsname = new javax.swing.JLabel();
+        lblLKR = new javax.swing.JLabel();
+        lblQty = new javax.swing.JLabel();
+        spPotatoChipsQty = new javax.swing.JSpinner();
+        lblTOTAL = new javax.swing.JLabel();
         btnAddToPlatePotatoChips = new javax.swing.JButton();
+        btnCANCEL = new javax.swing.JButton();
+        lblPotatoChipsTotalPrice = new javax.swing.JLabel();
+        lblTotalLKR = new javax.swing.JLabel();
+        lblPrice = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/potato chips-620.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        lblPotatoChips.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/potato chips-620.jpg"))); // NOI18N
+        lblPotatoChips.setText("jLabel1");
+        lblPotatoChips.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblPotatoChipsMousePressed(evt);
+            }
+        });
 
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setText("POTATO CHIPS PLATE");
+        lblpotatochipsname.setBackground(new java.awt.Color(0, 0, 0));
+        lblpotatochipsname.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblpotatochipsname.setForeground(new java.awt.Color(0, 0, 0));
+        lblpotatochipsname.setText("POTATO CHIPS PLATE");
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setText("LKR 80.00");
+        lblLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblLKR.setForeground(new java.awt.Color(0, 0, 0));
+        lblLKR.setText("LKR ");
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setText("QTY");
+        lblQty.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblQty.setForeground(new java.awt.Color(0, 0, 0));
+        lblQty.setText("QTY");
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setText("TOTAL");
-
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setText("LKR 100.00");
+        lblTOTAL.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblTOTAL.setForeground(new java.awt.Color(0, 0, 0));
+        lblTOTAL.setText("TOTAL:");
 
         btnAddToPlatePotatoChips.setBackground(new java.awt.Color(204, 204, 204));
         btnAddToPlatePotatoChips.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
@@ -78,53 +110,95 @@ public class POPUP_Message_PotatoChips extends javax.swing.JFrame {
             }
         });
 
+        btnCANCEL.setBackground(new java.awt.Color(255, 0, 0));
+        btnCANCEL.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCANCEL.setForeground(new java.awt.Color(255, 255, 255));
+        btnCANCEL.setText("X");
+        btnCANCEL.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnCANCEL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCANCEL.setPreferredSize(new java.awt.Dimension(181, 36));
+        btnCANCEL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCANCELMouseClicked(evt);
+            }
+        });
+        btnCANCEL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCANCELActionPerformed(evt);
+            }
+        });
+
+        lblPotatoChipsTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblPotatoChipsTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
+        lblPotatoChipsTotalPrice.setText("80.00");
+
+        lblTotalLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblTotalLKR.setForeground(new java.awt.Color(0, 0, 0));
+        lblTotalLKR.setText("LKR ");
+
+        lblPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblPrice.setForeground(new java.awt.Color(0, 0, 0));
+        lblPrice.setText("80.00");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(65, 65, 65)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblPotatoChips, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(btnCANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(158, 158, 158)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblLKR)
+                .addGap(18, 18, 18)
+                .addComponent(lblPrice)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblQty, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(spPotatoChipsQty, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTOTAL, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addComponent(lblTotalLKR)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPotatoChipsTotalPrice)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addComponent(btnAddToPlatePotatoChips, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblpotatochipsname)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblPotatoChips, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblpotatochipsname, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLKR)
+                    .addComponent(lblPrice))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                    .addComponent(lblQty, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spPotatoChipsQty, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTOTAL, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotalLKR)
+                    .addComponent(lblPotatoChipsTotalPrice))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(btnAddToPlatePotatoChips, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -146,9 +220,18 @@ public class POPUP_Message_PotatoChips extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddToPlatePotatoChipsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePotatoChipsMousePressed
-        this.setVisible(false);
+        // Adding Potato Chips to the plate:
+         if(qty == 0)
+        {
+           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
+        }
+        else 
+        {
+            CalculateAppetizersPrice();  
+            InsertOrderDetails();
+        }
 
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnAddToPlatePotatoChipsMousePressed
 
     private void btnAddToPlatePotatoChipsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlatePotatoChipsMouseEntered
@@ -163,6 +246,108 @@ public class POPUP_Message_PotatoChips extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddToPlatePotatoChipsMouseExited
 
+    private void btnCANCELMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCANCELMouseClicked
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCANCELMouseClicked
+
+    private void btnCANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCANCELActionPerformed
+        this.hide();
+    }//GEN-LAST:event_btnCANCELActionPerformed
+
+    private void lblPotatoChipsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPotatoChipsMousePressed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_lblPotatoChipsMousePressed
+
+    //Declaration of Cheese Balls
+    @Override
+    public double lblPrice() 
+    {
+        return 80.00;
+    }
+    //Declaration of member methods 
+    public void CalculateAppetizersPrice() 
+    {
+        if(spPotatoChipsQty != null)
+        {
+            qty = (int) spPotatoChipsQty.getValue();
+            
+            if(qty > 20)
+            {
+                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff..");                     
+            }
+            else
+            {
+                Total = Double.toString( qty * lblPrice());
+           
+                lblPotatoChipsTotalPrice.setText(Total);       
+            }     
+        }
+         else if (spPotatoChipsQty ==  null)
+              lblPotatoChipsTotalPrice.setText(Total);
+         //Add a message box to add to cart 
+         
+    } 
+    
+    // Inserting the order details
+    @Override
+    public void InsertOrderDetails() 
+    {
+        String Insert;
+        String Update;
+        BigDecimal TotalValue = new BigDecimal(Total);
+        
+        try
+        {    
+        //Opening database for connection
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            Statement st = conn.createStatement();
+            
+            String sql="SELECT * FROM SALESORDER WHERE Product ='" + ProductDescription +"'";
+            ResultSet rs = st.executeQuery(sql);
+            
+            if(rs.next())
+            {
+                Update="update SALESORDER set QTY= QTY + ?, Total= Total + ? where Product = ?";
+                PreparedStatement pstmt = conn.prepareStatement(Update);
+                pstmt.setInt(1,qty);
+                pstmt.setBigDecimal(2,TotalValue);
+                pstmt.setString(3,ProductDescription);
+                pstmt.executeUpdate();
+                pstmt.close();
+                JOptionPane.showMessageDialog(null,"Sucessfully added to plate");
+            }
+            else
+            { 
+                Insert = "INSERT INTO SalesOrder (CustID, Product, QTY, Total) VALUES (?, ?, ?, ?)";
+                PreparedStatement pstmt = conn.prepareStatement(Insert);
+                pstmt.setInt(1,CustID);
+                pstmt.setString(2, ProductDescription);
+                pstmt.setInt(3, qty);
+                pstmt.setBigDecimal(4, TotalValue);
+                pstmt.executeUpdate();
+                pstmt.close();
+                JOptionPane.showMessageDialog(null,"Sucessfully Added to plate");
+            }
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,"Something went wrong\n");
+            e.printStackTrace();
+        }
+        finally
+        {
+            try 
+            {
+                conn.close();
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(POPUP_Message_PotatoChips.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }    
+     
     /**
      * @param args the command line arguments
      */
@@ -201,13 +386,31 @@ public class POPUP_Message_PotatoChips extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddToPlatePotatoChips;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton btnCANCEL;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JLabel lblLKR;
+    private javax.swing.JLabel lblPotatoChips;
+    private javax.swing.JLabel lblPotatoChipsTotalPrice;
+    private javax.swing.JLabel lblPrice;
+    private javax.swing.JLabel lblQty;
+    private javax.swing.JLabel lblTOTAL;
+    private javax.swing.JLabel lblTotalLKR;
+    private javax.swing.JLabel lblpotatochipsname;
+    private javax.swing.JSpinner spPotatoChipsQty;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void CalculateAppetizersPrice() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void InsertOrderDetails() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double lblPrice() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

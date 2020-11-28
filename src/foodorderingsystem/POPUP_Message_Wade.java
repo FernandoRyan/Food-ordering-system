@@ -6,16 +6,38 @@
 package foodorderingsystem;
 
 import java.awt.Color;
-
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Dhanuja Supun
  */
-public class POPUP_Message_Wade extends javax.swing.JFrame {
+public class POPUP_Message_Wade extends javax.swing.JFrame implements PopUpInterface_Appetizer {
 
     /**
      * Creates new form popup_message_wade
      */
+    
+    //Declaration of Member fields
+    public final int CustID = 1000;
+    String Total = "0";
+    int qty; 
+    String ProductDescription = "Wade";
+    Connection conn;
+    
+    //Connection setup
+    String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+    String username= "sa";
+    String Pass="anjalo9990";
+    
     public POPUP_Message_Wade() {
         initComponents();
     }
@@ -31,14 +53,17 @@ public class POPUP_Message_Wade extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblWade = new javax.swing.JLabel();
+        lblwadename = new javax.swing.JLabel();
+        lblPrice = new javax.swing.JLabel();
+        lblQty = new javax.swing.JLabel();
+        spWadeQty = new javax.swing.JSpinner();
+        lblTOTAL = new javax.swing.JLabel();
         btnAddToPlateWade = new javax.swing.JButton();
+        btnCANCEL = new javax.swing.JButton();
+        lblLKR = new javax.swing.JLabel();
+        lblTotalLKR = new javax.swing.JLabel();
+        lblWadeTotalPrice = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,24 +71,30 @@ public class POPUP_Message_Wade extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Umbalakada wade_43_1.1.244_386X580.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        lblWade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Umbalakada wade_43_1.1.244_386X580.jpg"))); // NOI18N
+        lblWade.setText("jLabel1");
+        lblWade.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblWadeMousePressed(evt);
+            }
+        });
 
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setText("WADE 3PCS");
+        lblwadename.setBackground(new java.awt.Color(0, 0, 0));
+        lblwadename.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblwadename.setForeground(new java.awt.Color(0, 0, 0));
+        lblwadename.setText("WADE ");
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setText("LKR 80.00");
+        lblPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblPrice.setForeground(new java.awt.Color(0, 0, 0));
+        lblPrice.setText("150.00");
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setText("QTY");
+        lblQty.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblQty.setForeground(new java.awt.Color(0, 0, 0));
+        lblQty.setText("QTY");
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setText("TOTAL");
-
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setText("LKR 150.00");
+        lblTOTAL.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblTOTAL.setForeground(new java.awt.Color(0, 0, 0));
+        lblTOTAL.setText("TOTAL:");
 
         btnAddToPlateWade.setBackground(new java.awt.Color(204, 204, 204));
         btnAddToPlateWade.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
@@ -81,6 +112,36 @@ public class POPUP_Message_Wade extends javax.swing.JFrame {
             }
         });
 
+        btnCANCEL.setBackground(new java.awt.Color(255, 0, 0));
+        btnCANCEL.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCANCEL.setForeground(new java.awt.Color(255, 255, 255));
+        btnCANCEL.setText("X");
+        btnCANCEL.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnCANCEL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCANCEL.setPreferredSize(new java.awt.Dimension(181, 36));
+        btnCANCEL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCANCELMouseClicked(evt);
+            }
+        });
+        btnCANCEL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCANCELActionPerformed(evt);
+            }
+        });
+
+        lblLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblLKR.setForeground(new java.awt.Color(0, 0, 0));
+        lblLKR.setText("LKR ");
+
+        lblTotalLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblTotalLKR.setForeground(new java.awt.Color(0, 0, 0));
+        lblTotalLKR.setText("LKR ");
+
+        lblWadeTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        lblWadeTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
+        lblWadeTotalPrice.setText("80.00");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -88,43 +149,62 @@ public class POPUP_Message_Wade extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(85, 85, 85)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(65, 65, 65)
-                        .addComponent(btnAddToPlateWade, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)))
+                            .addComponent(lblTotalLKR)
+                            .addComponent(lblWade, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addComponent(btnAddToPlateWade, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(160, 160, 160)
+                                .addComponent(lblwadename))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(lblQty, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(39, 39, 39)
+                                .addComponent(spWadeQty, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(85, 85, 85)
+                                .addComponent(lblTOTAL, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40)
+                                .addComponent(lblWadeTotalPrice)))
+                        .addGap(0, 55, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblLKR)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPrice)
+                .addGap(227, 227, 227))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblWade, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnCANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(30, 30, 30)
+                .addComponent(lblwadename, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                    .addComponent(lblLKR)
+                    .addComponent(lblPrice))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblQty, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spWadeQty, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTOTAL, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotalLKR)
+                    .addComponent(lblWadeTotalPrice))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(btnAddToPlateWade, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
@@ -133,23 +213,18 @@ public class POPUP_Message_Wade extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,9 +235,16 @@ public class POPUP_Message_Wade extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddToPlateWadeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateWadeMousePressed
-         this.setVisible(false);
-
-        // TODO add your handling code here:
+           // Adding Wade to the plate:
+           if(qty == 0)
+        {
+           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
+        }
+        else 
+        {
+            CalculateAppetizersPrice();  
+            InsertOrderDetails();
+        }
     }//GEN-LAST:event_btnAddToPlateWadeMousePressed
 
     private void btnAddToPlateWadeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateWadeMouseEntered
@@ -177,6 +259,108 @@ public class POPUP_Message_Wade extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddToPlateWadeMouseExited
 
+    private void btnCANCELMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCANCELMouseClicked
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCANCELMouseClicked
+
+    private void btnCANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCANCELActionPerformed
+        this.hide();
+    }//GEN-LAST:event_btnCANCELActionPerformed
+
+    private void lblWadeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblWadeMousePressed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_lblWadeMousePressed
+
+    //Declaration of Cheese Balls
+    @Override
+    public double lblPrice() 
+    {
+        return 150.00;
+    }
+    //Declaration of member methods 
+    public void CalculateAppetizersPrice() 
+    {
+        if(spWadeQty != null)
+        {
+            qty = (int) spWadeQty.getValue();
+            
+            if(qty > 20)
+            {
+                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff..");                     
+            }
+            else
+            {
+                Total = Double.toString( qty * lblPrice());
+           
+                lblWadeTotalPrice.setText(Total);       
+            }     
+        }
+         else if (spWadeQty ==  null)
+              lblWadeTotalPrice.setText(Total);
+         //Add a message box to add to cart 
+         
+    }    
+    
+    // Inserting the order details
+    @Override
+    public void InsertOrderDetails() 
+    {
+        String Insert;
+        String Update;
+        BigDecimal TotalValue = new BigDecimal(Total);
+        
+        try
+        {    
+        //Opening database for connection
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            Statement st = conn.createStatement();
+            
+            String sql="SELECT * FROM SALESORDER WHERE Product ='" + ProductDescription +"'";
+            ResultSet rs = st.executeQuery(sql);
+            
+            if(rs.next())
+            {
+                Update="update SALESORDER set QTY= QTY + ?, Total= Total + ? where Product = ?";
+                PreparedStatement pstmt = conn.prepareStatement(Update);
+                pstmt.setInt(1,qty);
+                pstmt.setBigDecimal(2,TotalValue);
+                pstmt.setString(3,ProductDescription);
+                pstmt.executeUpdate();
+                pstmt.close();
+                JOptionPane.showMessageDialog(null,"Sucessfully added to plate");
+            }
+            else
+            { 
+                Insert = "INSERT INTO SalesOrder (CustID, Product, QTY, Total) VALUES (?, ?, ?, ?)";
+                PreparedStatement pstmt = conn.prepareStatement(Insert);
+                pstmt.setInt(1,CustID);
+                pstmt.setString(2, ProductDescription);
+                pstmt.setInt(3, qty);
+                pstmt.setBigDecimal(4, TotalValue);
+                pstmt.executeUpdate();
+                pstmt.close();
+                JOptionPane.showMessageDialog(null,"Sucessfully Added to plate");
+            }
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,"Something went wrong\n");
+            e.printStackTrace();
+        }
+        finally
+        {
+            try 
+            {
+                conn.close();
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(POPUP_Message_Wade.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }    
+    
     /**
      * @param args the command line arguments
      */
@@ -215,14 +399,32 @@ public class POPUP_Message_Wade extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddToPlateWade;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton btnCANCEL;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JLabel lblLKR;
+    private javax.swing.JLabel lblPrice;
+    private javax.swing.JLabel lblQty;
+    private javax.swing.JLabel lblTOTAL;
+    private javax.swing.JLabel lblTotalLKR;
+    private javax.swing.JLabel lblWade;
+    private javax.swing.JLabel lblWadeTotalPrice;
+    private javax.swing.JLabel lblwadename;
+    private javax.swing.JSpinner spWadeQty;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void CalculateAppetizersPrice() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void InsertOrderDetails() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double lblPrice() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Dhanuja Supun
  */
-public class Appetizers extends javax.swing.JFrame {
+public class Appetizers extends javax.swing.JFrame implements MainInterface {
     
     //Creating fields
     public double Total=0.0;
@@ -257,14 +257,14 @@ public class Appetizers extends javax.swing.JFrame {
 
         lblDrinksPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblDrinksPrice.setForeground(new java.awt.Color(153, 153, 153));
-        lblDrinksPrice.setText("LKR  100.00");
+        lblDrinksPrice.setText("LKR  80.00");
 
         lblsamosa.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblsamosa.setText("Samosa");
 
         lblJuicePrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblJuicePrice.setForeground(new java.awt.Color(153, 153, 153));
-        lblJuicePrice.setText("LKR  150.00");
+        lblJuicePrice.setText("LKR  40.00");
 
         lblCheese.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblCheese.setText("Cheese Balls");
@@ -287,7 +287,10 @@ public class Appetizers extends javax.swing.JFrame {
                                 .addComponent(lblTopic, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblChickCheeese, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(lblChickCheeese, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(44, 44, 44)
+                                        .addComponent(lblwade))
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(lblChickenCheeseBalls, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(42, 42, 42)
@@ -296,9 +299,7 @@ public class Appetizers extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addComponent(lblNesPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblwade)
-                                    .addComponent(jLabel1))
+                                .addComponent(jLabel1)
                                 .addGap(106, 106, 106)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -346,11 +347,10 @@ public class Appetizers extends javax.swing.JFrame {
                                     .addComponent(lblPotatoChips, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblWade, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblwade)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblChickCheeese)
-                                .addComponent(lblpotatochips, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblChickCheeese)
+                            .addComponent(lblpotatochips, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblwade))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -411,17 +411,9 @@ public class Appetizers extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Product Description", "QTY", "Total"
+                "ItemNo", "Product Description", "QTY", "Total"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(Ordertable);
 
         btnTrash.setBackground(new java.awt.Color(255, 255, 255));
@@ -508,7 +500,7 @@ public class Appetizers extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(btnTrash)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTotalName, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
                     .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -534,17 +526,14 @@ public class Appetizers extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 826, Short.MAX_VALUE)
+            .addGap(0, 808, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(2, 2, 2)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -855,7 +844,7 @@ public class Appetizers extends javax.swing.JFrame {
             }
             if(count == 0)
             { 
-                jScrollPane2hide();
+                jScrollPane1.hide();
                 Ordertable.setVisible(false);
                 btnTrash.setVisible(false);
                 lblTotalPrice.setVisible(true);
@@ -863,7 +852,7 @@ public class Appetizers extends javax.swing.JFrame {
             }
             else
             {
-                jScrollPane2.show();
+                jScrollPane1.show();
                 Ordertable.setVisible(true);
                 btnTrash.setVisible(true);
                 lblTotalPrice.setVisible(true);
