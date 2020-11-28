@@ -62,6 +62,7 @@ public class POPUP_Message_IceCoffee extends javax.swing.JFrame implements PopUp
         btnAddToPlateIceCoffee = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -137,7 +138,7 @@ public class POPUP_Message_IceCoffee extends javax.swing.JFrame implements PopUp
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(135, 135, 135)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,9 +161,9 @@ public class POPUP_Message_IceCoffee extends javax.swing.JFrame implements PopUp
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 530, 490);
+        jPanel1.setBounds(0, 0, 530, 500);
 
-        setSize(new java.awt.Dimension(548, 536));
+        setSize(new java.awt.Dimension(532, 497));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
