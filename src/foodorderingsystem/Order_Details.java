@@ -43,8 +43,7 @@ public class Order_Details extends javax.swing.JFrame {
         this.setExtendedState(Order_Details.MAXIMIZED_BOTH);
     }
 
-    public String ordertype;
-    
+    public String ordertype;    
     
     Order_Details(String type) 
     {
