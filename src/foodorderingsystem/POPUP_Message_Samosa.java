@@ -398,18 +398,5 @@ public class POPUP_Message_Samosa extends javax.swing.JFrame implements PopUpInt
     private javax.swing.JSpinner spWadeQty;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void CalculateAppetizersPrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void InsertOrderDetails() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public double lblPrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
