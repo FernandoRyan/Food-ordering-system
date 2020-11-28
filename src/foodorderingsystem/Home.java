@@ -93,9 +93,9 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Orderbtn(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Orderbtn
-    Selecting_DineIn_or_TakeAway TK= new Selecting_DineIn_or_TakeAway();
-     TK.show();
-     this.hide();
+    Meal ml= new Meal();
+    ml.show();
+    this.hide();
     }//GEN-LAST:event_Orderbtn
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
