@@ -58,7 +58,7 @@
                           <Component id="jLabel4" min="-2" pref="54" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jSpinner1" min="-2" pref="42" max="-2" attributes="0"/>
+                              <Component id="qtyCoffee" min="-2" pref="42" max="-2" attributes="0"/>
                               <Component id="btnAddToPlateIceCoffee" min="-2" pref="310" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -70,7 +70,7 @@
                           <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" pref="77" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel6" min="-2" pref="114" max="-2" attributes="0"/>
+                          <Component id="lblTotal" min="-2" pref="114" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
@@ -92,10 +92,10 @@
                   <Component id="jLabel3" min="-2" pref="27" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jSpinner1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="qtyCoffee" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="jLabel6" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="lblTotal" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnAddToPlateIceCoffee" min="-2" pref="65" max="-2" attributes="0"/>
@@ -136,7 +136,10 @@
             <Property name="text" type="java.lang.String" value="QTY"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="jSpinner1">
+        <Component class="javax.swing.JSpinner" name="qtyCoffee">
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="qtyCoffeeStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -146,12 +149,12 @@
             <Property name="text" type="java.lang.String" value="TOTAL :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
+        <Component class="javax.swing.JLabel" name="lblTotal">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="LKR  100.00"/>
+            <Property name="text" type="java.lang.String" value="LKR  0.00"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAddToPlateIceCoffee">
@@ -168,6 +171,7 @@
             <Property name="text" type="java.lang.String" value="ADD TO PLATE"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAddToPlateIceCoffeeMouseClicked"/>
             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAddToPlateIceCoffeeMouseEntered"/>
             <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAddToPlateIceCoffeeMouseExited"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAddToPlateIceCoffeeMousePressed"/>

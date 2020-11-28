@@ -1,6 +1,16 @@
 package foodorderingsystem;
 
 import java.awt.Color;
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,7 +22,18 @@ import java.awt.Color;
  *
  * @author samad
  */
-public class POPUP_Message_Nescafe extends javax.swing.JFrame {
+public class POPUP_Message_Nescafe extends javax.swing.JFrame implements PopUpInterface_Beverages {
+    
+    public final int CustID=1000;
+    String Total ="00";
+    int qty; 
+    String ProductDescription = "Nescafe";
+    Connection conn; 
+    
+    //Connection setup
+    String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+    String username= "sa";
+    String Pass="anjalo9990";
 
     /**
      * Creates new form NescafeDialogBox
@@ -34,9 +55,9 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        qtyNescafe = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
         btnAddToPlateNescafe = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
@@ -58,14 +79,17 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setText("TOTAL : ");
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setText("LKR  40.00");
+        lblTotal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblTotal.setText("LKR  0.00");
 
         btnAddToPlateNescafe.setBackground(new java.awt.Color(0, 204, 0));
         btnAddToPlateNescafe.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnAddToPlateNescafe.setForeground(new java.awt.Color(255, 255, 255));
         btnAddToPlateNescafe.setText("ADD TO PLATE");
         btnAddToPlateNescafe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddToPlateNescafeMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnAddToPlateNescafeMouseEntered(evt);
             }
@@ -131,8 +155,8 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame {
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(45, 45, 45)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(qtyNescafe, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(61, 61, 61))
         );
         jPanel1Layout.setVerticalGroup(
@@ -148,12 +172,12 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(qtyNescafe, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAddToPlateNescafe, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(76, 76, 76))
         );
@@ -191,6 +215,107 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
          // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void btnAddToPlateNescafeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateNescafeMouseClicked
+        
+          if(qty == 0)
+        {
+           JOptionPane.showMessageDialog(null,"Sorry! Order can't be accepted, Please increase quantity to proceed..");
+        }
+        else 
+        {
+            CalculateBeverageprice();  
+            InsertOrderDetails();
+        }
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnAddToPlateNescafeMouseClicked
+
+        @Override
+    public double Price() 
+    {
+        return 40.00;                
+    }
+    
+    //Declaration of Member Methods  
+     @Override
+     public void  CalculateBeverageprice()
+     {
+        if(qtyNescafe != null)
+        {
+            qty = (int) qtyNescafe.getValue();
+            
+            if(qty > 20)
+            {
+                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff..");                       
+            }
+            else 
+            {        
+                Total = Double.toString( qty * Price());
+           
+                lblTotal.setText(Total);             
+            }            
+        }
+        else if (qtyNescafe == null)
+              lblTotal.setText(Total);
+         //Add a message box to add to cart 
+    }
+    
+    @Override
+    public void InsertOrderDetails()
+    {
+        String Insert;
+        String Update;
+        BigDecimal TotalValue=new BigDecimal(Total);
+        try
+        {    
+            //Opening database for connection
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            Statement st=conn.createStatement();
+            
+            String sql="SELECT * FROM SALESORDER WHERE Product ='" + ProductDescription +"'";
+            ResultSet rs=st.executeQuery(sql);
+            
+            if(rs.next())
+            {
+                Update="update SALESORDER set QTY= QTY + ?, Total= Total + ? where Product = ?";
+                PreparedStatement pstmt = conn.prepareStatement(Update);
+                pstmt.setInt(1,qty);
+                pstmt.setBigDecimal(2,TotalValue);
+                pstmt.setString(3,ProductDescription);
+                pstmt.executeUpdate();
+                pstmt.close();
+                JOptionPane.showMessageDialog(null,"Sucessfully Added to plate");
+            }
+            else
+            {   
+                Insert="INSERT INTO SalesOrder (CustID,Product,QTY,Total) VALUES (?,?,?,?)";
+                PreparedStatement pstmt = conn.prepareStatement(Insert);
+                pstmt.setInt(1,CustID);
+                pstmt.setString(2, ProductDescription);
+                pstmt.setInt(3, qty);
+                pstmt.setBigDecimal(4, TotalValue);
+                pstmt.executeUpdate();
+                pstmt.close();
+                JOptionPane.showMessageDialog(null,"Sucessfully Added to plate");
+            }
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,"Something went wrong\n");
+            e.printStackTrace();
+        }
+        finally
+        {
+            try 
+            {
+                conn.close();
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(POPUP_Message_Burger.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }     
+    }
 
     /**
      * @param args the command line arguments
@@ -236,8 +361,8 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JLabel lblTotal;
+    private javax.swing.JSpinner qtyNescafe;
     // End of variables declaration//GEN-END:variables
 }

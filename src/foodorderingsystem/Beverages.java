@@ -448,18 +448,30 @@ public class Beverages extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Item No", "Product Description", "Qty", "Total"
+                "Item No", "desc", "qty", "total"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         orderTable.setGridColor(new java.awt.Color(255, 255, 255));
         orderTable.setSelectionBackground(new java.awt.Color(232, 57, 95));
-        jScrollPane1.setViewportView(orderTable);
 
         btnTrash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/trash.png"))); // NOI18N
         btnTrash.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnTrash.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnTrashMousePressed(evt);
+            }
+        });
+        btnTrash.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTrashActionPerformed(evt);
             }
         });
 
@@ -778,6 +790,10 @@ public class Beverages extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_jPanel2MouseWheelMoved
 
+    private void btnTrashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrashActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTrashActionPerformed
+
     
                 // MEMBER METHODS 
     
@@ -955,6 +971,9 @@ public class Beverages extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
+        
+        
+        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
