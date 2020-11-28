@@ -645,6 +645,9 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
             }
         });
         btnCheckout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCheckoutMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnCheckoutMouseEntered(evt);
             }
@@ -1028,9 +1031,16 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
 
     private void btnCheckoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseClicked
         // Going to the next page, which is Order Details Page and hide this page
-        Order_Details od = new Order_Details();
-        od.setVisible(true);
-        this.hide();
+        if(count == 0)
+        {
+            JOptionPane.showMessageDialog(null,"Please select food items!");
+        }
+        else
+        {
+            Selecting_DineIn_or_TakeAway od = new Selecting_DineIn_or_TakeAway();
+            od.setVisible(true);
+            this.hide();
+        }        
     }//GEN-LAST:event_btnCheckoutMouseClicked
 
     private void jPanel2MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jPanel2MouseWheelMoved
@@ -1078,7 +1088,7 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         }
         catch(SQLException e)
         {
-            JOptionPane.showMessageDialog(null,"Something went wrong\n");
+            JOptionPane.showMessageDialog(null,"Something went wrong!\n");
         }
         finally
         {
@@ -1104,12 +1114,12 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         {
             Statement st = conn.prepareStatement(qry);
             st.execute(qry);
-            JOptionPane.showMessageDialog(null,"Plate updated");
+            JOptionPane.showMessageDialog(null,"Plate updated!");
         }
         catch(SQLException e )
         {
            e.printStackTrace();
-           JOptionPane.showMessageDialog(null,"Error");
+           JOptionPane.showMessageDialog(null,"Error!");
         }
         finally
         {
