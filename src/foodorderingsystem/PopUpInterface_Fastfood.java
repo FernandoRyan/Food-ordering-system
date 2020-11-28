@@ -11,6 +11,7 @@ package foodorderingsystem;
  */
 public interface PopUpInterface_Fastfood 
 {
+    
     void  CalculateFastfoodsPrice();
     
     void InsertOrderDetails();
