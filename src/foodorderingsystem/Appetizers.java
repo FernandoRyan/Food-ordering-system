@@ -760,9 +760,16 @@ public class Appetizers extends javax.swing.JFrame implements MainInterface {
     }//GEN-LAST:event_lblCheeseBallsMousePressed
 
     private void btnCheckoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseClicked
-        Order_Details od = new Order_Details();
-        od.setVisible(true);
-        this.hide();
+        if(count == 0)
+        {
+            JOptionPane.showMessageDialog(null,"Please select food items!");
+        }
+        else
+        {
+            Selecting_DineIn_or_TakeAway od = new Selecting_DineIn_or_TakeAway();
+            od.setVisible(true); 
+            this.hide();
+        }        
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCheckoutMouseClicked
