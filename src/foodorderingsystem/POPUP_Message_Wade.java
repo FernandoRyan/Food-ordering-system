@@ -140,7 +140,7 @@ public class POPUP_Message_Wade extends javax.swing.JFrame implements PopUpInter
 
         lblWadeTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblWadeTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
-        lblWadeTotalPrice.setText("80.00");
+        lblWadeTotalPrice.setText("150.00");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
