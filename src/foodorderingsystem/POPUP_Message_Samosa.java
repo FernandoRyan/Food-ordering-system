@@ -140,7 +140,7 @@ public class POPUP_Message_Samosa extends javax.swing.JFrame implements PopUpInt
 
         lblSamosaTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblSamosaTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
-        lblSamosaTotalPrice.setText("0.00");
+        lblSamosaTotalPrice.setText("00.00");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
