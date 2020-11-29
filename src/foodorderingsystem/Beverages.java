@@ -824,10 +824,17 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
 
     private void btnCheckoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseClicked
 
-        Order_Details od = new Order_Details();
-        od.show();
-        this.hide();
-
+        // Going to the next page, which is Order Details Page and hide this page
+        if(count == 0)
+        {
+            JOptionPane.showMessageDialog(null,"Please select food items!");
+        }
+        else
+        {
+            Selecting_DineIn_or_TakeAway od = new Selecting_DineIn_or_TakeAway();
+            od.setVisible(true); 
+            this.hide();
+        }        
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCheckoutMouseClicked
 
