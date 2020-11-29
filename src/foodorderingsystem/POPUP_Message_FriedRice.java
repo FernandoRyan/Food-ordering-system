@@ -212,7 +212,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame implements PopUp
 
     private void Add_To_PlateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Add_To_PlateMousePressed
              if(qty==0){
-           JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
+            JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Increase Quantity to proceed");
         }else{
                  
          CalculateMealprice();  
