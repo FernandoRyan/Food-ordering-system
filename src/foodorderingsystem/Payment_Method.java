@@ -26,6 +26,11 @@ public class Payment_Method extends javax.swing.JFrame {
         initComponents();
     }
 
+    public String order;
+    public Payment_Method(String order)
+    {
+    this.order=order;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -157,16 +162,15 @@ public class Payment_Method extends javax.swing.JFrame {
       String payment ="Card" ;
       this.hide();
       
-      print p=new print(payment);
+      print p=new print(payment,order);
       
       p.show();
     }//GEN-LAST:event_CardPaybtnMousePressed
 
     private void CashPaybtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CashPaybtnMousePressed
-      String payment="Cash";
-        print p=new print(payment);
-      
-      p.show();
+       String payment="Cash";
+       print p=new print(payment,order);
+       p.show();
     }//GEN-LAST:event_CashPaybtnMousePressed
 
     /**
