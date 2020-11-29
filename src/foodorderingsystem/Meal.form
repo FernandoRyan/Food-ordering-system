@@ -232,6 +232,9 @@
                   <Image iconType="3" name="/Images/Logo.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LogobtnMousePressed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

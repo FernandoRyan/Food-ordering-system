@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import static jdk.nashorn.internal.runtime.PropertyMap.getCount;
+//import static jdk.nashorn.internal.runtime.PropertyMap.getCount;
 
 /**
  *
@@ -40,18 +40,12 @@ public class Order_Details extends javax.swing.JFrame {
     public Order_Details() {
         initComponents();
         this.setExtendedState(Order_Details.MAXIMIZED_BOTH);
+           displayorder();
     }
 
-    public String ordertype;    
+   
     
-    Order_Details(String type) 
-    {
-        initComponents();
-        ordertype = type;
-        lblOrderType.setText(ordertype);
-        displayorder();
-        GetTotal();
-    }
+ 
    
     
 
@@ -68,19 +62,8 @@ public class Order_Details extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         btnCheckout = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        lblOrderTypeName = new javax.swing.JLabel();
-        lblOrderType = new javax.swing.JLabel();
-        subtot = new javax.swing.JLabel();
-        vat = new javax.swing.JLabel();
-        serv = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         ordertable = new javax.swing.JTable();
-        tot = new javax.swing.JLabel();
         Sidepanel = new javax.swing.JPanel();
         FFbtn = new javax.swing.JButton();
         APBTN = new javax.swing.JButton();
@@ -133,51 +116,6 @@ public class Order_Details extends javax.swing.JFrame {
         });
         jPanel2.add(btnCheckout, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 620, 220, 90));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Servise Charge:");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Sub Total           :");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Tax (VAT)          :");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
-
-        lblOrderTypeName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblOrderTypeName.setForeground(new java.awt.Color(0, 0, 0));
-        lblOrderTypeName.setText("Order Type       :");
-        jPanel3.add(lblOrderTypeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        lblOrderTypeName.getAccessibleContext().setAccessibleName("lblOrderTypeName");
-
-        lblOrderType.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblOrderType.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel3.add(lblOrderType, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 100, 30));
-        lblOrderType.getAccessibleContext().setAccessibleName("lblOrderType");
-
-        subtot.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jPanel3.add(subtot, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 90, 30));
-
-        vat.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jPanel3.add(vat, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 70, 30));
-
-        serv.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jPanel3.add(serv, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 80, 30));
-
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 410, -1));
-
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Total           :");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 610, -1, -1));
-
         ordertable.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         ordertable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -207,12 +145,9 @@ public class Order_Details extends javax.swing.JFrame {
         ordertable.setShowHorizontalLines(false);
         ordertable.setSurrendersFocusOnKeystroke(true);
         ordertable.setUpdateSelectionOnSort(false);
-        jScrollPane3.setViewportView(ordertable);
+        jScrollPane2.setViewportView(ordertable);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, 270));
-
-        tot.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jPanel2.add(tot, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 610, 90, 40));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 740, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 1090, 750));
 
@@ -558,7 +493,7 @@ public class Order_Details extends javax.swing.JFrame {
               rs=pst.executeQuery();
              if(rs.next()){
                               String sum = rs.getString("sumprice");
-                              subtot.setText(sum);
+                              //subtot.setText(sum);
                               int i=Integer.parseInt(sum);
                               int vattxt=(i/100*2);
                               int sertxt=(i/100*5);
@@ -566,9 +501,9 @@ public class Order_Details extends javax.swing.JFrame {
                               String svat=String.valueOf(vattxt);
                               String sser=String.valueOf(sertxt);
                               String stot=String.valueOf(tottxt);
-                              vat.setText(svat);
-                              serv.setText(sser);
-                              tot.setText(stot);
+                              //vat.setText(svat);
+                              //serv.setText(sser);
+                              //tot.setText(stot);
              }
        }
        catch (SQLException ex) {
@@ -583,22 +518,11 @@ public class Order_Details extends javax.swing.JFrame {
     private javax.swing.JPanel Sidepanel;
     private javax.swing.JButton btnCheckout;
     private javax.swing.JButton btnMeal;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane3;
-    public javax.swing.JLabel lblOrderType;
-    private javax.swing.JLabel lblOrderTypeName;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable ordertable;
-    private javax.swing.JLabel serv;
-    private javax.swing.JLabel subtot;
-    private javax.swing.JLabel tot;
-    private javax.swing.JLabel vat;
     // End of variables declaration//GEN-END:variables
 
     

@@ -183,6 +183,11 @@ public class  Meal extends javax.swing.JFrame implements MainInterface {
 
         Logobtn.setBackground(new java.awt.Color(255, 255, 255));
         Logobtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
+        Logobtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                LogobtnMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SidepanelLayout = new javax.swing.GroupLayout(Sidepanel);
         Sidepanel.setLayout(SidepanelLayout);
@@ -673,7 +678,9 @@ public class  Meal extends javax.swing.JFrame implements MainInterface {
     }//GEN-LAST:event_Checkout1MouseExited
 
     private void Checkout1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Checkout1MousePressed
-        // TODO add your handling code here:
+     Order_Details od=new Order_Details();
+     od.show();
+     this.hide();
     }//GEN-LAST:event_Checkout1MousePressed
 
     private void PlatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlatebtnActionPerformed
@@ -687,6 +694,12 @@ public class  Meal extends javax.swing.JFrame implements MainInterface {
     private void FriedricebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FriedricebtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FriedricebtnActionPerformed
+
+    private void LogobtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogobtnMousePressed
+      Home ml= new Home();
+      ml.show();
+      this.hide();
+    }//GEN-LAST:event_LogobtnMousePressed
     
    
     //Member Methods 

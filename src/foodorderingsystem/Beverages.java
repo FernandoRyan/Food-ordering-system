@@ -798,9 +798,9 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
         }
         else
         {
-            Selecting_DineIn_or_TakeAway od = new Selecting_DineIn_or_TakeAway();
-            od.setVisible(true); 
-            this.hide();
+            //Selecting_DineIn_or_TakeAway od = new Selecting_DineIn_or_TakeAway();
+            //od.setVisible(true); 
+            //this.hide();
         }        
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCheckoutMouseClicked
@@ -818,7 +818,9 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
     }//GEN-LAST:event_btnCheckoutMouseExited
 
     private void btnCheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMousePressed
-        // TODO add your handling code here:
+      Order_Details od= new  Order_Details();
+       this.hide();
+       od.show();
     }//GEN-LAST:event_btnCheckoutMousePressed
 
     private void btnTrashMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTrashMousePressed

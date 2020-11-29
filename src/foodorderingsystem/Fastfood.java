@@ -709,7 +709,7 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 7, Short.MAX_VALUE)
+                        .addGap(0, 19, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1017,10 +1017,6 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCheckoutActionPerformed
 
-    private void btnCheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCheckoutMousePressed
-
     private void btnCheckoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseExited
         // Rechange the Checkout button background color, when cursor move out the Checkout button
         btnCheckout.setBackground(Color.GREEN);
@@ -1039,9 +1035,9 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         }
         else
         {
-            Selecting_DineIn_or_TakeAway od = new Selecting_DineIn_or_TakeAway();
-            od.setVisible(true); 
-            this.hide();
+          //  Selecting_DineIn_or_TakeAway od = new Selecting_DineIn_or_TakeAway();
+            //od.setVisible(true); 
+            //this.hide();
         }        
     }//GEN-LAST:event_btnCheckoutMouseClicked
 
@@ -1068,6 +1064,12 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         hm.show();
         this.hide();
     }//GEN-LAST:event_lblLogoMouseClicked
+
+    private void btnCheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMousePressed
+       Order_Details od= new  Order_Details();
+       this.hide();
+       od.show();
+    }//GEN-LAST:event_btnCheckoutMousePressed
 
                                     //Member Methods.... 
     
