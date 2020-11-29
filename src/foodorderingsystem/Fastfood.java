@@ -597,7 +597,6 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         Ordertable.setAutoscrolls(false);
         Ordertable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Ordertable.setFillsViewportHeight(true);
-        Ordertable.setFocusable(false);
         Ordertable.setGridColor(new java.awt.Color(255, 255, 255));
         Ordertable.setIntercellSpacing(new java.awt.Dimension(0, 0));
         Ordertable.setRowHeight(25);
@@ -619,7 +618,6 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         lblTotalName.setText("TOTAL");
 
         lblTotalPrice.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lblTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
         lblTotalPrice.setText("00");
 
         btnTrash.setBackground(new java.awt.Color(255, 255, 255));
@@ -695,7 +693,6 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         });
 
         lblLKR.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lblLKR.setForeground(new java.awt.Color(0, 0, 0));
         lblLKR.setText("LKR");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -722,7 +719,7 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addComponent(btnViewPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addContainerGap(76, Short.MAX_VALUE)
