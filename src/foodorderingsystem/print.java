@@ -5,7 +5,7 @@
  */
 package foodorderingsystem;
 
-//import static com.sun.corba.se.impl.naming.cosnaming.NamingUtils.printException;
+import static com.sun.corba.se.impl.naming.cosnaming.NamingUtils.printException;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -71,12 +71,10 @@ public class print extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        lblOrderTypeName = new javax.swing.JLabel();
+        lblOrderType = new javax.swing.JLabel();
         subtot = new javax.swing.JLabel();
         vat = new javax.swing.JLabel();
         serv = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         ordertable = new javax.swing.JTable();
@@ -97,7 +95,7 @@ public class print extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 204, 0));
-        jLabel6.setText("Receipt");
+        jLabel6.setText("RECIEPT");
         paneltoprint.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 170, 50));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -118,10 +116,9 @@ public class print extends javax.swing.JFrame {
         jLabel3.setText("Tax (VAT)          :");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
-        lblOrderTypeName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblOrderTypeName.setForeground(new java.awt.Color(0, 0, 0));
-        lblOrderTypeName.setText("Order Type       :");
-        jPanel3.add(lblOrderTypeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, -1));
+        lblOrderType.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblOrderType.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.add(lblOrderType, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 100, 30));
 
         subtot.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jPanel3.add(subtot, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 90, 30));
@@ -131,12 +128,6 @@ public class print extends javax.swing.JFrame {
 
         serv.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jPanel3.add(serv, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 80, 30));
-
-        jRadioButton1.setText("Takeaway");
-        jPanel3.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
-
-        jRadioButton2.setText(" Dine in");
-        jPanel3.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         paneltoprint.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 340, -1));
 
@@ -151,11 +142,11 @@ public class print extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Product Description", "Qty"
+                "Item No", "Product Description", "Qty", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -248,15 +239,9 @@ public class print extends javax.swing.JFrame {
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   
-      if(jRadioButton1.isSelected()==false && jRadioButton2.isSelected()==false){
-          JOptionPane.showMessageDialog(null,"Please select Order type");
-          return;
-      }
-      else if(jRadioButton1.isSelected()==true || jRadioButton2.isSelected()==true){
-        this.hide();
-        Thanking tk= new Thanking();
-        tk.show();
+    this.hide();
+    Thanking tk= new Thanking();
+      tk.show();
         PrinterJob job = PrinterJob.getPrinterJob();
             job.setJobName("Print Data");
 
@@ -273,10 +258,9 @@ public class print extends javax.swing.JFrame {
 
                 paneltoprint.paint(g2);
 //          
-                
+
                 return Printable.PAGE_EXISTS;
             }
-            
     });
 
         boolean ok = job.printDialog();
@@ -286,8 +270,7 @@ public class print extends javax.swing.JFrame {
         job.print();
         }
         catch (PrinterException ex){}
-        }  
-      }// TODO add your handling code here:
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 public void displayorder(){
     String qry="SELECT * FROM SALESORDER";
@@ -298,13 +281,13 @@ public void displayorder(){
       ResultSet rs=st.executeQuery(qry);
       
       while(rs.next()){
-     // String item   =String.valueOf(rs.getInt("ItemNo"));
+      String item   =String.valueOf(rs.getInt("ItemNo"));
       String Des   = rs.getString("Product");
       String qty   = String.valueOf(rs.getInt("QTY"));
-     // String price =String.valueOf(rs.getInt("Total"));
-      String tbdata[]={Des,qty};
+      String price =String.valueOf(rs.getInt("Total"));
+      String tbdata[]={item,Des,qty,price};
       DefaultTableModel model=(DefaultTableModel)ordertable.getModel();
-      model.addRow(new Object[]{Des, qty});
+      model.addRow(new Object[]{item,Des, qty, price});
       
     }
     }
@@ -387,10 +370,8 @@ public void GetTotal(){
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel lblOrderTypeName;
+    public javax.swing.JLabel lblOrderType;
     private javax.swing.JTable ordertable;
     private javax.swing.JPanel paneltoprint;
     private javax.swing.JLabel paytxt;
