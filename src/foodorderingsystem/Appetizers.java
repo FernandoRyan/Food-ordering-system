@@ -407,6 +407,7 @@ public class Appetizers extends javax.swing.JFrame implements MainInterface {
 
         lblPlateImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
 
+        Ordertable.setBackground(new java.awt.Color(0, 0, 0));
         Ordertable.setForeground(new java.awt.Color(255, 255, 255));
         Ordertable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
