@@ -1038,7 +1038,7 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         else
         {
             Selecting_DineIn_or_TakeAway od = new Selecting_DineIn_or_TakeAway();
-            od.setVisible(true);
+            od.setVisible(true); 
             this.hide();
         }        
     }//GEN-LAST:event_btnCheckoutMouseClicked
