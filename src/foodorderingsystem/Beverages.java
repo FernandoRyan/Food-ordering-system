@@ -81,16 +81,22 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
         lblMojitoPrice = new javax.swing.JLabel();
         lblBottledWater = new javax.swing.JLabel();
         lblWaterPrice = new javax.swing.JLabel();
+        lblLKR0 = new javax.swing.JLabel();
+        lblLKR1 = new javax.swing.JLabel();
+        lblLKR2 = new javax.swing.JLabel();
+        lblLKR3 = new javax.swing.JLabel();
+        lblLKR4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         lblPlate = new javax.swing.JLabel();
         btnCheckout = new javax.swing.JButton();
         lblTotal = new javax.swing.JLabel();
-        lblAmount = new javax.swing.JLabel();
+        lblLKR = new javax.swing.JLabel();
         lblPlateimage = new javax.swing.JLabel();
         btnTrash = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         orderTable = new javax.swing.JTable();
+        lblAmount = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -169,7 +175,7 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
             }
         });
 
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.jpg"))); // NOI18N
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logonew.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -181,15 +187,18 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
                     .addComponent(btnBeverages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAppetizers, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
                     .addComponent(btnMeal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblLogo, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnFastFood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(61, Short.MAX_VALUE)
+                .addComponent(lblLogo)
+                .addGap(58, 58, 58))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnMeal, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
@@ -208,7 +217,7 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
         lblTopic.setForeground(new java.awt.Color(0, 204, 0));
         lblTopic.setText("BEVERAGES");
 
-        lblNescafe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nesnew_1.jpg"))); // NOI18N
+        lblNescafe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NES1.jpg"))); // NOI18N
         lblNescafe.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblNescafeMousePressed(evt);
@@ -251,39 +260,39 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
         });
 
         lblNesName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblNesName.setText("NESCAFE / NESTEA / MILO");
+        lblNesName.setText("NESCAFE");
 
         lblNesPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblNesPrice.setForeground(new java.awt.Color(153, 153, 153));
-        lblNesPrice.setText("LKR  40.00");
+        lblNesPrice.setText("40.00");
 
         lblMilkshakes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblMilkshakes.setText("MILKSHAKES ");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel1.setText("LKR  300.00");
+        jLabel1.setText("300.00");
 
         lblDrinks.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblDrinks.setText("SOFT DRINKS ");
 
         lblDrinksPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblDrinksPrice.setForeground(new java.awt.Color(153, 153, 153));
-        lblDrinksPrice.setText("LKR  50.00");
+        lblDrinksPrice.setText("50.00");
 
         lblJuice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblJuice.setText("FRESH FRUIT JUICE ");
 
         lblJuicePrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblJuicePrice.setForeground(new java.awt.Color(153, 153, 153));
-        lblJuicePrice.setText("LKR  200.00");
+        lblJuicePrice.setText("200.00");
 
         lblMojitoo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblMojitoo.setText("ICE COFFEE");
 
         lblMojitoPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblMojitoPrice.setForeground(new java.awt.Color(153, 153, 153));
-        lblMojitoPrice.setText("LKR  100.00");
+        lblMojitoPrice.setText("100.00");
 
         lblBottledWater.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblBottledWater.setText("BOTTLED DRINKING WATER");
@@ -292,54 +301,84 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
         lblWaterPrice.setForeground(new java.awt.Color(153, 153, 153));
         lblWaterPrice.setText("LKR  80.00");
 
+        lblLKR0.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblLKR0.setForeground(new java.awt.Color(153, 153, 153));
+        lblLKR0.setText("LKR");
+
+        lblLKR1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblLKR1.setForeground(new java.awt.Color(153, 153, 153));
+        lblLKR1.setText("LKR");
+
+        lblLKR2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblLKR2.setForeground(new java.awt.Color(153, 153, 153));
+        lblLKR2.setText("LKR");
+
+        lblLKR3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblLKR3.setForeground(new java.awt.Color(153, 153, 153));
+        lblLKR3.setText("LKR");
+
+        lblLKR4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblLKR4.setForeground(new java.awt.Color(153, 153, 153));
+        lblLKR4.setText("LKR");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(lblFruitJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                                .addComponent(lblIceCoffee, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(lblTopic, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(2, 2, 2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(lblNescafe, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblMilkshake)
+                        .addGap(38, 38, 38))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNesName, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(lblLKR0, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblNesPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(lblLKR2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1))
+                            .addComponent(lblMilkshakes, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(90, 90, 90))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addComponent(lblJuice))
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(98, 98, 98)
-                                .addComponent(lblJuicePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(118, 118, 118)
+                                .addComponent(lblLKR1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblJuicePrice)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblMojitoo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMojitoPrice))
-                        .addGap(114, 114, 114))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblNesName, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblNescafe, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(124, 124, 124)
-                                .addComponent(lblNesPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(185, 185, 185)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblMilkshakes, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(122, 122, 122)
-                                .addComponent(lblMilkshake)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(lblFruitJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblIceCoffee, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lblTopic, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(2, 2, 2)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(lblLKR3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblMojitoPrice)
+                                .addGap(15, 15, 15)))
+                        .addGap(114, 114, 114)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(lblWaterPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -353,57 +392,70 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
                             .addComponent(lblWater, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(51, 51, 51))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(lblDrinksPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblDrinks))
-                        .addGap(100, 100, 100))))
+                        .addComponent(lblDrinks)
+                        .addGap(100, 100, 100))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(lblLKR4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblDrinksPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(109, 109, 109))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTopic, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSoftDrinks)
-                            .addComponent(lblNescafe))
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(lblMilkshake, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDrinks)
-                    .addComponent(lblNesName)
-                    .addComponent(lblMilkshakes))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSoftDrinks)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(lblMilkshake, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblDrinks)
+                                .addComponent(lblMilkshakes))
+                            .addComponent(lblNesName))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblDrinksPrice)
+                                    .addComponent(lblLKR2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblLKR4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(67, 67, 67)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblIceCoffee, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblWater))
+                                .addGap(0, 43, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblNesPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblLKR0, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblFruitJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNesPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDrinksPrice))
-                        .addGap(67, 67, 67)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblIceCoffee, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblWater))
-                        .addGap(0, 25, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblFruitJuice, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblJuice)
-                    .addComponent(lblMojitoo)
-                    .addComponent(lblBottledWater, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblJuicePrice)
-                    .addComponent(lblMojitoPrice)
-                    .addComponent(lblWaterPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37))
+                            .addComponent(lblJuice)
+                            .addComponent(lblMojitoo)
+                            .addComponent(lblBottledWater, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblWaterPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblMojitoPrice)
+                                .addComponent(lblLKR3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblJuicePrice)
+                                .addComponent(lblLKR1)))
+                        .addGap(36, 36, 36))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(lblNescafe, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -446,9 +498,9 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
         lblTotal.setForeground(new java.awt.Color(153, 153, 153));
         lblTotal.setText("TOTAL");
 
-        lblAmount.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblAmount.setForeground(new java.awt.Color(153, 153, 153));
-        lblAmount.setText("      LKR  0.00");
+        lblLKR.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblLKR.setForeground(new java.awt.Color(153, 153, 153));
+        lblLKR.setText("LKR");
 
         lblPlateimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
 
@@ -499,33 +551,41 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
         });
         jScrollPane1.setViewportView(orderTable);
 
+        lblAmount.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblAmount.setForeground(new java.awt.Color(153, 153, 153));
+        lblAmount.setText("0.00");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                        .addGap(366, 366, 366)
+                                        .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addGap(100, 100, 100)
+                                    .addComponent(lblPlateimage, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(8, 8, 8))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                            .addGap(44, 44, 44)
+                            .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(90, 90, 90)
+                            .addComponent(lblLKR, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                    .addGap(366, 366, 366)
-                                    .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(100, 100, 100)
-                                .addComponent(lblPlateimage, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(111, 111, 111)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(8, 8, 8))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(127, 127, 127)
+                        .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -535,9 +595,9 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addComponent(lblPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -547,8 +607,9 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
                 .addComponent(lblPlateimage, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblLKR, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
@@ -562,7 +623,7 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
                 .addGap(38, 38, 38)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 985, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -572,10 +633,10 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 960, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -842,137 +903,157 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
 
     
     
-      //Member Methods 
-     
+    //Display Order
     @Override
-    public  void Displayorder(){
-      String qry="SELECT * FROM SALESORDER";
+    public  void Displayorder()
+    {
+        String qry="SELECT * FROM salesorder";
       
-      try{
-      conn = DriverManager.getConnection(connectionUrl, username, Pass);
-      Statement st=conn.prepareStatement(qry);
-      ResultSet rs=st.executeQuery(qry);
+        try
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            Statement st=conn.prepareStatement(qry);
+            ResultSet rs=st.executeQuery(qry);
       
-      while(rs.next()){
-      String item   =String.valueOf(rs.getInt("ItemNo"));
-      String Des   = rs.getString("Product");
-      String qty   = String.valueOf(rs.getInt("QTY"));
-      String price =String.valueOf(rs.getInt("Total"));
-      String tbdata[]={item,Des,qty,price};
-      DefaultTableModel model=(DefaultTableModel)orderTable.getModel();
-      model.addRow(new Object[]{item,Des, qty, price});
-      }
-     
-   }catch(SQLException e){
-       JOptionPane.showMessageDialog(null,"Something went wrong\n");
-   }
-     finally{
-       CheckTable();
-       FormatTable();
-      }
-   } 
-   
-   
-    @Override
-    public void Deleteorder(){
-    
-     DefaultTableModel model=(DefaultTableModel)orderTable.getModel();
-          
-          int row =orderTable.getSelectedRow();
-         
-          
-          String cell=orderTable.getModel().getValueAt(row, 0).toString();
-         
-     
-          String qry="DELETE FROM SALESORDER WHERE ItemNo = " + cell;
-          
-          try{
-               Statement st=conn.prepareStatement(qry);
-               st.execute(qry);
-              JOptionPane.showMessageDialog(null,"Plate updated");
-          }
-          catch(SQLException e ){
-                 e.printStackTrace();
-           JOptionPane.showMessageDialog(null,"Error");
-          }
-          finally{
+            while(rs.next())
+            {
+                String item   =String.valueOf(rs.getInt("ItemNo"));
+                String Des   = rs.getString("Product");
+                String qty   = String.valueOf(rs.getInt("QTY"));
+                String price =String.valueOf(rs.getInt("Total"));
+                String tbdata[]={item,Des,qty,price};
+                DefaultTableModel model=(DefaultTableModel)orderTable.getModel();
+                model.addRow(new Object[]{item,Des, qty, price});
+            }      
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,"Something went wrong!\n");
+        }
+        finally
+        {
            CheckTable();
            FormatTable();
-    }
-    }
+        }       
+    } 
+   
     
+   //Delete Order
+    @Override
+    public void Deleteorder()
+    {    
+        DefaultTableModel model = (DefaultTableModel)orderTable.getModel();
+          
+        int row = orderTable.getSelectedRow();
+         
+        String cell = orderTable.getModel().getValueAt(row, 0).toString();
+         
+        String qry = "DELETE FROM salesorder WHERE ItemNo = " + cell;
+          
+        try
+        {
+            Statement st = conn.prepareStatement(qry);
+            st.execute(qry);
+            JOptionPane.showMessageDialog(null,"Plate updated!");
+        }
+        catch(SQLException e )
+        {
+           e.printStackTrace();
+           JOptionPane.showMessageDialog(null,"Error!");
+        }
+        finally
+        {
+           CheckTable();
+           FormatTable();
+        }
+    }    
   
    
+    //Checking table
     @Override
-  public void  CheckTable() {
+    public void  CheckTable() 
+    {
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String qry = " SELECT * From SALESORDER ";
 
-       PreparedStatement stmt = null;
-       ResultSet rs = null;
-       String qry = " SELECT * From SALESORDER ";
-
-       try {
+        try 
+        {
             conn = DriverManager.getConnection(connectionUrl, username, Pass);
             stmt = (PreparedStatement) conn.prepareStatement(qry);
             rs =  stmt.executeQuery();
             setCount(0);
-            while(rs.next()){
-                setCount(getCount() + 1);
+            
+            while(rs.next())
+            {
+               setCount(getCount() + 1);
             }
-            if(getCount() == 0){ 
+            if(count == 0)
+            { 
                 jScrollPane1.hide();
                 orderTable.setVisible(false);
                 btnTrash.setVisible(false);
+                lblLKR.setVisible(false);
                 lblPlateimage.show();
-                
+                lblAmount.hide();
             }
-            else{
-                 jScrollPane1.show();
-                 orderTable.setVisible(true);
-                 btnTrash.setVisible(true);
-                 lblPlateimage.hide();
+            else
+            {
+                jScrollPane1.show();
+                orderTable.setVisible(true);
+                btnTrash.setVisible(true);
+                lblLKR.setVisible(true);
+                lblPlateimage.hide();
+                lblAmount.show();
             }
-       } catch (SQLException ex) {
-             ex.printStackTrace();
-        }
- }
-   
- 
-   
-   //FOrmating table
-    @Override
- public void FormatTable(){
-       
-       orderTable.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
-       orderTable.getTableHeader().setOpaque(true);
-       orderTable.getTableHeader().setBackground(new Color(32,136,203));
-       orderTable.getTableHeader().setForeground(new Color(255,255,255));
-       orderTable.setRowHeight(25);
+        
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }         
+    }
+        
     
-   }
-   
-    /**
-     *
-     */
+    //Format table  
     @Override
-  public void GetTotal(){
+    public void FormatTable() 
+    {
+        orderTable.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
+        orderTable.getTableHeader().setOpaque(true);
+        orderTable.getTableHeader().setBackground(new Color(32,136,203));
+        orderTable.getTableHeader().setForeground(new Color(255,255,255));
+        orderTable.setRowHeight(25);   
+    }
+
+    
+    //Get Total
+    @Override
+    public void GetTotal() 
+    {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String qry = "Select Sum(Total) as sumprice from salesorder";
        
-       PreparedStatement pst = null;
-       ResultSet rs = null;
-       String qry = "Select Sum(Total) as sumprice from SALESORDER";
-       
-       try{
-              conn = DriverManager.getConnection(connectionUrl, username, Pass);
-              pst=conn.prepareStatement(qry);
-              rs=pst.executeQuery();
-             if(rs.next()){
-                              String sum = rs.getString("sumprice");
-                              lblAmount.setText(sum);
-             }
-       }
-       catch (SQLException ex) {
-             ex.printStackTrace();
+        try
+        {
+            conn = DriverManager.getConnection(connectionUrl, username, Pass);
+            pst=conn.prepareStatement(qry);
+            rs=pst.executeQuery();
+            
+            if(rs.next())
+            {
+                String sum = rs.getString("sumprice");
+                lblAmount.setText(sum);
+            }
         }
- }
+       catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -1031,6 +1112,12 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
     private javax.swing.JLabel lblIceCoffee;
     private javax.swing.JLabel lblJuice;
     private javax.swing.JLabel lblJuicePrice;
+    private javax.swing.JLabel lblLKR;
+    private javax.swing.JLabel lblLKR0;
+    private javax.swing.JLabel lblLKR1;
+    private javax.swing.JLabel lblLKR2;
+    private javax.swing.JLabel lblLKR3;
+    private javax.swing.JLabel lblLKR4;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblMilkshake;
     private javax.swing.JLabel lblMilkshakes;
