@@ -91,6 +91,7 @@ public class Appetizers extends javax.swing.JFrame implements MainInterface {
         btnRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -500,9 +501,9 @@ public class Appetizers extends javax.swing.JFrame implements MainInterface {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(btnTrash)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTotalName, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                    .addComponent(lblTotalName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -521,8 +522,7 @@ public class Appetizers extends javax.swing.JFrame implements MainInterface {
                     .addGap(0, 0, 0)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(1, 1, 1)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -537,7 +537,8 @@ public class Appetizers extends javax.swing.JFrame implements MainInterface {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1372, 808));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMealsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealsMouseEntered
@@ -759,7 +760,7 @@ public class Appetizers extends javax.swing.JFrame implements MainInterface {
 
                //Member methods
     //Display Order
-    
+    @Override
     public void Displayorder()
     {
          String qry="SELECT * FROM salesorder";
@@ -794,7 +795,7 @@ public class Appetizers extends javax.swing.JFrame implements MainInterface {
     
     
     //Delete Order
-    
+    @Override
     public void Deleteorder()
     {
         DefaultTableModel model = (DefaultTableModel)Ordertable.getModel();
@@ -824,7 +825,7 @@ public class Appetizers extends javax.swing.JFrame implements MainInterface {
     }
     
     //Checking Table
-    
+    @Override
     public void CheckTable()
     {
         PreparedStatement stmt = null;
@@ -868,6 +869,7 @@ public class Appetizers extends javax.swing.JFrame implements MainInterface {
  
     
     //Format table
+    @Override
     public void FormatTable()
     {
         Ordertable.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD,15));
@@ -878,6 +880,7 @@ public class Appetizers extends javax.swing.JFrame implements MainInterface {
     }
     
     //Get Total
+    @Override
     public void GetTotal()
     {
         PreparedStatement pst = null;
