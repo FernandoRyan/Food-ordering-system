@@ -155,13 +155,18 @@ public class Payment_Method extends javax.swing.JFrame {
     private void CardPaybtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CardPaybtnMousePressed
     
       this.hide();
-      Thanking tk= new Thanking();
-      tk.show();
+      
+      print p=new print();
+      
+      p.show();
+      
     }//GEN-LAST:event_CardPaybtnMousePressed
 
     private void CashPaybtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CashPaybtnMousePressed
-      Thanking tk= new Thanking();
-      tk.show();
+      
+        print p=new print();
+      
+      p.show();
     }//GEN-LAST:event_CashPaybtnMousePressed
 
     /**
