@@ -140,7 +140,7 @@ public class POPUP_Message_Wade extends javax.swing.JFrame implements PopUpInter
 
         lblWadeTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblWadeTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
-        lblWadeTotalPrice.setText("80.00");
+        lblWadeTotalPrice.setText("150.00");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -279,6 +279,7 @@ public class POPUP_Message_Wade extends javax.swing.JFrame implements PopUpInter
         return 150.00;
     }
     //Declaration of member methods 
+    @Override
     public void CalculateAppetizersPrice() 
     {
         if(spWadeQty != null)
@@ -413,18 +414,5 @@ public class POPUP_Message_Wade extends javax.swing.JFrame implements PopUpInter
     private javax.swing.JSpinner spWadeQty;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void CalculateAppetizersPrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void InsertOrderDetails() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public double lblPrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

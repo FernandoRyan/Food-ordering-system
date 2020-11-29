@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2020 at 03:06 PM
+-- Generation Time: Nov 29, 2020 at 07:06 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -92,11 +92,8 @@ CREATE TABLE `salesorder` (
 --
 
 INSERT INTO `salesorder` (`ItemNo`, `CustID`, `Product`, `QTY`, `Total`) VALUES
-(21, 1000, 'Fried Rice with Chicken', 5, '1150'),
-(22, 1000, 'White Rice with Chicken', 1, '130'),
-(23, 1000, 'Fried Rice with Egg', 1, '200'),
-(24, 1000, 'White rice with Egg', 1, '110'),
-(25, 1000, 'Brown rice with Egg', 2, '220');
+(105, 1000, 'Chicken Burger', 1, '200'),
+(106, 1000, 'Submarine', 1, '200');
 
 --
 -- Indexes for dumped tables
@@ -123,7 +120,7 @@ ALTER TABLE `salesorder`
 -- AUTO_INCREMENT for table `salesorder`
 --
 ALTER TABLE `salesorder`
-  MODIFY `ItemNo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ItemNo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
