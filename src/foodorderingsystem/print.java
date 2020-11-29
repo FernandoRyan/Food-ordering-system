@@ -5,7 +5,7 @@
  */
 package foodorderingsystem;
 
-import static com.sun.corba.se.impl.naming.cosnaming.NamingUtils.printException;
+//import static com.sun.corba.se.impl.naming.cosnaming.NamingUtils.printException;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.print.PageFormat;
@@ -36,11 +36,11 @@ public class print extends javax.swing.JFrame {
        
     }
     
-    public print(String pay)
+    public print(String pay,String order)
     {  
         initComponents();
         paytxt.setText(pay);
-        
+        lblOrderType.setText(order);
         displayorder();
         GetTotal();
         
