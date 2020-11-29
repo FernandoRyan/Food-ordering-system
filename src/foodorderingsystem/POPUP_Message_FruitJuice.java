@@ -67,7 +67,7 @@ public class POPUP_Message_FruitJuice extends javax.swing.JFrame implements PopU
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/juice1.jpg"))); // NOI18N
 
@@ -75,7 +75,7 @@ public class POPUP_Message_FruitJuice extends javax.swing.JFrame implements PopU
         jLabel2.setText("FRESH FRUIT JUICE ");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setText("LKR  250.00");
+        jLabel3.setText("LKR  200.00");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setText("QTY ");

@@ -68,7 +68,7 @@ public class POPUP_Message_Nescafe extends javax.swing.JFrame implements PopUpIn
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nesnew.jpg"))); // NOI18N
 

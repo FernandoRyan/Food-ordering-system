@@ -201,7 +201,7 @@ public class POPUP_Message_FriedRice extends javax.swing.JFrame implements PopUp
     }//GEN-LAST:event_Add_To_PlateMouseExited
 
     private void SltdropdownItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_SltdropdownItemStateChanged
-
+ 
         CalculateMealprice();
     }//GEN-LAST:event_SltdropdownItemStateChanged
 
