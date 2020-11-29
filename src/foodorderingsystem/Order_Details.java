@@ -67,7 +67,7 @@ public class Order_Details extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnCheckout = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -86,7 +86,7 @@ public class Order_Details extends javax.swing.JFrame {
         APBTN = new javax.swing.JButton();
         BVGBtn = new javax.swing.JButton();
         Logobtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnMeal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -107,24 +107,31 @@ public class Order_Details extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 204, 0));
         jLabel6.setText("ORDER DETAILS");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 390, 50));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 300, 50));
 
-        jButton2.setBackground(new java.awt.Color(0, 204, 0));
-        jButton2.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Checkout");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCheckout.setBackground(new java.awt.Color(0, 204, 0));
+        btnCheckout.setFont(new java.awt.Font("Algerian", 1, 30)); // NOI18N
+        btnCheckout.setForeground(new java.awt.Color(255, 255, 255));
+        btnCheckout.setText("Checkout");
+        btnCheckout.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCheckout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCheckout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 chkbtn(evt);
             }
-        });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCheckoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCheckoutMouseExited(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 610, 170, 80));
+        btnCheckout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckoutActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCheckout, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 620, 220, 90));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -147,7 +154,7 @@ public class Order_Details extends javax.swing.JFrame {
         lblOrderTypeName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblOrderTypeName.setForeground(new java.awt.Color(0, 0, 0));
         lblOrderTypeName.setText("Order Type       :");
-        jPanel3.add(lblOrderTypeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, -1));
+        jPanel3.add(lblOrderTypeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
         lblOrderTypeName.getAccessibleContext().setAccessibleName("lblOrderTypeName");
 
         lblOrderType.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -164,12 +171,12 @@ public class Order_Details extends javax.swing.JFrame {
         serv.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jPanel3.add(serv, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 80, 30));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 410, -1));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 410, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Total           :");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 620, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 610, -1, -1));
 
         ordertable.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         ordertable.setModel(new javax.swing.table.DefaultTableModel(
@@ -202,17 +209,17 @@ public class Order_Details extends javax.swing.JFrame {
         ordertable.setUpdateSelectionOnSort(false);
         jScrollPane3.setViewportView(ordertable);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, 340));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, 270));
 
         tot.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jPanel2.add(tot, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 620, 90, 40));
+        jPanel2.add(tot, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 610, 90, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1070, 710));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 1090, 750));
 
         Sidepanel.setBackground(new java.awt.Color(255, 255, 255));
         Sidepanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        FFbtn.setBackground(new java.awt.Color(0, 204, 0));
+        FFbtn.setBackground(new java.awt.Color(0, 102, 0));
         FFbtn.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
         FFbtn.setForeground(new java.awt.Color(255, 255, 255));
         FFbtn.setText("Fast Food");
@@ -225,6 +232,9 @@ public class Order_Details extends javax.swing.JFrame {
             }
         });
         FFbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                FFbtnMouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 FFbtnMouseExited(evt);
             }
@@ -246,6 +256,9 @@ public class Order_Details extends javax.swing.JFrame {
             }
         });
         APBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                APBTNMouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 APBTNMouseExited(evt);
             }
@@ -267,6 +280,9 @@ public class Order_Details extends javax.swing.JFrame {
             }
         });
         BVGBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BVGBtnMouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 BVGBtnMouseExited(evt);
             }
@@ -277,26 +293,33 @@ public class Order_Details extends javax.swing.JFrame {
 
         Logobtn.setBackground(new java.awt.Color(255, 255, 255));
         Logobtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
+        Logobtn.setBorder(null);
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 0));
-        jButton1.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
-        jButton1.setText("MEAL");
-        jButton1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        btnMeal.setBackground(new java.awt.Color(0, 204, 0));
+        btnMeal.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
+        btnMeal.setForeground(new java.awt.Color(255, 255, 255));
+        btnMeal.setText("MEAL");
+        btnMeal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnMeal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMeal.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jButton1MouseMoved(evt);
+                btnMealMouseMoved(evt);
             }
         });
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnMeal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMealMouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton1MouseExited(evt);
+                btnMealMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton1MousePressed(evt);
+                btnMealMousePressed(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnMeal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnMealActionPerformed(evt);
             }
         });
 
@@ -305,54 +328,45 @@ public class Order_Details extends javax.swing.JFrame {
         SidepanelLayout.setHorizontalGroup(
             SidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SidepanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addGroup(SidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(SidepanelLayout.createSequentialGroup()
-                        .addGroup(SidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(APBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BVGBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(FFbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 1, Short.MAX_VALUE)))
+                    .addComponent(BVGBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMeal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(FFbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(APBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(SidepanelLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidepanelLayout.createSequentialGroup()
+                .addGap(0, 47, Short.MAX_VALUE)
                 .addComponent(Logobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(43, 43, 43))
         );
         SidepanelLayout.setVerticalGroup(
             SidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SidepanelLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(27, 27, 27)
                 .addComponent(Logobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(FFbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(APBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(50, 50, 50)
+                .addComponent(btnMeal, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(FFbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(APBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
                 .addComponent(BVGBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        jPanel1.add(Sidepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(Sidepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 750));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1374, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(279, 279, 279))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 772, Short.MAX_VALUE)
         );
 
         pack();
@@ -361,8 +375,8 @@ public class Order_Details extends javax.swing.JFrame {
     private void chkbtn(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkbtn
 
        Payment_Method py= new Payment_Method(); 
-       py.setVisible(true);
-       
+       py.setVisible(true);    
+       this.hide();
     }//GEN-LAST:event_chkbtn
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -376,7 +390,8 @@ public class Order_Details extends javax.swing.JFrame {
     }//GEN-LAST:event_FFbtnMouseMoved
 
     private void FFbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FFbtnMouseExited
-        FFbtn.setBackground(new Color(0,204,0));
+        FFbtn.setBackground(new Color(0,102,0));
+        FFbtn.setForeground(Color.WHITE);
     }//GEN-LAST:event_FFbtnMouseExited
 
     private void FFbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FFbtnMousePressed
@@ -391,7 +406,9 @@ public class Order_Details extends javax.swing.JFrame {
     }//GEN-LAST:event_APBTNMouseMoved
 
     private void APBTNMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_APBTNMouseExited
-        APBTN.setBackground(new Color(0,204,0));
+        APBTN.setBackground(Color.GREEN);
+        FFbtn.setBackground(new Color(0,102,0));
+        FFbtn.setForeground(Color.WHITE);
     }//GEN-LAST:event_APBTNMouseExited
 
     private void APBTNMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_APBTNMousePressed
@@ -406,7 +423,9 @@ public class Order_Details extends javax.swing.JFrame {
     }//GEN-LAST:event_BVGBtnMouseMoved
 
     private void BVGBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BVGBtnMouseExited
-        BVGBtn.setBackground(new Color(0,204,0));
+        BVGBtn.setBackground(Color.GREEN);
+        FFbtn.setBackground(new Color(0,102,0));
+        FFbtn.setForeground(Color.WHITE);
     }//GEN-LAST:event_BVGBtnMouseExited
 
     private void BVGBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BVGBtnMousePressed
@@ -415,29 +434,59 @@ public class Order_Details extends javax.swing.JFrame {
         this.hide();
     }//GEN-LAST:event_BVGBtnMousePressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnMealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMealActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnMealActionPerformed
 
-    private void jButton1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseMoved
-        jButton1.setBackground(new Color(0,102,0));
-    }//GEN-LAST:event_jButton1MouseMoved
+    private void btnMealMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealMouseMoved
+        btnMeal.setBackground(new Color(0,102,0));
+    }//GEN-LAST:event_btnMealMouseMoved
 
-    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
-        jButton1.setBackground(new Color(0,204,0));
-    }//GEN-LAST:event_jButton1MouseExited
+    private void btnMealMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealMouseExited
+        btnMeal.setBackground(Color.GREEN);
+        FFbtn.setBackground(new Color(0,102,0));
+        FFbtn.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnMealMouseExited
 
-    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+    private void btnMealMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealMousePressed
         Meal m= new Meal();
         m.show();
         this.hide();
 // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MousePressed
+    }//GEN-LAST:event_btnMealMousePressed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckoutActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnCheckoutActionPerformed
+
+    private void btnCheckoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseEntered
+        btnCheckout.setBackground(Color.RED);
+    }//GEN-LAST:event_btnCheckoutMouseEntered
+
+    private void btnCheckoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseExited
+        btnCheckout.setBackground(Color.GREEN);
+    }//GEN-LAST:event_btnCheckoutMouseExited
+
+    private void FFbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FFbtnMouseEntered
+        FFbtn.setForeground(Color.GREEN);
+        FFbtn.setBackground(new Color(0,102,0));
+    }//GEN-LAST:event_FFbtnMouseEntered
+
+    private void btnMealMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMealMouseEntered
+        btnMeal.setBackground(new Color(0,102,0));
+        FFbtn.setBackground(Color.GREEN);    
+    }//GEN-LAST:event_btnMealMouseEntered
+
+    private void APBTNMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_APBTNMouseEntered
+        APBTN.setBackground(new Color(0,102,0));
+        FFbtn.setBackground(Color.GREEN);    
+    }//GEN-LAST:event_APBTNMouseEntered
+
+    private void BVGBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BVGBtnMouseEntered
+        BVGBtn.setBackground(new Color(0,102,0));
+        FFbtn.setBackground(Color.GREEN);   
+    }//GEN-LAST:event_BVGBtnMouseEntered
 //bevarage end
     public void displayorder(){
     String qry="SELECT * FROM SALESORDER";
@@ -520,33 +569,20 @@ public class Order_Details extends javax.swing.JFrame {
                               vat.setText(svat);
                               serv.setText(sser);
                               tot.setText(stot);
-                              
-                              
-                              
-                              
              }
        }
        catch (SQLException ex) {
              ex.printStackTrace();
         }
  }
-    
-    
- 
-   
- 
-   
- 
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton APBTN;
     private javax.swing.JButton BVGBtn;
     private javax.swing.JButton FFbtn;
     private javax.swing.JButton Logobtn;
     private javax.swing.JPanel Sidepanel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnCheckout;
+    private javax.swing.JButton btnMeal;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

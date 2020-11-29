@@ -160,9 +160,6 @@ public class Payment_Method extends javax.swing.JFrame {
       print p=new print(payment);
       
       p.show();
-      
-     
-      
     }//GEN-LAST:event_CardPaybtnMousePressed
 
     private void CashPaybtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CashPaybtnMousePressed

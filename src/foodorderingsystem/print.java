@@ -6,8 +6,10 @@
 package foodorderingsystem;
 
 import static com.sun.corba.se.impl.naming.cosnaming.NamingUtils.printException;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Toolkit;
 import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
@@ -84,6 +86,7 @@ public class print extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -94,7 +97,7 @@ public class print extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 204, 0));
         jLabel6.setText("RECIEPT");
-        paneltoprint.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 170, 50));
+        paneltoprint.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 170, 50));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -132,12 +135,12 @@ public class print extends javax.swing.JFrame {
         serv.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jPanel3.add(serv, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 80, 30));
 
-        paneltoprint.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 410, -1));
+        paneltoprint.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 340, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Total           :");
-        paneltoprint.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 640, -1, -1));
+        paneltoprint.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 610, -1, 30));
 
         ordertable.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         ordertable.setModel(new javax.swing.table.DefaultTableModel(
@@ -170,24 +173,27 @@ public class print extends javax.swing.JFrame {
         ordertable.setUpdateSelectionOnSort(false);
         jScrollPane3.setViewportView(ordertable);
 
-        paneltoprint.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, 290));
+        paneltoprint.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 400, 220));
 
         tot.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        paneltoprint.add(tot, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 640, 90, 40));
+        paneltoprint.add(tot, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 610, 90, 30));
 
         Logobtn.setBackground(new java.awt.Color(255, 255, 255));
         Logobtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
-        paneltoprint.add(Logobtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+        Logobtn.setBorder(null);
+        paneltoprint.add(Logobtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Paymant Type:");
-        paneltoprint.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 610, -1, -1));
+        jLabel1.setText("Paymant Type  :");
+        paneltoprint.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, 150, -1));
 
         paytxt.setText("payment type here");
-        paneltoprint.add(paytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, -1, -1));
+        paneltoprint.add(paytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 565, -1, 20));
 
         jButton1.setText("PRINT");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -201,37 +207,43 @@ public class print extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(paneltoprint, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                        .addComponent(paneltoprint, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(paneltoprint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addComponent(paneltoprint, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(447, 773));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {                                  
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(screenSize.width, screenSize.height);
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     this.hide();
     Thanking tk= new Thanking();
@@ -254,8 +266,6 @@ public class print extends javax.swing.JFrame {
 //          
 
                 return Printable.PAGE_EXISTS;
-
-
             }
     });
 
@@ -314,11 +324,6 @@ public void GetTotal(){
                               vat.setText(svat);
                               serv.setText(sser);
                               tot.setText(stot);
-                              
-                              
-                              
-                              
-                              
              }
        }
        catch (SQLException ex) {
@@ -359,7 +364,6 @@ public void GetTotal(){
             }
         });
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Logobtn;
