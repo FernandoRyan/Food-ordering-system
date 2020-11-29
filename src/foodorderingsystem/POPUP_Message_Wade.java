@@ -92,11 +92,17 @@ public class POPUP_Message_Wade extends javax.swing.JFrame implements PopUpInter
         lblQty.setForeground(new java.awt.Color(0, 0, 0));
         lblQty.setText("QTY");
 
+        spWadeQty.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spWadeQtyStateChanged(evt);
+            }
+        });
+
         lblTOTAL.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblTOTAL.setForeground(new java.awt.Color(0, 0, 0));
         lblTOTAL.setText("TOTAL:");
 
-        btnAddToPlateWade.setBackground(new java.awt.Color(204, 204, 204));
+        btnAddToPlateWade.setBackground(new java.awt.Color(0, 153, 0));
         btnAddToPlateWade.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
         btnAddToPlateWade.setForeground(new java.awt.Color(255, 255, 255));
         btnAddToPlateWade.setText("ADD TO PLATE");
@@ -140,7 +146,7 @@ public class POPUP_Message_Wade extends javax.swing.JFrame implements PopUpInter
 
         lblWadeTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblWadeTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
-        lblWadeTotalPrice.setText("150.00");
+        lblWadeTotalPrice.setText("00.00");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -150,36 +156,34 @@ public class POPUP_Message_Wade extends javax.swing.JFrame implements PopUpInter
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(65, 65, 65)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblTotalLKR)
-                            .addComponent(lblWade, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnAddToPlateWade, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(65, 65, 65)
-                                .addComponent(btnAddToPlateWade, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(160, 160, 160)
-                                .addComponent(lblwadename))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(lblQty, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)
-                                .addComponent(spWadeQty, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(85, 85, 85)
-                                .addComponent(lblTOTAL, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(lblWadeTotalPrice)))
-                        .addGap(0, 55, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(160, 160, 160)
+                        .addComponent(lblwadename))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(lblQty, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(spWadeQty, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(85, 85, 85)
+                        .addComponent(lblTOTAL, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(lblWadeTotalPrice)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lblLKR)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblPrice)
                 .addGap(227, 227, 227))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblTotalLKR)
+                    .addComponent(lblWade, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,7 +217,7 @@ public class POPUP_Message_Wade extends javax.swing.JFrame implements PopUpInter
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,6 +275,11 @@ public class POPUP_Message_Wade extends javax.swing.JFrame implements PopUpInter
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_lblWadeMousePressed
+
+    private void spWadeQtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spWadeQtyStateChanged
+        // TODO add your handling code here:
+        CalculateAppetizersPrice();
+    }//GEN-LAST:event_spWadeQtyStateChanged
 
     //Declaration of Cheese Balls
     @Override

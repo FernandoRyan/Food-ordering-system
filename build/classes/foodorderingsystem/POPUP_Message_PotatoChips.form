@@ -172,6 +172,9 @@
               <SpinnerModel initial="0" maximum="20" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spPotatoChipsQtyStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTOTAL">
           <Properties>
