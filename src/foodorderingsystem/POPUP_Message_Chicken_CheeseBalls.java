@@ -114,7 +114,7 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame implem
         lblTOTAL.setToolTipText("");
         jPanel1.add(lblTOTAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 69, 39));
 
-        btnAddToPlateChicken.setBackground(new java.awt.Color(0, 204, 0));
+        btnAddToPlateChicken.setBackground(new java.awt.Color(0, 153, 0));
         btnAddToPlateChicken.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
         btnAddToPlateChicken.setForeground(new java.awt.Color(255, 255, 255));
         btnAddToPlateChicken.setText("ADD TO PLATE");
