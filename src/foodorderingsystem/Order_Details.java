@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import static jdk.nashorn.internal.runtime.PropertyMap.getCount;
+//import static jdk.nashorn.internal.runtime.PropertyMap.getCount;
 
 /**
  *
@@ -47,7 +47,7 @@ public class Order_Details extends javax.swing.JFrame {
     Order_Details(String type) 
     {
         initComponents();
-        ordertype = type;
+        this.ordertype = type;
         lblOrderType.setText(ordertype);
         displayorder();
         GetTotal();
@@ -359,8 +359,8 @@ public class Order_Details extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void chkbtn(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkbtn
-
-       Payment_Method py= new Payment_Method(); 
+       
+       Payment_Method py= new Payment_Method(ordertype); 
        py.setVisible(true);
        
     }//GEN-LAST:event_chkbtn
@@ -436,6 +436,7 @@ public class Order_Details extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 //bevarage end
     public void displayorder(){
