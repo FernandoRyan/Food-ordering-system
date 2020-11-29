@@ -407,7 +407,6 @@ public class Appetizers extends javax.swing.JFrame implements MainInterface {
 
         lblPlateImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EmptyPlate.jpeg"))); // NOI18N
 
-        Ordertable.setForeground(new java.awt.Color(255, 255, 255));
         Ordertable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -417,6 +416,16 @@ public class Appetizers extends javax.swing.JFrame implements MainInterface {
             }
         ));
         Ordertable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        Ordertable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Ordertable.setFillsViewportHeight(true);
+        Ordertable.setGridColor(new java.awt.Color(255, 255, 255));
+        Ordertable.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        Ordertable.setPreferredSize(new java.awt.Dimension(180, 0));
+        Ordertable.setRowHeight(25);
+        Ordertable.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        Ordertable.setShowHorizontalLines(false);
+        Ordertable.setSurrendersFocusOnKeystroke(true);
+        Ordertable.setUpdateSelectionOnSort(false);
         jScrollPane1.setViewportView(Ordertable);
 
         btnTrash.setBackground(new java.awt.Color(255, 255, 255));
@@ -504,9 +513,9 @@ public class Appetizers extends javax.swing.JFrame implements MainInterface {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(74, 74, 74)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTotalName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTotalPrice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotalName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
