@@ -110,7 +110,7 @@ public class POPUP_Message_CheeseBalls extends javax.swing.JFrame implements Pop
         lblCheeseBallsTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
         lblCheeseBallsTotalPrice.setText("00.00");
 
-        btnAddToPlateCheeseBalls.setBackground(new java.awt.Color(0, 204, 0));
+        btnAddToPlateCheeseBalls.setBackground(new java.awt.Color(0, 153, 0));
         btnAddToPlateCheeseBalls.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
         btnAddToPlateCheeseBalls.setForeground(new java.awt.Color(255, 255, 255));
         btnAddToPlateCheeseBalls.setText("ADD TO PLATE");
