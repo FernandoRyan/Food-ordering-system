@@ -39,8 +39,6 @@ public class Order_Details extends javax.swing.JFrame {
     
     public Order_Details() {
         initComponents();
-        displayorder();
-        GetTotal();
         this.setExtendedState(Order_Details.MAXIMIZED_BOTH);
     }
 
@@ -51,6 +49,8 @@ public class Order_Details extends javax.swing.JFrame {
         initComponents();
         ordertype = type;
         lblOrderType.setText(ordertype);
+        displayorder();
+        GetTotal();
     }
    
     

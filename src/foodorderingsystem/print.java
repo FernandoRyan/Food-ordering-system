@@ -33,8 +33,16 @@ public class print extends javax.swing.JFrame {
      */
     public print() {
         initComponents();
-         displayorder();
-         GetTotal();
+       
+    }
+    
+    public print(String pay)
+    {  
+        initComponents();
+        paytxt.setText(pay);
+        displayorder();
+        GetTotal();
+        
     }
 //Connection settings to database
     Connection conn;
@@ -87,8 +95,8 @@ public class print extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 204, 0));
-        jLabel6.setText("RECIPT");
-        paneltoprint.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 390, 50));
+        jLabel6.setText("RECIEPT");
+        paneltoprint.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 170, 50));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
