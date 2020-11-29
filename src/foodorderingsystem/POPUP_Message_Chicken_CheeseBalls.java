@@ -67,6 +67,7 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame implem
         lblPrice = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setSize(new java.awt.Dimension(401, 499));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -80,37 +81,38 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame implem
                 lblChickenMousePressed(evt);
             }
         });
-        jPanel1.add(lblChicken, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 240, -1));
+        jPanel1.add(lblChicken, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 240, 160));
 
         lblchickenname.setBackground(new java.awt.Color(0, 0, 0));
         lblchickenname.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblchickenname.setForeground(new java.awt.Color(0, 0, 0));
         lblchickenname.setText("Chicken Cheese Balls ");
-        jPanel1.add(lblchickenname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 230, 31));
+        jPanel1.add(lblchickenname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 230, 31));
 
         lblChickenTotalPrice.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblChickenTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
-        lblChickenTotalPrice.setText("100.00");
-        jPanel1.add(lblChickenTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 60, -1));
+        lblChickenTotalPrice.setText("00.00");
+        jPanel1.add(lblChickenTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 50, -1));
 
         lblQty.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblQty.setForeground(new java.awt.Color(0, 0, 0));
         lblQty.setText("QTY");
         lblQty.setToolTipText("");
-        jPanel1.add(lblQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 47, 36));
+        jPanel1.add(lblQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 47, 36));
 
+        spChickenQty.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
         spChickenQty.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spChickenQtyStateChanged(evt);
             }
         });
-        jPanel1.add(spChickenQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 361, 42, 40));
+        jPanel1.add(spChickenQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 42, 40));
 
         lblTOTAL.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblTOTAL.setForeground(new java.awt.Color(0, 0, 0));
         lblTOTAL.setText("TOTAL:");
         lblTOTAL.setToolTipText("");
-        jPanel1.add(lblTOTAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 69, 39));
+        jPanel1.add(lblTOTAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 69, 39));
 
         btnAddToPlateChicken.setBackground(new java.awt.Color(0, 204, 0));
         btnAddToPlateChicken.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
@@ -132,7 +134,7 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame implem
                 btnAddToPlateChickenMousePressed(evt);
             }
         });
-        jPanel1.add(btnAddToPlateChicken, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 419, 281, 66));
+        jPanel1.add(btnAddToPlateChicken, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 281, 66));
 
         btnCancel.setBackground(new java.awt.Color(255, 0, 0));
         btnCancel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -151,26 +153,27 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame implem
                 btnCancelActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 20, 20));
+        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 20, 20));
 
         lblTotalLKR.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblTotalLKR.setForeground(new java.awt.Color(0, 0, 0));
         lblTotalLKR.setText("LKR ");
-        jPanel1.add(lblTotalLKR, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 50, -1));
+        jPanel1.add(lblTotalLKR, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 50, -1));
 
         lblLKR.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblLKR.setForeground(new java.awt.Color(0, 0, 0));
         lblLKR.setText("LKR ");
-        jPanel1.add(lblLKR, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 40, -1));
+        jPanel1.add(lblLKR, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 40, -1));
 
         lblPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblPrice.setForeground(new java.awt.Color(0, 0, 0));
         lblPrice.setText("100.00");
-        jPanel1.add(lblPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 60, -1));
+        jPanel1.add(lblPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 60, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 427, 506));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 506));
 
-        pack();
+        setSize(new java.awt.Dimension(390, 506));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
