@@ -91,6 +91,11 @@ public class POPUP_Message_Samosa extends javax.swing.JFrame implements PopUpInt
         lblQty.setText("QTY");
 
         spWadeQty.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
+        spWadeQty.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spWadeQtyStateChanged(evt);
+            }
+        });
 
         lblTOTAL.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblTOTAL.setForeground(new java.awt.Color(0, 0, 0));
@@ -205,6 +210,8 @@ public class POPUP_Message_Samosa extends javax.swing.JFrame implements PopUpInt
                 .addGap(30, 30, 30))
         );
 
+        lblSamosaTotalPrice.getAccessibleContext().setAccessibleName("lblSamosaTotalPrice");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -259,6 +266,11 @@ public class POPUP_Message_Samosa extends javax.swing.JFrame implements PopUpInt
         // TODO add your handling code here:
          this.setVisible(false);
     }//GEN-LAST:event_lblSamosaMousePressed
+
+    private void spWadeQtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spWadeQtyStateChanged
+        // TODO add your handling code here:
+        CalculateAppetizersPrice();
+    }//GEN-LAST:event_spWadeQtyStateChanged
 
     //Declaration of Cheese Balls
     @Override

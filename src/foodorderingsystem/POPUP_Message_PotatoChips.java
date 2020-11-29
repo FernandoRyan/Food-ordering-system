@@ -92,6 +92,11 @@ public class POPUP_Message_PotatoChips extends javax.swing.JFrame implements Pop
         lblQty.setText("QTY");
 
         spPotatoChipsQty.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
+        spPotatoChipsQty.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spPotatoChipsQtyStateChanged(evt);
+            }
+        });
 
         lblTOTAL.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblTOTAL.setForeground(new java.awt.Color(0, 0, 0));
@@ -258,6 +263,11 @@ public class POPUP_Message_PotatoChips extends javax.swing.JFrame implements Pop
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_lblPotatoChipsMousePressed
+
+    private void spPotatoChipsQtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spPotatoChipsQtyStateChanged
+        // TODO add your handling code here:
+        CalculateAppetizersPrice();
+    }//GEN-LAST:event_spPotatoChipsQtyStateChanged
 
     //Declaration of Cheese Balls
     @Override
