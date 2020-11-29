@@ -80,7 +80,7 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame implem
                 lblChickenMousePressed(evt);
             }
         });
-        jPanel1.add(lblChicken, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 240, -1));
+        jPanel1.add(lblChicken, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 240, 160));
 
         lblchickenname.setBackground(new java.awt.Color(0, 0, 0));
         lblchickenname.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -90,7 +90,7 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame implem
 
         lblChickenTotalPrice.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblChickenTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
-        lblChickenTotalPrice.setText("100.00");
+        lblChickenTotalPrice.setText("00.00");
         jPanel1.add(lblChickenTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 60, -1));
 
         lblQty.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -112,7 +112,7 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame implem
         lblTOTAL.setToolTipText("");
         jPanel1.add(lblTOTAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 69, 39));
 
-        btnAddToPlateChicken.setBackground(new java.awt.Color(0, 204, 0));
+        btnAddToPlateChicken.setBackground(new java.awt.Color(0, 153, 0));
         btnAddToPlateChicken.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
         btnAddToPlateChicken.setForeground(new java.awt.Color(255, 255, 255));
         btnAddToPlateChicken.setText("ADD TO PLATE");
@@ -151,7 +151,7 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame implem
                 btnCancelActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 20, 20));
+        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 20, 20));
 
         lblTotalLKR.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblTotalLKR.setForeground(new java.awt.Color(0, 0, 0));
@@ -168,7 +168,7 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame implem
         lblPrice.setText("100.00");
         jPanel1.add(lblPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 60, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 427, 506));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

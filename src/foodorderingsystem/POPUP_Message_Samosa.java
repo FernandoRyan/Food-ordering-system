@@ -65,10 +65,11 @@ public class POPUP_Message_Samosa extends javax.swing.JFrame implements PopUpInt
         lblSamosaTotalPrice = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblSamosa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/punjabi-samosa-11-500x375.jpg"))); // NOI18N
+        lblSamosa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/samosa.jpeg"))); // NOI18N
         lblSamosa.setText("jLabel1");
         lblSamosa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -89,11 +90,18 @@ public class POPUP_Message_Samosa extends javax.swing.JFrame implements PopUpInt
         lblQty.setForeground(new java.awt.Color(0, 0, 0));
         lblQty.setText("QTY");
 
+        spWadeQty.setModel(new javax.swing.SpinnerNumberModel(0, 0, 20, 1));
+        spWadeQty.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spWadeQtyStateChanged(evt);
+            }
+        });
+
         lblTOTAL.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblTOTAL.setForeground(new java.awt.Color(0, 0, 0));
         lblTOTAL.setText("TOTAL:");
 
-        btnAddToPlateSamosa.setBackground(new java.awt.Color(204, 204, 204));
+        btnAddToPlateSamosa.setBackground(new java.awt.Color(0, 153, 0));
         btnAddToPlateSamosa.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
         btnAddToPlateSamosa.setForeground(new java.awt.Color(255, 255, 255));
         btnAddToPlateSamosa.setText("ADD TO PLATE");
@@ -137,46 +145,44 @@ public class POPUP_Message_Samosa extends javax.swing.JFrame implements PopUpInt
 
         lblSamosaTotalPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblSamosaTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
-        lblSamosaTotalPrice.setText("40.00");
+        lblSamosaTotalPrice.setText("00.00");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblSamosa, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(btnCANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(lblSamosa, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(lblQty, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(spWadeQty, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(154, 154, 154)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblLKR)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblPrice))
-                                    .addComponent(lblsamosaname)))
+                                .addGap(12, 12, 12)
+                                .addComponent(lblLKR)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblPrice))
+                            .addComponent(lblsamosaname)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(lblQty, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(spWadeQty, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(89, 89, 89)
+                                .addGap(41, 41, 41)
                                 .addComponent(lblTOTAL, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblTotalLKR)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblSamosaTotalPrice)))
-                        .addGap(0, 33, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnAddToPlateSamosa, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
+                                .addComponent(lblSamosaTotalPrice))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(btnAddToPlateSamosa, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,17 +198,19 @@ public class POPUP_Message_Samosa extends javax.swing.JFrame implements PopUpInt
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLKR)
                     .addComponent(lblPrice))
-                .addGap(16, 16, 16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblQty, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(spWadeQty, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTOTAL, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTotalLKR)
                     .addComponent(lblSamosaTotalPrice))
-                .addGap(18, 18, 18)
+                .addGap(41, 41, 41)
                 .addComponent(btnAddToPlateSamosa, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
+
+        lblSamosaTotalPrice.getAccessibleContext().setAccessibleName("lblSamosaTotalPrice");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,7 +223,8 @@ public class POPUP_Message_Samosa extends javax.swing.JFrame implements PopUpInt
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(383, 504));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddToPlateSamosaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddToPlateSamosaMousePressed
@@ -257,6 +266,11 @@ public class POPUP_Message_Samosa extends javax.swing.JFrame implements PopUpInt
         // TODO add your handling code here:
          this.setVisible(false);
     }//GEN-LAST:event_lblSamosaMousePressed
+
+    private void spWadeQtyStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spWadeQtyStateChanged
+        // TODO add your handling code here:
+        CalculateAppetizersPrice();
+    }//GEN-LAST:event_spWadeQtyStateChanged
 
     //Declaration of Cheese Balls
     @Override

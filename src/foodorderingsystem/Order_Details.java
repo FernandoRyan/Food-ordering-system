@@ -39,7 +39,6 @@ public class Order_Details extends javax.swing.JFrame {
     
     public Order_Details() {
         initComponents();
-        displayorder();
         this.setExtendedState(Order_Details.MAXIMIZED_BOTH);
     }
 
@@ -50,6 +49,8 @@ public class Order_Details extends javax.swing.JFrame {
         initComponents();
         ordertype = type;
         lblOrderType.setText(ordertype);
+        displayorder();
+        GetTotal();
     }
    
     
@@ -73,9 +74,13 @@ public class Order_Details extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         lblOrderTypeName = new javax.swing.JLabel();
         lblOrderType = new javax.swing.JLabel();
+        subtot = new javax.swing.JLabel();
+        vat = new javax.swing.JLabel();
+        serv = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         ordertable = new javax.swing.JTable();
+        tot = new javax.swing.JLabel();
         Sidepanel = new javax.swing.JPanel();
         FFbtn = new javax.swing.JButton();
         APBTN = new javax.swing.JButton();
@@ -114,7 +119,12 @@ public class Order_Details extends javax.swing.JFrame {
                 chkbtn(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 630, 170, 80));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 610, 170, 80));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -140,12 +150,21 @@ public class Order_Details extends javax.swing.JFrame {
         jPanel3.add(lblOrderTypeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, -1));
         lblOrderTypeName.getAccessibleContext().setAccessibleName("lblOrderTypeName");
 
-        lblOrderType.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        lblOrderType.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblOrderType.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(lblOrderType, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 100, 30));
         lblOrderType.getAccessibleContext().setAccessibleName("lblOrderType");
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 250, -1));
+        subtot.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jPanel3.add(subtot, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 90, 30));
+
+        vat.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jPanel3.add(vat, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 70, 30));
+
+        serv.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jPanel3.add(serv, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 80, 30));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 410, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -184,6 +203,9 @@ public class Order_Details extends javax.swing.JFrame {
         jScrollPane3.setViewportView(ordertable);
 
         jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, 340));
+
+        tot.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jPanel2.add(tot, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 620, 90, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1070, 710));
 
@@ -411,6 +433,11 @@ public class Order_Details extends javax.swing.JFrame {
         this.hide();
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MousePressed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 //bevarage end
     public void displayorder(){
     String qry="SELECT * FROM SALESORDER";
@@ -470,6 +497,39 @@ public class Order_Details extends javax.swing.JFrame {
             }
         });
     }
+      public void GetTotal(){
+       
+       PreparedStatement pst = null;
+       ResultSet rs = null;
+       String qry = "Select Sum(Total) as sumprice from SALESORDER";
+       
+       try{
+              conn = DriverManager.getConnection(connectionUrl, username, Pass);
+              pst=conn.prepareStatement(qry);
+              rs=pst.executeQuery();
+             if(rs.next()){
+                              String sum = rs.getString("sumprice");
+                              subtot.setText(sum);
+                              int i=Integer.parseInt(sum);
+                              int vattxt=(i/100*2);
+                              int sertxt=(i/100*5);
+                              int tottxt=(i/100*107);
+                              String svat=String.valueOf(vattxt);
+                              String sser=String.valueOf(sertxt);
+                              String stot=String.valueOf(tottxt);
+                              vat.setText(svat);
+                              serv.setText(sser);
+                              tot.setText(stot);
+                              
+                              
+                              
+                              
+             }
+       }
+       catch (SQLException ex) {
+             ex.printStackTrace();
+        }
+ }
     
     
  
@@ -499,6 +559,10 @@ public class Order_Details extends javax.swing.JFrame {
     public javax.swing.JLabel lblOrderType;
     private javax.swing.JLabel lblOrderTypeName;
     private javax.swing.JTable ordertable;
+    private javax.swing.JLabel serv;
+    private javax.swing.JLabel subtot;
+    private javax.swing.JLabel tot;
+    private javax.swing.JLabel vat;
     // End of variables declaration//GEN-END:variables
 
     
