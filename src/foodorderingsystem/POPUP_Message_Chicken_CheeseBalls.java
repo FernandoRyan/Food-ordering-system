@@ -230,6 +230,7 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame implem
     }
     
     //Declaration of member methods 
+    @Override
     public void CalculateAppetizersPrice() 
     {
         if(spChickenQty != null)
@@ -362,9 +363,4 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame implem
     private javax.swing.JLabel lblchickenname;
     private javax.swing.JSpinner spChickenQty;
     // End of variables declaration//GEN-END:variables
-
-    @Override
-    public void CalculateAppetizersPrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

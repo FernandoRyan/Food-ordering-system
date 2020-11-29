@@ -269,6 +269,7 @@ public class POPUP_Message_CheeseBalls extends javax.swing.JFrame implements Pop
     }
     
     //Declaration of member methods 
+    @Override
     public void CalculateAppetizersPrice() 
     {
         if(spCheeseBallsQty != null)
@@ -402,19 +403,4 @@ public class POPUP_Message_CheeseBalls extends javax.swing.JFrame implements Pop
     private javax.swing.JLabel lblcheeseballsname;
     private javax.swing.JSpinner spCheeseBallsQty;
     // End of variables declaration//GEN-END:variables
-
-    @Override
-    public void CalculateAppetizersPrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void InsertOrderDetails() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public double lblPrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
