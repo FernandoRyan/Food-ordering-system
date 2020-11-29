@@ -90,7 +90,7 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame implem
 
         lblChickenTotalPrice.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblChickenTotalPrice.setForeground(new java.awt.Color(0, 0, 0));
-        lblChickenTotalPrice.setText("150.00");
+        lblChickenTotalPrice.setText("100.00");
         jPanel1.add(lblChickenTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 60, -1));
 
         lblQty.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -165,7 +165,7 @@ public class POPUP_Message_Chicken_CheeseBalls extends javax.swing.JFrame implem
 
         lblPrice.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         lblPrice.setForeground(new java.awt.Color(0, 0, 0));
-        lblPrice.setText("150.00");
+        lblPrice.setText("100.00");
         jPanel1.add(lblPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 60, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 427, 506));
