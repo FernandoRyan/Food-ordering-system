@@ -53,6 +53,10 @@ public class print extends javax.swing.JFrame {
     String username= "sa";
     String Pass="anjalo9990";
 
+    print(String payment, String order) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     
     /**
