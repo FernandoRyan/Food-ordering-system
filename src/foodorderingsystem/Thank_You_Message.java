@@ -5,9 +5,6 @@
  */
 
 package foodorderingsystem;
-
-import java.util.TimerTask;
-import java.util.Timer;
 /**
  *
  * @author Neranji Sulakshika
@@ -115,51 +112,14 @@ public class Thank_You_Message extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-       Timer timer = new Timer();
-        TimerTask task;
-        task = new TimerTask(){
-            @Override
-            public void run(){
-               
-                Home hm = new Home();
-                hm.show();
-                
-                
-            }
-            
-        };
-        timer.scheduleAtFixedRate(task,0,10000);
-        this.hide();
+       
     }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Thank_You_Message.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Thank_You_Message.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Thank_You_Message.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Thank_You_Message.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
         //</editor-fold>
-
-       
-       //I want to place my code here so then this class will close, and then the other class will open
-
-       //SplashScreen screen = new SplashScreen();
-       //screen.showGUI();
-    
         //* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new Thank_You_Message().setVisible(true);
