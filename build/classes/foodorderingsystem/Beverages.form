@@ -209,6 +209,9 @@
                   <Image iconType="3" name="/Images/new.jpg"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblLogoMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

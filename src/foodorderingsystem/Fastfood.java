@@ -612,10 +612,10 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         Ordertable.setUpdateSelectionOnSort(false);
         jScrollPane2.setViewportView(Ordertable);
         if (Ordertable.getColumnModel().getColumnCount() > 0) {
-            Ordertable.getColumnModel().getColumn(0).setPreferredWidth(30);
+            Ordertable.getColumnModel().getColumn(0).setPreferredWidth(25);
             Ordertable.getColumnModel().getColumn(1).setPreferredWidth(100);
             Ordertable.getColumnModel().getColumn(2).setPreferredWidth(20);
-            Ordertable.getColumnModel().getColumn(3).setPreferredWidth(30);
+            Ordertable.getColumnModel().getColumn(3).setPreferredWidth(25);
         }
         Ordertable.getAccessibleContext().setAccessibleName("Ordertable");
 
@@ -709,27 +709,32 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 19, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGap(58, 58, 58)
-                                    .addComponent(lblTotalName, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lblLKR)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(btnViewPlate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(14, 14, 14)
-                        .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnViewPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(lblTotalName, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblLKR)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(11, 11, 11)))
+                                .addGap(41, 41, 41))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(71, Short.MAX_VALUE)
-                    .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(71, 71, 71)))
+                    .addContainerGap(86, Short.MAX_VALUE)
+                    .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(59, 59, 59)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -775,8 +780,8 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(641, 641, 641))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(678, 678, 678))
         );
         pnlFastfoodLayout.setVerticalGroup(
             pnlFastfoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1028,17 +1033,7 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
     }//GEN-LAST:event_btnCheckoutMouseEntered
 
     private void btnCheckoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseClicked
-        // Going to the next page, which is Order Details Page and hide this page
-        if(count == 0)
-        {
-            JOptionPane.showMessageDialog(null,"Please select food items!");
-        }
-        else
-        {
-          //  Selecting_DineIn_or_TakeAway od = new Selecting_DineIn_or_TakeAway();
-            //od.setVisible(true); 
-            //this.hide();
-        }        
+              
     }//GEN-LAST:event_btnCheckoutMouseClicked
 
     private void jPanel2MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jPanel2MouseWheelMoved
@@ -1066,9 +1061,10 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
     }//GEN-LAST:event_lblLogoMouseClicked
 
     private void btnCheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMousePressed
-       Order_Details od= new  Order_Details();
-       this.hide();
-       od.show();
+        // Going to the next page, which is Order Details Page and hide this page
+        Order_Details od= new  Order_Details();
+        this.hide();
+        od.show();
     }//GEN-LAST:event_btnCheckoutMousePressed
 
                                     //Member Methods.... 
