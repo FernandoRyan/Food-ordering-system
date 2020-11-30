@@ -53,6 +53,10 @@ public class print extends javax.swing.JFrame {
     String username= "sa";
     String Pass="anjalo9990";
 
+    print(String payment, String order) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     
     /**
@@ -71,7 +75,6 @@ public class print extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        lblOrderTypeName = new javax.swing.JLabel();
         lblOrderType = new javax.swing.JLabel();
         subtot = new javax.swing.JLabel();
         vat = new javax.swing.JLabel();
@@ -116,11 +119,6 @@ public class print extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Tax (VAT)          :");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
-
-        lblOrderTypeName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblOrderTypeName.setForeground(new java.awt.Color(0, 0, 0));
-        lblOrderTypeName.setText("Order Type       :");
-        jPanel3.add(lblOrderTypeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, -1));
 
         lblOrderType.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblOrderType.setForeground(new java.awt.Color(0, 0, 0));
@@ -378,7 +376,6 @@ public void GetTotal(){
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JLabel lblOrderType;
-    private javax.swing.JLabel lblOrderTypeName;
     private javax.swing.JTable ordertable;
     private javax.swing.JPanel paneltoprint;
     private javax.swing.JLabel paytxt;
