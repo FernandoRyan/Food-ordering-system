@@ -135,7 +135,7 @@ public class Order_Details extends javax.swing.JFrame {
         });
         ordertable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         ordertable.setAutoscrolls(false);
-        ordertable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ordertable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ordertable.setFillsViewportHeight(true);
         ordertable.setFocusable(false);
         ordertable.setGridColor(new java.awt.Color(255, 255, 255));
@@ -234,6 +234,7 @@ public class Order_Details extends javax.swing.JFrame {
         Logobtn.setBackground(new java.awt.Color(255, 255, 255));
         Logobtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
         Logobtn.setBorder(null);
+        Logobtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Logobtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 LogobtnMouseClicked(evt);
