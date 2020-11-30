@@ -28,17 +28,17 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author dlsak
  */
-public class print extends javax.swing.JFrame {
+public class Receipt extends javax.swing.JFrame {
 
     /**
      * Creates new form print
      */
-    public print() {
+    public Receipt() {
         initComponents();
        
     }
     
-    public print(String pay)
+    public Receipt(String pay)
     {  
         initComponents();
         paytxt.setText(pay);
@@ -53,7 +53,7 @@ public class print extends javax.swing.JFrame {
     String username= "sa";
     String Pass="anjalo9990";
 
-    print(String payment, String order) {
+    Receipt(String payment, String order) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -345,20 +345,21 @@ public void GetTotal(){
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(print.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Receipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(print.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Receipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(print.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Receipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(print.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Receipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new print().setVisible(true);
+                new Receipt().setVisible(true);
             }
         });
     }

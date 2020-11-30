@@ -9,7 +9,7 @@ package foodorderingsystem;
  *
  * @author RYAN
  */
-public interface PopUpInterface {
+public interface PopUpInterface_Meal {
 
     //Declaration of Member Methods
     void CalculateMealprice();

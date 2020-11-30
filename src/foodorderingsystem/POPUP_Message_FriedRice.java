@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author RYAN
  */
-public class POPUP_Message_FriedRice extends javax.swing.JFrame implements PopUpInterface {
+public class POPUP_Message_FriedRice extends javax.swing.JFrame implements PopUpInterface_Meal {
 
     /**
      * Creates new form Fried rice
