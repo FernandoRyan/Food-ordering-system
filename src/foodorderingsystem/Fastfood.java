@@ -448,6 +448,12 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
 
         lblLogo.setForeground(new java.awt.Color(51, 51, 51));
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
+        lblLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblLogo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLogoMouseClicked(evt);
+            }
+        });
 
         btnMeal.setBackground(new java.awt.Color(0, 204, 0));
         btnMeal.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
@@ -618,7 +624,7 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         lblTotalName.setText("TOTAL");
 
         lblTotalPrice.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lblTotalPrice.setText("00");
+        lblTotalPrice.setText("00.00");
 
         btnTrash.setBackground(new java.awt.Color(255, 255, 255));
         btnTrash.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/trash.png"))); // NOI18N
@@ -699,30 +705,29 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 19, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(lblTotalName, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblLKR)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(btnViewPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(58, 58, 58)
+                                    .addComponent(lblTotalName, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lblLKR)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnViewPlate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14)
+                        .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(76, Short.MAX_VALUE)
+                    .addContainerGap(71, Short.MAX_VALUE)
                     .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(71, 71, 71)))
         );
@@ -771,7 +776,7 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
                 .addComponent(pnlMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(630, 630, 630))
+                .addGap(641, 641, 641))
         );
         pnlFastfoodLayout.setVerticalGroup(
             pnlFastfoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1012,10 +1017,6 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCheckoutActionPerformed
 
-    private void btnCheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCheckoutMousePressed
-
     private void btnCheckoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMouseExited
         // Rechange the Checkout button background color, when cursor move out the Checkout button
         btnCheckout.setBackground(Color.GREEN);
@@ -1034,9 +1035,9 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         }
         else
         {
-            Selecting_DineIn_or_TakeAway od = new Selecting_DineIn_or_TakeAway();
-            od.setVisible(true); 
-            this.hide();
+          //  Selecting_DineIn_or_TakeAway od = new Selecting_DineIn_or_TakeAway();
+            //od.setVisible(true); 
+            //this.hide();
         }        
     }//GEN-LAST:event_btnCheckoutMouseClicked
 
@@ -1057,6 +1058,18 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
     private void btnViewPlateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPlateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnViewPlateActionPerformed
+
+    private void lblLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoMouseClicked
+        Home hm = new Home();
+        hm.show();
+        this.hide();
+    }//GEN-LAST:event_lblLogoMouseClicked
+
+    private void btnCheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMousePressed
+       Order_Details od= new  Order_Details();
+       this.hide();
+       od.show();
+    }//GEN-LAST:event_btnCheckoutMousePressed
 
                                     //Member Methods.... 
     

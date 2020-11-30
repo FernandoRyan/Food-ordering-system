@@ -15,8 +15,6 @@ import javax.swing.JFrame;
 public class Payment_Method extends javax.swing.JFrame {
 
     //Member Feilds
-   
-    
    /*
     /**
      * Creates new form Payment
@@ -25,7 +23,12 @@ public class Payment_Method extends javax.swing.JFrame {
     public Payment_Method() {
         initComponents();
     }
-
+    
+    public String order;
+    public Payment_Method(String order)
+    {
+    this.order=order;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,7 +47,6 @@ public class Payment_Method extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(420, 499));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -135,16 +137,14 @@ public class Payment_Method extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(403, 499));
+        setSize(new java.awt.Dimension(396, 499));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -154,14 +154,17 @@ public class Payment_Method extends javax.swing.JFrame {
 
     private void CardPaybtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CardPaybtnMousePressed
     
+      String payment ="Card" ;
+      print p=new print(payment);
+      p.show();
       this.hide();
-      Thanking tk= new Thanking();
-      tk.show();
     }//GEN-LAST:event_CardPaybtnMousePressed
 
     private void CashPaybtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CashPaybtnMousePressed
-      Thanking tk= new Thanking();
-      tk.show();
+       String payment="Cash";
+       print p=new print(payment);
+       p.show();
+       this.hide();
     }//GEN-LAST:event_CashPaybtnMousePressed
 
     /**
