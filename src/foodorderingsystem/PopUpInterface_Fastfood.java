@@ -11,6 +11,7 @@ package foodorderingsystem;
  */
 public interface PopUpInterface_Fastfood 
 {
+    //  We used this interface to achieve total abstraction  
     
     void  CalculateFastfoodsPrice();
     

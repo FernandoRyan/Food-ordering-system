@@ -146,6 +146,11 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
                 btnFastFoodMousePressed(evt);
             }
         });
+        btnFastFood.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFastFoodActionPerformed(evt);
+            }
+        });
 
         btnAppetizers.setBackground(new java.awt.Color(0, 204, 0));
         btnAppetizers.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
@@ -894,6 +899,10 @@ public class Beverages extends javax.swing.JFrame implements MainInterface{
         hm.show();
         this.hide();
     }//GEN-LAST:event_lblLogoMouseClicked
+
+    private void btnFastFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFastFoodActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFastFoodActionPerformed
 
     
     

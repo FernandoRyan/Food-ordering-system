@@ -244,7 +244,7 @@ public class POPUP_Message_Burger extends javax.swing.JFrame implements PopUpInt
             
             if(qty > 20)
             {
-                JOptionPane.showMessageDialog(null,"Sorry Order cant be Accepted , Please Talk to Staff..");                       
+                JOptionPane.showMessageDialog(null,"Sorry Order can't be Accepted , Please Talk to the Staff..");                       
             }
             else 
             {        

@@ -5,12 +5,24 @@
  */
 
 package foodorderingsystem;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author Neranji Sulakshika
  */
 public class Thank_You_Message extends javax.swing.JFrame {
 
+    //Connection settings to database
+    Connection conn;
+    String connectionUrl = "jdbc:mysql://localhost:3306/foodorderingsystem";
+    String username= "sa";
+    String Pass="anjalo9990";
+    
     /**
      * Creates new form Thanking
      */
@@ -109,12 +121,27 @@ public class Thank_You_Message extends javax.swing.JFrame {
         Home hm = new Home();
         hm.show();
         this.hide();
+        deleteorder();
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
        
     }//GEN-LAST:event_formWindowOpened
 
+    private void deleteorder() {
+        String qry="DELETE FROM SALESORDER WHERE CustID=1000";
+        try
+        {
+            conn=DriverManager.getConnection(connectionUrl, username, Pass);
+            Statement st=conn.createStatement();
+            st.execute(qry);
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

@@ -39,7 +39,7 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
      */
     public Fastfood() {
         initComponents();
-        Displayorder() ;
+        Displayorder();
         FormatTable();
         CheckTable();
         GetTotal();
@@ -706,12 +706,11 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(84, 84, 84)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnViewPlate, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -720,16 +719,17 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
                                         .addComponent(lblLKR)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(11, 11, 11)))
-                                .addGap(41, 41, 41))
+                                        .addGap(11, 11, 11))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(lblPlateImage, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblPlateImage)
+                                .addGap(34, 34, 34)))
+                        .addGap(3, 3, 3)
+                        .addComponent(btnTrash, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(12, 12, 12)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addContainerGap(86, Short.MAX_VALUE)
@@ -780,7 +780,7 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(678, 678, 678))
         );
         pnlFastfoodLayout.setVerticalGroup(
@@ -973,7 +973,7 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
 
     private void btnFastfoodMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFastfoodMousePressed
         // Only show this page
-        this.setVisible(true);
+        this.show();
     }//GEN-LAST:event_btnFastfoodMousePressed
 
     private void btnFastfoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFastfoodActionPerformed
@@ -1000,10 +1000,18 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
 
     private void btnViewPlateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewPlateMousePressed
         // Refreshing the order table, when the ViewPlate button pressed
-        DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
-        model.setRowCount(0);
-        Displayorder();
-        GetTotal();
+        
+        if(count == 0)
+        {
+            JOptionPane.showMessageDialog(null,"Please select an item!");
+        }
+        else
+        {
+            DefaultTableModel model = (DefaultTableModel) Ordertable.getModel();
+            model.setRowCount(0);
+            Displayorder();
+            GetTotal();
+        }        
     }//GEN-LAST:event_btnViewPlateMousePressed
 
     private void btnViewPlateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewPlateMouseExited
@@ -1061,10 +1069,17 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
     }//GEN-LAST:event_lblLogoMouseClicked
 
     private void btnCheckoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckoutMousePressed
-        // Going to the next page, which is Order Details Page and hide this page
-        Order_Details od= new  Order_Details();
-        this.hide();
-        od.show();
+        // If the order item count is null, this message will be displayed.
+        if(count == 0)
+        {
+            JOptionPane.showMessageDialog(null,"Please select an item!");
+        }
+        else  // If the order item count > 0, redirect to the Order Details Page and hide this page.
+        {
+            Order_Details od= new  Order_Details();
+            this.hide();
+            od.show();
+        }
     }//GEN-LAST:event_btnCheckoutMousePressed
 
                                     //Member Methods.... 
@@ -1120,7 +1135,7 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
         {
             Statement st = conn.prepareStatement(qry);
             st.execute(qry);
-            JOptionPane.showMessageDialog(null,"Plate updated!");
+            JOptionPane.showMessageDialog(null,"Plate Updated!");
         }
         catch(SQLException e )
         {
@@ -1160,16 +1175,16 @@ public class Fastfood extends javax.swing.JFrame implements MainInterface {
                 jScrollPane2.hide();
                 Ordertable.setVisible(false);
                 btnTrash.setVisible(false);
-                lblLKR.setVisible(false);
+                //lblLKR.setVisible(false);
                 lblPlateImage.show();
-                lblTotalPrice.hide();
+                lblTotalPrice.hide();                
             }
             else
             {
                 jScrollPane2.show();
                 Ordertable.setVisible(true);
                 btnTrash.setVisible(true);
-                lblLKR.setVisible(true);
+                //lblLKR.setVisible(true);
                 lblPlateImage.hide();
                 lblTotalPrice.show();
             }
